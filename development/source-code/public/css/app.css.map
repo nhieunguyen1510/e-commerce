@@ -1,0 +1,1 @@
+{"version":3,"sources":["modules/_home.scss"],"names":[],"mappings":"AAAA;EACI,oBAAoB,EACvB","file":"app.css","sourcesContent":["body{\r\n    background: #f1f1f1;\r\n}"],"sourceRoot":"/source/"}

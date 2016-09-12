@@ -4,19 +4,36 @@
     "prod": "gulp --production",
     "dev": "gulp watch"
   },
-  "devDependencies": {},
+  "dependencies": {
+    "lodash": "^4.14.0",
+    "angular": "^1.5.8",
+    "jquery": "^3.1.0",
+    "normalize.css": "^4.2.0"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^6.0.0-9",
+    "laravel-elixir-vue": "^0.1.4",
+    "laravel-elixir-webpack-official": "^1.0.2",
+    "vue": "^1.0.26",
+    "vue-resource": "^0.9.3"
+  },
   "name": "e-commerce",
-  "description": "",
+  "description": "[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework) [![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework) [![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework) [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)",
   "version": "1.0.0",
   "main": "gulpfile.js",
   "directories": {
     "test": "tests"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhieunguyen1510/e-commerce.git"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "angular": "^1.5.8",
-	"jquery":"^3.1.0",
-    "normalize.css": "^4.2.0"
-  }
+  "bugs": {
+    "url": "https://github.com/nhieunguyen1510/e-commerce/issues"
+  },
+  "homepage": "https://github.com/nhieunguyen1510/e-commerce#readme"
 }

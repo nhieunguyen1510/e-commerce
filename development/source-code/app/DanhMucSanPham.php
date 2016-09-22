@@ -11,6 +11,6 @@ class DanhMucSanPham extends Model
 
     public function getSlugAttribute()
     {
-        return str_slug($this->ten.' '.dechex($this->id));  
+        return str_slug($this->ten.' '.$this->id);  
     }
 }

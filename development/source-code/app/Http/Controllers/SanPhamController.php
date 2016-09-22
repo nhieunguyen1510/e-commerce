@@ -43,7 +43,7 @@ class SanPhamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -52,9 +52,12 @@ class SanPhamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($sanPhamSlug)
     {
-        //
+        $splittedSanPhamSlug = explode("-", $sanPhamSlug);
+        $idSanPham = $splittedSanPhamSlug[count($splittedSanPhamSlug)-1];
+        $sanPhamIns = SanPham::where('id', $idSanPham)->first();
+        return view('pages.san-pham',['sanPham' => $sanPhamIns]);
     }
 
     /**

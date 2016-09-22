@@ -11,17 +11,18 @@
 |
 */
 Route::get('/', function () {
-    return view('pages.trang-chu');
+    return redirect()->route('danhmuc.show', ['danhMucSlug' => '1']);
 });
 
 Route::get('/list', function () {
     return view('pages.list');
 });
 
-Route::resource('/san-pham','SanPhamController', ['names' => [
-    'index' => 'sanpham.index'
+Route::resource('san-pham','SanPhamController', ['names' => [
+    'index' => 'sanpham.index',
+    'show' => 'sanpham.show'
 ]]);
 
-Route::resource('/danh-muc','DanhMucController', ['names' => [
+Route::resource('danh-muc','DanhMucController', ['names' => [
     'show' => 'danhmuc.show'
 ]]);

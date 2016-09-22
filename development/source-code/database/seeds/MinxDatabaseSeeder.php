@@ -11,27 +11,29 @@ class MinxDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // factory(SanPham::class, 40)->create()->each(function($u) {
-        //     $u->posts()->save(factory(App\Post::class)->make());
-        // });
+        // Declare variables and place them up top
         $randomString=self::createRandomString();
-        self::seedSanPhamTable($randomString);
+        $quantityOfSanPhamRecords=100;
+
+        // Then we will execute functions
+        self::seedSanPhamTable($randomString, $quantityOfSanPhamRecords);
     }
+
 
     private function createRandomString()
     {
         $randomString='';
         $randomStringArray=[];
         for($i=0;$i<100;$i++){
-            array_push($randomStringArray,str_random(rand(2,12)));
+            array_push($randomStringArray,str_random(rand(2,8)));
         }
         $randomString=implode(' ',$randomStringArray);
         return $randomString;
     }
 
-    private function seedSanPhamTable($randomString)
+    private function seedSanPhamTable($randomString, $quantityOfSanPhamRecords)
     {
-        for($i=0;$i<3;$i++){
+        for($i=0;$i<$quantityOfSanPhamRecords;$i++){
             $randomString=str_shuffle($randomString);
             DB::table('san_pham')->insert([
                 'id_danh_muc_san_pham' => rand(5,12),

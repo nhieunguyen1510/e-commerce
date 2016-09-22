@@ -13,4 +13,10 @@
         <li><a href="">Callback</a></li>
         <li><a href=""></a></li>
     </ul>
+    <form method="POST" action="/post">
+    {{ csrf_field() }}
+    <label>ten</label><input name="ten" type="text" />
+    <label>matkhau</label><input name="matkhau" type="password" />
+    <button type="submit">Gui</button>
+    </form>
 @endsection

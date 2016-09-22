@@ -1,9 +1,9 @@
 ul {
-  list-style-type: disc;
+  list-style-type: none;
   list-style-position: inside; }
 
 ol {
-  list-style-type: decimal;
+  list-style-type: none;
   list-style-position: inside; }
 
 ul ul, ol ul {
@@ -16,11 +16,62 @@ ol ol, ul ol {
   list-style-position: inside;
   margin-left: 15px; }
 
-body {
-  background: #f1f1f1;
-  font-size: 14px; }
+a {
+  color: black; }
+  a:hover {
+    text-decoration: none; }
 
-.home {
-  color: #3097D1; }
+p {
+  font-size: 12px; }
+
+@media screen and (min-width: 480px) {
+  body .home {
+    color: #3097D1; }
+  body .category-sidebar {
+    float: left;
+    width: 30%; }
+  body .product-list {
+    float: left;
+    width: 70%; }
+    body .product-list .product-box {
+      float: left;
+      width: 25%;
+      height: 300px;
+      padding: 0px 8px 12px; }
+      body .product-list .product-box .content {
+        border: 1px solid #ddd;
+        height: 100%; }
+        body .product-list .product-box .content .inner-content {
+          width: 100%;
+          word-wrap: break-word; }
+        body .product-list .product-box .content .product-image img {
+          width: 100%;
+          height: 200px; }
+        body .product-list .product-box .content .product-name {
+          font-size: 12px;
+          line-height: 16px;
+          text-align: center;
+          text-transform: lowercase; }
+          body .product-list .product-box .content .product-name a::first-letter {
+            text-transform: uppercase; } }
+
+@media screen and (min-width: 480px) {
+  body .product-header h4 {
+    text-transform: uppercase; }
+  body .product-media {
+    float: left;
+    width: 30%;
+    height: 300px; }
+    body .product-media img {
+      width: 100%;
+      height: 300px; }
+  body .product-short-detail {
+    float: left;
+    width: 70%;
+    height: 300px;
+    padding-left: 1em;
+    margin-bottom: 30px; }
+  body .product-description {
+    width: 100%; } }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,8 +1,45 @@
-body {
-    background: #f1f1f1;
-    font-size: 14px;
-}
-
-.home {
-    color: $brand-primary;
+@media screen and (min-width: 480px){
+    body{
+        .home {
+            color: $brand-primary;
+        }
+        .category-sidebar{
+            float:left;
+            width:30%;
+        }
+        .product-list{
+            float:left;
+            width:70%;
+            .product-box{
+                float:left;
+                width:25%;
+                height:300px;
+                padding:0px 8px 12px;
+                .content{
+                    border: 1px solid #ddd;
+                    height:100%;
+                    .inner-content{
+                        width:100%;
+                        word-wrap: break-word;
+                    }
+                    .product-image{
+                        img{
+                            width:100%;
+                            height:200px;
+                        }
+                    }
+                    .product-name{
+                        font-size: $regular-text;
+                        line-height: $regular-line-height;
+                        text-align: center;
+                        text-transform: lowercase;
+                        a::first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
 }

@@ -10,10 +10,7 @@
 
 <body>
     <div class="container">
-        <div class="category-sidebar">
-            @yield('sidebar')
-        </div>
-        <div class="product-list">
+        <div class="product-detail">
             @yield('content')   
         </div>
     </div>

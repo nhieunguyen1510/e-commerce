@@ -17,7 +17,7 @@
             @yield('content')   
         </div>
     </div>
-
+    <scroll2top-btn></scroll2top-btn>
     <!-- Packages -->
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/normalize/normalize.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/bootstrap/css/bootstrap.min.css')}}">
@@ -28,6 +28,7 @@
     <script type="text/javascript" src="{{ URL::asset('packages/bootstrap/js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{ URL::asset('packages/angular/angular.min.js')}}"></script>
     <script type="text/javascript" src="{{ URL::asset('app/app.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('app/directives/scroll2top-btn.directive.js')}}"></script>
 </body>
 
 </html>

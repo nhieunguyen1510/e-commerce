@@ -1,41 +1,13 @@
-
 // Fonts
 // @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
 // Variables
 @import "variables";
-
 // Global
-ul { 
-   list-style-type: none; 
-   list-style-position: inside; 
-}
-ol { 
-   list-style-type: none; 
-   list-style-position: inside; 
-}
-ul ul, ol ul { 
-   list-style-type: circle; 
-   list-style-position: inside; 
-   margin-left: 15px; 
-}
-ol ol, ul ol { 
-   list-style-type: lower-latin; 
-   list-style-position: inside; 
-   margin-left: 15px; 
-}
-a{
-    color:black;
-    &:hover{
-        text-decoration: none;
-    }
-}
-p{
-    font-size: $regular-text;
-}
+@import "base";
 // Modules
 @import "modules/trangchu";
 @import "modules/danhsachsanpham";
 @import "modules/sanpham";
+@import "modules/scroll-to-top-btn";
 // Bootstrap
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";

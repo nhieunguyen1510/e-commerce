@@ -10,6 +10,8 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+$baseFolder='Web\\';
+
 Route::get('/', function () {
     return redirect()->route('danhmuc.show', ['danhMucSlug' => '1']);
 });
@@ -18,11 +20,11 @@ Route::get('/list', function () {
     return view('pages.list');
 });
 
-Route::resource('san-pham','SanPhamController', ['names' => [
+Route::resource('san-pham',$baseFolder.'SanPhamController', ['names' => [
     'index' => 'sanpham.index',
     'show' => 'sanpham.show'
 ]]);
 
-Route::resource('danh-muc','DanhMucController', ['names' => [
+Route::resource('danh-muc',$baseFolder.'DanhMucController', ['names' => [
     'show' => 'danhmuc.show'
 ]]);

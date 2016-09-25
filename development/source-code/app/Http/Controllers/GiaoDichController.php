@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\GiaoDich;
 
 class GiaoDichController extends Controller
 {
@@ -16,6 +17,9 @@ class GiaoDichController extends Controller
     public function index()
     {
         //
+        $dsGiaoDich = GiaoDich::all();
+        $dsGiaoDich_first = GiaoDich::where('id', 4)->orderBy('id','DESC')->get();
+        return view('pages.giao-dich',['dsGiaoDich' => $dsGiaoDich,'dsGiaoDich_first'=>$dsGiaoDich_first]);
     }
 
     /**
@@ -48,6 +52,7 @@ class GiaoDichController extends Controller
     public function show($id)
     {
         //
+        return "Hello ".$id;
     }
 
     /**

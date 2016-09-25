@@ -30,5 +30,6 @@ Route::resource('danh-muc',$baseFolder.'DanhMucController', ['names' => [
 ]]);
 
 Route::resource('giao-dich','GiaoDichController',['names' => [
-    'index'=> 'giaodich.index'
+    'index'=> 'giaodich.index',
+    'show'=> 'giaodich.show'
 ]]);

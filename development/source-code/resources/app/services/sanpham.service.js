@@ -1,20 +1,27 @@
 (function() {
-'use strict';
+    'use strict';
 
     angular
         .module('minxApp')
         .service('SanPhamService', SanPhamService);
 
-    SanPhamService.$inject = ['$scope'];
-    function SanPhamService($scope) {
-        var vm=this;
+    SanPhamService.$inject = ['$scope', '$http'];
 
+    function SanPhamService($scope, $http) {
+        var service = {
+            getSanPham: getSanPham
+        };
 
-        
-        vm.exposedFn = exposedFn;
-        
-        ////////////////
+        return service;
 
-        function exposedFn() { }
+        function getSanPham() {
+            return $http.get('api/danh-muc')
+                .then(function(data) {
+                    return data.response;
+                })
+                .catch(function(error) {
+                    return error;
+                });
         }
+    }
 })();

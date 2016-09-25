@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" ng-controller="SanPhamController">
         <div class="product-detail">
             @yield('content')   
         </div>
@@ -24,7 +24,10 @@
     <script type="text/javascript" src="{{ URL::asset('packages/jquery/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{ URL::asset('packages/bootstrap/js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{ URL::asset('packages/angular/angular.min.js')}}"></script>
-    <script type="text/javascript" src="{{ URL::asset('app/app.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('app/app.module.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('app/controllers/sanpham.controller.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('app/services/sanpham.service.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('app/directives/scroll2top-btn.directive.js')}}"></script>
 </body>
 
 </html>

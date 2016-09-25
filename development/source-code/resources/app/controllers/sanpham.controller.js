@@ -1,22 +1,27 @@
-(function () {
+(function() {
     'use strict';
 
     angular
         .module('minxApp')
         .controller('SanPhamController', SanPhamController);
 
-    SanPhamController.$inject = ['$scope'];
-    function SanPhamController($scope) {
+    SanPhamController.$inject = ['$scope', 'SanPhamService'];
+
+    function SanPhamController($scope, SanPhamService) {
         var vm = this;
         // Bindable variable
         vm.name = 1;
         vm.price = 100;
+        vm.dssanpham=[];
 
         // Bindable function
-        vm.click = click;
+        vm.showSanPhamList = showSanPhamList;
 
-        function click() {
-            vm.name++;
+        function showSanPhamList() {
+            SanPhamService.getSanPham()
+                .then(function(response) {
+                    vm.dssanpham = response;
+                });
         }
     }
 })();

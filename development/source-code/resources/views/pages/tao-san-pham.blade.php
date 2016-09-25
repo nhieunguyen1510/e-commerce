@@ -22,4 +22,7 @@
         <label for="mota">Mô tả</label>
         <textarea class="form-control" rows="3" name="mota"></textarea>
     </form>
+
+    <button ng-click="vm.showSanPhamList()">Xem</button>
+    <p ng-repeat="sanpham in dssanpham"><% sanpham %></p>
 @endsection

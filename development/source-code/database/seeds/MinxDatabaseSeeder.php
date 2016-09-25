@@ -17,6 +17,7 @@ class MinxDatabaseSeeder extends Seeder
 
         // Then we will execute functions
         self::seedSanPhamTable($randomString, $quantityOfSanPhamRecords);
+        self::seedTaiKhoanTable($randomString, $quantityOfSanPhamRecords);
     }
 
 
@@ -50,4 +51,28 @@ class MinxDatabaseSeeder extends Seeder
             ]);
         }
     }
+
+    private function seedTaiKhoanTable($randomString, $quantityOfSanPhamRecords)
+    {
+        for($i=0;$i<$quantityOfSanPhamRecords;$i++){
+            $randomInteger= rand(1202055681,1362055681);
+            $randomDate = date("Y-m-d H:i:s",$randomInteger);
+            $randomString=str_shuffle($randomString);
+            DB::table('tai_khoan')->insert([
+                'ten_dang_nhap' => substr($randomString,0,rand(20,100)),
+                'anh_dai_dien' => str_random(10),
+                'email' => str_random(10),
+                'mat_khau' => str_random(10),
+                'gioi_tinh' => rand(0,1),
+                'ho' => str_random(10),
+                'ten' => str_random(10),
+                'so_dien_thoai' => '0'.rand(1000000000,129000000),
+                'dia_chi' => str_random(10),
+                'ma_kich_hoat' => str_random(20),
+                'tinh_trang' => rand(0,2),
+                'ngay_tao' => $randomDate,
+                'ngay_cap_nhat' => $randomDate,
+            ]);
+        }
+    }    
 }

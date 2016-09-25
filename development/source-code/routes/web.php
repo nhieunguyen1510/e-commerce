@@ -32,3 +32,7 @@ Route::resource('danh-muc',$baseFolder.'DanhMucController', ['names' => [
 Route::resource('giao-dich','GiaoDichController',['names' => [
     'index'=> 'giaodich.index'
 ]]);
+
+Route::resource('tai-khoan','TaiKhoanController',['names' => [
+    'index' => 'taikhoan.index'
+]]);

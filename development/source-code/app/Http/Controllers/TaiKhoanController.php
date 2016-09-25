@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\TaiKhoan;
+
 class TaiKhoanController extends Controller
 {
     /**
@@ -16,6 +18,10 @@ class TaiKhoanController extends Controller
     public function index()
     {
         //
+        $dsTaiKhoan=TaiKhoan::all();
+        // return view('pages.tai-khoan');
+        // return $dsTaiKhoan;
+        return view('pages.tai-khoan',['dsTaiKhoan' => $dsTaiKhoan]);
     }
 
     /**
@@ -48,6 +54,7 @@ class TaiKhoanController extends Controller
     public function show($id)
     {
         //
+        return 'Xuân'.$id;
     }
 
     /**

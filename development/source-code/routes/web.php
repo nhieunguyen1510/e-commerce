@@ -28,3 +28,12 @@ Route::resource('san-pham',$baseFolder.'SanPhamController', ['names' => [
 Route::resource('danh-muc',$baseFolder.'DanhMucController', ['names' => [
     'show' => 'danhmuc.show'
 ]]);
+
+Route::resource('giao-dich','GiaoDichController',['names' => [
+    'index'=> 'giaodich.index',
+    'show'=> 'giaodich.show'
+]]);
+
+Route::resource('tai-khoan','TaiKhoanController',['names' => [
+    'index' => 'taikhoan.index'
+]]);

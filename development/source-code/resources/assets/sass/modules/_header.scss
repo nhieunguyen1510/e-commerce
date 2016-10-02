@@ -1,0 +1,43 @@
+    @media screen and (min-width: 1px) {
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 0;
+            height: 100%;
+        }
+        // Navbar center 
+        .header {
+            width: 100%;
+            position: relative;
+            text-align: left;
+            .header-block {
+                display: inline-block;
+            }
+            .logo-block {
+                width: 218px;
+                img {
+                    width: 100%;
+                }
+            }
+            .right-header-block {
+                width: 80%;
+                position: absolute;
+                bottom: 0;
+                text-align: left;
+                right: 0;
+                vertical-align: middle;
+                .search-lite {
+                    display: inline-block;
+                    width: 45%;
+                }
+                .right-button-group {
+                    display: inline-block;
+                    right: 0;
+                    position: absolute;
+                    .item {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }

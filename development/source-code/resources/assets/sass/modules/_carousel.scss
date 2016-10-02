@@ -1,0 +1,15 @@
+#myCarousel {
+    width: 82%;
+    float: left;
+    height: 254px;
+    .carousel-inner {
+        .item {
+            height: 254px;
+            width: 900px;
+            overflow: hidden;
+            img {
+                margin: auto;
+            }
+        }
+    }
+}

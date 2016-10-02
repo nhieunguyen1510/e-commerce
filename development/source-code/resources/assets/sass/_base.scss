@@ -2,6 +2,7 @@
 ul {
     list-style-type: none;
     list-style-position: inside;
+    margin-bottom: 0;
 }
 
 ol {
@@ -13,7 +14,8 @@ ul ul,
 ol ul {
     list-style-type: circle;
     list-style-position: inside;
-    margin-left: 15px;
+    margin-left: 0;
+    margin-bottom: 0;
 }
 
 ol ol,

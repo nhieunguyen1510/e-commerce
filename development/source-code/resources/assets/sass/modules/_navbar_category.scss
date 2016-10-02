@@ -1,0 +1,91 @@
+.banner {
+    margin-top: 8px;
+    width: 100%;
+    line-height: 32px;
+    i {
+        line-height: 32px;
+        margin-left: 6px;
+        height: 100%;
+    }
+    .navbar {
+        background-color: $light-red;
+        margin-bottom: 0;
+        a {
+            text-transform: uppercase;
+            color: $white;
+            font-weight: bold;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    .categories-main {
+        position: absolute;
+        background-color: $strong-red;
+        a {
+            float: left;
+            text-align: left;
+            width: 200px;
+            padding-left: 5%;
+        }
+        i {
+            float: left;
+        }
+    }
+    .channel-entrance {
+        margin-left: 218px;
+        a {
+            float: left;
+            width: 20%;
+            text-align: center;
+            border-right: 1px solid $border-red;
+            &:hover {
+                background-color: $strong-red;
+            }
+        }
+    }
+    .main-nav {
+        border-top: 1px solid transparent;
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+        width: 18%;
+        float: left;
+        border-bottom: 1px solid $second-border-red;
+        ul {
+            padding: 0;
+            .nav-item {
+                box-sizing: border-box;
+                width: 100%;
+                height: 42px;
+                line-height: 42px;
+                text-align: left;
+                border: 1px solid #eaeaea;
+                // border-top: transparent;
+                div {
+                    width: 85%;
+                    display: inline-block;
+                }
+                span {
+                    padding-left: 5%;
+                }
+                a {
+                    color: #000;
+                }
+                border-left: 1px solid $second-border-red;
+                border-right: 1px solid $second-border-red;
+                &:hover {
+                    border-top: 1px solid $light-red;
+                    border-bottom: 1px solid $light-red;
+                    border-right: 1px solid transparent;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    &:first-child {
+                        border-top: 1px solid transparent;
+                    }
+                }
+            }
+        }
+    }
+}

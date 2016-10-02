@@ -1,0 +1,19 @@
+  /*Navbar top*/
+    .navbar {
+        min-height: 32px;
+        background-color: #eeeeee;
+        margin-bottom: 4px;
+        border-radius: 0px;
+        li {
+            a {
+                padding-left:0;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+        }
+    }
+    .navbar-right {
+        i {
+            margin-right: 5px;
+        }
+    }

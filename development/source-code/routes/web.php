@@ -12,13 +12,7 @@
 */
 $baseFolder='Web\\';
 
-Route::get('/', function () {
-    return redirect()->route('danhmuc.show', ['danhMucSlug' => '1']);
-});
-
-Route::get('/list', function () {
-    return view('pages.list');
-});
+Route::get('/', 'TrangChuController@getTrangChu',['name' => 'trangchu.index']);
 
 Route::resource('san-pham',$baseFolder.'SanPhamController', ['names' => [
     'index' => 'sanpham.index',
@@ -37,3 +31,4 @@ Route::resource('giao-dich','GiaoDichController',['names' => [
 Route::resource('tai-khoan','TaiKhoanController',['names' => [
     'index' => 'taikhoan.index'
 ]]);
+

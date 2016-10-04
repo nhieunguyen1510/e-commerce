@@ -3,11 +3,11 @@
 
     angular
         .module('minxApp')
-        .service('SanPhamService', SanPhamService);
+        .factory('SanPhamService', SanPhamService);
 
-    SanPhamService.$inject = ['$scope', '$http'];
+    SanPhamService.$inject = ['$http'];
 
-    function SanPhamService($scope, $http) {
+    function SanPhamService($http) {
         var service = {
             getSanPham: getSanPham
         };

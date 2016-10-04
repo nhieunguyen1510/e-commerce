@@ -29,7 +29,6 @@
         function link(scope, element, attrs) {
             var offset = 300,
                 offset_opacity = 1200;
-            console.log(element);
             angular.element($window).bind("scroll", function() {
                 (angular.element($window).scrollTop() > offset) ? element.children().addClass('is-visible'): element.children().removeClass('is-visible fade-out');
                 if (angular.element($window).scrollTop() > offset_opacity) {

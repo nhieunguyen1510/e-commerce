@@ -12,7 +12,7 @@
         // Bindable variable
         vm.name = 1;
         vm.price = 100;
-        vm.dssanpham=[];
+        vm.dssanpham = [];
 
         // Bindable function
         vm.showSanPhamList = showSanPhamList;

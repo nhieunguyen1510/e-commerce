@@ -87,6 +87,7 @@ p {
     width: 100%; } }
 
 .scroll-to-top-btn {
+  z-index: 999;
   display: inline-block;
   padding: 0;
   border: 0;
@@ -139,6 +140,7 @@ p {
       margin: auto; }
 
 footer {
+  clear: both;
   margin-top: 70px; }
   footer .addition-info {
     border-top: 1px solid black;

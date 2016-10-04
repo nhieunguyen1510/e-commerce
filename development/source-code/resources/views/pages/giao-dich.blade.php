@@ -7,13 +7,17 @@
 <p>{{"Phạm Lê Quỳnh Như"}}<p>
 
 @foreach($dsGiaoDich as $value)
-     {!! "id: ".$value->id !!}
-     <br>
-     {!! "giao dịch cod: ".$value->giao_dich_cod !!}
-     <br><br>
-
+    {{ "id: ".$value->id }}
+    <br>
+    {{ "giao dịch cod: ".$value->giao_dich_cod }}
+    <br><br>
+    <p>
+    @foreach($value->dsChiTietGiaoDich as $item)
+        {{ $item->don_gia_san_pham }}
+    @endforeach
+    </p>
 @endforeach
 @foreach($dsGiaoDich_first as $val)
-{!! $val !!}
+{{ $val }}
 @endforeach
 @endsection

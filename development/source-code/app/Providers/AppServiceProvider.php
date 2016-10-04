@@ -20,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
             __DIR__ . '/../../node_modules/jquery/dist' => public_path('packages/jquery'),
             __DIR__ . '/../../node_modules/normalize.css' => public_path('packages/normalize'),
             __DIR__ . '/../../node_modules/bootstrap-social' => public_path('packages/bootstrap-social'),
+            __DIR__ . '/../../node_modules/nprogress' => public_path('packages/nprogress'),
+            __DIR__ . '/../../node_modules/animate.css' => public_path('packages/animate.css'),
         ], 'public');
     }
 

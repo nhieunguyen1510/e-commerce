@@ -8,7 +8,7 @@ use App\SanPham;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+
 
 class SanPhamController extends Controller
 {
@@ -32,8 +32,7 @@ class SanPhamController extends Controller
      */
     public function create()
     {
-        $dsDanhMucSanPham = DanhMucSanPham::all();
-        return view('pages.tao-san-pham',['dsDanhMucSanPham' => $dsDanhMucSanPham]);
+        //
     }
 
     /**

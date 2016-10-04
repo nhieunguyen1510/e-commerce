@@ -5,13 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class TaiKhoan extends Authenticatable
+class QuanTriVien extends Authenticatable
 {
     use Notifiable;
     //
-    protected $table='tai_khoan';
-    const CREATED_AT = 'ngay_tao';
-    const UPDATED_AT = 'ngay_cap_nhat';
+    protected $table='quan_tri_vien';
+
     /**
      * The attributes that are mass assignable.
      *

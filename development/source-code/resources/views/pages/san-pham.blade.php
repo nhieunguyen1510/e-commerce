@@ -1,6 +1,6 @@
-@extends('layouts.san-pham')
+@extends('layouts.main')
 
-@section('title','Laravel')
+@section('title','Chi tiết sản phẩm')
 
 @section('content')
     <div class="product-header">
@@ -16,4 +16,8 @@
         <h5>Mô tả:</h5>
         <p>{{ $sanPham->mo_ta }}</p>
     </div>
+    <div ng-controller="SanPhamController as vm">
+        <textarea froala="vm.froalaOptions" ng-model="vm.myHtml"></textarea>
+    </div>
+    <scroll2top-btn></scroll2top-btn>
 @endsection

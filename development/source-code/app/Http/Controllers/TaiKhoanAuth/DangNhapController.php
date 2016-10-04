@@ -17,7 +17,7 @@ class DangNhapController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        // $this->middleware('guest');
     }
     
     public function getDangNhap()
@@ -38,5 +38,12 @@ class DangNhapController extends Controller
         }
 
         return redirect()->route('dangnhap.index');
+    }
+
+    public function postDangXuat()
+    {
+        Auth::guard('web')->logout();
+
+        return back();
     }
 }

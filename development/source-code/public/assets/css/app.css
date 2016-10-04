@@ -34,9 +34,17 @@ p {
   body .category-sidebar {
     float: left;
     width: 30%; }
+    body .category-sidebar a {
+      color: black; }
+      body .category-sidebar a:hover {
+        text-decoration: none; }
   body .product-list {
     float: left;
     width: 70%; }
+    body .product-list a {
+      color: black; }
+      body .product-list a:hover {
+        text-decoration: none; }
     body .product-list .product-box {
       float: left;
       width: 25%;

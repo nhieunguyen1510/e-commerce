@@ -38,12 +38,17 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'tai_khoan',
         ],
 
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
+        ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'quan_tri_vien',
         ],
     ],
 
@@ -65,9 +70,19 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        // 'users' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\User::class,
+        // ],
+
+        'tai_khoan' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\TaiKhoan::class,
+        ],
+
+        'quan_tri_vien' => [
+            'driver' => 'eloquent',
+            'model' => App\QuanTriVien::class,
         ],
 
         // 'users' => [

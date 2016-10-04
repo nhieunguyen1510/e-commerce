@@ -22,6 +22,8 @@ class AppServiceProvider extends ServiceProvider
             __DIR__ . '/../../node_modules/bootstrap-social' => public_path('packages/bootstrap-social'),
             __DIR__ . '/../../node_modules/nprogress' => public_path('packages/nprogress'),
             __DIR__ . '/../../node_modules/animate.css' => public_path('packages/animate.css'),
+            __DIR__ . '/../../node_modules/froala-editor' => public_path('packages/froala-editor'),
+            __DIR__ . '/../../node_modules/angular-froala' => public_path('packages/angular-froala'),
         ], 'public');
     }
 

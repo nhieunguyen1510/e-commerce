@@ -12,7 +12,7 @@
 */
 $baseFolder='Web\\';
 
-Route::get('/', 'TrangChuController@getTrangChu',['name' => 'trangchu.index']);
+Route::get('/', $baseFolder.'TrangChuController@getTrangChu',['name' => 'trangchu.index']);
 
 Route::resource('san-pham',$baseFolder.'SanPhamController', ['names' => [
     'index' => 'sanpham.index',
@@ -56,3 +56,8 @@ Route::post('khoi-phuc-mat-khau','TaiKhoanAuth\KhoiPhucMatKhauController@postKho
 //     'index' => 'dangky.index',
 //     'store' => 'dangky.store'
 // ]]);
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('dang-nhap','QuanTriVienAuth\DangNhapController@getDangNhap')->name('admin.dangnhap.index');
+    Route::post('dang-nhap','QuanTriVienAuth\DangNhapController@postDangNhap')->name('admin.dangnhap.post');
+});

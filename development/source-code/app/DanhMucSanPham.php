@@ -7,10 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class DanhMucSanPham extends Model
 {
     protected $table = 'danh_muc_san_pham';
-    protected $appends = array('slug');
 
-    public function getSlugAttribute()
+    public function getSlugAttribute($value)
     {
-        return str_slug($this->ten.' '.$this->id);  
+        return $value.'-'.$this->id;
     }
 }

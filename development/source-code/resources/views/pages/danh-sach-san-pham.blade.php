@@ -3,7 +3,6 @@
 @section('title','Laravel')
 
 @section('sidebar')
-    @parent
         @if (count($dsDanhMucSanPham) > 0)
             <ul>
             @foreach ($dsDanhMucSanPham as $danhMucSanPham)

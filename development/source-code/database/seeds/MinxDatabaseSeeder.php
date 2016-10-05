@@ -39,7 +39,7 @@ class MinxDatabaseSeeder extends Seeder
 
     private function seedDanhMucSanPhamTable()
     {
-        $tenDanhMucSanPhamArray=array('Giày','Thắt lưng','Balo, túi xách','Giày bata','Giày búp bê','Giày cao gót','Thắt lưng da cá sấu','Thắt lưng da bò');
+        $tenDanhMucSanPhamArray=array('Thời trang nữ','Thời trang nam','Giày dép','Túi xách','Đồng hồ','Phụ kiện','Khác');
         for($i=0;$i<count($tenDanhMucSanPhamArray);$i++){
             $randomInteger= rand(1202055681,1362055681);
             $randomDate = date("Y-m-d H:i:s",$randomInteger);

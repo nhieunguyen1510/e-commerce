@@ -8,8 +8,8 @@
         <div class=" search-lite">
             <div class="input-group">
                 <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action <span class="caret"></span></button>
+                    <button type="button" class="btn btn-default dropdown-toggle choose-category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Thời trang nữ <span class="caret"></span></button>
                     <div class="dropdown-menu">
                         <li><a href="#">Action</a></li>
                         <li><a href="#">Another action</a></li>
@@ -31,13 +31,6 @@
             <div class="item">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ Hàng <span class="num cart_qty">0</span></button>
-                <div class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                </div>
             </div>
 
             <div class="item">
@@ -54,26 +47,12 @@
 
             <div class="item">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-heart" aria-hidden="true"></i> Yêu Thích <span class="num cart_qty">0</span></button>
-                <div class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                </div>
+                    <i class="fa fa-heart" aria-hidden="true"></i> Yêu Thích <span class="num cart_qty">0</span></button>    
             </div>
 
             <div class="item">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-check" aria-hidden="true"></i> Thanh Toán</button>
-                <div class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                </div>
             </div>
         </div>
         <!--End_four-button -->
@@ -99,60 +78,19 @@
 
     <nav class="main-nav">
         <ul>
-            <li class="nav-item">
-                <a href="#">
-                    <div>
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        <span>Thời Trang Nữ</span>
-                    </div>
-                    <i class="fa fa-angle-right icon-arrow" aria-hidden="true"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#">
-                    <div>
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        <span>Thời Trang Nam</span>
-                    </div>
-                    <i class="fa fa-angle-right icon-arrow" aria-hidden="true"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#">
-                    <div>
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        <span>Giày Dép</span>
-                    </div>
-                    <i class="fa fa-angle-right icon-arrow" aria-hidden="true"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#">
-                    <div>
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        <span>Túi Xách</span>
-                    </div>
-                    <i class="fa fa-angle-right icon-arrow" aria-hidden="true"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#">
-                    <div>
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        <span>Đồng Hồ</span>
-                    </div>
-                    <i class="fa fa-angle-right icon-arrow" aria-hidden="true"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#">
-                    <div>
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        <span>Phụ Kiện</span>
-                    </div>
-                    <i class="fa fa-angle-right icon-arrow" aria-hidden="true"></i>
-                </a>
-            </li>
+        @if(isset($danhmuc))
+            @foreach ($danhmuc  as $danhMucSanPham) 
+                <li class="nav-item">
+                    <a href="#">
+                        <div>
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                            <span>{{ $danhMucSanPham->ten }}</span>
+                        </div>
+                        <i class="fa fa-angle-right icon-arrow" aria-hidden="true"></i>
+                    </a>
+                </li>
+            @endforeach
+        @endif
         </ul>
     </nav>
     <!--End_navbar_category-->

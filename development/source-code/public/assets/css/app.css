@@ -131,7 +131,7 @@ p {
 #myCarousel {
   width: 82%;
   float: left;
-  height: 254px; }
+  height: 296px; }
   #myCarousel .carousel-inner .item {
     height: 254px;
     width: 900px;
@@ -214,13 +214,39 @@ footer {
       vertical-align: middle; }
       .header .right-header-block .search-lite {
         display: inline-block;
-        width: 45%; }
+        width: 45%;
+        border: 2px solid #e60f1e; }
+        .header .right-header-block .search-lite button {
+          border-radius: 0; }
+        .header .right-header-block .search-lite span button {
+          background-color: #e60f1e;
+          border-color: #e60f1e; }
+        .header .right-header-block .search-lite .choose-category:hover {
+          background-color: #ffffff; }
+        .header .right-header-block .search-lite .fa-search {
+          color: #ffffff; }
       .header .right-header-block .right-button-group {
         display: inline-block;
         right: 0;
-        position: absolute; }
+        position: absolute;
+        line-height: 36px; }
         .header .right-header-block .right-button-group .item {
-          display: inline-block; } }
+          display: inline-block; }
+          .header .right-header-block .right-button-group .item button:hover, .header .right-header-block .right-button-group .item button:focus {
+            background-color: #f8d6d5;
+            border-color: #cf9598;
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s; }
+          .header .right-header-block .right-button-group .item span {
+            background-color: #e5101d;
+            color: #ffffff;
+            border-radius: 100%;
+            width: 18px;
+            font-size: 11px;
+            line-height: 18px;
+            text-align: center;
+            float: right;
+            margin-left: 3px; } }
 
 .item-product {
   clear: both;

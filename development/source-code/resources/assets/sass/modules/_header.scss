@@ -29,13 +29,51 @@
                 .search-lite {
                     display: inline-block;
                     width: 45%;
+                    border: 2px solid $light-red;
+                    button {
+                        border-radius: 0;
+                    }
+                    span {
+                        button {
+                            background-color: $light-red;
+                            border-color: $light-red;
+                        }
+                    }
+                    .choose-category {
+                        &:hover {
+                            background-color: #ffffff;
+                        }
+                    }
+                    .fa-search {
+                        color: #ffffff;
+                    }
                 }
                 .right-button-group {
                     display: inline-block;
                     right: 0;
                     position: absolute;
+                    line-height: 36px;
                     .item {
                         display: inline-block;
+                        button {
+                            &:hover,
+                            &:focus {
+                                background-color: $background-color-four-button;
+                                border-color: $border-color-four-button;
+                                transition: all 0.5s;
+                            }
+                        }
+                        span {
+                            background-color: $border-sale-red;
+                            color: #ffffff;
+                            border-radius: 100%;
+                            width: 18px;
+                            font-size: 11px;
+                            line-height: 18px;
+                            text-align: center;
+                            float: right;
+                            margin-left: 3px;
+                        }
                     }
                 }
             }

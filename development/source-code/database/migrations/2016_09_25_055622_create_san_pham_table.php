@@ -16,6 +16,7 @@ class CreateSanPhamTable extends Migration
         Schema::create('san_pham', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_danh_muc_san_pham');
+            $table->integer('id_nguoi_ban');
             $table->string('ten');
             $table->string('anh_dai_dien');
             $table->string('anh_chi_tiet_1');
@@ -23,10 +24,11 @@ class CreateSanPhamTable extends Migration
             $table->string('anh_chi_tiet_3');
             $table->mediumText('mo_ta');
             $table->integer('so_luong_ton_kho');
-            $table->integer('don_gia_ban');
+            $table->integer('don_gia_goc');
+            $table->integer('phan_tram_khuyen_mai')->default(0);
             $table->string('nha_san_xuat');
             $table->string('slug');
-            $table->tinyInteger('tinh_trang');
+            $table->integer('id_tinh_trang');
             $table->timestamp('ngay_tao')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('ngay_cap_nhat')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Minx - @yield('title')</title>
+    @include('partials.css-assets')
 </head>
 
 <body>
@@ -15,7 +16,7 @@
         @yield('content')
     </div>
     @include('partials.footer')
-    @include('partials.assets')
+    @include('partials.js-assets')
 </body>
 
 </html>

@@ -21,6 +21,7 @@ require('laravel-elixir-vue');
 
 elixir(function(mix) {
     mix.sass('app.scss', 'public/assets/css')
+        .sass('custom.scss', 'public/assets/css')
         .task('js', 'resources/assets/js/**/*.*')
         .task('angular', 'resources/app/**/*.*')
         .task('img', 'resources/assets/img/**/*.*');

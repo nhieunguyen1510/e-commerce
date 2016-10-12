@@ -26,7 +26,7 @@ class CreateGiaoDichTable extends Migration
             $table->string('ten_nguoi_nhan', 200);
             $table->string('ma_khuyen_mai', 200)->nullable();
             $table->integer('tong_tien');
-            $table->tinyInteger('tinh_trang')->nullable();
+            $table->integer('id_tinh_trang')->nullable();
             $table->timestamp('ngay_tao')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('ngay_cap_nhat')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

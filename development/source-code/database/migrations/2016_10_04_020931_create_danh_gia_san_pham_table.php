@@ -19,7 +19,7 @@ class CreateDanhGiaSanPhamTable extends Migration
             $table->integer('id_san_pham');
             $table->integer('diem_so');
             $table->text('binh_luan');
-            $table->tinyInteger('tinh_trang')->default(0);
+            $table->integer('id_tinh_trang')->default(0);
             $table->timestamp('ngay_tao')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('ngay_cap_nhat')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

@@ -7,7 +7,7 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-        @if (!Auth::guard('web')->user())
+        @if (!Auth::guard('web')->check())
             <li><a href="{{ URL::Route('dangky.index') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng Ký</a></li>
             <li><a href="{{ URL::Route('dangnhap.index') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng Nhập</a></li>
         @else
@@ -18,13 +18,13 @@
 
                 <ul class="dropdown-menu" role="menu">
                     <li>
-                        <a href="{{ URL::Route('dangxuat.post') }}"
+                        <a href="{{ URL::Route('dangxuat.get') }}"
                             onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                             Đăng xuất
                         </a>
 
-                        <form id="logout-form" action="{{ URL::Route('dangxuat.post') }}" method="POST" style="display: none;">
+                        <form id="logout-form" action="{{ URL::Route('dangxuat.get') }}" method="GET" style="display: none;">
                             {{ csrf_field() }}
                         </form>
                     </li>

@@ -27,6 +27,6 @@ class CreateTinhTrangTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tinh_trang');
     }
 }

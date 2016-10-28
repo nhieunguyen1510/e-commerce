@@ -19,11 +19,11 @@ class MinxDatabaseSeeder extends Seeder
         $quantityOfSanPhamRecords=100;
 
         // Then we will execute functions
-        self::seedDanhMucSanPhamTable();
-        self::seedSanPhamTable($randomString, $quantityOfSanPhamRecords);
-        self::seedGiaoDichTable($randomString, $quantityOfSanPhamRecords);
-        self::seedTaiKhoanTable($randomString, $quantityOfSanPhamRecords);
-        self::seedChiTietGiaoDichTable($quantityOfSanPhamRecords);
+        // self::seedDanhMucSanPhamTable();
+        // self::seedSanPhamTable($randomString, $quantityOfSanPhamRecords);
+        // self::seedGiaoDichTable($randomString, $quantityOfSanPhamRecords);
+        // self::seedTaiKhoanTable($randomString, $quantityOfSanPhamRecords);
+        // self::seedChiTietGiaoDichTable($quantityOfSanPhamRecords);
     }
 
     private function createRandomString()
@@ -46,7 +46,7 @@ class MinxDatabaseSeeder extends Seeder
             DB::table('danh_muc_san_pham')->insert([
                 'ten' => $tenDanhMucSanPhamArray[$i],
                 'slug' => str_slug($tenDanhMucSanPhamArray[$i]),
-                'tinh_trang' => rand(0,2),
+                'id_tinh_trang' => rand(0,2),
                 'ngay_tao' => $randomDate,
                 'ngay_cap_nhat' => $randomDate,
             ]);
@@ -73,7 +73,7 @@ class MinxDatabaseSeeder extends Seeder
                 'don_gia_ban' => rand(100,700)*1000,
                 'nha_san_xuat' => substr($randomString,0,rand(20,30)),
                 'slug' => str_slug($ten),
-                'tinh_trang' => rand(0,2),
+                'id_tinh_trang' => rand(0,2),
                 'ngay_tao' => $randomDate,
                 'ngay_cap_nhat' => $randomDate,
             ]);
@@ -99,7 +99,7 @@ class MinxDatabaseSeeder extends Seeder
                 'ten_nguoi_nhan' => substr($randomString,0,rand(20,30)),
                 'ma_khuyen_mai' => str_random(5),
                 'tong_tien' => 0,
-                'tinh_trang' => rand(0,2),
+                'id_tinh_trang' => rand(0,2),
                 'ngay_tao' => $randomDate,
                 'ngay_cap_nhat' => $randomDate,
             ]);
@@ -145,7 +145,7 @@ class MinxDatabaseSeeder extends Seeder
                 'so_dien_thoai' => '0'.rand(1000000000,129000000),
                 'dia_chi' => str_random(10),
                 'ma_kich_hoat' => str_random(20),
-                'tinh_trang' => rand(0,2),
+                'id_tinh_trang' => rand(0,2),
                 'ngay_tao' => $randomDate,
                 'ngay_cap_nhat' => $randomDate,
             ]);

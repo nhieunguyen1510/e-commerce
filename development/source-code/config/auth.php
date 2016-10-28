@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'tai_khoan',
+            'provider' => 'TaiKhoanNguoiMua',
         ],
 
         'api' => [
@@ -75,9 +75,9 @@ return [
         //     'model' => App\User::class,
         // ],
 
-        'tai_khoan' => [
+        'TaiKhoanNguoiMua' => [
             'driver' => 'eloquent',
-            'model' => App\TaiKhoan::class,
+            'model' => App\TaiKhoanNguoiMua::class,
         ],
 
         'quan_tri_vien' => [

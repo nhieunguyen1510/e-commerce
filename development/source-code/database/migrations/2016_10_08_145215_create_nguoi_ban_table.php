@@ -40,6 +40,6 @@ class CreateNguoiBanTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('nguoi_ban');
     }
 }

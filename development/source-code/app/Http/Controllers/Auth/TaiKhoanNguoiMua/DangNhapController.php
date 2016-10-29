@@ -23,7 +23,7 @@ class DangNhapController extends Controller
         }
         else
         {
-            return redirect('dang-nhap');
+            return redirect('dang-nhap')->with('thongbao','Đăng nhập không thành công');
         }
     }
     public function getdangxuat()

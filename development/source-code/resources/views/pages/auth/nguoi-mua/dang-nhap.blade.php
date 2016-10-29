@@ -6,6 +6,13 @@
         <div class="panel panel-default">
             <div class="panel-heading"><strong>Login</strong></div>
             <div class="panel-body">
+
+                @if(session('thongbao'))
+                <div class="alert alert-danger">
+                    {{session('thongbao')}}
+                </div>
+                @endif
+
                 <form id="formDangNhap" name="formDangNhap" action="{{ URL::Route('dangnhap.post') }}" method="POST" novalidate="novalidate" role="form">
                     {{ csrf_field() }}
                     <div class="form-group">

@@ -2,11 +2,15 @@
 
 @section('title','Đăng ký')
 @section('content')
-    <div class="col-md-4 col-md-offset-4">
+    <div ng-controller="FormDangKyCtrl" class="col-md-4 col-md-offset-4">
         <div class="panel panel-default">
             <div class="panel-heading"><strong>Đăng ký tài khoản</strong></div>
             <div class="panel-body">
-                <form action="{{ URL::Route('dangky.post') }}" method="POST" id="formDangKy" name="formDangKy" ng-app="myApp" role="form" novalidate>
+
+                <div class="alert alert-danger" ng-bind="txtThongBao" ng-show="txtThongBao">
+                </div>
+
+                <form action="{{ URL::Route('dangky.post') }}" method="POST" id="formDangKy" name="formDangKy" ng-app="myApp" role="form" novalidate="novalidate">
                     {{ csrf_field() }}
                     <div class="form-group"\>
                         <label for="txtTenDangNhap">Tên đăng nhập <span class="text-danger">&#042</span></label>
@@ -78,7 +82,7 @@
                     </div>
                     
                     <div class="col-md-4 col-md-offset-4 form-group">
-                        <button class="btn btn-primary form-control" type="submit"  ng-disabled="formDangKy.$pristine || (formDangKy.$dirty && formDangKy.$invalid)">Đăng ký</button>
+                        <button class="btn btn-primary form-control" type="button" ng-click="dangKy(formDangKy.$valid)">Đăng ký</button>
                     </div>
                     </form>
             </div>

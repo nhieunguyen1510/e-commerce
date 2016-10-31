@@ -5,12 +5,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;           //Sử dụng đối tượng Authentication
+use Illuminate\Support\Facades\DB;
+use App\TinhTrang;
 
 class DangNhapController extends Controller
 {
     public function getDangNhap()
     {
-        return view('pages.auth.nguoi-mua.dang-nhap');
+        return view('pages.auth.nguoi-mua.dang-nhap');           
     }
     public function postDangNhap(Request $request)
     {

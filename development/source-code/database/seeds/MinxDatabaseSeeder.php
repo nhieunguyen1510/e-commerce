@@ -19,7 +19,8 @@ class MinxDatabaseSeeder extends Seeder
         $quantityOfSanPhamRecords=100;
 
         // Then we will execute functions
-        // self::seedDanhMucSanPhamTable();
+        //    self::seedTinhTrangTable();
+           self::seedDanhMucSanPhamTable();
         // self::seedSanPhamTable($randomString, $quantityOfSanPhamRecords);
         // self::seedGiaoDichTable($randomString, $quantityOfSanPhamRecords);
         // self::seedTaiKhoanTable($randomString, $quantityOfSanPhamRecords);
@@ -37,20 +38,124 @@ class MinxDatabaseSeeder extends Seeder
         return $randomString;
     }
 
+    private function seedTinhTrangTable()
+    {
+        
+            DB::table('tinh_trang')->insert([
+                ['tinh_trang' => 'Còn hàng','bang_lien_quan' => 'san_pham'],
+                ['tinh_trang' => 'Hết hàng','bang_lien_quan' => 'san_pham']  
+                 ]);
+    
+    }
+
     private function seedDanhMucSanPhamTable()
     {
-        $tenDanhMucSanPhamArray=array('Thời trang nữ','Thời trang nam','Giày dép','Túi xách','Đồng hồ','Phụ kiện','Khác');
-        for($i=0;$i<count($tenDanhMucSanPhamArray);$i++){
-            $randomInteger= rand(1202055681,1362055681);
-            $randomDate = date("Y-m-d H:i:s",$randomInteger);
+        // $tenDanhMucSanPhamArray=array('Quần', 'Áo', 'Giày', 'Túi xách', 
+        // 'Giày búp bê', 'Giày bít', 'Giày Sandals', 'Áo thun', 'Áo sơ mi', 'Balo', 'Túi xách'
+        // 'Ví', 'Quần Jeans', 'Quần Shorts');
+        //for($i=0;$i<count($tenDanhMucSanPhamArray);$i++){
+            //$randomInteger= rand(1202055681,1362055681);
+            //$randomDate = date("Y-m-d H:i:s",$randomInteger);
             DB::table('danh_muc_san_pham')->insert([
-                'ten' => $tenDanhMucSanPhamArray[$i],
-                'slug' => str_slug($tenDanhMucSanPhamArray[$i]),
-                'id_tinh_trang' => rand(0,2),
-                'ngay_tao' => $randomDate,
-                'ngay_cap_nhat' => $randomDate,
+                ['ten' => 'Quần',
+                'id_danh_muc_san_pham_cha' => 0,
+                'slug' => str_slug('Quần', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                ['ten' => 'Áo',
+                'id_danh_muc_san_pham_cha' => 0,
+                'slug' => str_slug('Áo', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                ['ten' => 'Giày',
+                'id_danh_muc_san_pham_cha' => 0,
+                'slug' => str_slug('Giày', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                ['ten' => 'Túi xách',
+                'id_danh_muc_san_pham_cha' => 0,
+                'slug' => str_slug('Túi xách', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                ['ten' => 'Khác',
+                'id_danh_muc_san_pham_cha' => 0,
+                'slug' => str_slug('Khác', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                ['ten' => 'Quần Jeans',
+                'id_danh_muc_san_pham_cha' => 1,
+                'slug' => str_slug('Quần Jeans', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                ['ten' => 'Quần Shorts',
+                'id_danh_muc_san_pham_cha' => 1,
+                'slug' => str_slug('Quần Shorts', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                ['ten' => 'Áo thun',
+                'id_danh_muc_san_pham_cha' => 2,
+                'slug' => str_slug('Áo thun', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                 ['ten' => 'Áo sơ mi',
+                 'id_danh_muc_san_pham_cha' => 2,
+                'slug' => str_slug('Áo sơ mi', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                ['ten' => 'Giày búp bê',
+                'id_danh_muc_san_pham_cha' => 3,
+                'slug' => str_slug('Giày búp bê', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                ['ten' => 'Giày bít',
+                'id_danh_muc_san_pham_cha' => 3,
+                'slug' => str_slug('Giày bít', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                ['ten' => 'Giày Sandals',
+                'id_danh_muc_san_pham_cha' => 3,
+                'slug' => str_slug('Giày Sandals', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                 ['ten' => 'Balo',
+                 'id_danh_muc_san_pham_cha' => 4,
+                'slug' => str_slug('Balo', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                 ['ten' => 'Túi xách',
+                'id_danh_muc_san_pham_cha' => 4,
+                'slug' => str_slug('Túi xách', '-'),
+                'id_tinh_trang' => 1,
+                'ngay_tao' => date("Y-m-d H:i:s"),
+                'ngay_cap_nhat' => date("Y-m-d H:i:s")]
             ]);
-        }
+        //}
     }
 
     private function seedSanPhamTable($randomString, $quantityOfSanPhamRecords)

@@ -24,23 +24,42 @@
         background-color: $strong-red;
         a {
             float: left;
-            text-align: left;
-            width: 200px;
-            padding-left: 5%;
+            text-align: center;
+            width: 185px;
+            //padding-left: 5%;
         }
         i {
             float: left;
         }
     }
     .channel-entrance {
-        margin-left: 218px;
+        margin-left: 188px;
         a {
             float: left;
-            width: 20%;
+            width: 16.6%;
             text-align: center;
             border-right: 1px solid $border-red;
             &:hover {
                 background-color: $strong-red;
+            }
+
+        }
+        .dropdown 
+        {
+             
+            .dropdown-menu 
+            {
+                position:relative;
+                margin-top:2%;
+                li {
+                    text-align:center;
+                }
+                a {
+                    color: black;
+                    padding-left:20px;
+                    border-right:none;
+                
+                }
             }
         }
     }

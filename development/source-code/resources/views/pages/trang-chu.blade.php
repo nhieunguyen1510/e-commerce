@@ -18,7 +18,7 @@
                     <div class="product-image-cart">
                         <div class="product-image">
                             <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
+                                <img src="{{ URL::asset('assets/img/demo.jpg') }}" alt="Áo trễ vai mã 001">
                             </a>
                         </div>
                         <div class="product-icon-cart">
@@ -54,7 +54,7 @@
                     <div class="product-image-cart">
                         <div class="product-image">
                             <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
+                                <img src="{{ URL::asset('assets/img/hmprod.jpg') }}" alt="Áo trễ vai mã 001">
                             </a>
                         </div>
                         <div class="product-icon-cart">
@@ -90,7 +90,7 @@
                     <div class="product-image-cart">
                         <div class="product-image">
                             <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
+                                <img src="{{ URL::asset('assets/img/demo-small.jpg') }}" alt="Áo trễ vai mã 001">
                             </a>
                         </div>
                         <div class="product-icon-cart">

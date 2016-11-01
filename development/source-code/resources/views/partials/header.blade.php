@@ -35,7 +35,7 @@
 
             <div class="item">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-bell" aria-hidden="true"></i> Thông Báo <span class="num cart_qty">0</span></button>
+                    <i class="fa fa-bell" aria-hidden="true"></i> Lịch sử mua hàng <span class="num cart_qty">0</span></button>
                 <div class="dropdown-menu">
                     <li><a href="#">Action</a></li>
                     <li><a href="#">Another action</a></li>
@@ -45,14 +45,14 @@
                 </div>
             </div>
 
-            <div class="item">
+            <!-- <div class="item">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-heart" aria-hidden="true"></i> Yêu Thích <span class="num cart_qty">0</span></button>    
-            </div>
+            </div> -->
 
             <div class="item">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-check" aria-hidden="true"></i> Thanh Toán</button>
+                    Thanh toán khi nhận hàng</button>
             </div>
         </div>
         <!--End_four-button -->
@@ -65,18 +65,40 @@
 
     <!--Begin_navbar_category-->
     <nav class="navbar">
-        <div class="categories-main"><i class="fa fa-bars" aria-hidden="true"></i>
-            <a class="" href="#"> DANH MỤC SẢN PHẨM</a>
+        <div class="categories-main"><!-- <i class="fa fa-bars" aria-hidden="true"></i>-->
+            <a class="" href="#"> TRANG CHỦ</a> 
         </div>
         <div class="channel-entrance">
-            <a href="#">GIỚI THIỆU</a>
-            <a href="#">KHUYẾN MÃI</a>
-            <a href="#">BÁN CHẠY</a>
-            <a href="#">XU HƯỚNG MỚI</a>
+           <?php
+                $dsdanhMucSanPhamCha = DB::table('danh_muc_san_pham')->where('id_danh_muc_san_pham_cha', 0)->get();
+           ?>
+            
+            @foreach ($dsdanhMucSanPhamCha  as $danhMucSanPhamCha) 
+             <div class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+                             {{ $danhMucSanPhamCha->ten }}  <span class="caret"></span></a>
+                     
+              <ul class="dropdown-menu">
+              <?php  
+              
+                 $dsdanhMucSanPhamCon = DB::table('danh_muc_san_pham')->where('id_danh_muc_san_pham_cha', $danhMucSanPhamCha->id)->get();
+               ?>
+                 @foreach ($dsdanhMucSanPhamCon  as $danhMucSanPhamCon) 
+                <li><a href="#">{{ $danhMucSanPhamCon->ten }}</a></li>
+                @endforeach
+                </ul>          
+               
+            </div>
+         @endforeach
+          
+        
+             <a href="#"> KHUYẾN MÃI</a>
+
+        
         </div>
     </nav>
 
-    <nav class="main-nav">
+    <!-- <nav class="main-nav">
         <ul>
         @if(isset($danhmuc))
             @foreach ($danhmuc  as $danhMucSanPham) 
@@ -92,7 +114,7 @@
             @endforeach
         @endif
         </ul>
-    </nav>
+    </nav>-->
     <!--End_navbar_category-->
 
     <!--Begin_Carousel-->

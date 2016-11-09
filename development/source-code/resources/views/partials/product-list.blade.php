@@ -1,3 +1,20 @@
+<div class="sort-list">
+<h2>Lọc tìm kiếm</h2>
+<hr>
+
+<h3>Chiều dài</h3>
+<ul>
+<li><a href="#">36</a></li>
+<li><a href="#">37</a></li>
+<li><a href="#">38</a></li>
+<li><a href="#">39</a></li>
+</ul>
+
+
+
+
+</div>
+
 <div class="product-list">
     @if (count($dsSanPham) > 0)
         @foreach ($dsSanPham as $sanPham)

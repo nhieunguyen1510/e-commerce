@@ -20,6 +20,21 @@ class DanhMucController extends Controller
     public function index()
     {
         //
+        $idDanhMuc = $request->danhmuc;
+        $dsDanhMucSanPham = DanhMucSanPham::all();
+        $dsSanPham=SanPham::where('ten', 'LIKE', '%BMN%')->get();;
+        return view('pages.danh-sach-san-pham',compact('dsSanPham','dsDanhMucSanPham','idDanhMuc'));
+
+         $splittedDanhMucSlug = explode("-", $danhMucSlug);
+        $idDanhMuc = $splittedDanhMucSlug[count($splittedDanhMucSlug)-1];
+        $danhMucIns = DanhMucSanPham::where('id', $idDanhMuc)->first();
+        // $ten = $danhMucIns[0]->ten;
+        $dsSanPhamTheoIdDanhMuc = [];
+        // if($idDanhMucDec) :
+        $dsSanPhamTheoIdDanhMuc = SanPham::where('id_danh_muc_san_pham', $idDanhMuc)->get();
+        // endif;
+        $dsDanhMucSanPham = DanhMucSanPham::all();
+        return view('pages.danh-sach-san-pham',['dsSanPham' => $dsSanPhamTheoIdDanhMuc,'dsDanhMucSanPham' => $dsDanhMucSanPham]);
     }
 
     /**
@@ -30,6 +45,7 @@ class DanhMucController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
@@ -55,12 +71,13 @@ class DanhMucController extends Controller
         $idDanhMuc = $splittedDanhMucSlug[count($splittedDanhMucSlug)-1];
         $danhMucIns = DanhMucSanPham::where('id', $idDanhMuc)->first();
         // $ten = $danhMucIns[0]->ten;
-        $dsSanPhamTheoIdDanhMuc = [];
+        //$dsSanPhamTheoIdDanhMuc = [];
         // if($idDanhMucDec) :
         $dsSanPhamTheoIdDanhMuc = SanPham::where('id_danh_muc_san_pham', $idDanhMuc)->get();
         // endif;
-        $dsDanhMucSanPham = DanhMucSanPham::all();
-        return view('pages.danh-sach-san-pham',['dsSanPham' => $dsSanPhamTheoIdDanhMuc,'dsDanhMucSanPham' => $dsDanhMucSanPham]);
+        //$dsDanhMucSanPham = DanhMucSanPham::all();
+        return view('pages.danh-sach-san-pham',['dsSanPham' => $dsSanPhamTheoIdDanhMuc, 'danhMucIns'=> $danhMucIns]);
+        
     }
 
     /**
@@ -72,6 +89,7 @@ class DanhMucController extends Controller
     public function edit($id)
     {
         //
+        return "Create: ".$id;
     }
 
     /**

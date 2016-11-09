@@ -20,7 +20,9 @@ Route::resource('san-pham',$baseFolder.'SanPhamController', ['names' => [
 ]]);
 
 Route::resource('danh-muc',$baseFolder.'DanhMucController', ['names' => [
-    'show' => 'danhmuc.show'
+    'index' => 'danhmuc.index',
+    'show' => 'danhmuc.show',
+    'edit' => 'danhmuc.edit'
 ]]);
 
 Route::resource('giao-dich',$baseFolder.'GiaoDichController',['names' => [

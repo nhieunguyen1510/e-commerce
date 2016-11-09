@@ -63,40 +63,44 @@
 <!--Begin_navbar_category_banner-->
 <div class="banner">
 
-    <!--Begin_navbar_category-->
-    <nav class="navbar">
-        <div class="categories-main"><!-- <i class="fa fa-bars" aria-hidden="true"></i>-->
-            <a class="" href="#"> TRANG CHỦ</a> 
-        </div>
-        <div class="channel-entrance">
-           <?php
+<nav class="navbar">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+   
+    <ul class="nav navbar-nav">
+      
+      <?php
                 $dsdanhMucSanPhamCha = DB::table('danh_muc_san_pham')->where('id_danh_muc_san_pham_cha', 0)->get();
            ?>
-            
-            @foreach ($dsdanhMucSanPhamCha  as $danhMucSanPhamCha) 
-             <div class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
-                             {{ $danhMucSanPhamCha->ten }}  <span class="caret"></span></a>
-                     
-              <ul class="dropdown-menu">
-              <?php  
+           <li <?php if(!isset($dsSanPham)) echo 'class="active"'; ?>><a href="#">TRANG CHỦ</a></li>
+           @foreach ($dsdanhMucSanPhamCha  as $danhMucSanPhamCha) 
+      <li class="dropdown" <?php if(isset($danhMucIns) && ($danhMucIns->id_danh_muc_san_pham_cha==$danhMucSanPhamCha->id)) echo 'id="active"'; ?>><a class="dropdown-toggle" data-toggle="dropdown" href="{{  URL::route('danhmuc.show', $danhMucSanPhamCha->slug) }}">{{ $danhMucSanPhamCha->ten."  " }} <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+
+       
+        <?php  
               
                  $dsdanhMucSanPhamCon = DB::table('danh_muc_san_pham')->where('id_danh_muc_san_pham_cha', $danhMucSanPhamCha->id)->get();
                ?>
-                 @foreach ($dsdanhMucSanPhamCon  as $danhMucSanPhamCon) 
-                <li><a href="#">{{ $danhMucSanPhamCon->ten }}</a></li>
-                @endforeach
-                </ul>          
-               
-            </div>
-         @endforeach
-          
-        
-             <a href="#"> KHUYẾN MÃI</a>
 
-        
-        </div>
-    </nav>
+               @foreach ($dsdanhMucSanPhamCon  as $danhMucSanPhamCon) 
+              
+               <?php $slug_process = $danhMucSanPhamCon->slug."-".$danhMucSanPhamCon->id; ?>
+          <li><a href="{{  URL::route('danhmuc.show', $slug_process) }}">{{ $danhMucSanPhamCon->ten }}</a></li>
+          
+          @endforeach
+        </ul>
+      </li>
+      @endforeach
+      
+    </ul>
+    
+    </div>
+  </div>
+</nav>
+
+    <!--Begin_navbar_category-->
+   
 
     <!-- <nav class="main-nav">
         <ul>
@@ -169,3 +173,4 @@
     <!--End_Carousel-->
 </div>
 <!--End_navbar_category_banner-->
+

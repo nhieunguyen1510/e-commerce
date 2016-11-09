@@ -142,7 +142,14 @@
                             <span class="old-price">100000 đ</span>
                         </div>
                         <div class="product-name">
-                            <a href="#" title="AÓ TRỄ VAI PHỐI BÈO XINH - LOẠI QUẢNG CHÂU HẠNG 1">áo trễ vai phối bèo xinh - loại quảng châu hạng 1</a>
+                            <a href="#" title="AÓ TRỄ VAI PHỐI BÈO XINH - LOẠI QUẢNG CHÂU HẠNG 1">
+                            @if(isset($sanpham))
+                             @foreach ($sanpham  as $sp) 
+                           {{ $sp->mo_ta }} 
+                           @endforeach
+                            
+                            @endif
+                            </a>
                         </div>
                         <div class="product-icon-option">
                             <span title="Đã có 1 lượt mua"><i class="fa fa-tag" aria-hidden="true"></i> 1</span>
@@ -581,6 +588,13 @@
                 </div>
             </div>
         </div>
+
+         @if(isset($sanpham))
+                             @foreach ($sanpham  as $sp) 
+                           {!! $sp->mo_ta !!} 
+                           @endforeach
+                            
+                            @endif
         <!--End_list_sale_product-->
         <!--End_Items-->
     <scroll2top-btn></scroll2top-btn>

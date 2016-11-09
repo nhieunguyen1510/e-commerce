@@ -39,8 +39,9 @@ p {
       body .category-sidebar a:hover {
         text-decoration: none; }
   body .product-list {
-    float: left;
-    width: 70%; }
+    float: right;
+    width: 80%;
+    margin-top: 30px; }
     body .product-list a {
       color: black; }
       body .product-list a:hover {
@@ -65,7 +66,9 @@ p {
           text-align: center;
           text-transform: lowercase; }
           body .product-list .product-box .content .product-name a::first-letter {
-            text-transform: uppercase; } }
+            text-transform: uppercase; }
+  body .sort-list {
+    float: left; } }
 
 @media screen and (min-width: 480px) {
   body .product-header h4 {
@@ -369,7 +372,6 @@ footer {
   line-height: 32px; }
   .banner i {
     line-height: 32px;
-    margin-left: 6px;
     height: 100%; }
   .banner .navbar {
     background-color: #e60f1e;
@@ -379,34 +381,32 @@ footer {
       color: #fff;
       font-weight: bold; }
       .banner .navbar a:hover {
-        text-decoration: none; }
-  .banner .categories-main {
-    position: absolute;
-    background-color: #c9141b; }
-    .banner .categories-main a {
-      float: left;
-      text-align: center;
-      width: 185px; }
-    .banner .categories-main i {
-      float: left; }
-  .banner .channel-entrance {
-    margin-left: 188px; }
-    .banner .channel-entrance a {
-      float: left;
-      width: 16.6%;
-      text-align: center;
-      border-right: 1px solid #f62c38; }
-      .banner .channel-entrance a:hover {
+        text-decoration: none;
         background-color: #c9141b; }
-    .banner .channel-entrance .dropdown .dropdown-menu {
-      position: relative;
-      margin-top: 2%; }
-      .banner .channel-entrance .dropdown .dropdown-menu li {
-        text-align: center; }
-      .banner .channel-entrance .dropdown .dropdown-menu a {
-        color: black;
-        padding-left: 20px;
-        border-right: none; }
+      .banner .navbar a:focus {
+        background-color: #c9141b; }
+    .banner .navbar .active {
+      background-color: #c9141b; }
+      .banner .navbar .active:focus {
+        background-color: #e60f1e; }
+      .banner .navbar .active:hover {
+        background-color: #c9141b; }
+    .banner .navbar ul li {
+      width: 201px;
+      text-align: center; }
+    .banner .navbar ul li#active {
+      background-color: #c9141b; }
+      .banner .navbar ul li#active:focus {
+        background-color: #e60f1e; }
+      .banner .navbar ul li#active:hover {
+        background-color: #c9141b; }
+    .banner .navbar .dropdown .dropdown-menu li {
+      text-align: center; }
+      .banner .navbar .dropdown .dropdown-menu li a {
+        color: black; }
+        .banner .navbar .dropdown .dropdown-menu li a:hover {
+          text-decoration: none;
+          background-color: red; }
   .banner .main-nav {
     border-top: 1px solid transparent;
     border-left: 1px solid transparent;

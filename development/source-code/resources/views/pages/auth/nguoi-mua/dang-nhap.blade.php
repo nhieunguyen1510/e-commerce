@@ -5,7 +5,7 @@
 
     <div ng-controller="FormDangNhapCtrl" class="col-md-4 col-md-offset-4">
         <div class="panel panel-default">
-            <div class="panel-heading"><strong>Login</strong></div>
+            <div class="panel-heading"><strong>Đăng nhập</strong></div>
             <div class="panel-body">
 
                 @if(session('thongbao'))
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <p class="text-center"><a href="{{ URL::Route('dangky.index') }}">Quên mật khẩu?</a></p>
+                        <p class="text-center"><a href="{{ URL::Route('quenmatkhau.index') }}">Quên mật khẩu?</a></p>
                     </div>
                 </form>
             </div>

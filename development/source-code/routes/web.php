@@ -39,7 +39,12 @@ Route::post('dang-ky','Auth\TaiKhoanNguoiMua\DangKyController@postDangKy')->name
 Route::get('dang-nhap','Auth\TaiKhoanNguoiMua\DangNhapController@getDangNhap')->name('dangnhap.index');
 Route::post('dang-nhap','Auth\TaiKhoanNguoiMua\DangNhapController@postDangNhap')->name('dangnhap.post');
 Route::get('dang-xuat','Auth\TaiKhoanNguoiMua\DangNhapController@getdangxuat')->name('dangxuat.get');
-
+Route::get('quen-mat-khau','Auth\TaiKhoanNguoiMua\QuenMatKhauController@getQuenMatKhau')->name('quenmatkhau.index');
+Route::post('quen-mat-khau','Auth\TaiKhoanNguoiMua\QuenMatKhauController@postQuenMatKhau')->name('quenmatkhau.post');
+Route::get('xac-nhan-ma-khoi-phuc','Auth\TaiKhoanNguoiMua\XacNhanMaKhoiPhucController@getXacNhanMaKhoiPhuc')->name('xacnhanmakhoiphuc.index');
+Route::post('xac-nhan-ma-khoi-phuc','Auth\TaiKhoanNguoiMua\XacNhanMaKhoiPhucController@postXacNhanMaKhoiPhuc')->name('xacnhanmakhoiphuc.post');
+Route::get('khoi-phuc-mat-khau','Auth\TaiKhoanNguoiMua\KhoiPhucMatKhauController@getKhoiPhucMatKhau')->name('khoiphucmatkhau.index');
+Route::post('khoi-phuc-mat-khau','Auth\TaiKhoanNguoiMua\KhoiPhucMatKhauController@postKhoiPhucMatKhau')->name('khoiphucmatkhau.post');
 
 
 

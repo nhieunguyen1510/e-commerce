@@ -2,7 +2,7 @@
 <nav class="navbar navbar-default navbar-light" role="navigation">
     <div class="container">
         <ul class="nav navbar-nav">
-            <li><a href="#">Kênh Người Bán</a></li>
+            <li><a href="{{ URL::Route('dangnhap.nguoiban.index') }}">Kênh Người Bán</a></li>
             <li><a href="#">Trợ Giúp</a></li>
         </ul>
 

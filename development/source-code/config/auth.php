@@ -50,6 +50,11 @@ return [
             'driver' => 'session',
             'provider' => 'quan_tri_vien',
         ],
+
+        'nguoi_ban' => [
+            'driver' => 'session',
+            'provider' => 'TaiKhoanNguoiBan',
+        ],
     ],
 
     /*
@@ -78,6 +83,11 @@ return [
         'TaiKhoanNguoiMua' => [
             'driver' => 'eloquent',
             'model' => App\TaiKhoanNguoiMua::class,
+        ],
+
+        'TaiKhoanNguoiBan' => [
+            'driver' => 'eloquent',
+            'model' => App\TaiKhoanNguoiBan::class,
         ],
 
         'quan_tri_vien' => [

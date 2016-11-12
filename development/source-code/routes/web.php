@@ -79,3 +79,29 @@ Route::post('khoi-phuc-mat-khau','Auth\TaiKhoanNguoiMua\KhoiPhucMatKhauControlle
 //     Route::get('dang-nhap','QuanTriVienAuth\DangNhapController@getDangNhap')->name('admin.dangnhap.index');
 //     Route::post('dang-nhap','QuanTriVienAuth\DangNhapController@postDangNhap')->name('admin.dangnhap.post');
 // });
+
+
+Route::group(['prefix'=>'nguoiban'], function(){
+    Route::get('dang-ky','Auth\TaiKhoanNguoiBan\DangKyController@getDangKy')->name('dangky.nguoiban.index');
+    Route::post('dang-ky','Auth\TaiKhoanNguoiBan\DangKyController@postDangKy')->name('dangky.nguoiban.post');
+    Route::get('dang-nhap','Auth\TaiKhoanNguoiBan\DangNhapController@getDangNhap')->name('dangnhap.nguoiban.index');
+    Route::post('dang-nhap','Auth\TaiKhoanNguoiBan\DangNhapController@postDangNhap')->name('dangnhap.nguoiban.post');
+    Route::get('dang-xuat','Auth\TaiKhoanNguoiBan\DangNhapController@getDangXuat')->name('dangxuat.nguoiban.index');
+
+});
+
+
+Route::group(['prefix'=>'nguoiban','middleware'=>'nguoiban'], function(){
+
+
+   //admin/theloai/danhsach
+    Route::group(['prefix'=>'sanpham'], function(){
+        Route::get('danhsach', 'Web\TaiKhoanNguoiBan\SanPhamController@index');
+
+        Route::get('sua', 'admin\LoaiSanPhamController@getSua');
+
+        Route::get('them', 'admin\LoaiSanPhamController@getThem');
+
+    });
+
+});

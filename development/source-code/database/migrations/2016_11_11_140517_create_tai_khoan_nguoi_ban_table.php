@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNguoiBanTable extends Migration
+class CreateTaiKhoanNguoiBanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNguoiBanTable extends Migration
      */
     public function up()
     {
-         Schema::create('nguoi_ban', function (Blueprint $table) {
+         Schema::create('tai_khoan_nguoi_ban', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten_dang_nhap')->unique();
             $table->string('mat_khau');
@@ -40,6 +40,6 @@ class CreateNguoiBanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nguoi_ban');
+        Schema::dropIfExists('tai_khoan_nguoi_ban');
     }
 }

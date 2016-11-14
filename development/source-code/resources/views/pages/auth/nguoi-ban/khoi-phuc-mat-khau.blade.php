@@ -1,7 +1,20 @@
-@extends('layouts.main')
+<!DOCTYPE html>
+<html ng-app="minxApp" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8" name="csrf-token" content="{{ csrf_token() }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('title','Khôi phục mật khẩu')
-@section('content')
+    <title>Khôi phục mật khẩu </title>
+
+      @include('partials.css-assets')
+      @include('partials.js-assets')
+     
+  </head>
+
+  <body>
 
     <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default">
@@ -14,7 +27,7 @@
                     </div>
                 @endif
 
-                <form id="formKhoiPhucMatKhau" name="formKhoiPhucMatKhau" action="{{ URL::Route('khoiphucmatkhau.post') }}" method="POST" role="form">
+                <form id="formKhoiPhucMatKhau" name="formKhoiPhucMatKhau" action="{{ URL::Route('khoiphucmatkhau.nguoiban.post') }}" method="POST" role="form">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="txtMatKhau">Mật khẩu mới </label>
@@ -38,4 +51,6 @@
             </div>
         </div>
     </div>
-@endsection
+
+    </body>
+</html>

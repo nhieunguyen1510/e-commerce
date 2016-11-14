@@ -87,6 +87,12 @@ Route::group(['prefix'=>'nguoiban'], function(){
     Route::get('dang-nhap','Auth\TaiKhoanNguoiBan\DangNhapController@getDangNhap')->name('dangnhap.nguoiban.index');
     Route::post('dang-nhap','Auth\TaiKhoanNguoiBan\DangNhapController@postDangNhap')->name('dangnhap.nguoiban.post');
     Route::get('dang-xuat','Auth\TaiKhoanNguoiBan\DangNhapController@getDangXuat')->name('dangxuat.nguoiban.index');
+    Route::get('quen-mat-khau','Auth\TaiKhoanNguoiBan\QuenMatKhauController@getQuenMatKhau')->name('quenmatkhau.nguoiban.index');
+    Route::post('quen-mat-khau','Auth\TaiKhoanNguoiBan\QuenMatKhauController@postQuenMatKhau')->name('quenmatkhau.nguoiban.post');
+    Route::get('xac-nhan-ma-khoi-phuc','Auth\TaiKhoanNguoiBan\XacNhanMaKhoiPhucController@getXacNhanMaKhoiPhuc')->name('xacnhanmakhoiphuc.nguoiban.index');
+    Route::post('xac-nhan-ma-khoi-phuc','Auth\TaiKhoanNguoiBan\XacNhanMaKhoiPhucController@postXacNhanMaKhoiPhuc')->name('xacnhanmakhoiphuc.nguoiban.post');
+    Route::get('khoi-phuc-mat-khau','Auth\TaiKhoanNguoiBan\KhoiPhucMatKhauController@getKhoiPhucMatKhau')->name('khoiphucmatkhau.nguoiban.index');
+    Route::post('khoi-phuc-mat-khau','Auth\TaiKhoanNguoiBan\KhoiPhucMatKhauController@postKhoiPhucMatKhau')->name('khoiphucmatkhau.nguoiban.post');
 
 });
 

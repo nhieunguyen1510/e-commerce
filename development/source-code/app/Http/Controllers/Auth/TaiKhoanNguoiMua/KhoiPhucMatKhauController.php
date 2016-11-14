@@ -23,8 +23,8 @@ class KhoiPhucMatKhauController extends Controller
     {
         $matKhau = $request->txtMatKhau;
         $matKhauNhapLai = $request->txtMatKhauNhapLai; 
-        $email = $request->email;
-        $maKhoiPhuc = $request->maKhoiPhuc;
+        $email = $request->txtEmail;
+        $maKhoiPhuc = $request->txtMaKhoiPhuc;
         if ($matKhau!=$matKhauNhapLai)
         {
             $request->session()->flash('thongbao', 'Mật khẩu không trùng khớp');

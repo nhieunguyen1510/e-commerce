@@ -13,11 +13,14 @@
 $baseFolder='Web\\';
 
 Route::get('/', $baseFolder.'TrangChuController@getTrangChu',['name' => 'trangchu.index']);
-
+Route::get('sanphamchitiet', $baseFolder.'SanPhamController@getCTSP',['name' => 'getCTSP']);
+Route::get('dangnhap', 'admin\DangNhapController@getDangNhap')->name('getDangNhap');
 Route::resource('san-pham',$baseFolder.'SanPhamController', ['names' => [
     'index' => 'sanpham.index',
     'show' => 'sanpham.show'
 ]]);
+
+
 
 Route::resource('danh-muc',$baseFolder.'DanhMucController', ['names' => [
     'index' => 'danhmuc.index',

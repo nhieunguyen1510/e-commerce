@@ -26,6 +26,14 @@
 <script src="/packages/iCheck/icheck.min.js"></script>
 <!-- Skycons -->
 <!--<script src="/packages/skycons/skycons.js"></script>-->
+<!--Hieu JS -->
+<script src="{{ URL::asset('assets/js/jquery.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/price-range.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/jquery.scrollUp.min.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/jquery.prettyPhoto.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/main.js')}}"></script>
+
 <!-- Flot -->
 <script src="/packages/Flot/jquery.flot.js"></script>
 <script src="/packages/Flot/jquery.flot.pie.js"></script>

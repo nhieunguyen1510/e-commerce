@@ -12,6 +12,14 @@
 <!-- Project CSS -->
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/app.css')}}">
 
+<!---Hieu CSS -->
+  <link href="{{ URL::asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ URL::asset('assets/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/css/prettyPhoto.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/css/price-range.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/css/animate.css')}}" rel="stylesheet">
+	<link href="{{ URL::asset('assets/css/main.css')}}" rel="stylesheet">
+	<link href="{{ URL::asset('assets/css/responsive.css')}}" rel="stylesheet">
 <!-- NProgress -->
 <link href="packages/nprogress/nprogress.css" rel="stylesheet">
 <!-- iCheck -->

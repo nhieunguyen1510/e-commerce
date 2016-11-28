@@ -61,6 +61,11 @@ class SanPhamController extends Controller
         return view('pages.san-pham',['sanPham' => $sanPhamIns]);
     }
 
+    public function getCTSP()
+    {
+        return view('pages.chi-tiet-san-pham');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

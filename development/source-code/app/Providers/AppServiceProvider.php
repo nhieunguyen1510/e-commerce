@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\DanhMucSanPham;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +31,9 @@ class AppServiceProvider extends ServiceProvider
             __DIR__ . '/../../node_modules/jqvmap' => public_path('packages/jqvmap'),
             __DIR__ . '/../../node_modules/flot' => public_path('packages/flot'),
         ], 'public');
+
+        $dsDanhMuc = DanhMucSanPham::all();
+        View::share('dsDanhMuc', $dsDanhMuc);
     }
 
     /**

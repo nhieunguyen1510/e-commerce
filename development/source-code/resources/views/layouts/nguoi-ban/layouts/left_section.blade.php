@@ -33,8 +33,8 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Sản phẩm <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{URL::Route('themsanpham.index')}}">Thêm sản phẩm</a></li>
-                      <li><a href="{{URL::Route('danhsachsanpham.index')}}">Danh sách sản phẩm</a></li>
+                      <li><a href="{{URL::Route('nguoiban-sanpham.create')}}">Thêm sản phẩm</a></li>
+                      <li><a href="{{URL::Route('nguoiban-sanpham.index')}}">Danh sách sản phẩm</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Thông tin cá nhân <span class="fa fa-chevron-down"></span></a>

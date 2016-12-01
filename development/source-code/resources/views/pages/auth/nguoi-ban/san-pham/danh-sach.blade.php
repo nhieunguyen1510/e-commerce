@@ -11,7 +11,7 @@
                     <li class="active">Danh sách sản phẩm</li>
                 </ul>
             </h2>
-            <button class="btn"><a href="/nguoiban/sanpham/them">Thêm mới</a></button>
+            <button class="btn"><a href="{{URL::Route('nguoiban-sanpham.create')}}">Thêm mới</a></button>
         </div>
 
         <div class="title_right">
@@ -19,7 +19,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Nhập mã hoặc tên sản phẩm" name="search_input" id="search_input">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" onclick="search_function()">Tìm</button>
+                        <button class="btn btn-default" type="button">Tìm</button>
                       </span>
                 </div>
             </div>
@@ -33,153 +33,44 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Default Example <small>Users</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a>
-                                </li>
-                                <li><a href="#">Settings 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
+                    <h2>Danh sách sản phẩm</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                    </p>
                     <table id="datatable" class="table table-striped table-bordered" name="datatable">
                         <thead>
                             <tr>
-                                <th>Mã loại</th>
-                                <th>Tên loại</th>
+                                <th>#</th>
+                                <th>Tên</th>
+                                <th>Số lượng tồn kho</th>
+                                <th>Đơn giá gốc</th>
+                                <th>Slug</th>
+                                <th>Tình trạng</th>
                                 <th>Chức năng</th>
-
                             </tr>
                         </thead>
-
-
                         <tbody>
+                            @foreach($dsSanPham as $key=>$sanPham)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
+                                <td>{{$key+1}}</td>
+                                <td>{{$sanPham->ten}}</td>
+                                <td>{{$sanPham->so_luong_ton_kho}}</td>
+                                <td>{{$sanPham->don_gia_goc}}</td>
+                                <td>{{$sanPham->slug}}</td>
+                                <td>{{$sanPham->tinh_trang->tinh_trang}}</td>
                                 <td>
                                     <center>
-                                        <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                                        <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                                        <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                        <a href="{{URL::Route('nguoiban-sanpham.show', ['idSanPham' => $sanPham->id])}}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Xem </a>
+                                        <a href="{{URL::Route('nguoiban-sanpham.edit', ['idSanPham' => $sanPham->id])}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Sửa </a>
+                                        <a href="{{URL::Route('nguoiban-sanpham.destroy', ['idSanPham' => $sanPham->id])}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Xóa </a>
                                     </center>
                                 </td>
-
                             </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>
-                                    <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                                    <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ashton Cox</td>
-                                <td>Junior Technical Author</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-
-                            </tr>
+                            @endforeach
                         </tbody>
-
-
-
                     </table>
 
-                    <div class="pagination_div">
-                        <ul class="pagination pagination-sm">
-                            <li>
-                                <a href="#">
-                                    <<</a>
-                            </li>
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">>></a></li>
-                        </ul>
-
-
-                    </div>
+                    {{$dsSanPham->links()}}
 
                 </div>
             </div>

@@ -14,7 +14,10 @@ class SanPhamController extends Controller
     
     public function index()
     {
-        return view ('pages.auth.nguoi-ban.san-pham.danh-sach');
+        $dsSanPham = SanPham::orderBy('ngay_tao', 'desc')
+                        ->paginate(15);
+        return view ('pages.auth.nguoi-ban.san-pham.danh-sach')
+                    ->with('dsSanPham', $dsSanPham);
     }
 
     public function create()
@@ -30,24 +33,28 @@ class SanPhamController extends Controller
      */
     public function store(Request $request)
     {
+        // return json_encode(Auth::guard('nguoi_ban')->user()->id);
         $sanPhamIns = new SanPham();
         $sanPhamIns['id_danh_muc_san_pham'] = $request->txt_loaidanhmuc;
-        $sanPhamIns['id_nguoi_ban'] = Auth::user()->id;
+        $sanPhamIns['id_nguoi_ban'] = Auth::guard('nguoi_ban')->user()->id;
         $sanPhamIns['ten'] = $request->txt_tensp;
-        $sanPhamIns['anh_dai_dien'] = $request->anh_dai_dien;
-        $sanPhamIns['anh_chi_tiet_1'] = $request->anh_ct_1;
-        $sanPhamIns['anh_chi_tiet_2'] = $request->anh_ct_2;
-        $sanPhamIns['anh_chi_tiet_3'] = $request->anh_ct_3;
+        // Do chưa làm up ảnh nên để giá trị fake
+        $sanPhamIns['anh_dai_dien'] = '';
+        $sanPhamIns['anh_chi_tiet_1'] = '';
+        $sanPhamIns['anh_chi_tiet_2'] = '';
+        $sanPhamIns['anh_chi_tiet_3'] = '';
         $sanPhamIns['mo_ta'] = $request->txt_mota;
         $sanPhamIns['so_luong_ton_kho'] = $request->txt_soluongton;
         $sanPhamIns['don_gia_goc'] = $request->txt_giaban;
         $sanPhamIns['phan_tram_khuyen_mai'] = $request->txt_phantramKM;
         $sanPhamIns['nha_san_xuat'] = $request->txt_nsx;
-        // $sanPhamIns['slug'] = $request->txt_mota;
+        // Slug được tự tạo ra từ tên của sản phẩm
+        $sanPhamIns['slug'] = str_slug($request->txt_tensp);
         $sanPhamIns['id_tinh_trang'] = 1;
-        $sanPhamIns['ngay_tao'] = date("Y-m-d H:i:s");
-        $sanPhamIns['ngay_cap_nhat'] = date("Y-m-d H:i:s");   
-
+        // $sanPhamIns['ngay_tao'] = date("Y-m-d H:i:s");
+        // $sanPhamIns['ngay_cap_nhat'] = date("Y-m-d H:i:s");
+        $sanPhamIns->save();
+        return redirect()->route('nguoiban-sanpham.index');
     }
 
     /**
@@ -56,9 +63,11 @@ class SanPhamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idSanPham)
     {
-        //
+        $sanPham = SanPham::find($idSanPham);
+        return view ('pages.auth.nguoi-ban.san-pham.chi-tiet')
+                    ->with('sanPham', $sanPham);
     }
 
     /**
@@ -69,7 +78,7 @@ class SanPhamController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view ('pages.auth.nguoi-ban.san-pham.sua');
     }
 
     /**

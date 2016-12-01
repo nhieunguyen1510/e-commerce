@@ -20,6 +20,7 @@
 <script type="text/javascript" src="{{ URL::asset('app/controllers/formdangky.controller.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('app/controllers/formdangnhap-nguoiban.controller.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('app/controllers/formdangky-nguoiban.controller.js')}}"></script>
+<script type="text/javascript" src="{{ URL::asset('app/controllers/formthemsanpham-nguoiban.controller')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('app/services/sanpham.service.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('app/directives/scroll2top-btn.directive.js')}}"></script>
 

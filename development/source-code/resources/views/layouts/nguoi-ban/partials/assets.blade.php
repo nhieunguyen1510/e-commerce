@@ -15,6 +15,7 @@
 <script type="text/javascript" src="{{ URL::asset('packages/jquery/jquery.min.js')}}"></script>
 
 <script type="text/javascript" src="{{ URL::asset('packages/angular/angular.min.js')}}"></script>
+<script type="text/javascript" src="{{ URL::asset('packages/angular-froala/src/angular-froala.js')}}"></script>
 <!--
 <script type="text/javascript" src="{{ URL::asset('packages/froala-editor/js/froala_editor.min.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('packages/froala-editor/js/plugins/align.min.js')}}"></script>
@@ -43,16 +44,18 @@
 <script type="text/javascript" src="{{ URL::asset('app/directives/scroll2top-btn.directive.js')}}"></script>
 
 -->
+<script type="text/javascript" src="{{ URL::asset('app/app.module.js')}}"></script>
+<script type="text/javascript" src="{{ URL::asset('app/controllers/formthemsanpham-nguoiban.controller.js')}}"></script>
 
 <!-- Bootstrap -->
     <!-- NProgress -->
     <!--Cmt temp <link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/nprogress/nprogress.css')}}">-->
     <!-- iCheck -->
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/iCheck/skins/flat/green.css')}}">
+    <!--<link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/iCheck/skins/flat/green.css')}}">-->
     <!-- bootstrap-progressbar -->
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}">
+    <!--<link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}">-->
     <!-- JQVMap -->
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/jqvmap/dist/jqvmap.min.css')}}">    
+    <!--<link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/jqvmap/dist/jqvmap.min.css')}}">    -->
     
 
     <!-- Chức năng search tên trong datatable -->
@@ -63,42 +66,42 @@
     <!-- Bootstrap -->
     <script type="text/javascript" src="{{ URL::asset('packages/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- FastClick -->
-    <script type="text/javascript" src="{{ URL::asset('packages/fastclick/lib/fastclick.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/fastclick/lib/fastclick.js')}}"></script>-->
     <!-- NProgress -->
-    <script type="text/javascript" src="{{ URL::asset('packages/nprogress/nprogress.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/nprogress/nprogress.js')}}"></script>-->
     <!-- Chart.js -->
-    <script type="text/javascript" src="{{ URL::asset('packages/Chart.js/dist/Chart.min.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/Chart.js/dist/Chart.min.js')}}"></script>-->
     <!-- gauge.js -->
-    <script type="text/javascript" src="{{ URL::asset('packages/gauge.js/dist/gauge.min.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/gauge.js/dist/gauge.min.js')}}"></script>-->
     <!-- bootstrap-progressbar -->
-    <script type="text/javascript" src="{{ URL::asset('packages/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>-->
     <!-- iCheck -->
-    <script type="text/javascript" src="{{ URL::asset('packages/iCheck/icheck.min.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/iCheck/icheck.min.js')}}"></script>-->
     <!-- Skycons -->
-    <script type="text/javascript" src="{{ URL::asset('packages/skycons/skycons.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/skycons/skycons.js')}}"></script>-->
     <!-- Flot -->
-    <script type="text/javascript" src="{{ URL::asset('packages/Flot/jquery.flot.js')}}"></script>
-    <script type="text/javascript" src="{{ URL::asset('packages/Flot/jquery.flot.pie.js')}}"></script>
-    <script type="text/javascript" src="{{ URL::asset('packages/Flot/jquery.flot.time.js')}}"></script>
-    <script type="text/javascript" src="{{ URL::asset('packages/Flot/jquery.flot.stack.js')}}"></script>
-    <script type="text/javascript" src="{{ URL::asset('packages/Flot/jquery.flot.resize.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/Flot/jquery.flot.js')}}"></script>-->
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/Flot/jquery.flot.pie.js')}}"></script>-->
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/Flot/jquery.flot.time.js')}}"></script>-->
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/Flot/jquery.flot.stack.js')}}"></script>-->
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/Flot/jquery.flot.resize.js')}}"></script>-->
 
     <!-- Flot plugins -->
-    <script type="text/javascript" src="{{ URL::asset('packages/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
-    <script type="text/javascript" src="{{ URL::asset('packages/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
-    <script type="text/javascript" src="{{ URL::asset('packages/flot.curvedlines/curvedLines.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>-->
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/flot-spline/js/jquery.flot.spline.min.js')}}"></script>-->
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/flot.curvedlines/curvedLines.js')}}"></script>-->
 
     <!-- DateJS -->
-    <script type="text/javascript" src="{{ URL::asset('packages/DateJS/build/date.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/DateJS/build/date.js')}}"></script>-->
 
     <!-- JQVMap -->
-    <script type="text/javascript" src="{{ URL::asset('packages/jqvmap/dist/jquery.vmap.js')}}"></script>
-    <script type="text/javascript" src="{{ URL::asset('packages/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-    <script type="text/javascript" src="{{ URL::asset('packages/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/jqvmap/dist/jquery.vmap.js')}}"></script>-->
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>-->
+    <!--<script type="text/javascript" src="{{ URL::asset('packages/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>-->
 
     <!-- bootstrap-daterangepicker -->
     <script type="text/javascript" src="{{ URL::asset('js/moment/moment.min.js')}}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/datepicker/daterangepicker.js')}}"></script>
+    <!--<script type="text/javascript" src="{{ URL::asset('js/datepicker/daterangepicker.js')}}"></script>-->
 
     <!-- Custom Theme Scripts -->
     <script type="text/javascript" src="{{ URL::asset('assets/js/custom.min.js')}}"></script>

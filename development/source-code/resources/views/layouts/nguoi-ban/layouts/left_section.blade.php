@@ -33,21 +33,20 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Sản phẩm <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.php?link=the_loai">Loại sản phẩm</a></li>
-                      <li><a href="index.php?link=san_pham">Sản phẩm</a></li>
+                      <li><a href="{{URL::Route('themsanpham.index')}}">Thêm sản phẩm</a></li>
+                      <li><a href="{{URL::Route('danhsachsanpham.index')}}">Danh sách sản phẩm</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Thông tin cá nhân <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Nhân viên </a></li>
-                      <li><a href="#">Khách hàng</a></li>
+                      <li><a href="#">Chứng từ nạp tiền </a></li>
+                      <li><a href="#">Thông tin</a></li>
                       
                     </ul>
                   </li>
                  
                   <li><a><i class="fa fa-table"></i> Đơn hàng<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="/admin/donhang/them">Tạo đơn hàng</a></li>
                       <li><a href="/admin/donhang/danhsach">Danh sách đơn hàng</a></li>
                       <li><a href="tables_dynamic.html">Đơn hàng chưa xử lý</a></li>
                       <li><a href="tables_dynamic.html">Đơn hàng đã xử lý</a></li>

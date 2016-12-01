@@ -26,7 +26,7 @@ class DangNhapController extends Controller
         }
         else
         {
-            return redirect('dang-nhap')->with('thongbao','Đăng nhập không thành công');
+            return redirect('nguoiban/dang-nhap')->with('thongbao','Đăng nhập không thành công');
         }
     }
     public function getDangXuat()

@@ -103,13 +103,15 @@ Route::group(['prefix'=>'nguoiban'], function(){
 Route::group(['prefix'=>'nguoiban','middleware'=>'nguoiban'], function(){
 
 
-   //admin/theloai/danhsach
+   //nguoiban/sanpham/danhsach
     Route::group(['prefix'=>'sanpham'], function(){
-        Route::get('danhsach', 'Web\TaiKhoanNguoiBan\SanPhamController@index');
+        Route::get('danhsach', 'Web\TaiKhoanNguoiBan\SanPhamController@index')->name('danhsachsanpham.index');
 
-        Route::get('sua', 'admin\LoaiSanPhamController@getSua');
+        Route::get('sua', 'Web\TaiKhoanNguoiBan\SanPhamController@indexSua');
 
-        Route::get('them', 'admin\LoaiSanPhamController@getThem');
+        Route::get('them', 'Web\TaiKhoanNguoiBan\SanPhamController@create')->name('themsanpham.index');
+
+        Route::get('them', 'Web\TaiKhoanNguoiBan\SanPhamController@store')->name('themsanpham.post');
 
     });
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="minxApp">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -12,7 +12,7 @@
     
   </head>
 
-  <body class="nav-md">
+  <body class="nav-md dashboard-nguoiban">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -71,7 +71,7 @@
 
     
     <!-- Flot -->
-    <script>
+    <!--<script>
       $(document).ready(function() {
         var data1 = [
           [gd(2012, 1, 1), 17],
@@ -143,11 +143,11 @@
           return new Date(year, month - 1, day).getTime();
         }
       });
-    </script>
+    </script>-->
     <!-- /Flot -->
 
     <!-- JQVMap -->
-    <script>
+    <!--<script>
       $(document).ready(function(){
         $('#world-map-gdp').vectorMap({
             map: 'world_en',
@@ -162,11 +162,11 @@
             normalizeFunction: 'polynomial'
         });
       });
-    </script>
+    </script>-->
     <!-- /JQVMap -->
 
     <!-- Skycons -->
-    <script>
+    <!--<script>
       $(document).ready(function() {
         var icons = new Skycons({
             "color": "#73879C"
@@ -183,11 +183,11 @@
 
         icons.play();
       });
-    </script>
+    </script>-->
     <!-- /Skycons -->
 
     <!-- Doughnut Chart -->
-    <script>
+    <!--<script>
       $(document).ready(function(){
         var options = {
           legend: false,
@@ -226,11 +226,11 @@
           options: options
         });
       });
-    </script>
+    </script>-->
     <!-- /Doughnut Chart -->
     
     <!-- bootstrap-daterangepicker -->
-    <script>
+    <!--<script>
       $(document).ready(function() {
 
         var cb = function(start, end, label) {
@@ -300,11 +300,11 @@
           $('#reportrange').data('daterangepicker').remove();
         });
       });
-    </script>
+    </script>-->
     <!-- /bootstrap-daterangepicker -->
 
     <!-- gauge.js -->
-    <script>
+    <!--<script>
       var opts = {
           lines: 12,
           angle: 0,
@@ -327,7 +327,7 @@
       gauge.animationSpeed = 32;
       gauge.set(3200);
       gauge.setTextField(document.getElementById("gauge-text"));
-    </script>
+    </script>-->
     <!-- /gauge.js -->
 
      

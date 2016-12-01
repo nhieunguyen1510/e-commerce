@@ -70,11 +70,11 @@ Route::group(['prefix'=>'nguoiban','middleware'=>'nguoiban'], function(){
 
    //nguoiban/sanpham/danhsach
     Route::group(['prefix'=>'sanpham'], function(){
+        Route::get('them', 'Web\TaiKhoanNguoiBan\SanPhamController@edit')->name('nguoiban-sanpham.create');
         Route::get('danhsach', 'Web\TaiKhoanNguoiBan\SanPhamController@index')->name('nguoiban-sanpham.index');
         Route::get('{idSanPham}/sua', 'Web\TaiKhoanNguoiBan\SanPhamController@edit')->name('nguoiban-sanpham.edit');
         Route::put('{idSanPham}/sua', 'Web\TaiKhoanNguoiBan\SanPhamController@update')->name('nguoiban-sanpham.update');
         Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\SanPhamController@show')->name('nguoiban-sanpham.show');
-        Route::get('them', 'Web\TaiKhoanNguoiBan\SanPhamController@create')->name('nguoiban-sanpham.create');
         Route::post('them', 'Web\TaiKhoanNguoiBan\SanPhamController@store')->name('nguoiban-sanpham.store');
         Route::delete('{idSanPham}', 'Web\TaiKhoanNguoiBan\SanPhamController@destroy')->name('nguoiban-sanpham.destroy');
     });

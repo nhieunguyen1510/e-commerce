@@ -26,6 +26,7 @@ class CreateSanPhamTable extends Migration
             $table->integer('so_luong_ton_kho');
             $table->integer('don_gia_goc');
             $table->integer('phan_tram_khuyen_mai')->default(0);
+            $table->integer('gia_ban_hien_tai')->nullable();
             $table->string('nha_san_xuat');
             $table->integer('id_tinh_trang');
             $table->timestamp('ngay_tao')->default(\DB::raw('CURRENT_TIMESTAMP'));

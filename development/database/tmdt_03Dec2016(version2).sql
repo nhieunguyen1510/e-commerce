@@ -285,7 +285,7 @@ CREATE TABLE `tai_khoan_nguoi_ban` (
   UNIQUE KEY `tai_khoan_nguoi_ban_ten_dang_nhap_unique` (`ten_dang_nhap`),
   UNIQUE KEY `tai_khoan_nguoi_ban_email_unique` (`email`),
   UNIQUE KEY `tai_khoan_nguoi_ban_ten_shop_unique` (`ten_shop`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -294,6 +294,7 @@ CREATE TABLE `tai_khoan_nguoi_ban` (
 
 LOCK TABLES `tai_khoan_nguoi_ban` WRITE;
 /*!40000 ALTER TABLE `tai_khoan_nguoi_ban` DISABLE KEYS */;
+INSERT INTO `tai_khoan_nguoi_ban` VALUES (1,'xuan','$2y$10$gFZNhMqFUMQlVrP3KOUJ0.SYKG47qrPz0YbdhYsgndrlXuN/4F.hm','xuan123@gmail.com','miu miu','no-avatar',1,'huynh','xuan',NULL,NULL,NULL,NULL,0,NULL,'2016-12-03 06:29:16','2016-12-03 06:29:16');
 /*!40000 ALTER TABLE `tai_khoan_nguoi_ban` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -375,7 +376,7 @@ CREATE TABLE `tinh_trang` (
   `bang` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `thuoc_tinh` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -384,6 +385,7 @@ CREATE TABLE `tinh_trang` (
 
 LOCK TABLES `tinh_trang` WRITE;
 /*!40000 ALTER TABLE `tinh_trang` DISABLE KEYS */;
+INSERT INTO `tinh_trang` VALUES (1,'Còn hàng','san_pham','id_tinh_trang'),(2,'Hết hàng','san_pham','id_tinh_trang');
 /*!40000 ALTER TABLE `tinh_trang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -425,4 +427,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-03 20:24:56
+-- Dump completed on 2016-12-03 20:33:48

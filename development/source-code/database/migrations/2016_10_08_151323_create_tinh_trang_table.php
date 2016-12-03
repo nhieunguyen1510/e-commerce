@@ -16,7 +16,8 @@ class CreateTinhTrangTable extends Migration
         Schema::create('tinh_trang', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tinh_trang');
-            $table->string('bang_lien_quan');
+            $table->string('bang');
+            $table->string('thuoc_tinh');
         });
     }
 

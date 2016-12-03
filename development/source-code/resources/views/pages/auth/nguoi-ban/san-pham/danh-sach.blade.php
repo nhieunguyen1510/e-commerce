@@ -17,7 +17,7 @@
         <div class="title_right">
             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nhập mã hoặc tên sản phẩm" name="search_input" id="search_input">
+                    <input type="text" class="form-control" placeholder="Nhập tên sản phẩm" name="search_input" id="search_input">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">Tìm</button>
                       </span>
@@ -40,13 +40,12 @@
                     <table id="datatable" class="table table-striped table-bordered" name="datatable">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Tên</th>
-                                <th>Số lượng tồn kho</th>
-                                <th>Đơn giá gốc</th>
-                                <th>Slug</th>
-                                <th>Tình trạng</th>
-                                <th>Chức năng</th>
+                                <th class="col-md-1">STT</th>
+                                <th class="col-md-4">Tên sản phẩm</th>
+                                <th class="col-md-1">Số lượng</th>
+                                <th class="col-md-1">Giá bán</th>
+                                <th class="col-md-1">Tình trạng</th>
+                                <th class="col-md-4">Chức năng</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,14 +54,14 @@
                                 <td>{{$key+1}}</td>
                                 <td>{{$sanPham->ten}}</td>
                                 <td>{{$sanPham->so_luong_ton_kho}}</td>
-                                <td>{{$sanPham->don_gia_goc}}</td>
-                                <td>{{$sanPham->slug}}</td>
+                                <td>{{$sanPham->gia_ban_hien_tai}}</td>
                                 <td>{{$sanPham->tinh_trang->tinh_trang}}</td>
                                 <td>
                                     <center>
-                                        <a href="{{URL::Route('nguoiban-sanpham.show', ['idSanPham' => $sanPham->id])}}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Xem </a>
-                                        <a href="{{URL::Route('nguoiban-sanpham.edit', ['idSanPham' => $sanPham->id])}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Sửa </a>
-                                        <a href="{{URL::Route('nguoiban-sanpham.destroy', ['idSanPham' => $sanPham->id])}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Xóa </a>
+                                        <a href="{{URL::Route('sanpham.show', ['idSanPham' => $sanPham->id])}}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Xem chi tiết </a>
+                                        @if($sanPham->id_tinh_trang == 1)
+                                            <a href="{{URL::Route('nguoiban-sanpham.update', ['idSanPham' => $sanPham->id])}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hết hàng </a>
+                                        @endif
                                     </center>
                                 </td>
                             </tr>

@@ -22,7 +22,7 @@
                 <div class="x_content">
                     <br />
                     
-                    <form id="form_them_san_pham" name="form_them_san_pham" class="form-horizontal form-label-left" ng-submit="submitSanPham(form_them_san_pham.$valid, $event)" method="POST" action="{{URL::Route('nguoiban-sanpham.store')}}" novalidate>
+                    <form enctype="multipart/form-data" id="form_them_san_pham" name="form_them_san_pham" class="form-horizontal form-label-left" ng-submit="submitSanPham(form_them_san_pham.$valid, $event)" method="POST" action="{{URL::Route('nguoiban-sanpham.store')}}" novalidate>
                         {{ csrf_field() }}
 
                         <div class="form-group">
@@ -47,7 +47,7 @@
                                 <input type="text" name="txt_tensp" ng-model="txt_tensp" ng-required="true" ng-maxlength="255" class="form-control col-md-7 col-xs-12"  placeholder="Thêm tên sản phẩm vào đây"/>
                             </div>
                             <i class="fa fa-check text-success" ng-show="form_them_san_pham.txt_tensp.$dirty && form_them_san_pham.txt_tensp.$valid && isSubmitted"></i>
-                            <div ng-show="form_them_san_pham.txt_tensp.$dirty && form_them_san_pham.txt_tensp.$invalid && isSubmitted" class="text-danger">
+                            <div ng-show="(form_them_san_pham.txt_tensp.$dirty && form_them_san_pham.txt_tensp.$invalid) || isSubmitted" class="text-danger">
                                 <i class="fa fa-times text-danger"></i>
                                 <span ng-show="form_them_san_pham.txt_tensp.$error.required">Tên sản phẩm không được bỏ trống</span>
                                 <span ng-show="form_them_san_pham.txt_tensp.$error.maxlength">Tên sản phẩm không quá 255 ký tự</span>
@@ -59,15 +59,9 @@
                         </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <textarea id="txt_mota" name="txt_mota" rows="7" ng-model="txt_mota" ng-required="true" ng-maxlength="500" class="form-control ckeditor col-md-7 col-xs-12" placeholder="Thêm mô tả vào đây"></textarea>
-                                <!--<script type="text/javascript">
-                                    CKEDITOR.replace('txt_mota', {
-                                        customConfig: 'config.js',
-                                        toolbar: 'simple'
-                                    })
-                                </script>-->
                             </div>
                             <i class="fa fa-check text-success" ng-show="form_them_san_pham.txt_mota.$dirty && form_them_san_pham.txt_mota.$valid && isSubmitted"></i>
-                            <div ng-show="form_them_san_pham.txt_mota.$dirty && form_them_san_pham.txt_mota.$invalid && isSubmitted" class="text-danger">
+                            <div ng-show="(form_them_san_pham.txt_mota.$dirty && form_them_san_pham.txt_mota.$invalid) || isSubmitted" class="text-danger">
                                 <i class="fa fa-times text-danger"></i>
                                 <span ng-show="form_them_san_pham.txt_mota.$error.required">Mô tả sản phẩm không được bỏ trống</span>
                                 <span ng-show="form_them_san_pham.txt_mota.$error.maxlength">Mô tả sản phẩm không quá 500 ký tự</span>
@@ -81,7 +75,7 @@
                                 <input type="number" name="txt_giaban" ng-required="true" min="1" ng-model="txt_giaban" class="form-control col-md-7 col-xs-12"  placeholder="Thêm giá bán vào đây"/>
                             </div>
                             <i class="fa fa-check text-success" ng-show="form_them_san_pham.txt_giaban.$dirty && form_them_san_pham.txt_giaban.$valid && isSubmitted"></i>
-                            <div ng-show="form_them_san_pham.txt_giaban.$dirty && form_them_san_pham.txt_giaban.$invalid && isSubmitted" class="text-danger">
+                            <div ng-show="(form_them_san_pham.txt_giaban.$dirty || isSubmitted) && form_them_san_pham.txt_giaban.$invalid" class="text-danger">
                                 <i class="fa fa-times text-danger"></i>
                                 <span ng-show="form_them_san_pham.txt_giaban.$error.required">Giá bán sản phẩm không được bỏ trống</span>
                                 <span ng-show="form_them_san_pham.txt_giaban.$error.min">Giá sản phẩm ít nhất là 1</span>
@@ -100,7 +94,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Giá bán hiện tại <span class="required">*</span>
                         </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="number" name="txt_giaban_hientai" ng-required="true" class="form-control col-md-7 col-xs-12" ng-value="txt_giaban*(txt_phantramKM/100) | number:0" ng-readonly="true" placeholder="Giá hiện tại = Giá bán - Giá bán * phần trăm khuyến mãi"/>
+                                <input type="text" name="txt_giaban_hientai" ng-required="true" class="form-control col-md-7 col-xs-12" ng-value="getGiaBanHienTai(txt_giaban-txt_giaban*(txt_phantramKM/100))" ng-readonly="true" placeholder="Giá hiện tại = Giá bán - Giá bán * phần trăm khuyến mãi"/>
                             </div>
                         </div>
 
@@ -111,7 +105,7 @@
                                 <input type="number" name="txt_soluongton" ng-required="true" min=1 class="form-control col-md-7 col-xs-12" ng-model="txt_soluongton" placeholder="Thêm số lượng tồn vào đây"/>
                             </div>
                             <i class="fa fa-check text-success" ng-show="form_them_san_pham.txt_soluongton.$dirty && form_them_san_pham.txt_soluongton.$valid && isSubmitted"></i>
-                            <div ng-show="form_them_san_pham.txt_soluongton.$dirty && form_them_san_pham.txt_soluongton.$invalid && isSubmitted" class="text-danger">
+                            <div ng-show="(form_them_san_pham.txt_soluongton.$dirty || isSubmitted) && form_them_san_pham.txt_soluongton.$invalid" class="text-danger">
                                 <i class="fa fa-times text-danger"></i>
                                 <span ng-show="form_them_san_pham.txt_soluongton.$error.required">Số lượng tồn sản phẩm không được bỏ trống</span>
                                 <span ng-show="form_them_san_pham.txt_soluongton.$error.min">Số lượng tồn sản phẩm ít nhất là 1</span>
@@ -125,7 +119,7 @@
                                 <input type="text" name="txt_nsx" ng-required="true" ng-maxlength="255" ng-model="txt_nsx" class="form-control col-md-7 col-xs-12" placeholder="Thêm nhà sản xuất vào đây"/>
                             </div>
                             <i class="fa fa-check text-success" ng-show="form_them_san_pham.txt_nsx.$dirty && form_them_san_pham.txt_nsx.$valid && isSubmitted"></i>
-                            <div ng-show="form_them_san_pham.txt_nsx.$dirty && form_them_san_pham.txt_nsx.$invalid && isSubmitted" class="text-danger">
+                            <div ng-show="(form_them_san_pham.txt_nsx.$dirty && form_them_san_pham.txt_nsx.$invalid )|| isSubmitted" class="text-danger">
                                 <i class="fa fa-times text-danger"></i>
                                 <span ng-show="form_them_san_pham.txt_nsx.$error.required">Nhà sản xuất không được bỏ trống</span>
                                 <span ng-show="form_them_san_pham.txt_nsx.$error.maxlength">Nhà sản xuất không quá 255 ký tự</span>
@@ -135,28 +129,28 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Ảnh đại diện:</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="file" name="anh_dai_dien" id="anh_1">
+                                <input type="file" name="anh_dai_dien" id="anh_dai_dien" accept="image/*">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Ảnh chi tiết 1:</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="file" name="anh_ct_1" id="anh_ct_1">
+                                <input type="file" name="anh_ct_1" id="anh_ct_1" accept="image/*">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Ảnh chi tiết 2:</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="file" name="anh_ct_2" id="anh_ct_2">
+                                <input type="file" name="anh_ct_2" id="anh_ct_2" accept="image/*">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Ảnh chi tiết 3:</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="file" name="anh_ct_3" id="anh_ct_3">
+                                <input type="file" name="anh_ct_3" id="anh_ct_3" accept="image/*">
                             </div>
                         </div>
 

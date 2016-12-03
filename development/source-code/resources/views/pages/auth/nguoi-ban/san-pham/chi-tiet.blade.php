@@ -25,7 +25,7 @@
                     <form id="form_them_san_pham" name="form_them_san_pham" class="form-horizontal form-label-left" method="POST" action="/nguoiban/sanpham/them" novalidate>
                         {{ csrf_field() }}
 
-
+                        <img src="{{$anhDaiDien}}" />
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Loại danh mục</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">

@@ -45,12 +45,7 @@
                     </ul>
                   </li>
                  
-                  <li><a><i class="fa fa-table"></i> Đơn hàng<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="/admin/donhang/danhsach">Danh sách đơn hàng</a></li>
-                      <li><a href="tables_dynamic.html">Đơn hàng chưa xử lý</a></li>
-                      <li><a href="tables_dynamic.html">Đơn hàng đã xử lý</a></li>
-                    </ul>
+                  <li><a href="{{URL::Route('nguoiban-donhang.index', ['tinh_trang' => 3])}}"><i class="fa fa-table"></i> Đơn hàng</a>
                   </li>
 
                    <li><a><i class="fa fa-clone"></i>Kho hàng<span class="fa fa-chevron-down"></span></a>

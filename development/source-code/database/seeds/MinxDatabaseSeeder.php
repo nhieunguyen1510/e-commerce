@@ -19,10 +19,11 @@ class MinxDatabaseSeeder extends Seeder
         $quantityOfSanPhamRecords=100;
 
         // Then we will execute functions
-        //    self::seedTinhTrangTable();
-           self::seedDanhMucSanPhamTable();
+        self::seedDanhMucSanPhamTable();
+        self::seedTinhTrangTable();
+        self::seedTaiKhoanNguoiBanTable();
+        self::seedGiaoDichTable($randomString, $quantityOfSanPhamRecords);
         // self::seedSanPhamTable($randomString, $quantityOfSanPhamRecords);
-        // self::seedGiaoDichTable($randomString, $quantityOfSanPhamRecords);
         // self::seedTaiKhoanTable($randomString, $quantityOfSanPhamRecords);
         // self::seedChiTietGiaoDichTable($quantityOfSanPhamRecords);
     }
@@ -40,122 +41,121 @@ class MinxDatabaseSeeder extends Seeder
 
     private function seedTinhTrangTable()
     {
-        
-            DB::table('tinh_trang')->insert([
-                ['tinh_trang' => 'Còn hàng','bang_lien_quan' => 'san_pham'],
-                ['tinh_trang' => 'Hết hàng','bang_lien_quan' => 'san_pham']  
-                 ]);
-    
+        DB::table('tinh_trang')->insert([
+            ['id' => 1, 'tinh_trang' => 'Còn hàng', 'bang' => 'san_pham', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 2, 'tinh_trang' => 'Hết hàng', 'bang' => 'san_pham', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 3, 'tinh_trang' => 'Chưa liên lạc', 'bang' => 'giao_dich', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 4, 'tinh_trang' => 'Chưa giao', 'bang' => 'giao_dich', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 5, 'tinh_trang' => 'Giao thành công', 'bang' => 'giao_dich', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 6, 'tinh_trang' => 'Giao không thành công', 'bang' => 'giao_dich', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 7, 'tinh_trang' => 'Hủy', 'bang' => 'giao_dich', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 8, 'tinh_trang' => 'Chưa kích hoạt', 'bang' => 'tai_khoan_nguoi_ban', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 9, 'tinh_trang' => 'Đã kích hoạt', 'bang' => 'tai_khoan_nguoi_ban', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 10, 'tinh_trang' => 'Bị khóa', 'bang' => 'tai_khoan_nguoi_ban', 'thuoc_tinh' => 'id_tinh_trang']
+        ]);
     }
 
     private function seedDanhMucSanPhamTable()
     {
-        // $tenDanhMucSanPhamArray=array('Quần', 'Áo', 'Giày', 'Túi xách', 
-        // 'Giày búp bê', 'Giày bít', 'Giày Sandals', 'Áo thun', 'Áo sơ mi', 'Balo', 'Túi xách'
-        // 'Ví', 'Quần Jeans', 'Quần Shorts');
-        //for($i=0;$i<count($tenDanhMucSanPhamArray);$i++){
-            //$randomInteger= rand(1202055681,1362055681);
-            //$randomDate = date("Y-m-d H:i:s",$randomInteger);
-            DB::table('danh_muc_san_pham')->insert([
-                ['ten' => 'Quần',
-                'id_danh_muc_san_pham_cha' => 0,
-                // 'slug' => str_slug('Quần', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+        DB::table('danh_muc_san_pham')->insert([
+            ['ten' => 'Quần',
+            'id_danh_muc_san_pham_cha' => 0,
+            // 'slug' => str_slug('Quần', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
 
-                ['ten' => 'Áo',
-                'id_danh_muc_san_pham_cha' => 0,
-                // 'slug' => str_slug('Áo', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+            ['ten' => 'Áo',
+            'id_danh_muc_san_pham_cha' => 0,
+            // 'slug' => str_slug('Áo', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
 
-                ['ten' => 'Giày',
-                'id_danh_muc_san_pham_cha' => 0,
-                // 'slug' => str_slug('Giày', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+            ['ten' => 'Giày',
+            'id_danh_muc_san_pham_cha' => 0,
+            // 'slug' => str_slug('Giày', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+            ['ten' => 'Túi xách',
+            'id_danh_muc_san_pham_cha' => 0,
+            // 'slug' => str_slug('Túi xách', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+            ['ten' => 'Khác',
+            'id_danh_muc_san_pham_cha' => 0,
+            // 'slug' => str_slug('Khác', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+            ['ten' => 'Quần Jeans',
+            'id_danh_muc_san_pham_cha' => 1,
+            // 'slug' => str_slug('Quần Jeans', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+            ['ten' => 'Quần Shorts',
+            'id_danh_muc_san_pham_cha' => 1,
+            // 'slug' => str_slug('Quần Shorts', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+            ['ten' => 'Áo khoác',
+            'id_danh_muc_san_pham_cha' => 2,
+            // 'slug' => str_slug('Áo khoác', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                ['ten' => 'Ví',
+                'id_danh_muc_san_pham_cha' => 5,
+            // 'slug' => str_slug('Ví', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+            ['ten' => 'Giày búp bê',
+            'id_danh_muc_san_pham_cha' => 3,
+            // 'slug' => str_slug('Giày búp bê', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+            ['ten' => 'Giày bít',
+            'id_danh_muc_san_pham_cha' => 3,
+            // 'slug' => str_slug('Giày bít', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+            ['ten' => 'Giày Sandals',
+            'id_danh_muc_san_pham_cha' => 3,
+            // 'slug' => str_slug('Giày Sandals', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
+
+                ['ten' => 'Balo',
+                'id_danh_muc_san_pham_cha' => 4,
+            // 'slug' => str_slug('Balo', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")],
 
                 ['ten' => 'Túi xách',
-                'id_danh_muc_san_pham_cha' => 0,
-                // 'slug' => str_slug('Túi xách', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
-
-                ['ten' => 'Khác',
-                'id_danh_muc_san_pham_cha' => 0,
-                // 'slug' => str_slug('Khác', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
-
-                ['ten' => 'Quần Jeans',
-                'id_danh_muc_san_pham_cha' => 1,
-                // 'slug' => str_slug('Quần Jeans', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
-
-                ['ten' => 'Quần Shorts',
-                'id_danh_muc_san_pham_cha' => 1,
-                // 'slug' => str_slug('Quần Shorts', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
-
-                ['ten' => 'Áo khoác',
-                'id_danh_muc_san_pham_cha' => 2,
-                // 'slug' => str_slug('Áo khoác', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
-
-                 ['ten' => 'Ví',
-                 'id_danh_muc_san_pham_cha' => 5,
-                // 'slug' => str_slug('Ví', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
-
-                ['ten' => 'Giày búp bê',
-                'id_danh_muc_san_pham_cha' => 3,
-                // 'slug' => str_slug('Giày búp bê', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
-
-                ['ten' => 'Giày bít',
-                'id_danh_muc_san_pham_cha' => 3,
-                // 'slug' => str_slug('Giày bít', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
-
-                ['ten' => 'Giày Sandals',
-                'id_danh_muc_san_pham_cha' => 3,
-                // 'slug' => str_slug('Giày Sandals', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
-
-                 ['ten' => 'Balo',
-                 'id_danh_muc_san_pham_cha' => 4,
-                // 'slug' => str_slug('Balo', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")],
-
-                 ['ten' => 'Túi xách',
-                'id_danh_muc_san_pham_cha' => 4,
-                // 'slug' => str_slug('Túi xách', '-'),
-                'id_tinh_trang' => 1,
-                'ngay_tao' => date("Y-m-d H:i:s"),
-                'ngay_cap_nhat' => date("Y-m-d H:i:s")]
-            ]);
-        //}
+            'id_danh_muc_san_pham_cha' => 4,
+            // 'slug' => str_slug('Túi xách', '-'),
+            'id_tinh_trang' => 1,
+            'ngay_tao' => date("Y-m-d H:i:s"),
+            'ngay_cap_nhat' => date("Y-m-d H:i:s")]
+        ]);
     }
 
     private function seedSanPhamTable($randomString, $quantityOfSanPhamRecords)
@@ -187,73 +187,145 @@ class MinxDatabaseSeeder extends Seeder
 
     private function seedGiaoDichTable($randomString, $quantityOfSanPhamRecords)
     {
-        for($i=0;$i<$quantityOfSanPhamRecords;$i++){
-            $randomInteger= rand(1202055681,1362055681);
-            $randomDate = date("Y-m-d H:i:s",$randomInteger);
-            $randomString=str_shuffle($randomString);
+        $randomInteger= rand(1202055681,1362055681);
+        $randomDate = date("Y-m-d H:i:s",$randomInteger);
             $randomPhone ='0'.rand(1000000000,1290000000);
-            DB::table('giao_dich')->insert([
-                'id_tai_khoan' => rand(1,100000),
-                'giao_dich_cod' => rand(0,1),
-                'giao_dich_truc_tuyen' => rand(0,1),
-                'id_giao_dich_truc_tuyen' => rand(0,20),
-                'id_tai_khoan_giao_dich_truc_tuyen' => str_random(10),
-                'thoi_gian_giao_dich' => $randomDate,
-                'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
-                'so_dien_thoai_giao_hang' => $randomPhone,
-                'ten_nguoi_nhan' => substr($randomString,0,rand(20,30)),
-                'ma_khuyen_mai' => str_random(5),
-                'tong_tien' => 0,
-                'id_tinh_trang' => rand(0,2),
-                'ngay_tao' => $randomDate,
-                'ngay_cap_nhat' => $randomDate,
-            ]);
-        }
+        DB::table('giao_dich')->insert([
+        [   'id' => 1,
+            'id_tai_khoan' => rand(1,5),
+            'giao_dich_cod' => 1,
+            'giao_dich_truc_tuyen' => 0,
+            'thoi_gian_giao_dich' => $randomDate,
+            'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
+            'so_dien_thoai_giao_hang' => $randomPhone,
+            'ten_nguoi_nhan' => 'Nghia',
+            'ma_khuyen_mai' => str_random(5),
+            'tong_tien' => 0,
+            'id_tinh_trang' => rand(3,7),
+            'ngay_tao' => $randomDate,
+            'ngay_cap_nhat' => $randomDate],
+        [   'id' => 2,
+            'id_tai_khoan' => rand(1,5),
+            'giao_dich_cod' => 1,
+            'giao_dich_truc_tuyen' => 0,
+            'thoi_gian_giao_dich' => $randomDate,
+            'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
+            'so_dien_thoai_giao_hang' => $randomPhone,
+            'ten_nguoi_nhan' => 'Dung',
+            'ma_khuyen_mai' => str_random(5),
+            'tong_tien' => 0,
+            'id_tinh_trang' => rand(3,7),
+            'ngay_tao' => $randomDate,
+            'ngay_cap_nhat' => $randomDate],
+        [   'id' => 3,
+            'id_tai_khoan' => rand(1,5),
+            'giao_dich_cod' => 1,
+            'giao_dich_truc_tuyen' => 0,
+            'thoi_gian_giao_dich' => $randomDate,
+            'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
+            'so_dien_thoai_giao_hang' => $randomPhone,
+            'ten_nguoi_nhan' => 'Hung',
+            'ma_khuyen_mai' => str_random(5),
+            'tong_tien' => 0,
+            'id_tinh_trang' => rand(3,7),
+            'ngay_tao' => $randomDate,
+            'ngay_cap_nhat' => $randomDate],
+        [   'id' => 4,
+            'id_tai_khoan' => rand(1,5),
+            'giao_dich_cod' => 1,
+            'giao_dich_truc_tuyen' => 0,
+            'thoi_gian_giao_dich' => $randomDate,
+            'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
+            'so_dien_thoai_giao_hang' => $randomPhone,
+            'ten_nguoi_nhan' => 'Truong',
+            'ma_khuyen_mai' => str_random(5),
+            'tong_tien' => 0,
+            'id_tinh_trang' => rand(3,7),
+            'ngay_tao' => $randomDate,
+            'ngay_cap_nhat' => $randomDate]
+        ]);
     }
 
-    private function seedChiTietGiaoDichTable($quantityOfSanPhamRecords)
+    private function seedTaiKhoanNguoiBanTable()
     {
-        for($i=0;$i<$quantityOfSanPhamRecords;$i++){
-            $idGiaoDich=rand(1,$quantityOfSanPhamRecords-1);
-            $idSanPham=rand(1,$quantityOfSanPhamRecords-1);
-            $sanPham=SanPham::find($idSanPham);
-            $soLuong=rand(1,$sanPham->so_luong_ton_kho);
-            DB::table('chi_tiet_giao_dich')->insert([
-                'id_giao_dich' => $idGiaoDich,
-                'id_san_pham' => $idSanPham,
-                'so_luong' => $soLuong,
-                'don_gia_san_pham' => $sanPham->don_gia_ban,
-                'tong_tien' => $soLuong*$sanPham->don_gia_ban,
-            ]);
-            $sanPham->so_luong_ton_kho=$sanPham->so_luong_ton_kho-$soLuong;
-            $sanPham->save();
-            $giaoDich=GiaoDich::find($idGiaoDich);
-            $giaoDich->tong_tien=$giaoDich->tong_tien+$soLuong*$sanPham->don_gia_ban;
-            $giaoDich->save();
-        }
-    }
-
-    private function seedTaiKhoanTable($randomString, $quantityOfSanPhamRecords)
-    {
-        for($i=0;$i<$quantityOfSanPhamRecords;$i++){
-            $randomInteger= rand(1202055681,1362055681);
-            $randomDate = date("Y-m-d H:i:s",$randomInteger);
-            $randomString=str_shuffle($randomString);
-            DB::table('tai_khoan')->insert([
-                'ten_dang_nhap' => strtolower(str_random(10)),
+        $randomInteger= rand(1202055681,1362055681);
+        $randomDate = date("Y-m-d H:i:s",$randomInteger);
+        DB::table('tai_khoan_nguoi_ban')->insert([
+            [   'id' => 1, 
+                'ten_dang_nhap' => 'xuan', 
                 'anh_dai_dien' => str_random(10),
-                'email' => str_random(10),
-                'mat_khau' =>  bcrypt('root'),
+                'email' => 'xuan@gmail.com',
+                'ten_shop' => 'Shop xiaomi',
+                'mat_khau' =>  bcrypt('xuan'),
                 'gioi_tinh' => rand(0,1),
-                'ho' => str_random(10),
-                'ten' => str_random(10),
+                'ho' => 'Huynh',
+                'ten' => 'Xuan',
                 'so_dien_thoai' => '0'.rand(1000000000,129000000),
                 'dia_chi' => str_random(10),
                 'ma_kich_hoat' => str_random(20),
-                'id_tinh_trang' => rand(0,2),
+                'id_tinh_trang' => rand(8,10),
                 'ngay_tao' => $randomDate,
-                'ngay_cap_nhat' => $randomDate,
-            ]);
-        }
+                'ngay_cap_nhat' => $randomDate],
+            [   'id' => 2, 
+                'ten_dang_nhap' => 'nhieu', 
+                'anh_dai_dien' => str_random(10),
+                'email' => 'nhieu@gmail.com',
+                'ten_shop' => 'Shop oppo',
+                'mat_khau' =>  bcrypt('nhieu'),
+                'gioi_tinh' => rand(0,1),
+                'ho' => 'Nguyen',
+                'ten' => 'Nhieu',
+                'so_dien_thoai' => '0'.rand(1000000000,129000000),
+                'dia_chi' => str_random(10),
+                'ma_kich_hoat' => str_random(20),
+                'id_tinh_trang' => rand(8,10),
+                'ngay_tao' => $randomDate,
+                'ngay_cap_nhat' => $randomDate],
+            [   'id' => 3, 
+                'ten_dang_nhap' => 'hieu', 
+                'anh_dai_dien' => str_random(10),
+                'email' => 'hieu@gmail.com',
+                'ten_shop' => 'Son handmade',
+                'mat_khau' =>  bcrypt('hieu'),
+                'gioi_tinh' => rand(0,1),
+                'ho' => 'Nguyen',
+                'ten' => 'Hieu',
+                'so_dien_thoai' => '0'.rand(1000000000,129000000),
+                'dia_chi' => str_random(10),
+                'ma_kich_hoat' => str_random(20),
+                'id_tinh_trang' => rand(8,10),
+                'ngay_tao' => $randomDate,
+                'ngay_cap_nhat' => $randomDate],
+            [   'id' => 4, 
+                'ten_dang_nhap' => 'nhu', 
+                'anh_dai_dien' => str_random(10),
+                'email' => 'nhu@gmail.com',
+                'ten_shop' => 'Shop đồ cũ',
+                'mat_khau' =>  bcrypt('nhu'),
+                'gioi_tinh' => rand(0,1),
+                'ho' => 'Tran',
+                'ten' => 'Nhu',
+                'so_dien_thoai' => '0'.rand(1000000000,129000000),
+                'dia_chi' => str_random(10),
+                'ma_kich_hoat' => str_random(20),
+                'id_tinh_trang' => rand(8,10),
+                'ngay_tao' => $randomDate,
+                'ngay_cap_nhat' => $randomDate],
+            [   'id' => 5, 
+                'ten_dang_nhap' => 'quan', 
+                'anh_dai_dien' => str_random(10),
+                'email' => 'quan@gmail.com',
+                'ten_shop' => 'Shop dầu dừa',
+                'mat_khau' =>  bcrypt('quan'),
+                'gioi_tinh' => rand(0,1),
+                'ho' => 'Ha',
+                'ten' => 'Quan',
+                'so_dien_thoai' => '0'.rand(1000000000,129000000),
+                'dia_chi' => str_random(10),
+                'ma_kich_hoat' => str_random(20),
+                'id_tinh_trang' => rand(8,10),
+                'ngay_tao' => $randomDate,
+                'ngay_cap_nhat' => $randomDate],
+        ]);
     }    
 }

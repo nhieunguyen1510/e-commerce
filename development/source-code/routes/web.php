@@ -103,16 +103,19 @@ Route::group(['prefix'=>'nguoiban'], function(){
 
 
 Route::group(['prefix'=>'nguoiban','middleware'=>'nguoiban'], function(){
-
-
-   //admin/theloai/danhsach
+   //nguoiban/sanpham/
     Route::group(['prefix'=>'sanpham'], function(){
-        Route::get('danhsach', 'Web\TaiKhoanNguoiBan\SanPhamController@index');
-
-        Route::get('sua', 'admin\LoaiSanPhamController@getSua');
-
-        Route::get('them', 'admin\LoaiSanPhamController@getThem');
-
+        Route::get('them', 'Web\TaiKhoanNguoiBan\SanPhamController@create')->name('nguoiban-sanpham.create');
+        Route::get('danhsach', 'Web\TaiKhoanNguoiBan\SanPhamController@index')->name('nguoiban-sanpham.index');
+        Route::get('{idSanPham}/sua', 'Web\TaiKhoanNguoiBan\SanPhamController@update')->name('nguoiban-sanpham.update');
+        Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\SanPhamController@show')->name('nguoiban-sanpham.show');
+        Route::post('them', 'Web\TaiKhoanNguoiBan\SanPhamController@store')->name('nguoiban-sanpham.store');
+        Route::delete('{idSanPham}', 'Web\TaiKhoanNguoiBan\SanPhamController@destroy')->name('nguoiban-sanpham.destroy');
     });
-
+   //nguoiban/donhang/
+    Route::group(['prefix'=>'donhang'], function(){
+        Route::get('danhsach', 'Web\TaiKhoanNguoiBan\DonHangController@index')->name('nguoiban-donhang.index');
+        Route::get('{idDonHang}/sua/{idTinhTrang}', 'Web\TaiKhoanNguoiBan\DonHangController@update')->name('nguoiban-donhang.update');
+        Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\DonHangController@show')->name('nguoiban-donhang.show');
+    });
 });

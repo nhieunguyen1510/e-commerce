@@ -4,54 +4,70 @@
 
 @section('content')
     <!--Begin Content -->
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="{{ URL::asset('assets/img/mua1.jpg') }}" alt="Chania" width="460" height="345">
-
-                <div class="carousel-caption">
-                    <h2>Uthappizza
-                        <span class="label label-danger label-xs">Hot</span>
-                        <span class="badge">$4.99</span>
-                    </h2>
-                    <p>A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
-                    <p><a class="btn btn-primary btn-xs" href="#">Xem thêm &raquo;</a></p>
+      <section id="slider"><!--slider-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#slider-carousel" data-slide-to="1"></li>
+                            <li data-target="#slider-carousel" data-slide-to="2"></li>
+                        </ol>
+                        
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-sm-6">
+                                    <h1><span>Minx</span>-SHOPPER</h1>
+                                    <h2>Good deal everyday</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <button type="button" class="btn btn-default get">Mua ngay</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="{{ URL::asset('assets/img/girl1.jpg') }}" class="girl img-responsive" alt="" />
+                                    <img src="{{ URL::asset('assets/img/pricing.png') }}"  class="pricing" alt="" />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-sm-6">
+                                    <h1><span>Minx</span>-SHOPPER</h1>
+                                    <h2>Good deal everyday</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <button type="button" class="btn btn-default get">Mua ngay</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="{{ URL::asset('assets/img/girl2.jpg') }}" class="girl img-responsive" alt="" />
+                                    <img src="{{ URL::asset('assets/img/pricing.png') }}"  class="pricing" alt="" />
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="col-sm-6">
+                                    <h1><span>Minx</span>-SHOPPER</h1>
+                                    <h2>Good deal everyday</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <button type="button" class="btn btn-default get">Mua ngay</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="{{ URL::asset('assets/img/girl3.jpg') }}" class="girl img-responsive" alt="" />
+                                    <img src="{{ URL::asset('assets/img/pricing.png') }}" class="pricing" alt="" />
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                    
                 </div>
-
-            </div>
-
-            <div class="item">
-                <img src="{{ URL::asset('assets/img/mua2.jpg') }}" alt="Chania" width="460" height="345">
-            </div>
-
-            <div class="item">
-                <img src="{{ URL::asset('assets/img/mua3.jpg') }}" alt="Flower" width="460" height="345">
-            </div>
-
-            <div class="item">
-                <img src="{{ URL::asset('assets/img/mua4.jpg') }}" alt="Flower" width="460" height="345">
             </div>
         </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+    </section><!--/slider-->
         <!--Begin_list_new_product-->
         <div class="item-product">
             <div class="category-title">
@@ -645,5 +661,4 @@
                             @endif
         <!--End_list_sale_product-->
         <!--End_Items-->
-    <scroll2top-btn></scroll2top-btn>
 @endsection

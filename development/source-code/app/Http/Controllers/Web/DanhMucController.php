@@ -73,7 +73,7 @@ class DanhMucController extends Controller
         // $ten = $danhMucIns[0]->ten;
         //$dsSanPhamTheoIdDanhMuc = [];
         // if($idDanhMucDec) :
-        $dsSanPhamTheoIdDanhMuc = SanPham::where('id_danh_muc_san_pham', $idDanhMuc)->get();
+        $dsSanPhamTheoIdDanhMuc = SanPham::where('id_danh_muc_san_pham', $idDanhMuc)->paginate(12);
         // endif;
         //$dsDanhMucSanPham = DanhMucSanPham::all();
         return view('pages.danh-sach-san-pham',['dsSanPham' => $dsSanPhamTheoIdDanhMuc, 'danhMucIns'=> $danhMucIns]);

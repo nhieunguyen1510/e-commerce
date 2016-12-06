@@ -20,7 +20,6 @@
 <script type="text/javascript" src="{{ URL::asset('app/controllers/formdangky.controller.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('app/controllers/formdangnhap-nguoiban.controller.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('app/controllers/formdangky-nguoiban.controller.js')}}"></script>
-<script type="text/javascript" src="{{ URL::asset('app/controllers/formthemsanpham-nguoiban.controller')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('app/services/sanpham.service.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('app/directives/scroll2top-btn.directive.js')}}"></script>
 
@@ -30,7 +29,7 @@
 	<script src="{{ URL::asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{ URL::asset('assets/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{ URL::asset('assets/js/main.js')}}"></script>
-
+ <script src="{{ URL::asset('assets/js/shopping.js')}}"></script>
  <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -39,3 +38,4 @@
   js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+

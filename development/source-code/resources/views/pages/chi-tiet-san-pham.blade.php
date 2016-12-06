@@ -55,21 +55,22 @@
 				<div class="col-sm-9 padding-right">
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
+						@foreach($sanPham as $sp)
 							<div class="view-product">
-								<img src="{{ URL::asset('assets/img/demo.jpg') }}" alt="" />
+								<img src="{{ $sp->anh_dai_dien }}" alt="" />
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 								
 								  <!-- Wrapper for slides -->
 								    <div class="carousel-inner">
 										<div class="item active">
-										  <a href=""><img src="{{ URL::asset('assets/img/demo-small.jpg') }}" alt="" width="85px" height="84px"></a>
-										  <a href=""><img src="{{ URL::asset('assets/img/demo-small.jpg') }}" alt="" width="85px" height="84px"></a>
-										  <a href=""><img src="{{ URL::asset('assets/img/demo-small.jpg') }}" alt="" width="85px" height="84px"></a>
+										  <a href=""><img src="{{ $sp->anh_chi_tiet_1 }}" alt="" width="85px" height="84px"></a>
+										  <a href=""><img src="{{ $sp->anh_chi_tiet_2 }}" alt="" width="85px" height="84px"></a>
+										  <a href=""><img src="{{ $sp->anh_chi_tiet_3 }}" alt="" width="85px" height="84px"></a>
 										</div>
 	
 									</div>
-
+						@endforeach				
 								  <!-- Controls -->
 								
 							</div>
@@ -78,14 +79,16 @@
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
 								<img src="{{ URL::asset('assets/img/new.jpg') }}" class="newarrival" alt="" />
-								<h2>Anne Klein Sleeveless Colorblock Scuba</h2>
-								<p>Web ID: 1089772</p>
-								<img src="{{ URL::asset('assets/img/rating.png') }}" alt="" />
+							@foreach($sanPham as $sp)
+								<h2>{{ $sp->ten }}</h2>
+								<p>Được bán bởi: </p>
+								<p>Thương hiệu: <b>{{ $sp->nha_san_xuat }}</b></p>
+							
 								<span>
-									<span>VND 300.000</span>
-									<button type="button" class="btn btn-fefault cart">
+									<span>{{ number_format($sp->don_gia_goc ,0,",",".")}} VNĐ</span>
+									<button type="button" class="btn btn-fefault cart"><a href="{!! url('mua-hang',[$sp->id]) !!}">
 										<i class="fa fa-shopping-cart"></i>
-										Add to cart
+										Thêm vào giỏ hàng</a>
 									</button>
 								</span>
 								<p><b>Tình trạng:</b> Còn hàng</p>
@@ -100,19 +103,13 @@
 						<div class="col-sm-12">
 							<ul class="nav nav-tabs">
 								<li><a href="#details" data-toggle="tab">Thông tin sản phẩm</a></li>
-								<li><a href="#companyprofile" data-toggle="tab">Company Profile</a></li>
+								<!--<li><a href="#companyprofile" data-toggle="tab">Company Profile</a></li> -->
 								<li class="active"><a href="#reviews" data-toggle="tab">Nhận xét (5)</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
 							<div class="tab-pane fade" id="details" >
-								<p itemprop="description"><p>Keywords used to be used disgustingly—that’s the only word for it. When I first began as a copywriter over a decade ago, the stuffing of keywords was almost mandatory. I hated it. It made copy look weak and didn’t please the customer at all. There are still some people out there who think keyword stuffing conquers all. It doesn’t. And it can now hurt your rankings in search results.
-
-This being said, keywords should still show up naturally in copy, as your customers need to find the products and will usually do so with a Google search. The title can sometimes be enough, but a good description can give the SEO efforts a boost.
-
-Instead of simply copying the title all over again, take a look at the product yourself to see what features it has.
-
-For instance:</p>
+								<p itemprop="description"><p>{{ $sp->mo_ta }}</p>
 							</div>
 							
 							<div class="tab-pane fade active in" id="reviews" >
@@ -141,87 +138,28 @@ For instance:</p>
 							
 						</div>
 					</div><!--/category-tab-->
-					
+					@endforeach	
 					<div class="recommended_items"><!--recommended_items-->
 						<h2 class="title text-center">SẢN PHẨM CÙNG LOẠI</h2>
 						
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
-								<div class="item active">	
+								<div class="item active">
+								
 									<div class="col-sm-4">
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
 													<img src="{{ URL::asset('assets/img/hmprod.jpg') }}" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
+													<h2></h2>
+													<p></p>
 													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="{{ URL::asset('assets/img/hmprod.jpg') }}" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="{{ URL::asset('assets/img/hmprod.jpg') }}" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item">	
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="{{ URL::asset('assets/img/hmprod.jpg') }}" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="{{ URL::asset('assets/img/hmprod.jpg') }}" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="{{ URL::asset('assets/img/hmprod.jpg') }}" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-												</div>
-											</div>
-										</div>
-									</div>
+								
+									
 								</div>
 							</div>
 							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">

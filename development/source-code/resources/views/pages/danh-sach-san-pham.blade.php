@@ -52,10 +52,33 @@
 						
 					</div>
 				</div>
+				
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">Features Items</h2>
+						<div class="col-sm-8" style="width:126%;">
+							@include('partials.product-list', ['dsSanPham' => $dsSanPham])	
+					</div>
+					
+					<ul class="pagination" style="float: right;">
+					<p>Tổng số trang: <b>{{ $dsSanPham -> lastPage() }}</b></p>
+					@if($dsSanPham->currentPage()!=1)
+							<li><a href="{{ str_replace('/?','?',$dsSanPham->url($dsSanPham->currentPage() -1)) }}"><<</a></li>
+					@endif
+							@for ($i=1;$i<=$dsSanPham->lastPage(); $i =$i+1)
+							<li class="{{ ($dsSanPham -> currentPage() == $i) ? 'active' : '' }}"><a href="{{ str_replace('/?','?',$dsSanPham->url($i)) }}">{{ $i }}</a>
+							</li>
+							@endfor
+							@if($dsSanPham->currentPage()!=$dsSanPham->lastPage())	
+							<li><a href="{{ str_replace('/?','?',$dsSanPham->url($dsSanPham->currentPage() +1)) }}">>></a></li>
+							@endif
+						</ul>
+</div>
+
 		</div>
 
+					<!--features_items--
+
 		<div class="right-content"> 
-    @include('partials.product-list', ['dsSanPham' => $dsSanPham])
     </div>
 
      

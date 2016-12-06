@@ -20,6 +20,7 @@
     <link href="{{ URL::asset('assets/css/animate.css')}}" rel="stylesheet">
 	<link href="{{ URL::asset('assets/css/main.css')}}" rel="stylesheet">
 	<link href="{{ URL::asset('assets/css/responsive.css')}}" rel="stylesheet">
+	<link href="{{ URL::asset('assets/css/productcarousel.css')}}" rel="stylesheet">
 <!-- NProgress -->
 <link href="packages/nprogress/nprogress.css" rel="stylesheet">
 <!-- iCheck -->

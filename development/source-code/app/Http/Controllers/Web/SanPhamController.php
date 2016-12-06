@@ -22,7 +22,7 @@ class SanPhamController extends Controller
     {
         $idDanhMuc = $request->danhmuc;
         $dsDanhMucSanPham = DanhMucSanPham::all();
-        $dsSanPham=SanPham::where('ten', 'LIKE', '%BMN%')->get();;
+        $dsSanPham=SanPham::where('ten', 'LIKE', '%BMN%')->get();
         return view('pages.danh-sach-san-pham',compact('dsSanPham','dsDanhMucSanPham','idDanhMuc'));
     }
 
@@ -57,14 +57,12 @@ class SanPhamController extends Controller
     {
         $splittedSanPhamSlug = explode("-", $sanPhamSlug);
         $idSanPham = $splittedSanPhamSlug[count($splittedSanPhamSlug)-1];
-        $sanPhamIns = SanPham::where('id', $idSanPham)->first();
-        return view('pages.san-pham',['sanPham' => $sanPhamIns]);
+        $sanPhamIns = SanPham::where('id', $idSanPham)->get();
+        $danhmuc=SanPham::select('id_danh_muc_san_pham')->where('id',$idSanPham)->get();
+        $relSanPham=SanPham::where('id_danh_muc_san_pham',$danhmuc)->get();
+        return view('pages.chi-tiet-san-pham',['sanPham'=>$sanPhamIns]);
     }
 
-    public function getCTSP()
-    {
-        return view('pages.chi-tiet-san-pham');
-    }
 
     /**
      * Show the form for editing the specified resource.

@@ -20,9 +20,8 @@
                     text-decoration: none;
                 }
             }
-            float: right;
+            float: left;
             width: 80%;
-            margin-top: 30px;
             .product-box {
                 float: left;
                 width: 25%;
@@ -55,6 +54,10 @@
         }
         .sort-list{
             float:left
+                table{
+                width:200px;
+                }
         }
+
     }
 }

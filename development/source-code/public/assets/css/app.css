@@ -39,9 +39,8 @@ p {
       body .category-sidebar a:hover {
         text-decoration: none; }
   body .product-list {
-    float: right;
-    width: 80%;
-    margin-top: 30px; }
+    float: left;
+    width: 80%; }
     body .product-list a {
       color: black; }
       body .product-list a:hover {
@@ -67,8 +66,9 @@ p {
           text-transform: lowercase; }
           body .product-list .product-box .content .product-name a::first-letter {
             text-transform: uppercase; }
-  body .sort-list {
-    float: left; } }
+  body .sort-list float:left
+table {
+    width: 200px; } }
 
 @media screen and (min-width: 480px) {
   body .product-header h4 {
@@ -262,7 +262,8 @@ footer {
     .item-product .category-title h2 {
       margin-top: -30px;
       width: 400px;
-      background: #ffffff; }
+      background: #ffffff;
+      color: #e60f1e; }
     .item-product .category-title p {
       float: right;
       margin-top: -35px;
@@ -455,8 +456,5 @@ footer {
 
 .navbar-right i {
   margin-right: 5px; }
-
-.dashboard-nguoiban footer {
-  margin-top: 0; }
 
 /*# sourceMappingURL=app.css.map */

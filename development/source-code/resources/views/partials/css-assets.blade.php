@@ -13,8 +13,8 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/app.css')}}">
 
 <!---Hieu CSS -->
-  <link href="{{ URL::asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
-  <link href="{{ URL::asset('assets/css/font-awesome.min.css')}}" rel="stylesheet">
+  <!--<link href="{{ URL::asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ URL::asset('assets/css/font-awesome.min.css')}}" rel="stylesheet">-->
     <link href="{{ URL::asset('assets/css/prettyPhoto.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('assets/css/price-range.css')}}" rel="stylesheet">
     <link href="{{ URL::asset('assets/css/animate.css')}}" rel="stylesheet">

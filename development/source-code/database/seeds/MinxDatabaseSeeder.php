@@ -327,5 +327,13 @@ class MinxDatabaseSeeder extends Seeder
                 'ngay_tao' => $randomDate,
                 'ngay_cap_nhat' => $randomDate],
         ]);
-    }    
+    }  
+
+    //   private function seedQuanTriVienTable()
+    // {
+    //     DB::table('quan_tri_vien')->insert([
+    //         ['id' => 1, 'ten_dang_nhap' => 'nhu', 'mat_khau' => bcrypt('123456'), 'email' => 'quynhnhu@gmail.com', 'ho'=>'Phạm Lê', 'ten' =>'Quỳnh Như', 'id_tinh_trang'=>'11'],
+            
+    //     ]);
+    // }  
 }

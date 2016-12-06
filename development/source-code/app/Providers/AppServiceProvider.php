@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\DanhMucSanPham;
+use App\TinhTrang;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,10 +31,14 @@ class AppServiceProvider extends ServiceProvider
             __DIR__ . '/../../node_modules/icheck' => public_path('packages/icheck'),
             __DIR__ . '/../../node_modules/jqvmap' => public_path('packages/jqvmap'),
             __DIR__ . '/../../node_modules/flot' => public_path('packages/flot'),
+            __DIR__ . '/../../node_modules/ckeditor' => public_path('packages/ckeditor'),
         ], 'public');
 
         $dsDanhMuc = DanhMucSanPham::all();
         View::share('dsDanhMuc', $dsDanhMuc);
+
+        $dsTinhTrang = TinhTrang::all();
+        View::share('dsTinhTrang', $dsTinhTrang);
     }
 
     /**

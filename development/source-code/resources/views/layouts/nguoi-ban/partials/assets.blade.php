@@ -105,3 +105,6 @@
 
     <!-- Custom Theme Scripts -->
     <script type="text/javascript" src="{{ URL::asset('assets/js/custom.min.js')}}"></script>
+
+    <!--- CK Editor -->
+    <script type="text/javascript" src="{{ URL::asset('packages/ckeditor/ckeditor.js')}}"></script>

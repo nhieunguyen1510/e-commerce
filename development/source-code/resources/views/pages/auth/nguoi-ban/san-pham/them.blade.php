@@ -6,7 +6,7 @@
         <div class="title_left">
             <h2>
                 <ul class="breadcrumb">
-                    <li><a href="#">Sản phẩm</a></li>
+                    <li><a href="{{URL::Route('nguoiban-sanpham.index')}}">Sản phẩm</a></li>
                     <li class="active">Thêm sản phẩm</li>
                 </ul>
             </h2>
@@ -58,7 +58,14 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Mô tả: <span class="required">*</span>
                         </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="txt_mota" name="txt_mota" rows="7" ng-model="txt_mota" ng-required="true" ng-maxlength="500" class="form-control ckeditor col-md-7 col-xs-12" placeholder="Thêm mô tả vào đây"></textarea>
+                                <textarea id="txt_mota" name="txt_mota" rows="7" ng-model="txt_mota" ng-required="true" ng-maxlength="500" class="form-control ckeditor col-md-7 col-xs-12" placeholder="Thêm mô tả vào đây"></textarea>                      
+                                    <script type="text/javascript">
+                                        CKEDITOR.replace( 'txt_mota',
+                                        {
+                                            customConfig : 'config.js',
+                                            toolbar : 'simple'
+                                            })
+                                    </script> 
                             </div>
                             <i class="fa fa-check text-success" ng-show="form_them_san_pham.txt_mota.$dirty && form_them_san_pham.txt_mota.$valid && isSubmitted"></i>
                             <div ng-show="(form_them_san_pham.txt_mota.$dirty && form_them_san_pham.txt_mota.$invalid) || isSubmitted" class="text-danger">

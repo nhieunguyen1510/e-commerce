@@ -6,24 +6,73 @@
         <div class="title_left">
             <!-- Breadcrumbs go here -->
             <h2>
-                <ul class="breadcrumb">
-                    <li><a href="#">Sản phẩm</a></li>
-                    <li class="active">Danh sách sản phẩm</li>
-                </ul>
+                <div class="col-md-8">
+                        <ul class="breadcrumb">
+                            <li><a href="{{URL::Route('nguoiban-sanpham.index')}}">Sản phẩm</a></li>
+                            <li class="active">Danh sách sản phẩm</li>
+                        </ul>
+                </div>
+                <div class="col-md-2">
+                    <a class="btn btn-default" href="{{URL::Route('nguoiban-sanpham.create')}}">Thêm mới</a>
+                </div>
             </h2>
-            <button class="btn"><a href="{{URL::Route('nguoiban-sanpham.create')}}">Thêm mới</a></button>
         </div>
+      
 
-        <div class="title_right">
-            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <!--Form dùng để submit lọc điều kiện gửi request lên controller xử lý với method là GET-->
+        <form action="" method="GET" name="form_loc">
+
+            <div class="col-md-2 col-sm-2 col-xs-12 form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nhập tên sản phẩm" name="search_input" id="search_input">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Tìm</button>
-                      </span>
+                    <input type="text" class="form-control" placeholder="Nhập tên sản phẩm" name="search_input" id="search_input" value="{{$search_input}}">
                 </div>
             </div>
-        </div>
+            
+
+            <div class="col-md-2 col-sm-2 col-xs-12">
+                <div class="form-group">
+                    <select class="form-control" name="tinhtrang" id="tinhtrang">
+                        <option value="" @php if($idTinhTrang == null) echo 'selected'; @endphp>Tình trạng</option>
+                        @foreach($dsTinhTrang as $tinhTrang)
+                            @if( $tinhTrang->bang == 'san_pham')
+                            <option value="{{$tinhTrang->id}}" @php if($tinhTrang->id == $idTinhTrang) echo 'selected'; @endphp>{{ $tinhTrang->tinh_trang }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="row">
+                    <div class="form-group">
+
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+                            <input type="number" class="form-control " placeholder="Gía thấp" name="cost_min" id="cost_min" value="{{$cost_min}}">
+                        </div>
+
+                        <div class="col-md-1 col-sm-1 col-xs-12"><span style="font-size : 20px;">></span></div>
+
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+                            <input type="number" class="form-control" placeholder="Gía cao" name="cost_max" id="cost_max" value="{{$cost_max}}">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-1 col-sm-1 col-xs-12">
+                <div class="form-group">
+                    <button class="btn btn-default" type="submit">Lọc</button>
+                </div>
+            </div>
+
+        </form>
     </div>
 
     <div class="clearfix"></div>
@@ -58,9 +107,9 @@
                                 <td>{{$sanPham->tinh_trang->tinh_trang}}</td>
                                 <td>
                                     <center>
-                                        <a href="{{URL::Route('sanpham.show', ['idSanPham' => $sanPham->id])}}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Xem chi tiết </a>
+                                        <a href="{{URL::Route('sanpham.show', ['idSanPham' => $sanPham->id])}}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Xem </a> 
                                         @if($sanPham->id_tinh_trang == 1)
-                                            <a href="{{URL::Route('nguoiban-sanpham.update', ['idSanPham' => $sanPham->id])}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hết hàng </a>
+                                        <a href="{{URL::Route('nguoiban-sanpham.update', ['idSanPham' => $sanPham->id])}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hết hàng </a>
                                         @endif
                                     </center>
                                 </td>
@@ -69,7 +118,8 @@
                         </tbody>
                     </table>
 
-                    {{$dsSanPham->links()}}
+                    <!--Sử dụng appends để qua trang khác thì sẽ lưu thêm query string là tinhtrang để lọc điều kiện-->
+                    {{$dsSanPham->appends(['search_input' => $search_input, 'tinhtrang' => $idTinhTrang, 'cost_min' => $cost_min, 'cost_max' => $cost_max ])->links()}}
 
                 </div>
             </div>

@@ -13,12 +13,41 @@ use Illuminate\Support\Facades\Storage;
 class SanPhamController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
-        $dsSanPham = SanPham::orderBy('ngay_tao', 'desc')
-                        ->paginate(15);
+        //Khai báo các giá trị query string truyền vô ban đầu là null
+        $idTinhTrang = null;
+        $cost_min = null;
+        $cost_max = null;
+        $search_input = null;
+
+        $query = SanPham::orderBy('ngay_tao', 'desc');
+        //Kiểm tra nếu có lọc theo tình trạng thì sẽ gộp thêm 1 câu query: idTinhTrang nhập vô có trong table sanpham ko?
+        if($request->has('tinhtrang'))
+        {
+            $idTinhTrang = $request->tinhtrang;
+            $query = SanPham::where('id_tinh_trang', '=', $idTinhTrang);
+        }
+        //Kiểm tra tìm kiếm theo tên
+        if($request->has('search_input'))
+        {
+            $search_input = $request->search_input;
+            $query = SanPham::where('ten','like','%'.$search_input.'%');
+        }
+        //Kiểm tra nếu có lọc theo giá thì sẽ gộp thêm 1 câu query.
+        if($request->has('cost_min') && $request->has('cost_max'))
+        {
+            $cost_min = $request->cost_min;
+            $cost_max = $request->cost_max;
+            $query = SanPham::whereBetween('gia_ban_hien_tai',[$cost_min,$cost_max]);
+        }
+        $dsSanPham = $query->paginate(10);
         return view ('pages.auth.nguoi-ban.san-pham.danh-sach')
-                    ->with('dsSanPham', $dsSanPham);
+                    ->with('dsSanPham', $dsSanPham)
+                    ->with('idTinhTrang',$idTinhTrang)
+                    ->with('cost_min', $cost_min)
+                    ->with('cost_max', $cost_max)
+                    ->with('search_input', $search_input);
     }
 
     public function create()

@@ -49,9 +49,13 @@ class DonHangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idDonHang)
     {
-        //
+        $donHang = GiaoDich::find($idDonHang);
+        $itemsPerPage = 10;
+        return view ('pages.auth.nguoi-ban.don-hang.chi-tiet')
+                    ->with('donHang', $donHang)
+                    ->with('itemsPerPage', $itemsPerPage);
     }
 
     /**

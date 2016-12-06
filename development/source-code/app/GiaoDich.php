@@ -10,10 +10,17 @@ class GiaoDich extends Model
     const CREATED_AT = 'ngay_tao';
     const UPDATED_AT = 'ngay_cap_nhat';
     /**
+     * Get tranasction status.
+     */
+    public function tinh_trang()
+    {
+        return $this->hasOne('App\TinhTrang', 'id', 'id_tinh_trang');
+    }
+    /**
      * Get the details for the transaction.
      */
-    public function dsChiTietGiaoDich()
+    public function dsChiTietDonHang($itemsPerPage = 20)
     {
-        return $this->hasMany('App\ChiTietGiaoDich', 'id_giao_dich', 'id');
+        return $this->hasMany('App\ChiTietGiaoDich', 'id_giao_dich', 'id')->paginate($itemsPerPage);
     }
 }

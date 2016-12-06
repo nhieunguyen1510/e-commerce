@@ -6,7 +6,7 @@
         <div class="title_left">
             <h2>
                 <ul class="breadcrumb">
-                    <li><a href="#">Sản phẩm</a></li>
+                    <li><a href="{{URL::Route('nguoiban-sanpham.index')}}">Sản phẩm</a></li>
                     <li class="active">{{$sanPham->ten}}</li>
                 </ul>
             </h2>

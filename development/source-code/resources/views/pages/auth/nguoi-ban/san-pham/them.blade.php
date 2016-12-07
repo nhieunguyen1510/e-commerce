@@ -47,7 +47,7 @@
                                 <input type="text" name="txt_tensp" ng-model="txt_tensp" ng-required="true" ng-maxlength="255" class="form-control col-md-7 col-xs-12"  placeholder="Thêm tên sản phẩm vào đây"/>
                             </div>
                             <i class="fa fa-check text-success" ng-show="form_them_san_pham.txt_tensp.$dirty && form_them_san_pham.txt_tensp.$valid && isSubmitted"></i>
-                            <div ng-show="(form_them_san_pham.txt_tensp.$dirty && form_them_san_pham.txt_tensp.$invalid) || isSubmitted" class="text-danger">
+                            <div ng-show="(form_them_san_pham.txt_tensp.$dirty || isSubmitted) && form_them_san_pham.txt_tensp.$invalid" class="text-danger">
                                 <i class="fa fa-times text-danger"></i>
                                 <span ng-show="form_them_san_pham.txt_tensp.$error.required">Tên sản phẩm không được bỏ trống</span>
                                 <span ng-show="form_them_san_pham.txt_tensp.$error.maxlength">Tên sản phẩm không quá 255 ký tự</span>
@@ -58,17 +58,10 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Mô tả: <span class="required">*</span>
                         </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="txt_mota" name="txt_mota" rows="7" ng-model="txt_mota" ng-required="true" ng-maxlength="500" class="form-control ckeditor col-md-7 col-xs-12" placeholder="Thêm mô tả vào đây"></textarea>                      
-                                    <script type="text/javascript">
-                                        CKEDITOR.replace( 'txt_mota',
-                                        {
-                                            customConfig : 'config.js',
-                                            toolbar : 'simple'
-                                            })
-                                    </script> 
+                                <textarea id="txt_mota" name="txt_mota" rows="7" ng-model="txt_mota" ng-required="true" ng-maxlength="500" class="form-control col-md-7 col-xs-12" placeholder="Thêm mô tả vào đây"></textarea>                         
                             </div>
                             <i class="fa fa-check text-success" ng-show="form_them_san_pham.txt_mota.$dirty && form_them_san_pham.txt_mota.$valid && isSubmitted"></i>
-                            <div ng-show="(form_them_san_pham.txt_mota.$dirty && form_them_san_pham.txt_mota.$invalid) || isSubmitted" class="text-danger">
+                            <div ng-show="(form_them_san_pham.txt_mota.$dirty  || isSubmitted) && form_them_san_pham.txt_mota.$invalid" class="text-danger">
                                 <i class="fa fa-times text-danger"></i>
                                 <span ng-show="form_them_san_pham.txt_mota.$error.required">Mô tả sản phẩm không được bỏ trống</span>
                                 <span ng-show="form_them_san_pham.txt_mota.$error.maxlength">Mô tả sản phẩm không quá 500 ký tự</span>
@@ -126,7 +119,7 @@
                                 <input type="text" name="txt_nsx" ng-required="true" ng-maxlength="255" ng-model="txt_nsx" class="form-control col-md-7 col-xs-12" placeholder="Thêm nhà sản xuất vào đây"/>
                             </div>
                             <i class="fa fa-check text-success" ng-show="form_them_san_pham.txt_nsx.$dirty && form_them_san_pham.txt_nsx.$valid && isSubmitted"></i>
-                            <div ng-show="(form_them_san_pham.txt_nsx.$dirty && form_them_san_pham.txt_nsx.$invalid )|| isSubmitted" class="text-danger">
+                            <div ng-show="(form_them_san_pham.txt_nsx.$dirty || isSubmitted) && form_them_san_pham.txt_nsx.$invalid" class="text-danger">
                                 <i class="fa fa-times text-danger"></i>
                                 <span ng-show="form_them_san_pham.txt_nsx.$error.required">Nhà sản xuất không được bỏ trống</span>
                                 <span ng-show="form_them_san_pham.txt_nsx.$error.maxlength">Nhà sản xuất không quá 255 ký tự</span>

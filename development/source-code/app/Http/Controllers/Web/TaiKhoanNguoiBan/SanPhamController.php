@@ -26,20 +26,20 @@ class SanPhamController extends Controller
         if($request->has('tinhtrang'))
         {
             $idTinhTrang = $request->tinhtrang;
-            $query = SanPham::where('id_tinh_trang', '=', $idTinhTrang);
+            $query->where('id_tinh_trang', '=', $idTinhTrang);
         }
         //Kiểm tra tìm kiếm theo tên
         if($request->has('search_input'))
         {
             $search_input = $request->search_input;
-            $query = SanPham::where('ten','like','%'.$search_input.'%');
+            $query->where('ten','like','%'.$search_input.'%');
         }
         //Kiểm tra nếu có lọc theo giá thì sẽ gộp thêm 1 câu query.
         if($request->has('cost_min') && $request->has('cost_max'))
         {
             $cost_min = $request->cost_min;
             $cost_max = $request->cost_max;
-            $query = SanPham::whereBetween('gia_ban_hien_tai',[$cost_min,$cost_max]);
+            $query->whereBetween('gia_ban_hien_tai',[$cost_min,$cost_max]);
         }
         $dsSanPham = $query->paginate(10);
         return view ('pages.auth.nguoi-ban.san-pham.danh-sach')

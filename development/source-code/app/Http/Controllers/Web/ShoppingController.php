@@ -32,12 +32,18 @@ class ShoppingController extends Controller
        return redirect()->route('giohang');
     }
 
-    public function suagiohang(){
-        if(Request::ajax()){
-            $id=Request::get('id');
-            $qty=Request::get('qty');
-            Cart::update($id,$qty);
-            echo "oke";
+    public function suagiohang(Request $request){
+        
+            $rowId = $request ->id;
+            $qty = $request-> quantity;
+
+            Cart::update($rowId, $qty);
+            return redirect()->route('giohang');
+            
         }
+
+    public function thanhtoan(){
+        return view('pages.thanh-toan');
     }
 }
+

@@ -3,13 +3,18 @@
         <div class="header-middle"><!--header-middle-->
             <div class="container">
                 <div class="row">
-                <div class="col-sm-6">
+
+                <div class="col-sm-6" style="width: 58%">
+                    <form method="POST" action="{{ URL::Route('timkiem') }}">
+                    {{ csrf_field() }}
                         <div class="search_box pull-right">
-                            <input type="text" placeholder="Tìm kiếm sản phẩm, thương hiệu ..."/>
+                            <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm, thương hiệu ..."/>
+                            <button type="submit" class="btn btn-danger">Tìm</button>
                         </div>
+                    </form>
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="{{ URL::asset('assets/img/logo.png') }}" alt="" width="200px" height="70px" /></a>
+                            <a href="{{ URL::Route('trangchu.index') }}"><img src="{{ URL::asset('assets/img/logo.png') }}" alt="" width="200px" height="70px" /></a>
 
                         </div>
                         
@@ -20,7 +25,7 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="#"><i class="fa fa-user"></i> Thông tin tài khoản</a></li>
                                 <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                <li><a href="{{ URL::Route('giohang') }}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                
                             </ul>
                         </div>

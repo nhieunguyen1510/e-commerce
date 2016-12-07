@@ -58,10 +58,12 @@ class SanPhamController extends Controller
         $splittedSanPhamSlug = explode("-", $sanPhamSlug);
         $idSanPham = $splittedSanPhamSlug[count($splittedSanPhamSlug)-1];
         $sanPhamIns = SanPham::where('id', $idSanPham)->get();
-        $danhmuc=SanPham::select('id_danh_muc_san_pham')->where('id',$idSanPham)->get();
-        $relSanPham=SanPham::where('id_danh_muc_san_pham',$danhmuc)->get();
+        
         return view('pages.chi-tiet-san-pham',['sanPham'=>$sanPhamIns]);
+        
     }
+
+    
 
 
     /**

@@ -7,6 +7,14 @@
     
     <section>
 		<div class="container">
+		<div class="breadcrumbs">
+				<ol class="breadcrumb">
+				  <li><a href="#">Trang chủ</a></li>
+				  @foreach($sanPham as $sp)
+				  <li class="active">{{ $sp->ten }}</li>
+				  @endforeach
+				</ol>
+			</div>
 			<div class="row">
 				<div class="col-sm-3" style="margin-top: 20px">
 					<div class="left-sidebar">
@@ -64,16 +72,21 @@
 								  <!-- Wrapper for slides -->
 								    <div class="carousel-inner">
 										<div class="item active">
-										  <a href=""><img src="{{ $sp->anh_chi_tiet_1 }}" alt="" width="85px" height="84px"></a>
-										  <a href=""><img src="{{ $sp->anh_chi_tiet_2 }}" alt="" width="85px" height="84px"></a>
-										  <a href=""><img src="{{ $sp->anh_chi_tiet_3 }}" alt="" width="85px" height="84px"></a>
+										 
+										  	<ul class="gallery clearfix" style="margin-left:-15px">
+				<li><a href="{{ $sp->anh_chi_tiet_1 }}') }}" rel="prettyPhoto" title="&lt;a href=&#x27;http://www.google.ca&#x27; target=&#x27;_blank&#x27; &gt;{{ $sp->ten }}&lt;/a&gt;"><img src="{{ $sp->anh_chi_tiet_1 }}" width="85px" height="84px" alt="Picture alone 1" /></a></li>
+				<li><a href="{{ $sp->anh_chi_tiet_2 }}" rel="prettyPhoto" title="&lt;a href=&#x27;http://www.google.ca&#x27; target=&#x27;_blank&#x27; &gt;{{ $sp->ten }}&lt;/a&gt;"><img src="{{ $sp->anh_chi_tiet_2 }}" width="85px" height="84px" alt="Picture alone 1" /></a></li>
+				<li><a href="{{ $sp->anh_chi_tiet_3 }}" rel="prettyPhoto" title="&lt;a href=&#x27;http://www.google.ca&#x27; target=&#x27;_blank&#x27; &gt;{{ $sp->ten }}&lt;/a&gt;"><img src="{{ $sp->anh_chi_tiet_3 }}" width="85px" height="84px" alt="Picture alone 1" /></a></li>
+
+			</ul>
 										</div>
 	
+									</div>
 									</div>
 						@endforeach				
 								  <!-- Controls -->
 								
-							</div>
+							
 
 						</div>
 						<div class="col-sm-7">

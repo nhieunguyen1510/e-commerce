@@ -8,6 +8,12 @@
 	float: right;
 }	
 </style>
+<div class="breadcrumbs">
+				<ol class="breadcrumb">
+				  <li><a href="#">Trang chủ</a></li>
+				  <li class="active">{{ $danhMucIns->ten }}</li>
+				</ol>
+			</div>
     <div class="row">
 				<div class="col-sm-3" style="margin-top: 20px">
 					<div class="left-sidebar">
@@ -54,7 +60,9 @@
 				</div>
 				
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Features Items</h2>
+					 
+						<h2 class="title text-center">{{ $danhMucIns->ten }}</h2>
+						
 						<div class="col-sm-8" style="width:126%;">
 							@include('partials.product-list', ['dsSanPham' => $dsSanPham])	
 					</div>

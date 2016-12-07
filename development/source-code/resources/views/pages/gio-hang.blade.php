@@ -11,7 +11,7 @@
 				  <li class="active">Shopping Cart</li>
 				</ol>
 			</div>
-			<img src="{{ URL::asset('assets/img/shopping-banner.jpg') }}" width="1170px" height="150px" alt="Giỏ hàng" border="1px">
+			<img src="{{ URL::asset('assets/img/shopping-banner.jpg') }}" width="1140px" height="150px" alt="Giỏ hàng" border="1px">
 			<br/>
 			@if(sizeof(Cart::content())>0)
 			<div class="table-responsive cart_info">
@@ -27,8 +27,7 @@
 						</tr>
 					</thead>
 					<tbody>
-					<form method="POST" action="">
-						 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+					
 					@foreach($content as $item)
 						<tr>
 							<td class="cart_product">
@@ -41,24 +40,29 @@
 							<td class="cart_price">
 								<p>{{ number_format($item->price ,0,",",".")}}</p>
 							</td>
+							<form method="POST" action="{{ URL::Route('suagiohang') }}">
+						 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<input class="cart_quantity_input" type="text" name="quantity" value="{{$item->qty}}" autocomplete="off" size="2">	
+									 <input type="hidden" name="id" id="id" value="{{ $item->rowId }}">
+									&nbsp &nbsp<button type="submit" class="btn btn-danger btn-xs">Cập nhật</button>
 								</div>
 							</td>
+							</form>
 							<td class="cart_total">
 								<p class="cart_total_price">{{ number_format($item->price*$item->qty ,0,",",".")}}</p>
 							</td>
 							<td class="cart_delete">
-							<a class="cart_quantity_refresh" href="" id="{{$item->rowId}}"><i class="fa fa-refresh"></i></a>
+							
 							<a class="cart_quantity_delete" href="{!! url('xoa-gio-hang',['id'=>$item->rowId]) !!}">
 							<i class="fa fa-times"></i></a>
 							</td>
 						</tr>
+
 						@endforeach
-						</form>
+						
+						
 					</tbody>
 				</table>
 			</div>
@@ -78,8 +82,8 @@
 							<li>Số sản phẩm: <span>{{ $count }}</span></li>
 							<li>Tổng tiền <span>{{ $total }} VNĐ</span></li>
 						</ul>
-							<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="">Check Out</a>
+							<a class="btn btn-default update" href="{{ URL::Route('trangchu.index') }}">Tiếp tục mua hàng</a>
+							<a class="btn btn-default check_out" href="{{ URL::Route('thanhtoan') }}">Thanh toán</a>
 					</div>
 				</div>
 			</div>

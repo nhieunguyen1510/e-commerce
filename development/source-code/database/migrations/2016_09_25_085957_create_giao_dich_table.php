@@ -13,7 +13,7 @@ class CreateGiaoDichTable extends Migration
      */
     public function up()
     {
-        Schema::create('giao_dich', function (Blueprint $table) {
+       Schema::create('giao_dich', function (Blueprint $table) {
             $table->increments('id')->primarykey();
             $table->integer('id_tai_khoan');
             $table->tinyInteger('giao_dich_cod');
@@ -21,6 +21,7 @@ class CreateGiaoDichTable extends Migration
             $table->tinyInteger('id_giao_dich_truc_tuyen')->nullable();
             $table->string('id_tai_khoan_giao_dich_truc_tuyen')->nullable();
             $table->datetime('thoi_gian_giao_dich');
+            $table->datetime('ngay_giao_hang')->nullable();
             $table->string('dia_chi_giao_hang', 200);
             $table->string('so_dien_thoai_giao_hang', 15);
             $table->string('ten_nguoi_nhan', 200);

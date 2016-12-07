@@ -1,0 +1,10 @@
+diff a/development/source-code/app/Http/Controllers/Auth/TaiKhoanNguoiMua/DangNhapController.php b/development/source-code/app/Http/Controllers/Auth/TaiKhoanNguoiMua/DangNhapController.php	(rejected hunks)
+@@ -23,7 +23,7 @@
+         }
+         else
+         {
+-            return redirect('dang-nhap');
++            return redirect('dang-nhap')->with('thongbao','Đăng nhập không thành công');
+         }
+     }
+     public function getdangxuat()

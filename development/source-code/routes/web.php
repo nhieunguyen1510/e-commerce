@@ -119,3 +119,10 @@ Route::group(['prefix'=>'nguoiban','middleware'=>'nguoiban'], function(){
         Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\DonHangController@show')->name('nguoiban-donhang.show');
     });
 });
+
+
+// Admin-Như
+Route::group(['prefix'=>'admin'], function(){
+Route::get('dang-nhap','Auth\TaiKhoanAdmin\DangNhapController@getDangNhap')->name('dangnhap.index');
+Route::post('dang-nhap','Auth\TaiKhoanAdmin\DangNhapController@postDangNhap')->name('dangnhap.post');
+});

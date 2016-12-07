@@ -39,7 +39,6 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'TaiKhoanNguoiMua',
-            'provider' => 'TaiKhoanAdmin',
         ],
 
         'api' => [
@@ -49,7 +48,7 @@ return [
 
         'admin' => [
             'driver' => 'session',
-            'provider' => 'quan_tri_vien',
+            'provider' => 'TaiKhoanAdmin',
         ],
 
         'nguoi_ban' => [
@@ -91,7 +90,7 @@ return [
             'model' => App\TaiKhoanNguoiBan::class,
         ],
 
-        'quan_tri_vien' => [
+        'TaiKhoanAdmin' => [
             'driver' => 'eloquent',
             'model' => App\QuanTriVien::class,
         ],

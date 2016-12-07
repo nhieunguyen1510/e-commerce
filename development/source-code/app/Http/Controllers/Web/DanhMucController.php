@@ -65,19 +65,14 @@ class DanhMucController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($danhMucSlug)
+    public function show($idDanhMuc)
     {
-        $splittedDanhMucSlug = explode("-", $danhMucSlug);
-        $idDanhMuc = $splittedDanhMucSlug[count($splittedDanhMucSlug)-1];
-        $danhMucIns = DanhMucSanPham::where('id', $idDanhMuc)->first();
-        // $ten = $danhMucIns[0]->ten;
-        //$dsSanPhamTheoIdDanhMuc = [];
-        // if($idDanhMucDec) :
-        $dsSanPhamTheoIdDanhMuc = SanPham::where('id_danh_muc_san_pham', $idDanhMuc)->paginate(12);
-        // endif;
-        //$dsDanhMucSanPham = DanhMucSanPham::all();
-        return view('pages.danh-sach-san-pham',['dsSanPham' => $dsSanPhamTheoIdDanhMuc, 'danhMucIns'=> $danhMucIns]);
-        
+        $danhMucIns = DanhMucSanPham::find($idDanhMuc);
+        $dsSanPhamTheoIdDanhMuc = SanPham::where('id_danh_muc_san_pham', $idDanhMuc)
+                                        ->paginate(12);
+        return view('pages.danh-sach-san-pham')
+                    ->with('dsSanPham', $dsSanPhamTheoIdDanhMuc)
+                    ->with('danhMucIns', $danhMucIns);
     }
 
     /**

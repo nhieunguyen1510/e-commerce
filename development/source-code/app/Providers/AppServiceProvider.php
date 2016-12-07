@@ -37,6 +37,9 @@ class AppServiceProvider extends ServiceProvider
         $dsDanhMuc = DanhMucSanPham::all();
         View::share('dsDanhMuc', $dsDanhMuc);
 
+        $dsDanhMucSanPhamCha = DanhMucSanPham::where('id_danh_muc_san_pham_cha', 0)->get();
+        View::share('dsDanhMucSanPhamCha', $dsDanhMucSanPhamCha);
+
         $dsTinhTrang = TinhTrang::all();
         View::share('dsTinhTrang', $dsTinhTrang);
     }

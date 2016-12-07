@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 
 class SanPhamController extends Controller
@@ -53,14 +54,26 @@ class SanPhamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($sanPhamSlug)
+    public function show($idSanPham)
     {
-        $splittedSanPhamSlug = explode("-", $sanPhamSlug);
-        $idSanPham = $splittedSanPhamSlug[count($splittedSanPhamSlug)-1];
-        $sanPhamIns = SanPham::where('id', $idSanPham)->get();
-        
-        return view('pages.chi-tiet-san-pham',['sanPham'=>$sanPhamIns]);
-        
+        $sanPhamIns = SanPham::find($idSanPham);
+        if($sanPhamIns==null)
+        {
+            abort(404);
+        }
+        else
+        {
+            $anhDaiDien = Storage::url($sanPhamIns->anh_dai_dien);
+            $anhChiTiet1 = Storage::url($sanPhamIns->anh_chi_tiet_1);
+            $anhChiTiet2 = Storage::url($sanPhamIns->anh_chi_tiet_2);
+            $anhChiTiet3 = Storage::url($sanPhamIns->anh_chi_tiet_3);
+            return view('pages.chi-tiet-san-pham')
+                    ->with('sanPham', $sanPhamIns)
+                    ->with('anhDaiDien', $anhDaiDien)
+                    ->with('anhChiTiet1', $anhChiTiet1)
+                    ->with('anhChiTiet2', $anhChiTiet2)
+                    ->with('anhChiTiet3', $anhChiTiet3);
+        }
     }
 
     

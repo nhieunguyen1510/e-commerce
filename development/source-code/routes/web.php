@@ -17,6 +17,8 @@ Route::get('/', $baseFolder.'TrangChuController@getTrangChu')->name('trangchu.in
 Route::get('dangnhap', 'admin\DangNhapController@getDangNhap')->name('getDangNhap');
 Route::get('xoa-gio-hang/{id}',$baseFolder.'ShoppingController@xoagiohang')->name('xoagiohang');
 Route::get('sua-gio-hang/{id}/{qty}',$baseFolder.'ShoppingController@suagiohang')->name('suagiohang');
+
+Route::post('timkiem',$baseFolder.'TimKiemController@timkiem')->name('timkiem');
 Route::resource('san-pham',$baseFolder.'SanPhamController', ['names' => [
     'index' => 'sanpham.index',
     'show' => 'sanpham.show'

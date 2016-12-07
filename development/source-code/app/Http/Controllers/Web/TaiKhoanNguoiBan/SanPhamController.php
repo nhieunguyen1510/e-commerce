@@ -64,10 +64,10 @@ class SanPhamController extends Controller
     public function store(Request $request)
     {
         //Lưu file vào folder storage/app/public/images và lưu lại đường dẫn
-        $anhDaiDienPath = $request->file('anh_dai_dien')->store('public/images');
-        $anhChiTiet1Path = $request->file('anh_ct_1')->store('public/images');
-        $anhChiTiet2Path = $request->file('anh_ct_2')->store('public/images');
-        $anhChiTiet3Path = $request->file('anh_ct_3')->store('public/images');
+        $anhDaiDienPath = $request->file('anh_dai_dien')->store('public/img');
+        $anhChiTiet1Path = $request->file('anh_ct_1')->store('public/img');
+        $anhChiTiet2Path = $request->file('anh_ct_2')->store('public/img');
+        $anhChiTiet3Path = $request->file('anh_ct_3')->store('public/img');
 
         $sanPhamIns = new SanPham();
         $sanPhamIns['id_danh_muc_san_pham'] = $request->txt_loaidanhmuc;
@@ -103,9 +103,15 @@ class SanPhamController extends Controller
     {
         $sanPham = SanPham::find($idSanPham);
         $anhDaiDien = Storage::url($sanPham->anh_dai_dien);
+        $anhChiTiet1 = Storage::url($sanPham->anh_chi_tiet_1);
+        $anhChiTiet2 = Storage::url($sanPham->anh_chi_tiet_2);
+        $anhChiTiet3 = Storage::url($sanPham->anh_chi_tiet_3);
         return view ('pages.auth.nguoi-ban.san-pham.chi-tiet')
                     ->with('sanPham', $sanPham)
-                    ->with('anhDaiDien', $anhDaiDien);
+                    ->with('anhDaiDien', $anhDaiDien)
+                    ->with('anhChiTiet1', $anhChiTiet1)
+                    ->with('anhChiTiet2', $anhChiTiet2)
+                    ->with('anhChiTiet3', $anhChiTiet3);
     }
 
     /**

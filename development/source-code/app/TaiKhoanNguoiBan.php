@@ -25,4 +25,14 @@ class TaiKhoanNguoiBan extends Authenticatable
     {
         return $this->mat_khau;
     }
+
+    public function getNgayTaoAttribute($value)
+    {
+        return date("d-m-Y", strtotime($value));
+    }
+
+    public function getNgayCapNhatAttribute($value)
+    {
+        return date("d-m-Y", strtotime($value));
+    }
 }

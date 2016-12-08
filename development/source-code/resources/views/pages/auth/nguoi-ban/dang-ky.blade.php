@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="minxApp" lang="en">
-  <head>
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8" name="csrf-token" content="{{ csrf_token() }}">
@@ -9,13 +10,12 @@
 
     <title>Đăng ký </title>
 
-      @include('partials.css-assets')
-      @include('partials.js-assets')
-     
-  </head>
+    @include('partials.css-assets') @include('partials.js-assets')
 
-  <body>
-    <div ng-controller="FormDangKyNguoiBanCtrl" class="col-md-4 col-md-offset-4">
+</head>
+
+<body>
+    <div ng-controller="FormDangKyNguoiBanCtrl" class="col-md-4 col-xs-12 col-md-offset-4">
         <div class="panel panel-default">
             <div class="panel-heading"><strong>Đăng ký tài khoản</strong></div>
             <div class="panel-body">
@@ -26,14 +26,15 @@
                 <form action="{{ URL::Route('dangky.nguoiban.post') }}" method="POST" id="formDangKy" name="formDangKy" ng-app="myApp" role="form" novalidate="novalidate">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label for="txtTenDangNhap">Tên đăng nhập <span class="text-danger">&#042</span></label>
-                        <input class="form-control" id="txtTenDangNhap" name="txtTenDangNhap" ng-model="txtTenDangNhap" ng-required="true" ng-maxlength="50" placeholder="Nhập tên đăng nhập"  />
-                        <i class="fa fa-check text-success" ng-show="formDangKy.txtTenDangNhap.$dirty && formDangKy.txtTenDangNhap.$valid"></i>
-                        <div ng-show="formDangKy.txtTenDangNhap.$dirty && formDangKy.txtTenDangNhap.$invalid" class="text-danger">
+                        <label for="txtHo">Họ <span class="text-danger">&#042</span></label>
+                        <input class="form-control" id="txtHo" name="txtHo" ng-model="txtHo" ng-required="true" ng-maxlength="50" placeholder="Nhập họ" />
+                        <i class="fa fa-check text-success" ng-show="formDangKy.txtHo.$dirty && formDangKy.txtHo.$valid"></i>
+                        <div ng-show="formDangKy.txtHo.$dirty && formDangKy.txtHo.$invalid" class="text-danger">
                             <i class="fa fa-times text-danger"></i>
-                            <span ng-show="formDangKy.txtTenDangNhap.$error.required">Tên đăng nhập không được bỏ trống</span>
+                            <span ng-show="formDangKy.txtHo.$error.required">Họ không được bỏ trống</span>
                         </div>
                     </div>
+
 
                     <div class="form-group">
                         <label for="txtTen">Tên <span class="text-danger">&#042</span></label>
@@ -45,23 +46,25 @@
                         </div>
                     </div>
 
+
                     <div class="form-group">
-                        <label for="txtHo">Họ <span class="text-danger">&#042</span></label>
-                        <input class="form-control" id="txtHo" name="txtHo" ng-model="txtHo" ng-required="true" ng-maxlength="50" placeholder="Nhập họ" />
-                        <i class="fa fa-check text-success" ng-show="formDangKy.txtHo.$dirty && formDangKy.txtHo.$valid"></i>
-                        <div ng-show="formDangKy.txtHo.$dirty && formDangKy.txtHo.$invalid" class="text-danger">
+                        <label for="txtTenDangNhap">Tên đăng nhập <span class="text-danger">&#042</span></label>
+                        <input class="form-control" id="txtTenDangNhap" name="txtTenDangNhap" ng-model="txtTenDangNhap" ng-required="true" ng-maxlength="50" placeholder="Nhập tên đăng nhập" />
+                        <i class="fa fa-check text-success" ng-show="formDangKy.txtTenDangNhap.$dirty && formDangKy.txtTenDangNhap.$valid"></i>
+                        <div ng-show="formDangKy.txtTenDangNhap.$dirty && formDangKy.txtTenDangNhap.$invalid" class="text-danger">
                             <i class="fa fa-times text-danger"></i>
-                            <span ng-show="formDangKy.txtHo.$error.required">Họ không được bỏ trống</span>
+                            <span ng-show="formDangKy.txtTenDangNhap.$error.required">Tên đăng nhập không được bỏ trống</span>
                         </div>
                     </div>
 
+
                     <div class="form-group">
                         <label for="txtTenShop">Tên shop <span class="text-danger">&#042</span></label>
-                        <input class="form-control" id="txtTenShop" name="txtTenShop" ng-model="txtTenShop" ng-required="true" ng-maxlength="50" placeholder="Nhập tên shop"  />
+                        <input class="form-control" id="txtTenShop" name="txtTenShop" ng-model="txtTenShop" ng-required="true" ng-maxlength="50" placeholder="Nhập tên shop" />
                         <i class="fa fa-check text-success" ng-show="formDangKy.txtTenShop.$dirty && formDangKy.txtTenShop.$valid"></i>
                         <div ng-show="formDangKy.txtTenShop.$dirty && formDangKy.txtTenShop.$invalid" class="text-danger">
                             <i class="fa fa-times text-danger"></i>
-                            <span ng-show="formDangKy.txtTenShop.$error.required">Tên đăng nhập không được bỏ trống</span>
+                            <span ng-show="formDangKy.txtTenShop.$error.required">Tên shop không được bỏ trống</span>
                         </div>
                     </div>
 
@@ -75,7 +78,28 @@
                             <span ng-show="formDangKy.txtEmail.$error.email">Email không đúng định dạng</span>
                         </div>
                     </div>
-                    
+
+                    <div class="form-group">
+                        <label for="txtSoDienThoai">Số điện thoại <span class="text-danger">&#042</span></label>
+                        <input class="form-control" id="txtSoDienThoai" name="txtSoDienThoai" ng-pattern="phoneNumberPattern" ng-model="txtSoDienThoai" ng-required="true" ng-maxlength="11" placeholder="Nhập số điện thoại" type="text" />
+                        <i class="fa fa-check text-success" ng-show="formDangKy.txtSoDienThoai.$dirty && formDangKy.txtSoDienThoai.$valid"></i>
+                        <div ng-show="formDangKy.txtSoDienThoai.$dirty && formDangKy.txtSoDienThoai.$invalid" class="text-danger">
+                            <i class="fa fa-times text-danger"></i>
+                            <span ng-show="formDangKy.txtSoDienThoai.$error.required">Số điện thoại không được bỏ trống</span>
+                            <span ng-show="formDangKy.txtSoDienThoai.$error.number">Số điện thoại không đúng định dạng</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtDiaChi">Địa chỉ <span class="text-danger">&#042</span></label>
+                        <input class="form-control" id="txtDiaChi" name="txtDiaChi" ng-model="txtDiaChi" ng-required="true" ng-maxlength="255" placeholder="Nhập địa chỉ" />
+                        <i class="fa fa-check text-success" ng-show="formDangKy.txtDiaChi.$dirty && formDangKy.txtDiaChi.$valid"></i>
+                        <div ng-show="formDangKy.txtDiaChi.$dirty && formDangKy.txtDiaChi.$invalid" class="text-danger">
+                            <i class="fa fa-times text-danger"></i>
+                            <span ng-show="formDangKy.txtDiaChi.$error.required">Địa chỉ không được bỏ trống</span>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <ng-form name="txtGioiTinhGroup">
                             <label for="txtGioiTinh">Giới tinh <span class="text-danger">&#042</span></label>
@@ -95,23 +119,24 @@
 
                     <div class="form-group">
                         <label for="txtMatKhau">Mật khẩu <span class="text-danger">&#042</span></label>
-                        <input class="form-control" id="txtMatKhau" name="txtMatKhau" ng-model="txtMatKhau" ng-required="true" ng-minlength="6" ng-maxlength="30" placeholder="Nhập mật khẩu" type="password"/>
+                        <input class="form-control" id="txtMatKhau" name="txtMatKhau" ng-model="txtMatKhau" ng-required="true" ng-minlength="6" ng-maxlength="30" placeholder="Nhập mật khẩu" type="password" />
                         <i class="fa fa-check text-success" ng-show="formDangKy.txtMatKhau.$dirty && formDangKy.txtMatKhau.$valid"></i>
                         <div ng-show="formDangKy.txtMatKhau.$dirty && formDangKy.txtMatKhau.$invalid" class="text-danger">
                             <i class="fa fa-times text-danger"></i>
                             <span ng-show="formDangKy.txtMatKhau.$error.required">Mật khẩu không được bỏ trống</span>
                             <span ng-show="formDangKy.txtMatKhau.$error.minlength">Mật khẩu phải dài hơn 5 ký tự</span>
-                        </div>       
+                        </div>
                     </div>
-                    
+
                     <div class="col-md-4 col-md-offset-4 form-group">
                         <button class="btn btn-primary form-control" type="button" ng-click="dangKy(formDangKy.$valid)">Đăng ký</button>
                     </div>
-                    </form>
+                </form>
             </div>
         </div>
-    <p class="text-center">Bạn đã có tài khoản?<a href="{{URL::Route('dangnhap.nguoiban.get')}"> Đăng nhập</a></p>
+        <p class="text-center">Bạn đã có tài khoản?<a href="{{URL::Route('dangnhap.nguoiban.index')}}"> Đăng nhập</a></p>
     </div>
 
 </body>
+
 </html>

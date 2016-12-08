@@ -63,17 +63,17 @@ class SanPhamController extends Controller
      */
     public function store(Request $request)
     {
-        //Lưu file vào folder storage/app/public/images và lưu lại đường dẫn
-        $anhDaiDienPath = $request->file('anh_dai_dien')->store('public/img');
-        $anhChiTiet1Path = $request->file('anh_ct_1')->store('public/img');
-        $anhChiTiet2Path = $request->file('anh_ct_2')->store('public/img');
-        $anhChiTiet3Path = $request->file('anh_ct_3')->store('public/img');
+        //Lưu file vào folder storage/app/public/img/san_pham và lưu lại đường dẫn
+        $anhDaiDienPath = $request->file('anh_dai_dien')->store('public/img/san_pham');
+        $anhChiTiet1Path = $request->file('anh_ct_1')->store('public/img/san_pham');
+        $anhChiTiet2Path = $request->file('anh_ct_2')->store('public/img/san_pham');
+        $anhChiTiet3Path = $request->file('anh_ct_3')->store('public/img/san_pham');
 
         $sanPhamIns = new SanPham();
         $sanPhamIns['id_danh_muc_san_pham'] = $request->txt_loaidanhmuc;
         $sanPhamIns['id_nguoi_ban'] = Auth::guard('nguoi_ban')->user()->id;
         $sanPhamIns['ten'] = $request->txt_tensp;
-        // Do chưa làm up ảnh nên để giá trị fake
+        
         $sanPhamIns['anh_dai_dien'] = $anhDaiDienPath;
         $sanPhamIns['anh_chi_tiet_1'] = $anhChiTiet1Path;
         $sanPhamIns['anh_chi_tiet_2'] = $anhChiTiet2Path;
@@ -87,8 +87,8 @@ class SanPhamController extends Controller
         // Slug được tự tạo ra từ tên của sản phẩm
         // $sanPhamIns['slug'] = str_slug($request->txt_tensp);
         $sanPhamIns['id_tinh_trang'] = 1;
-        // $sanPhamIns['ngay_tao'] = date("Y-m-d H:i:s");
-        // $sanPhamIns['ngay_cap_nhat'] = date("Y-m-d H:i:s");
+        $sanPhamIns['ngay_tao'] = date("Y-m-d H:i:s");
+        $sanPhamIns['ngay_cap_nhat'] = date("Y-m-d H:i:s");
         $sanPhamIns->save();
         return redirect()->route('nguoiban-sanpham.index');
     }

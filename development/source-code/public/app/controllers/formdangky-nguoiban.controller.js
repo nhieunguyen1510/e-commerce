@@ -9,6 +9,7 @@
 
     function FormDangKyNguoiBanCtrl($scope) {
         $scope.dangKy = dangKy;
+        $scope.phoneNumberPattern = '^0[0-9]{9}';
 
         function dangKy(isValid) {
             if (isValid == true) {

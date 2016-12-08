@@ -29,6 +29,8 @@ class DangKyController extends Controller
         $taiKhoanIns['ten_shop'] = $request->txtTenShop;
         $taiKhoanIns['email'] = $request->txtEmail;
         $taiKhoanIns['gioi_tinh'] = $request->txtGioiTinh;
+        $taiKhoanIns['so_dien_thoai'] = $request->txtSoDienThoai;
+        $taiKhoanIns['dia_chi'] = $request->txtDiaChi;
         $taiKhoanIns['mat_khau'] = $matKhau;
         $taiKhoanIns->save();
         return redirect()->route('dangnhap.nguoiban.index');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\SanPham;
+use App\TaiKhoanNguoiBan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -54,7 +55,24 @@ class ThongTinCaNhanController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //Lưu file vào folder storage/app/public/img/tai_khoan_nguoi_ban và lưu lại đường dẫn
+        $anhDaiDienPath = $request->file('anh_dai_dien')->store('public/img/tai_khoan_nguoi_ban');
+
+        $idNguoiBan = Auth::guard('nguoi_ban')->user()->id;
+        $taiKhoanNguoiBanIns = TaiKhoanNguoiBan::find($idNguoiBan);
+        $taiKhoanNguoiBanIns['anh_dai_dien'] = $anhDaiDienPath;
+        $taiKhoanNguoiBanIns['ten_dang_nhap'] = $request->txt_ten_dang_nhap;
+        $taiKhoanNguoiBanIns['email'] = $request->txt_email;
+        $taiKhoanNguoiBanIns['ten_shop'] = $request->txt_ten_shop;
+        $taiKhoanNguoiBanIns['gioi_tinh'] = $request->txt_gioi_tinh;
+        $taiKhoanNguoiBanIns['ho'] = $request->txt_ho;
+        $taiKhoanNguoiBanIns['ten'] = $request->txt_ten;
+        $taiKhoanNguoiBanIns['so_dien_thoai'] = $request->txt_sdt;
+        $taiKhoanNguoiBanIns['dia_chi'] = $request->txt_diachi;
+        $taiKhoanNguoiBanIns['ngay_tao'] = date("Y-m-d H:i:s");
+        $taiKhoanNguoiBanIns['ngay_cap_nhat'] = date("Y-m-d H:i:s");
+        $taiKhoanNguoiBanIns->save();
+        return redirect()->route('nguoiban-thongtin.index');
     }
 
     /**

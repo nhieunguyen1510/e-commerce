@@ -38,18 +38,21 @@
                 </div>
                 <div class="x_content">
 
-                    <form action="" method="POST" name="form_sua_thong_tin" enctype="multipart/form-data">
+                    <form action="{{URL::Route('nguoiban-thongtin.post')}}" method="POST" name="form_sua_thong_tin" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
                             <div class="profile_img">
                                 <div id="crop-avatar">
                                     <!-- Current avatar -->
-                                    <img class="img-responsive avatar-view" src="{{$anhDaiDien}}" alt="Avatar" title="Change the avatar" width="220px" height="220px">
+                                    <img class="img-responsive avatar-view" src="{{$anhDaiDien}}" alt="Avatar" title="Change the avatar" width="220px" height="220px" accept="image/*">
                                 </div>
                             </div>
                             <h3>Samuel Doe</h3>
-                            <input type="file" name="upload_img" />
+                            <input type="file" name="anh_dai_dien" />
+
+                            <br/>
+                            <button type="button" class="btn btn-primary btn-fill btn-wd">Đổi mật khẩu</button>
 
                             <br />
 

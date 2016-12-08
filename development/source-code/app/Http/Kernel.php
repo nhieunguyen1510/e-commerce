@@ -53,6 +53,7 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'nguoiban' => \App\Http\Middleware\NguoiBanDangNhap::class,
+        'nguoiban_redirect_if_authenticated'=>\App\Http\Middleware\Redirect_If_NguoiBan::class,
         'admin_Middleware'=>\App\Http\Middleware\admin_Middleware::class,
     ];
 }

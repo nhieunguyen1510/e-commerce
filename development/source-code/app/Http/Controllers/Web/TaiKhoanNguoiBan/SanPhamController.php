@@ -21,7 +21,8 @@ class SanPhamController extends Controller
         $cost_max = null;
         $search_input = null;
 
-        $query = SanPham::orderBy('ngay_tao', 'desc');
+        $id_nguoi_ban = Auth::guard('nguoi_ban')->user()->id;
+        $query = SanPham::orderBy('ngay_tao', 'desc')->where('id_nguoi_ban','=',$id_nguoi_ban);
         //Kiểm tra nếu có lọc theo tình trạng thì sẽ gộp thêm 1 câu query: idTinhTrang nhập vô có trong table sanpham ko?
         if($request->has('tinhtrang'))
         {

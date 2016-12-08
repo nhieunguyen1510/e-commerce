@@ -10,7 +10,7 @@
 </style>
 <div class="breadcrumbs">
 				<ol class="breadcrumb">
-				  <li><a href="#">Home</a></li>
+				  <li><a href="#">Trang chủ</a></li>
 				  <li class="active">Kết quả tìm kiếm: <b>{{ $kw }}</b></li>
 				</ol>
 			</div>

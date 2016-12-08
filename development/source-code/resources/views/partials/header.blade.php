@@ -7,7 +7,7 @@
             <div class="row">
 
                 <div class="col-sm-6" style="width: 58%">
-                    {{--
+                    
                     <form method="POST" action="{{ URL::Route('timkiem') }}">--}} {{ csrf_field() }}
                         <div class="search_box pull-right">
                             <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm, thương hiệu ..." />

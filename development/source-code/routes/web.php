@@ -16,7 +16,8 @@ Route::get('gio-hang',$baseFolder.'ShoppingController@giohang')->name('giohang')
 Route::get('/', $baseFolder.'TrangChuController@getTrangChu')->name('trangchu.index');
 Route::get('dangnhap', 'admin\DangNhapController@getDangNhap')->name('getDangNhap');
 Route::get('xoa-gio-hang/{id}',$baseFolder.'ShoppingController@xoagiohang')->name('xoagiohang');
-Route::get('sua-gio-hang/{id}/{qty}',$baseFolder.'ShoppingController@suagiohang')->name('suagiohang');
+Route::post('sua-gio-hang',$baseFolder.'ShoppingController@suagiohang')->name('suagiohang');
+Route::get('thanh-toan',$baseFolder.'ShoppingController@thanhtoan')->name('thanhtoan');
 
 Route::post('timkiem',$baseFolder.'TimKiemController@timkiem')->name('timkiem');
 Route::resource('san-pham',$baseFolder.'SanPhamController', ['names' => [
@@ -120,56 +121,7 @@ Route::group(['prefix'=>'nguoiban','middleware'=>'nguoiban'], function(){
         Route::get('{idDonHang}/sua/{idTinhTrang}', 'Web\TaiKhoanNguoiBan\DonHangController@update')->name('nguoiban-donhang.update');
         Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\DonHangController@show')->name('nguoiban-donhang.show');
     });
-
-    //nguoiban/thongtin/
-    Route::group(['prefix'=>'thongtin'], function(){
-        Route::get('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@index')->name('nguoiban-thongtin.index');
-        Route::post('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@store')->name('nguoiban-thongtin.post');
-    });
 });
 
 
 // Admin-Như
-Route::group(['prefix'=>'admin'], function(){
-    Route::get('dang-nhap','Auth\TaiKhoanAdmin\DangNhapController@getDangNhap')->name('dangnhap.admin.index');
-    Route::post('dang-nhap','Auth\TaiKhoanAdmin\DangNhapController@postDangNhap')->name('dangnhap.admin.post');
-    Route::get('dang-xuat','Auth\TaiKhoanAdmin\DangNhapController@getDangXuat')->name('dangxuat.admin.get');
-});
-
-
-Route::group(['prefix'=>'admin', 'middleware'=>'admin_Middleware'], function(){
-    Route::group(['prefix'=>'nguoiban'], function(){
-            Route::get('danhsach', 'Web\TaiKhoanAdmin\NguoiBanController@getDanhSach')->name('admin.nguoiban.getdanhsach');
-
-            Route::get('chitiet/{id}', 'Web\TaiKhoanAdmin\NguoiBanController@getChiTiet')->name('admin.nguoiban.getchitiet');
-            
-        });
-
-
-    Route::group(['prefix'=>'nguoimua'], function(){
-            Route::get('danhsach', 'Web\TaiKhoanAdmin\NguoiMuaController@getDanhSach')->name('admin.nguoimua.getdanhsach');
-
-            Route::get('chitiet/{id}', 'Web\TaiKhoanAdmin\NguoiMuaController@getChiTiet')->name('admin.nguoimua.getchitiet');
-            
-        });
-    Route::group(['prefix'=>'hoadonban'], function(){
-            Route::get('danhsach', 'Web\TaiKhoanAdmin\HoaDonBanHangController@getDanhSach')->name('admin.hoadonban.getdanhsach');
-
-            Route::get('chitiet/{id}', 'Web\TaiKhoanAdmin\HoaDonBanHangController@getChiTiet')->name('admin.hoadonban.getchitiet');
-            
-        });
-
-    Route::group(['prefix'=>'hoadonmua'], function(){
-            Route::get('danhsach', 'Web\TaiKhoanAdmin\HoaDonMuaHangController@getDanhSach')->name('admin.hoadonmua.getdanhsach');
-
-            Route::get('chitiet/{id}', 'Web\TaiKhoanAdmin\HoaDonMuaHangController@getChiTiet')->name('admin.hoadonmua.getchitiet');
-            
-        });
-
-    Route::group(['prefix'=>'hoadontaikhoan'], function(){
-            Route::get('danhsach', 'Web\TaiKhoanAdmin\HoaDonTaiKhoanController@getDanhSach')->name('admin.hoadontaikhoan.getdanhsach');
-
-            Route::get('chitiet/{id}', 'Web\TaiKhoanAdmin\HoaDonTaiKhoanController@getChiTiet')->name('admin.hoadontaikhoan.getchitiet');
-            
-        });
-});

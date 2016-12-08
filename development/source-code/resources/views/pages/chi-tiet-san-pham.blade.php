@@ -96,13 +96,13 @@
 
                                     <ul class="gallery clearfix" style="margin-left:-15px">
                                         <li>
-                                            <a href="{{ $anhChiTiet1 }}') }}" rel="prettyPhoto" title="&lt;a href=&#x27;http://www.google.ca&#x27; target=&#x27;_blank&#x27; &gt;{{ $sanPham->ten }}&lt;/a&gt;"><img src="{{ $anhChiTiet1 }}" width="85px" height="84px" alt="Picture alone 1" /></a>
+                                             <a href="{{ $anhChiTiet1 }}" rel="prettyPhoto" title="&lt;a href=&#x27;http://www.google.ca&#x27; target=&#x27;_blank&#x27; &gt;{{ $sanPham->ten }}&lt;/a&gt;"><img src="{{ $anhChiTiet1 }}" width="85px" height="84px" alt="Hình ảnh chi tiết" /></a>
                                         </li>
                                         <li>
-                                            <a href="{{ $anhChiTiet2 }}" rel="prettyPhoto" title="&lt;a href=&#x27;http://www.google.ca&#x27; target=&#x27;_blank&#x27; &gt;{{ $sanPham->ten }}&lt;/a&gt;"><img src="{{ $anhChiTiet2 }}" width="85px" height="84px" alt="Picture alone 1" /></a>
+                                            <a href="{{ $anhChiTiet1 }}" rel="prettyPhoto" title="&lt;a href=&#x27;http://www.google.ca&#x27; target=&#x27;_blank&#x27; &gt;{{ $sanPham->ten }}&lt;/a&gt;"><img src="{{ $anhChiTiet1 }}" width="85px" height="84px" alt="Hình ảnh chi tiết" /></a>
                                         </li>
                                         <li>
-                                            <a href="{{ $anhChiTiet3 }}" rel="prettyPhoto" title="&lt;a href=&#x27;http://www.google.ca&#x27; target=&#x27;_blank&#x27; &gt;{{ $sanPham->ten }}&lt;/a&gt;"><img src="{{ $anhChiTiet3 }}" width="85px" height="84px" alt="Picture alone 1" /></a>
+                                            <a href="{{ $anhChiTiet1 }}" rel="prettyPhoto" title="&lt;a href=&#x27;http://www.google.ca&#x27; target=&#x27;_blank&#x27; &gt;{{ $sanPham->ten }}&lt;/a&gt;"><img src="{{ $anhChiTiet1 }}" width="85px" height="84px" alt="Hình ảnh chi tiết" /></a>
                                         </li>
 
                                     </ul>
@@ -125,7 +125,7 @@
 
                             <span>
 									<span>{{ number_format($sanPham->don_gia_goc ,0,",",".")}} VNĐ</span>
-                            <button type="button" class="btn btn-default cart"><a href="{{ URL::Route('muahang',[$sanPham->id]) }}">
+                            <button type="button" class="btn btn-default cart"><a href="{{ URL::Route('muahang',['id'=>$sanPham->id]) }}">
 										<i class="fa fa-shopping-cart"></i>
 										Thêm vào giỏ hàng</a>
 									</button>

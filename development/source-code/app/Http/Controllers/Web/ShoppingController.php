@@ -35,7 +35,7 @@ class ShoppingController extends Controller
     public function suagiohang(Request $request){
         
             $rowId = $request ->id;
-            $qty = $request-> quantity;
+            $qty = $request->quantity;
 
             Cart::update($rowId, $qty);
             return redirect()->route('giohang');

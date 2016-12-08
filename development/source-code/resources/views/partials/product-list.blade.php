@@ -16,7 +16,7 @@
                     <div class="product-image-cart">
                         <div class="product-image">
                             <a href="#">
-                                <img src="{{ $sanPham->anh_dai_dien }}" alt="Áo trễ vai mã 001">
+                                <img src="{{  $anhDaiDien  }}" alt="Áo trễ vai mã 001">
                             </a>
                         </div>
                         <div class="product-icon-cart">
@@ -32,7 +32,7 @@
                             
                         </div>
                         <div class="product-name">
-                            <a href="{{  URL::route('sanpham.show', $sanPham->slug) }}" title="{{ $sanPham->ten }}">
+                            <a href="{{  URL::route('sanpham.show', $sanPham->id) }}" title="{{ $sanPham->ten }}">
                            {{ $sanPham->ten }}
                             </a>
                         </div>

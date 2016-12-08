@@ -124,6 +124,7 @@ Route::group(['prefix'=>'nguoiban','middleware'=>'nguoiban'], function(){
     //nguoiban/thongtin/
     Route::group(['prefix'=>'thongtin'], function(){
         Route::get('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@index')->name('nguoiban-thongtin.index');
+        Route::post('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@store')->name('nguoiban-thongtin.post');
     });
 });
 

@@ -23,4 +23,11 @@ class GiaoDich extends Model
     {
         return $this->hasMany('App\ChiTietGiaoDich', 'id_giao_dich', 'id')->paginate($itemsPerPage);
     }
+    /**
+     * Get buyer information.
+     */
+    public function tai_khoan_nguoi_mua()
+    {
+        return $this->hasOne('App\TaiKhoanNguoiMua', 'id', 'id_tai_khoan');
+    }
 }

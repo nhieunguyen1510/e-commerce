@@ -10,6 +10,7 @@
     <title>Đăng Nhập </title>
 
      @include('partials.css-assets')
+     @include('partials.js-assets')
 
      
   </head>
@@ -28,7 +29,7 @@
                     </div>
                     @endif
 
-                <form action="{{ URL::Route('dangnhap.post') }}" method="POST" novalidate="novalidate" name="form_login" ng-app="myApp"  ng-controller="validateCtrl">
+                <form action="{{ URL::Route('dangnhap.admin.post') }}" method="POST" novalidate="novalidate" name="form_login" ng-app="myApp"  ng-controller="validateCtrl">
                     {{ csrf_field() }}
                     <div class="form-group">
                     <label for="txtUser">Tên đăng nhập</label>
@@ -52,7 +53,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4 col-md-offset-4 form-group"><button class="btn btn-primary form-control" type="submit" ng-disabled="form_login.txtUser.$dirty && form_login.txtUser.$invalid ||form_login.txtPass.$dirty && form_login.txtPass.$invalid">Login</button></div>
+                        <div class="col-md-4 col-md-offset-4 form-group"><button class="btn btn-primary form-control" type="submit" ng-disabled="form_login.txtUser.$dirty && form_login.txtUser.$invalid ||form_login.txtPass.$dirty && form_login.txtPass.$invalid">Đăng nhập</button></div>
                     </div>
                     <div class="form-group">
                         <p class="text-center"><a href="#">Quên mật khẩu?</a></p>

@@ -20,6 +20,7 @@ class CreateQuanTriVienTable extends Migration
             $table->string('email')->unique();
             $table->string('ho');
             $table->string('ten');
+            $table->string('anh_dai_dien')->default('no-avatar');
             $table->integer('id_tinh_trang');
             $table->tinyInteger('phan_quyen');
             $table->timestamp('ngay_tao')->default(\DB::raw('CURRENT_TIMESTAMP'));

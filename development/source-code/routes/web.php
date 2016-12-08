@@ -130,6 +130,45 @@ Route::group(['prefix'=>'nguoiban','middleware'=>'nguoiban'], function(){
 
 // Admin-Như
 Route::group(['prefix'=>'admin'], function(){
-Route::get('dang-nhap','Auth\TaiKhoanAdmin\DangNhapController@getDangNhap')->name('dangnhap.index');
-Route::post('dang-nhap','Auth\TaiKhoanAdmin\DangNhapController@postDangNhap')->name('dangnhap.post');
+    Route::get('dang-nhap','Auth\TaiKhoanAdmin\DangNhapController@getDangNhap')->name('dangnhap.admin.index');
+    Route::post('dang-nhap','Auth\TaiKhoanAdmin\DangNhapController@postDangNhap')->name('dangnhap.admin.post');
+    Route::get('dang-xuat','Auth\TaiKhoanAdmin\DangNhapController@getDangXuat')->name('dangxuat.admin.get');
+});
+
+
+Route::group(['prefix'=>'admin', 'middleware'=>'admin_Middleware'], function(){
+    Route::group(['prefix'=>'nguoiban'], function(){
+            Route::get('danhsach', 'Web\TaiKhoanAdmin\NguoiBanController@getDanhSach')->name('admin.nguoiban.getdanhsach');
+
+            Route::get('chitiet/{id}', 'Web\TaiKhoanAdmin\NguoiBanController@getChiTiet')->name('admin.nguoiban.getchitiet');
+            
+        });
+
+
+    Route::group(['prefix'=>'nguoimua'], function(){
+            Route::get('danhsach', 'Web\TaiKhoanAdmin\NguoiMuaController@getDanhSach')->name('admin.nguoimua.getdanhsach');
+
+            Route::get('chitiet/{id}', 'Web\TaiKhoanAdmin\NguoiMuaController@getChiTiet')->name('admin.nguoimua.getchitiet');
+            
+        });
+    Route::group(['prefix'=>'hoadonban'], function(){
+            Route::get('danhsach', 'Web\TaiKhoanAdmin\HoaDonBanHangController@getDanhSach')->name('admin.hoadonban.getdanhsach');
+
+            Route::get('chitiet/{id}', 'Web\TaiKhoanAdmin\HoaDonBanHangController@getChiTiet')->name('admin.hoadonban.getchitiet');
+            
+        });
+
+    Route::group(['prefix'=>'hoadonmua'], function(){
+            Route::get('danhsach', 'Web\TaiKhoanAdmin\HoaDonMuaHangController@getDanhSach')->name('admin.hoadonmua.getdanhsach');
+
+            Route::get('chitiet/{id}', 'Web\TaiKhoanAdmin\HoaDonMuaHangController@getChiTiet')->name('admin.hoadonmua.getchitiet');
+            
+        });
+
+    Route::group(['prefix'=>'hoadontaikhoan'], function(){
+            Route::get('danhsach', 'Web\TaiKhoanAdmin\HoaDonTaiKhoanController@getDanhSach')->name('admin.hoadontaikhoan.getdanhsach');
+
+            Route::get('chitiet/{id}', 'Web\TaiKhoanAdmin\HoaDonTaiKhoanController@getChiTiet')->name('admin.hoadontaikhoan.getchitiet');
+            
+        });
 });

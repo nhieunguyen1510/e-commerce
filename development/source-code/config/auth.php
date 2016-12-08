@@ -92,7 +92,7 @@ return [
 
         'TaiKhoanAdmin' => [
             'driver' => 'eloquent',
-            'model' => App\QuanTriVien::class,
+            'model' => App\TaiKhoanAdmin::class,
         ],
 
         // 'users' => [

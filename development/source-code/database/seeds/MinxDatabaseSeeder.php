@@ -57,7 +57,8 @@ class MinxDatabaseSeeder extends Seeder
             ['id' => 10, 'tinh_trang' => 'Bị khóa', 'bang' => 'tai_khoan_nguoi_ban', 'thuoc_tinh' => 'id_tinh_trang'],
             ['id' => 11, 'tinh_trang' => 'Chưa kích hoạt', 'bang' => 'tai_khoan_nguoi_mua', 'thuoc_tinh' => 'id_tinh_trang'],
             ['id' => 12, 'tinh_trang' => 'Đã kích hoạt', 'bang' => 'tai_khoan_nguoi_mua', 'thuoc_tinh' => 'id_tinh_trang'],
-            ['id' => 13, 'tinh_trang' => 'Bị khóa', 'bang' => 'tai_khoan_nguoi_mua', 'thuoc_tinh' => 'id_tinh_trang']
+            ['id' => 13, 'tinh_trang' => 'Bị khóa', 'bang' => 'tai_khoan_nguoi_mua', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 14, 'tinh_trang' => 'Chuyển khoản', 'bang' => 'hoa_don_tai_khoan', 'thuoc_tinh' => 'id_tinh_trang']
         ]);
     }
 
@@ -484,4 +485,37 @@ class MinxDatabaseSeeder extends Seeder
                 'ngay_cap_nhat' => $randomDate],
         ]);
     }
+    
+    private function seedHoaDonTaiKhoanTable($randomString, $quantityOfSanPhamRecords)
+    {
+        $randomInteger= rand(1202055681,1362055681);
+        $randomDate = date("Y-m-d H:i:s",$randomInteger);
+        DB::table('hoa_don_tai_khoan')->insert([
+        [   'id' => 1,
+            'id_tai_khoan_ban' => rand(1,5),
+            'so_tien_chuyen_khoan' => 300000,
+            'hinh_thuc_thanh_toan' => 14,
+            'ngay_tao' => $randomDate,
+            'ngay_cap_nhat' => $randomDate],
+        [   'id' => 2,
+            'id_tai_khoan_ban' => rand(1,5),
+            'so_tien_chuyen_khoan' => 300000,
+            'hinh_thuc_thanh_toan' => 14,
+            'ngay_tao' => $randomDate,
+            'ngay_cap_nhat' => $randomDate],
+        [   'id' => 3,
+            'id_tai_khoan_ban' => rand(1,5),
+            'so_tien_chuyen_khoan' => 300000,
+            'hinh_thuc_thanh_toan' => 14,
+            'ngay_tao' => $randomDate,
+            'ngay_cap_nhat' => $randomDate],
+        [   'id' => 4,
+            'id_tai_khoan_ban' => rand(1,5),
+            'so_tien_chuyen_khoan' => 300000,
+            'hinh_thuc_thanh_toan' => 14,
+            'ngay_tao' => $randomDate,
+            'ngay_cap_nhat' => $randomDate],
+        ]);
+    }
+
 }

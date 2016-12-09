@@ -24,6 +24,7 @@ class MinxDatabaseSeeder extends Seeder
         self::seedTaiKhoanNguoiBanTable();
         self::seedQuanTriVienTable();
         self::seedGiaoDichTable($randomString, $quantityOfSanPhamRecords);
+        self::seedGiaoDichNguoiBanTable($randomString, $quantityOfSanPhamRecords);
         self::seedTaiKhoanNguoiMuaTable();
         // self::seedSanPhamTable($randomString, $quantityOfSanPhamRecords);
         // self::seedTaiKhoanTable($randomString, $quantityOfSanPhamRecords);
@@ -248,6 +249,75 @@ class MinxDatabaseSeeder extends Seeder
             'id_tinh_trang' => rand(3,7),
             'ngay_tao' => $randomDate,
             'ngay_cap_nhat' => $randomDate]
+        ]);
+    }
+
+    private function seedGiaoDichNguoiBanTable($randomString, $quantityOfSanPhamRecords)
+    {
+        $randomInteger= rand(1202055681,1362055681);
+        $randomDate = date("Y-m-d H:i:s",$randomInteger);
+        $randomPhone ='0'.rand(1000000000,1290000000);
+        DB::table('giao_dich_nguoi_ban')->insert([
+        [   'id' => 1,
+            'id_tai_khoan_mua' => rand(1,5),
+            'id_tai_khoan_ban' => rand(1,5),
+            'giao_dich_cod' => 1,
+            'giao_dich_truc_tuyen' => 0,
+            'thoi_gian_giao_dich' => $randomDate,
+            'ngay_giao_hang' => $randomDate,
+            'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
+            'so_dien_thoai_giao_hang' => $randomPhone,
+            'ten_nguoi_nhan' => 'Nghia',
+            'ma_khuyen_mai' => str_random(5),
+            'tong_tien' => 0,
+            'id_tinh_trang' => rand(3,7),
+            'ngay_tao' => $randomDate,
+            'ngay_cap_nhat' => $randomDate],
+        [   'id' => 2,
+            'id_tai_khoan_mua' => rand(1,5),
+            'id_tai_khoan_ban' => rand(1,5),
+            'giao_dich_cod' => 1,
+            'giao_dich_truc_tuyen' => 0,
+            'thoi_gian_giao_dich' => $randomDate,
+            'ngay_giao_hang' => $randomDate,
+            'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
+            'so_dien_thoai_giao_hang' => $randomPhone,
+            'ten_nguoi_nhan' => 'Dung',
+            'ma_khuyen_mai' => str_random(5),
+            'tong_tien' => 0,
+            'id_tinh_trang' => rand(3,7),
+            'ngay_tao' => $randomDate,
+            'ngay_cap_nhat' => $randomDate],
+        [   'id' => 3,
+            'id_tai_khoan_mua' => rand(1,5),
+            'id_tai_khoan_ban' => rand(1,5),
+            'giao_dich_cod' => 1,
+            'giao_dich_truc_tuyen' => 0,
+            'thoi_gian_giao_dich' => $randomDate,
+            'ngay_giao_hang' => $randomDate,
+            'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
+            'so_dien_thoai_giao_hang' => $randomPhone,
+            'ten_nguoi_nhan' => 'Hung',
+            'ma_khuyen_mai' => str_random(5),
+            'tong_tien' => 0,
+            'id_tinh_trang' => rand(3,7),
+            'ngay_tao' => $randomDate,
+            'ngay_cap_nhat' => $randomDate],
+        [   'id' => 4,
+            'id_tai_khoan_mua' => rand(1,5),
+            'id_tai_khoan_ban' => rand(1,5),
+            'giao_dich_cod' => 1,
+            'giao_dich_truc_tuyen' => 0,
+            'thoi_gian_giao_dich' => $randomDate,
+            'ngay_giao_hang' => $randomDate,
+            'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
+            'so_dien_thoai_giao_hang' => $randomPhone,
+            'ten_nguoi_nhan' => 'Truong',
+            'ma_khuyen_mai' => str_random(5),
+            'tong_tien' => 0,
+            'id_tinh_trang' => rand(3,7),
+            'ngay_tao' => $randomDate,
+            'ngay_cap_nhat' => $randomDate],
         ]);
     }
 

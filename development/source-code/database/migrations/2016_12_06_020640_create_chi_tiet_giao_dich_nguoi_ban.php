@@ -16,7 +16,7 @@ class CreateChiTietGiaoDichNguoiBan extends Migration
         //
         Schema::create('chi_tiet_giao_dich_nguoi_ban', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_giao_dich_nguoi_ban');
+            $table->integer('id_giao_dich_nguoi_ban')->nullable();
             $table->integer('id_san_pham');
             $table->integer('so_luong');
             $table->integer('don_gia_san_pham');

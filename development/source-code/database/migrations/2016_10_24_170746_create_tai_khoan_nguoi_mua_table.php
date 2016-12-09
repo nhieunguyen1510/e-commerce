@@ -18,7 +18,7 @@ class CreateTaiKhoanNguoiMuaTable extends Migration
             $table->string('ten_dang_nhap')->unique();
             $table->string('mat_khau');
             $table->string('email')->unique();
-            $table->string('anh_dai_dien')->default('no-avatar');
+            $table->string('anh_dai_dien')->default('public/img/tai_khoan_nguoi_mua/no-avatar.png');
             $table->tinyInteger('gioi_tinh');
             $table->string('ho');
             $table->string('ten');

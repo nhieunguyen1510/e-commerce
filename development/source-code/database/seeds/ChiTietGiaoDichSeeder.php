@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use App\SanPham;
 use App\GiaoDich;
 use App\ChiTietGiaoDich;
+use App\GiaoDichNguoiBan;
+use App\ChiTietGiaoDichNguoiBan;
 
 class ChiTietGiaoDichSeeder extends Seeder
 {
@@ -28,11 +30,21 @@ class ChiTietGiaoDichSeeder extends Seeder
                     'don_gia_san_pham' => $sanPham->gia_ban_hien_tai,
                     'tong_tien' => $soLuong*$sanPham->gia_ban_hien_tai,
                 ]);
+                DB::table('chi_tiet_giao_dich_nguoi_ban')->insert([
+                    'id_giao_dich_nguoi_ban' => $idGiaoDich,
+                    'id_san_pham' => $idSanPham,
+                    'so_luong' => $soLuong,
+                    'don_gia_san_pham' => $sanPham->gia_ban_hien_tai,
+                    'tong_tien' => $soLuong*$sanPham->gia_ban_hien_tai,
+                ]);
                 $sanPham->so_luong_ton_kho=$sanPham->so_luong_ton_kho-$soLuong;
                 $sanPham->save();
                 $giaoDich=GiaoDich::find($idGiaoDich);
+                $giaoDichNguoiBan=GiaoDichNguoiBan::find($idGiaoDich);
                 $giaoDich->tong_tien=$giaoDich->tong_tien+$soLuong*$sanPham->gia_ban_hien_tai;
                 $giaoDich->save();
+                $giaoDichNguoiBan->tong_tien=$giaoDich->tong_tien+$soLuong*$sanPham->gia_ban_hien_tai;
+                $giaoDichNguoiBan->save();
             }
         }
     }

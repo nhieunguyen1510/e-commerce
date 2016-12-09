@@ -190,7 +190,7 @@ class MinxDatabaseSeeder extends Seeder
             ]);
         }
     }
-
+    
     private function seedGiaoDichTable($randomString, $quantityOfSanPhamRecords)
     {
         $randomInteger= rand(1202055681,1362055681);
@@ -202,6 +202,7 @@ class MinxDatabaseSeeder extends Seeder
             'giao_dich_cod' => 1,
             'giao_dich_truc_tuyen' => 0,
             'thoi_gian_giao_dich' => $randomDate,
+            'ngay_giao_hang' => $randomDate,
             'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
             'so_dien_thoai_giao_hang' => $randomPhone,
             'ten_nguoi_nhan' => 'Nghia',
@@ -215,6 +216,7 @@ class MinxDatabaseSeeder extends Seeder
             'giao_dich_cod' => 1,
             'giao_dich_truc_tuyen' => 0,
             'thoi_gian_giao_dich' => $randomDate,
+            'ngay_giao_hang' => $randomDate,
             'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
             'so_dien_thoai_giao_hang' => $randomPhone,
             'ten_nguoi_nhan' => 'Dung',
@@ -228,6 +230,7 @@ class MinxDatabaseSeeder extends Seeder
             'giao_dich_cod' => 1,
             'giao_dich_truc_tuyen' => 0,
             'thoi_gian_giao_dich' => $randomDate,
+            'ngay_giao_hang' => $randomDate,
             'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
             'so_dien_thoai_giao_hang' => $randomPhone,
             'ten_nguoi_nhan' => 'Hung',
@@ -241,6 +244,7 @@ class MinxDatabaseSeeder extends Seeder
             'giao_dich_cod' => 1,
             'giao_dich_truc_tuyen' => 0,
             'thoi_gian_giao_dich' => $randomDate,
+            'ngay_giao_hang' => $randomDate,
             'dia_chi_giao_hang' => substr($randomString,0,rand(20,30)),
             'so_dien_thoai_giao_hang' => $randomPhone,
             'ten_nguoi_nhan' => 'Truong',
@@ -251,7 +255,7 @@ class MinxDatabaseSeeder extends Seeder
             'ngay_cap_nhat' => $randomDate]
         ]);
     }
-
+    
     private function seedGiaoDichNguoiBanTable($randomString, $quantityOfSanPhamRecords)
     {
         $randomInteger= rand(1202055681,1362055681);

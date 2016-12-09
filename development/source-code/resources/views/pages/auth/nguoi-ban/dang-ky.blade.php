@@ -81,7 +81,7 @@
 
                     <div class="form-group">
                         <label for="txtSoDienThoai">Số điện thoại <span class="text-danger">&#042</span></label>
-                        <input class="form-control" id="txtSoDienThoai" name="txtSoDienThoai" ng-pattern="phoneNumberPattern" ng-model="txtSoDienThoai" ng-required="true" ng-maxlength="11" placeholder="Nhập số điện thoại" type="text" />
+                        <input class="form-control" id="txtSoDienThoai" name="txtSoDienThoai" ng-pattern="phoneNumberPattern" ng-model="txtSoDienThoai" ng-required="true" ng-maxlength="10" placeholder="Nhập số điện thoại" type="text" />
                         <i class="fa fa-check text-success" ng-show="formDangKy.txtSoDienThoai.$dirty && formDangKy.txtSoDienThoai.$valid"></i>
                         <div ng-show="formDangKy.txtSoDienThoai.$dirty && formDangKy.txtSoDienThoai.$invalid" class="text-danger">
                             <i class="fa fa-times text-danger"></i>

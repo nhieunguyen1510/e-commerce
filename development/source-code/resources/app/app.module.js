@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('minxApp', ['froala'])
+    angular.module('minxApp', ['froala', 'ngMessages'])
         .config(appConfig)
         .value('froalaConfig', {
             toolbarInline: false,

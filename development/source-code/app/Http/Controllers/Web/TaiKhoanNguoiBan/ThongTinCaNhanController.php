@@ -55,12 +55,8 @@ class ThongTinCaNhanController extends Controller
      */
     public function store(Request $request)
     {
-        //Lưu file vào folder storage/app/public/img/tai_khoan_nguoi_ban và lưu lại đường dẫn
-        $anhDaiDienPath = $request->file('anh_dai_dien')->store('public/img/tai_khoan_nguoi_ban');
-
         $idNguoiBan = Auth::guard('nguoi_ban')->user()->id;
         $taiKhoanNguoiBanIns = TaiKhoanNguoiBan::find($idNguoiBan);
-        $taiKhoanNguoiBanIns['anh_dai_dien'] = $anhDaiDienPath;
         $taiKhoanNguoiBanIns['ten_dang_nhap'] = $request->txt_ten_dang_nhap;
         $taiKhoanNguoiBanIns['email'] = $request->txt_email;
         $taiKhoanNguoiBanIns['ten_shop'] = $request->txt_ten_shop;
@@ -69,8 +65,14 @@ class ThongTinCaNhanController extends Controller
         $taiKhoanNguoiBanIns['ten'] = $request->txt_ten;
         $taiKhoanNguoiBanIns['so_dien_thoai'] = $request->txt_sdt;
         $taiKhoanNguoiBanIns['dia_chi'] = $request->txt_diachi;
-        $taiKhoanNguoiBanIns['ngay_tao'] = date("Y-m-d H:i:s");
         $taiKhoanNguoiBanIns['ngay_cap_nhat'] = date("Y-m-d H:i:s");
+        //Kiểm tra xem người bán có up ảnh mới hay không
+        if($request->has('anh_dai_dien'))
+        {
+            // Lưu file vào folder storage/app/public/img/tai_khoan_nguoi_ban và lưu lại đường dẫn
+            $anhDaiDienPath = $request->file('anh_dai_dien')->store('public/img/tai_khoan_nguoi_ban');
+            $taiKhoanNguoiBanIns['anh_dai_dien'] = $anhDaiDienPath;
+        }
         $taiKhoanNguoiBanIns->save();
         return redirect()->route('nguoiban-thongtin.index');
     }

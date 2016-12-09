@@ -39,7 +39,7 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i> Thông tin <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Chứng từ nạp tiền </a></li>
+                      <li><a href="{{URL::Route('nguoiban-chungtu.index')}}">Chứng từ nạp tiền </a></li>
                       <li><a href="{{URL::Route('nguoiban-thongtin.index')}}">Thông tin cá nhân </a></li>
                       
                     </ul>

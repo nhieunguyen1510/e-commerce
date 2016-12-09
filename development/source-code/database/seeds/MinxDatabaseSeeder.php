@@ -25,6 +25,7 @@ class MinxDatabaseSeeder extends Seeder
         self::seedQuanTriVienTable();
         self::seedGiaoDichTable($randomString, $quantityOfSanPhamRecords);
         self::seedGiaoDichNguoiBanTable($randomString, $quantityOfSanPhamRecords);
+        self::seedHoaDonTaiKhoanTable($randomString, $quantityOfSanPhamRecords);
         self::seedTaiKhoanNguoiMuaTable();
         // self::seedSanPhamTable($randomString, $quantityOfSanPhamRecords);
         // self::seedTaiKhoanTable($randomString, $quantityOfSanPhamRecords);

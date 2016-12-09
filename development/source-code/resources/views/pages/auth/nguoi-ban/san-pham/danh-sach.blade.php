@@ -107,7 +107,7 @@
                                 <td>{{$sanPham->tinh_trang->tinh_trang}}</td>
                                 <td>
                                     <center>
-                                        <a href="{{URL::Route('sanpham.show', ['idSanPham' => $sanPham->id])}}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Xem </a> 
+                                        <a href="{{URL::Route('sanpham.show', ['id' => $sanPham->id])}}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Xem </a> 
                                         @if($sanPham->id_tinh_trang == 1)
                                         <a href="{{URL::Route('nguoiban-sanpham.update', ['idSanPham' => $sanPham->id])}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hết hàng </a>
                                         @endif

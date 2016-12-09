@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\GiaoDich;
+use App\GiaoDichNguoiBan;
 use App\TaiKhoanNguoiMua;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DonHangController extends Controller
 {
@@ -24,7 +26,11 @@ class DonHangController extends Controller
         $tongTienToiThieu = null;
         $tongTienToiDa = null;
 
-        $query = GiaoDich::orderBy('ngay_tao', 'desc');
+        $idTaiKhoanNguoiBan = Auth::guard('nguoi_ban')
+                                ->user()
+                                ->id;
+        $query = GiaoDichNguoiBan::orderBy('ngay_tao', 'desc')
+                                ->where('id_tai_khoan_ban', '=', $idTaiKhoanNguoiBan);
         //Kiểm tra nếu có lọc theo tình trạng thì sẽ gộp thêm 1 câu query: idTinhTrang nhập vô có trong table sanpham ko?
         if($request->has('tinh_trang'))
         {
@@ -41,7 +47,7 @@ class DonHangController extends Controller
             $dsIdTaiKhoanNguoiMua = $dsTaiKhoanNguoiMuaTheoTen->keyBy('id')
                                             ->keys();           
             // Tìm những giao dịch có id tài khoản nằm trong mảng id vừa tạo                          
-            $query->whereIn('id_tai_khoan', $dsIdTaiKhoanNguoiMua);
+            $query->whereIn('id_tai_khoan_mua', $dsIdTaiKhoanNguoiMua);
         }
         //Kiểm tra nếu có lọc theo giá thì sẽ gộp thêm 1 câu query.
         if($request->has('total_min') && $request->has('total_max'))
@@ -88,11 +94,25 @@ class DonHangController extends Controller
      */
     public function show($idDonHang)
     {
-        $donHang = GiaoDich::find($idDonHang);
-        $itemsPerPage = 10;
-        return view ('pages.auth.nguoi-ban.don-hang.chi-tiet')
-                    ->with('donHang', $donHang)
-                    ->with('itemsPerPage', $itemsPerPage);
+        $idTaiKhoanNguoiBan = Auth::guard('nguoi_ban')
+                                ->user()
+                                ->id;
+        $donHang = GiaoDichNguoiBan::find($idDonHang);
+        if($donHang->id_tai_khoan_ban == $idTaiKhoanNguoiBan)
+        {
+            $thongTinNguoiMua = $donHang->tai_khoan_nguoi_mua;
+            $anhDaiDien = Storage::url($thongTinNguoiMua->anh_dai_dien);
+            $itemsPerPage = 10;
+            return view ('pages.auth.nguoi-ban.don-hang.chi-tiet')
+                        ->with('donHang', $donHang)
+                        ->with('thongTinNguoiMua', $thongTinNguoiMua)
+                        ->with('anhDaiDien', $anhDaiDien)
+                        ->with('itemsPerPage', $itemsPerPage);
+        }
+        else
+        {
+            abort(404);
+        }
     }
 
     /**
@@ -113,9 +133,16 @@ class DonHangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $idDonHang = $request->idDonHang;
+        $idTinhTrang = $request->idTinhTrang;
+
+        $donHangIns = GiaoDichNguoiBan::find($idDonHang);
+        $donHangIns->id_tinh_trang = $idTinhTrang;
+        $donHangIns->save();
+
+        return back();
     }
 
     /**

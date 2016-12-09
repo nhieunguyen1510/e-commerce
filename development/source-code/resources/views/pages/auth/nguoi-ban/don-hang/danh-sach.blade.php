@@ -101,13 +101,34 @@
                                 <td>{{$donHang->tinh_trang->tinh_trang}}</td>
                                 <td>
                                     <center>
-                                        <a href="{{URL::Route('nguoiban-donhang.show', ['idDonHang' => $donHang->id])}}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Xem </a> @if($donHang->id_tinh_trang != 7) @if($donHang->id_tinh_trang
-                                        == 3)
-                                        <a href="{{URL::Route('nguoiban-donhang.update', ['idDonHang' => $donHang->id, 'idTinhTrang' => 4])}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Đã liên lạc </a> @elseif($donHang->id_tinh_trang ==
-                                        4)
-                                        <a href="{{URL::Route('nguoiban-donhang.update', ['idDonHang' => $donHang->id, 'idTinhTrang' => 5])}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Giao thành công </a>
-                                        <a href="{{URL::Route('nguoiban-donhang.update', ['idDonHang' => $donHang->id, 'idTinhTrang' => 6])}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Giao thất bại </a> @endif
-                                        <a href="{{URL::Route('nguoiban-donhang.update', ['idDonHang' => $donHang->id, 'idTinhTrang' => 7])}}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Hủy </a> @endif
+                                            <a href="{{URL::Route('nguoiban-donhang.show', ['idDonHang' => $donHang->id])}}" class="btn btn-primary btn-xs">
+                                            <i class="fa fa-folder"></i> Xem 
+                                            </a> 
+                                        
+                                            @if($donHang->id_tinh_trang != 7 && $donHang->id_tinh_trang != 5 && $donHang->id_tinh_trang != 6) 
+                                            <form action="{{ URL::Route('nguoiban-donhang.update') }}" method="GET">
+                                                <div class="input-group"> 
+                                                    <input type="hidden" name="idDonHang" value="{{$donHang->id}}" />
+                                                    <div class="input-group-btn"> 
+                                                        <select name="idTinhTrang" class="btn btn-xs btn-default" style="height : 22px">
+                                                            @foreach($dsTinhTrang as $tinhTrang)
+                                                                @if($tinhTrang->bang == 'giao_dich')
+                                                                    @if($tinhTrang->id != $donHang->id_tinh_trang) 
+                                                                        @if($donHang->id_tinh_trang == 3 && $tinhTrang->id != 5 && $tinhTrang->id != 6)
+                                                                        <option value="{{$tinhTrang->id}}">{{$tinhTrang->tinh_trang}}</option> 
+                                                                        @endif
+                                                                        @if($donHang->id_tinh_trang == 4 && $tinhTrang->id != 3 && $tinhTrang->id != 7)
+                                                                        <option value="{{$tinhTrang->id}}">{{$tinhTrang->tinh_trang}}</option> 
+                                                                        @endif
+                                                                    @endif
+                                                                @endif
+                                                            @endforeach
+                                                        </select>  
+                                                        <button type="submit" class="btn btn-xs btn-default">Cập nhật</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            @endif
                                     </center>
                                 </td>
                             </tr>

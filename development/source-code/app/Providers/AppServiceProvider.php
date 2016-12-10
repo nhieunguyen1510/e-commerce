@@ -32,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
             __DIR__ . '/../../node_modules/jqvmap' => public_path('packages/jqvmap'),
             __DIR__ . '/../../node_modules/flot' => public_path('packages/flot'),
             __DIR__ . '/../../node_modules/ckeditor' => public_path('packages/ckeditor'),
+            __DIR__ . '/../../node_modules/angular-ui-bootstrap' => public_path('packages/angular-ui-bootstrap'),
         ], 'public');
 
         $dsDanhMuc = DanhMucSanPham::all();

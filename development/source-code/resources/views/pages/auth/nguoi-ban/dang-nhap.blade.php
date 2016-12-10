@@ -10,6 +10,7 @@
     <title>Đăng nhập </title>
 
       @include('partials.css-assets')
+      @include('layouts.nguoi-ban.partials.assets')
       @include('partials.js-assets')
      
   </head>

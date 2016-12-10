@@ -22,14 +22,28 @@ class DonHangController extends Controller
     {
         //Khai báo các giá trị query string truyền vô ban đầu là null
         $idTinhTrang = null;
-        $tenNguoiMua = null;
+        $diaChiGiaoHang = null;
         $tongTienToiThieu = null;
         $tongTienToiDa = null;
+        $thoiDiemDatHangFrom = null;
+        $thoiDiemDatHangTo = null;
+        $thuTu = 'asc';
+        $sapXep = 'id_tinh_trang';
 
         $idTaiKhoanNguoiBan = Auth::guard('nguoi_ban')
                                 ->user()
                                 ->id;
-        $query = GiaoDichNguoiBan::orderBy('ngay_tao', 'desc')
+        //Kiểm tra sắp xếp theo thứ tự nào
+        if($request->has('thu_tu'))
+        {
+            $thuTu = $request->thu_tu;
+        }
+        //Kiểm tra sắp xếp theo thuộc tính nào
+        if($request->has('sap_xep'))
+        {
+            $sapXep = $request->sap_xep;
+        }
+        $query = GiaoDichNguoiBan::orderBy($sapXep, $thuTu)
                                 ->where('id_tai_khoan_ban', '=', $idTaiKhoanNguoiBan);
         //Kiểm tra nếu có lọc theo tình trạng thì sẽ gộp thêm 1 câu query: idTinhTrang nhập vô có trong table sanpham ko?
         if($request->has('tinh_trang'))
@@ -37,17 +51,11 @@ class DonHangController extends Controller
             $idTinhTrang = $request->tinh_trang;
             $query->where('id_tinh_trang', '=', $idTinhTrang);
         }
-        //Kiểm tra tìm kiếm theo tên người mua
-        if($request->has('ten_nguoi_mua'))
+        //Kiểm tra tìm kiếm theo địa chỉ giao hàng
+        if($request->has('dia_chi_giao_hang'))
         {
-            $tenNguoiMua = $request->ten_nguoi_mua;
-            // Lấy danh sách người mua theo tên và tạo ra 1 mảng chỉ có id người mua
-            $dsTaiKhoanNguoiMuaTheoTen = TaiKhoanNguoiMua::where('ten', 'like', '%'.$tenNguoiMua.'%')
-                                                        ->get();
-            $dsIdTaiKhoanNguoiMua = $dsTaiKhoanNguoiMuaTheoTen->keyBy('id')
-                                            ->keys();           
-            // Tìm những giao dịch có id tài khoản nằm trong mảng id vừa tạo                          
-            $query->whereIn('id_tai_khoan_mua', $dsIdTaiKhoanNguoiMua);
+            $diaChiGiaoHang = $request->dia_chi_giao_hang;
+            $query->where('dia_chi_giao_hang', 'like', '%'.$diaChiGiaoHang.'%');
         }
         //Kiểm tra nếu có lọc theo giá thì sẽ gộp thêm 1 câu query.
         if($request->has('total_min') && $request->has('total_max'))
@@ -56,13 +64,31 @@ class DonHangController extends Controller
             $tongTienToiDa = $request->total_max;
             $query->whereBetween('tong_tien',[$tongTienToiThieu,$tongTienToiDa]);
         }
+        //Kiểm tra nếu có lọc theo thời điểm bắt đầu thì sẽ gộp thêm 1 câu query.
+        if($request->has('thoi_diem_dat_hang_from'))
+        {
+            $thoiDiemDatHangFrom = $request->thoi_diem_dat_hang_from;
+            $thoiDiemDatHangFrom = date("Y-m-d", strtotime($thoiDiemDatHangFrom));
+            $query->whereDate('ngay_tao', '>=', $thoiDiemDatHangFrom);
+        }
+        //Kiểm tra nếu có lọc theo thời điểm kết thúc thì sẽ gộp thêm 1 câu query.
+        if($request->has('thoi_diem_dat_hang_to'))
+        {
+            $thoiDiemDatHangTo = $request->thoi_diem_dat_hang_to;
+            $thoiDiemDatHangTo = date("Y-m-d", strtotime($thoiDiemDatHangTo));
+            $query->whereDate('ngay_tao', '<=', $thoiDiemDatHangTo);
+        }
         $dsDonHang = $query->paginate(10);
         return view ('pages.auth.nguoi-ban.don-hang.danh-sach')
                     ->with('dsDonHang', $dsDonHang)
                     ->with('idTinhTrang', $idTinhTrang)
-                    ->with('tenNguoiMua', $tenNguoiMua)
+                    ->with('diaChiGiaoHang', $diaChiGiaoHang)
                     ->with('tongTienToiThieu', $tongTienToiThieu)
-                    ->with('tongTienToiDa', $tongTienToiDa);
+                    ->with('tongTienToiDa', $tongTienToiDa)
+                    ->with('thuTu', $thuTu)
+                    ->with('sapXep', $sapXep)
+                    ->with('thoiDiemDatHangFrom', $thoiDiemDatHangFrom)
+                    ->with('thoiDiemDatHangTo', $thoiDiemDatHangTo);
     }
 
     /**

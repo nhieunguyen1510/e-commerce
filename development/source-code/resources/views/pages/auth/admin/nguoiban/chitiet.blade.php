@@ -97,8 +97,7 @@
                         <div class="card">
                             <br/>
                             <div class="content">
-                                
-                                    <div class="row">
+                               <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Họ và tên</label>
@@ -195,8 +194,9 @@
                                         <a href ="{!! route('admin.nguoiban.getdanhsach') !!}"><button type="button" class="btn btn-info btn-fill btn-wd">Quay về</button></a>
                                   
                                     </div>
-                                    <div class="clearfix"></div>
-                                </form>
+                                    <div class="clearfix"></div> 
+                                    
+                                
                             </div>
                         </div>
                     </div>
@@ -204,6 +204,7 @@
 
                      
                     </div>
+                        </form>
 
 
 
@@ -213,7 +214,8 @@
                 </div>
               </div>
             </div>
-          
+
+           
         </div>
         <!-- /page content -->
        

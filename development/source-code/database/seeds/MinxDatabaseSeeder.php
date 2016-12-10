@@ -59,7 +59,12 @@ class MinxDatabaseSeeder extends Seeder
             ['id' => 11, 'tinh_trang' => 'Chưa kích hoạt', 'bang' => 'tai_khoan_nguoi_mua', 'thuoc_tinh' => 'id_tinh_trang'],
             ['id' => 12, 'tinh_trang' => 'Đã kích hoạt', 'bang' => 'tai_khoan_nguoi_mua', 'thuoc_tinh' => 'id_tinh_trang'],
             ['id' => 13, 'tinh_trang' => 'Bị khóa', 'bang' => 'tai_khoan_nguoi_mua', 'thuoc_tinh' => 'id_tinh_trang'],
-            ['id' => 14, 'tinh_trang' => 'Chuyển khoản', 'bang' => 'hoa_don_tai_khoan', 'thuoc_tinh' => 'id_tinh_trang']
+            ['id' => 14, 'tinh_trang' => 'Chuyển khoản', 'bang' => 'hoa_don_tai_khoan', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 15, 'tinh_trang' => 'Chưa liên lạc', 'bang' => 'giao_dich_nguoi_ban', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 16, 'tinh_trang' => 'Chưa giao', 'bang' => 'giao_dich_nguoi_ban', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 17, 'tinh_trang' => 'Giao thành công', 'bang' => 'giao_dich_nguoi_ban', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 18, 'tinh_trang' => 'Giao không thành công', 'bang' => 'giao_dich_nguoi_ban', 'thuoc_tinh' => 'id_tinh_trang'],
+            ['id' => 19, 'tinh_trang' => 'Hủy', 'bang' => 'giao_dich_nguoi_ban', 'thuoc_tinh' => 'id_tinh_trang'],
         ]);
     }
 

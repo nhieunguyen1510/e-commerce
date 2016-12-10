@@ -148,6 +148,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'admin_Middleware'], function(){
             Route::get('danhsach', 'Web\TaiKhoanAdmin\NguoiBanController@getDanhSach')->name('admin.nguoiban.getdanhsach');
 
             Route::get('chitiet/{id}', 'Web\TaiKhoanAdmin\NguoiBanController@getChiTiet')->name('admin.nguoiban.getchitiet');
+
+            Route::get('kichhoat/{id}', 'Web\TaiKhoanAdmin\NguoiBanController@getKichHoat')->name('admin.nguoiban.getkichhoat');
             
         });
 
@@ -176,6 +178,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'admin_Middleware'], function(){
             Route::get('danhsach', 'Web\TaiKhoanAdmin\HoaDonTaiKhoanController@getDanhSach')->name('admin.hoadontaikhoan.getdanhsach');
 
             Route::get('chitiet/{id}', 'Web\TaiKhoanAdmin\HoaDonTaiKhoanController@getChiTiet')->name('admin.hoadontaikhoan.getchitiet');
+
+            Route::get('thongke', 'Web\TaiKhoanAdmin\HoaDonTaiKhoanController@getThongKe')->name('admin.hoadontaikhoan.getthongke');
             
         });
 });

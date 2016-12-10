@@ -20,7 +20,7 @@ class CreateHoaDonTaiKhoan extends Migration
             $table->integer('id_tai_khoan_ban');
             $table->integer('id_tinh_trang')->default(0);
             $table->float('so_tien_chuyen_khoan');
-            $table->string('hinh_thuc_thanh_toan');
+            $table->integer('hinh_thuc_thanh_toan');
             $table->timestamp('ngay_tao')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('ngay_cap_nhat')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });

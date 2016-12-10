@@ -64,7 +64,7 @@
                     <select class="form-control" name="tinh_trang" id="tinh_trang">
                         <option value="" @php if($idTinhTrang == null) echo 'selected'; @endphp>Tình trạng</option>
                         @foreach($dsTinhTrang as $tinhTrang)
-                            @if( $tinhTrang->bang == 'giao_dich')
+                            @if( $tinhTrang->bang == 'giao_dich_nguoi_ban')
                             <option value="{{$tinhTrang->id}}" @php if($tinhTrang->id == $idTinhTrang) echo 'selected'; @endphp>{{ $tinhTrang->tinh_trang }}</option>
                             @endif
                         @endforeach
@@ -147,19 +147,19 @@
                                             <i class="fa fa-folder"></i> Xem 
                                             </a> 
                                         
-                                            @if($donHang->id_tinh_trang != 7 && $donHang->id_tinh_trang != 5 && $donHang->id_tinh_trang != 6) 
+                                            @if($donHang->id_tinh_trang != 19 && $donHang->id_tinh_trang != 17 && $donHang->id_tinh_trang != 18) 
                                             <form action="{{ URL::Route('nguoiban-donhang.update') }}" method="GET">
                                                 <div class="input-group"> 
                                                     <input type="hidden" name="idDonHang" value="{{$donHang->id}}" />
                                                     <div class="input-group-btn"> 
                                                         <select name="idTinhTrang" class="btn btn-xs btn-default" style="height : 22px">
                                                             @foreach($dsTinhTrang as $tinhTrang)
-                                                                @if($tinhTrang->bang == 'giao_dich')
+                                                                @if($tinhTrang->bang == 'giao_dich_nguoi_ban')
                                                                     @if($tinhTrang->id != $donHang->id_tinh_trang) 
-                                                                        @if($donHang->id_tinh_trang == 3 && $tinhTrang->id != 5 && $tinhTrang->id != 6)
+                                                                        @if($donHang->id_tinh_trang == 15 && $tinhTrang->id != 17 && $tinhTrang->id != 18)
                                                                         <option value="{{$tinhTrang->id}}">{{$tinhTrang->tinh_trang}}</option> 
                                                                         @endif
-                                                                        @if($donHang->id_tinh_trang == 4 && $tinhTrang->id != 3 && $tinhTrang->id != 7)
+                                                                        @if($donHang->id_tinh_trang == 16 && $tinhTrang->id != 15 && $tinhTrang->id != 19)
                                                                         <option value="{{$tinhTrang->id}}">{{$tinhTrang->tinh_trang}}</option> 
                                                                         @endif
                                                                     @endif

@@ -14,7 +14,7 @@
             </div>
             <div class="profile_info">
                     <span>Xin chào,</span>
-                    <h2>Minh Hiếu</h2>
+                    <h2>{{Auth::guard('nguoi_ban')->user()->ten}}</h2>
             </div>
         </div>
 

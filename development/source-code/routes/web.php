@@ -20,6 +20,7 @@ Route::post('sua-gio-hang',$baseFolder.'ShoppingController@suagiohang')->name('s
 Route::get('thanh-toan',$baseFolder.'ShoppingController@thanhtoan')->name('thanhtoan');
 
 Route::post('timkiem',$baseFolder.'TimKiemController@timkiem')->name('timkiem');
+Route::post('timtheogia',$baseFolder.'TimKiemController@timtheogia')->name('timtheogia');
 Route::resource('san-pham',$baseFolder.'SanPhamController', ['names' => [
     'index' => 'sanpham.index',
     'show' => 'sanpham.show'

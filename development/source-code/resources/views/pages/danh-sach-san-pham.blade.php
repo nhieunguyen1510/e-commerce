@@ -20,16 +20,13 @@
 						<h2>LỌC TÌM KIẾM</h2>
 					
 						<div class="brands_products"><!--brands_products-->
-							<h2>Nhãn Hàng</h2>
+							<h2>Loại</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
-									<li><a href=""> <span class="pull-right">(50)</span>Acne</a></li>
-									<li><a href=""> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-									<li><a href=""> <span class="pull-right">(27)</span>Albiro</a></li>
-									<li><a href=""> <span class="pull-right">(32)</span>Ronhill</a></li>
-									<li><a href=""> <span class="pull-right">(5)</span>Oddmolly</a></li>
-									<li><a href=""> <span class="pull-right">(9)</span>Boudestijn</a></li>
-									<li><a href=""> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+									<li><a href=""> <input type="checkbox" value="">   <span class="pull-right">({{ $rs2 }})</span>Denim</a></li>
+									<li><a href=""><input type="checkbox" value="">   <span class="pull-right">({{ $rs3 }})</span>Beaded Velvet</a></li>
+									
+								
 								</ul>
 							</div>
 						</div><!--/brands_products-->
@@ -38,17 +35,25 @@
 							<h2>Giá</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
-									<li><a href=""> <span class="pull-right">(50)</span>200.000-300.000</a></li>
-									<li><a href=""> <span class="pull-right">(56)</span>100.000-200.000</a></li>
-									<li><a href=""> <span class="pull-right">(27)</span>100.000-200.000</a></li>
+									<li><a href=""> <span class="pull-right">({{ $rs1 }})</span>425.000 - 550.000</a></li>
 									
 								</ul>
 							</div>
-							<div class="input-group">
+							  <form method="POST" action="{{ URL::Route('timtheogia') }}"> {{ csrf_field() }}
+                        <div class="price">
+                        <div class="input-group">
 
-  <input type="text" class="form-control" placeholder="VND"><span class="input-group-addon">Đến</span>
-  <input type="text" class="form-control" placeholder="VND">
-</div>
+                           <input type="text" name="keywordmin" class="form-control" placeholder="VND">
+                           <input type="hidden" name="idDanhMuc" value="{{ $danhMucIns->id }}">
+                            <span class="input-group-addon" >Đến</span>
+                           <input type="text" name="keywordmax" class="form-control" placeholder="VND">
+
+
+                        </div>
+                        <br>
+                         <center><button type="submit" class="btn btn-danger">Tìm</button></center>
+                         </div>
+                         </form>
 							
 						</div><!--/price-range-->
 						

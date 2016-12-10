@@ -70,9 +70,22 @@ class DanhMucController extends Controller
         $danhMucIns = DanhMucSanPham::find($idDanhMuc);
         $dsSanPhamTheoIdDanhMuc = SanPham::where('id_danh_muc_san_pham', $idDanhMuc)
                                         ->paginate(12);
+        $result1= SanPham::where('id_danh_muc_san_pham', $idDanhMuc)
+                    ->whereBetween('gia_ban_hien_tai',[425000,550000])
+                    ->count();    
+        $result2= SanPham::where('id_danh_muc_san_pham', $idDanhMuc)
+                    ->where('ten','like','%denim%')
+                    ->count();    
+        $result3= SanPham::where('id_danh_muc_san_pham', $idDanhMuc)
+                    ->where('ten','like','%velvet%')
+                    ->count();                            
         return view('pages.danh-sach-san-pham')
                     ->with('dsSanPham', $dsSanPhamTheoIdDanhMuc)
-                    ->with('danhMucIns', $danhMucIns);
+                    ->with('danhMucIns', $danhMucIns)
+                    ->with('rs1',$result1)
+                    ->with('rs2',$result2)
+                    ->with('rs3',$result3);
+
     }
 
     /**

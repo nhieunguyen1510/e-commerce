@@ -16,7 +16,7 @@
                     <div class="product-image-cart">
                         <div class="product-image">
                             <a href="#">
-                                <img src="{{  $anhDaiDien  }}" alt="Áo trễ vai mã 001">
+                                <img src="" alt="Áo trễ vai mã 001">
                             </a>
                         </div>
                         <div class="product-icon-cart">

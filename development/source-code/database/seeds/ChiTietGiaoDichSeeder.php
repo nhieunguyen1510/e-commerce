@@ -29,6 +29,7 @@ class ChiTietGiaoDichSeeder extends Seeder
                     'so_luong' => $soLuong,
                     'don_gia_san_pham' => $sanPham->gia_ban_hien_tai,
                     'tong_tien' => $soLuong*$sanPham->gia_ban_hien_tai,
+                    'id_tinh_trang' => rand(3,7)
                 ]);
                 DB::table('chi_tiet_giao_dich_nguoi_ban')->insert([
                     'id_giao_dich_nguoi_ban' => $idGiaoDich,

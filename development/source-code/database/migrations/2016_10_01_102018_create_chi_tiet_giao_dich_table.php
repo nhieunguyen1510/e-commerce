@@ -20,6 +20,7 @@ class CreateChiTietGiaoDichTable extends Migration
             $table->integer('so_luong');
             $table->integer('don_gia_san_pham');
             $table->integer('tong_tien');
+            $table->integer('id_tinh_trang')->nullable();
         });
     }
 

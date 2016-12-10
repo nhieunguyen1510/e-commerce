@@ -21,6 +21,7 @@
 -->
 <script type="text/javascript" src="{{ URL::asset('app/app.module.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('app/controllers/formthemsanpham-nguoiban.controller.js')}}"></script>
+<script type="text/javascript" src="{{ URL::asset('app/controllers/formthongtincanhan-nguoiban.controller.js')}}"></script>
 
 <!-- jQuery -->
 <script type="text/javascript" src="{{ URL::asset('packages/jquery/jquery.min.js')}}"></script>

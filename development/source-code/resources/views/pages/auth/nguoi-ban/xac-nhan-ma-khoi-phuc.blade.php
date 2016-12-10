@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Quên mật khẩu </title>
+    <title>Xác nhận mã khôi phục </title>
 
       @include('partials.css-assets')
       @include('partials.js-assets')

@@ -12,7 +12,7 @@ class HoaDonTaiKhoan extends Model
     /**
      * Get tranasction status.
      */
-    public function tinh_trang()
+    public function hinh_thuc()
     {
         return $this->hasOne('App\TinhTrang', 'id', 'hinh_thuc_thanh_toan');
     }

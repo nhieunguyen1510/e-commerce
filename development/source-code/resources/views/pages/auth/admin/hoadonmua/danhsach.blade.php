@@ -38,18 +38,6 @@
 
               <div class="col-md-2 col-sm-2 col-xs-12">
                 <div class="form-group">
-                         <select class="form-control" name="status" id="status">
-                            <option value="">Tình trạng</option>
-                            @foreach($status as $item)
-                            <option value="{{ $item->id }}"<?php if(isset($_GET['status']) && $_GET['status'] == $item->id) {echo 'selected'; }?>>{{ $item->tinh_trang }}</option>
-                            @endforeach
-                            </select>
-                </div>
-              </div>
-
-
-              <div class="col-md-2 col-sm-2 col-xs-12">
-                <div class="form-group">
 
                          <select class="form-control" name="s_year" id="s_year" >
                             <option value="">Trong năm</option>
@@ -128,7 +116,6 @@
                           <th>Người mua</th>
                           <th>Ngày đặt hàng</th>
                           <th>Ngày giao hàng</th>
-                          <th>Tình trạng</th>
                           <th><center> Chức năng</center></th>
                           
                         </tr>
@@ -150,7 +137,6 @@
                           <td>{!! $item -> ho !!} {!! $item -> ten !!}</td>
                           <td>{{ $item -> thoi_gian_giao_dich}}</td>
                           <td>{!! $item -> ngay_giao_hang !!}</td>
-                          <td>{{ $item->tinh_trang}}</td>
 
                           
                           <td>

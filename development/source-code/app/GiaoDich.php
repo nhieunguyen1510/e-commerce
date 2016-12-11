@@ -10,6 +10,13 @@ class GiaoDich extends Model
     const CREATED_AT = 'ngay_tao';
     const UPDATED_AT = 'ngay_cap_nhat';
     /**
+     * Get merchant transactions.
+     */
+    public function dsGiaoDichNguoiban()
+    {
+        return $this->hasMany('App\GiaoDichNguoiBan', 'id_giao_dich', 'id');
+    }
+    /**
      * Get tranasction status.
      */
     public function tinh_trang()

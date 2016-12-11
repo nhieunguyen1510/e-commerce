@@ -23,10 +23,7 @@
 <script type="text/javascript" src="{{ URL::asset('app/services/sanpham.service.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('app/directives/scroll2top-btn.directive.js')}}"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
- <script src="{{ URL::asset('assets/js/jquery.js')}}"></script>
     <script src="{{ URL::asset('assets/js/jquery.scrollUp.min.js')}}"></script>
-	<script src="{{ URL::asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{ URL::asset('assets/js/jquery.prettyPhoto.js')}}" type="text/javascript" charset="utf-8"></script>
     <script src="{{ URL::asset('assets/js/main.js')}}"></script>
  <script src="{{ URL::asset('assets/js/shopping.js')}}"></script>

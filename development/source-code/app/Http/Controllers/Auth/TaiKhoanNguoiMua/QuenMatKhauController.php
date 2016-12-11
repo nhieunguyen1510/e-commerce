@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\TaiKhoanNguoiMua;
+use App\Mail\KhoiPhucMatKhauMail;
+use Illuminate\Support\Facades\Mail;
 
 class QuenMatKhauController extends Controller
 {
@@ -26,6 +28,11 @@ class QuenMatKhauController extends Controller
             $maKhoiPhuc = str_random(10);
             $taiKhoanNguoiMua['ma_khoi_phuc_mat_khau'] = $maKhoiPhuc;
             $taiKhoanNguoiMua->save();
+
+            $KhoiPhucMatKhauMail = new KhoiPhucMatKhauMail($maKhoiPhuc);
+            Mail::to($email)
+                ->send($KhoiPhucMatKhauMail);
+                
             return redirect('xac-nhan-ma-khoi-phuc');
         }
     }

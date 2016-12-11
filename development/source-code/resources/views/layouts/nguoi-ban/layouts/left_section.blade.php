@@ -45,7 +45,7 @@
                     </ul>
                   </li>
                  
-                  <li><a href="{{URL::Route('nguoiban-donhang.index', ['tinh_trang' => 3])}}"><i class="fa fa-table"></i> Đơn hàng</a>
+                  <li><a href="{{URL::Route('nguoiban-donhang.index', ['tinh_trang' => 15])}}"><i class="fa fa-table"></i> Đơn hàng</a>
                   </li>
 
                    <li><a><i class="fa fa-clone"></i>Kho hàng<span class="fa fa-chevron-down"></span></a>

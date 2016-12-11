@@ -168,6 +168,19 @@ class DonHangController extends Controller
         $donHangIns->id_tinh_trang = $idTinhTrang;
         $donHangIns->save();
 
+        if($idTinhTrang == 19)
+        {
+            $dsChiTietDonHang = $donHangIns->dsChiTietDonHang;
+            foreach($dsChiTietDonHang as $chiTietDonHang)
+            {
+                $sanPhamIns = $chiTietDonHang->san_pham;
+                // echo 'So luong: '.$sanPhamIns->so_luong_ton_kho.',';
+                $sanPhamIns->so_luong_ton_kho = $sanPhamIns->so_luong_ton_kho + $chiTietDonHang->so_luong; 
+                // echo $sanPhamIns->so_luong_ton_kho.',';
+                $sanPhamIns->save();
+                // echo $chiTietDonHang->so_luong.'\n';
+            }
+        }
         return back();
     }
 

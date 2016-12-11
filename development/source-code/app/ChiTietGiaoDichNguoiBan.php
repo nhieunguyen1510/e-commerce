@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChiTietGiaoDichNguoiBan extends Model
 {
-    protected $table = 'chi_tiet_giao_dich';
+    protected $table = 'chi_tiet_giao_dich_nguoi_ban';
     /**
      * Get product.
      */

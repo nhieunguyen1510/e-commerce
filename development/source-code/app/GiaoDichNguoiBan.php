@@ -17,11 +17,18 @@ class GiaoDichNguoiBan extends Model
         return $this->hasOne('App\TinhTrang', 'id', 'id_tinh_trang');
     }
     /**
-     * Get the details for the transaction.
+     * Get list of details for the transaction.
      */
-    public function dsChiTietDonHang($itemsPerPage = 20)
+    public function dsChiTietDonHang($itemsPerPage = null)
     {
-        return $this->hasMany('App\ChiTietGiaoDichNguoiBan', 'id_giao_dich', 'id')->paginate($itemsPerPage);
+        if($itemsPerPage == null)
+        {
+            return $this->hasMany('App\ChiTietGiaoDichNguoiBan', 'id_giao_dich_nguoi_ban', 'id');
+        }
+        else
+        {
+            return $this->hasMany('App\ChiTietGiaoDichNguoiBan', 'id_giao_dich_nguoi_ban', 'id')->paginate($itemsPerPage);
+        }
     }
     /**
      * Get buyer information.

@@ -9,7 +9,7 @@
 
 <div class="profile">
     <div class="profile_pic">
-        <img src="{{Storage::url(Auth::guard('nguoi_ban')->user()->anh_dai_dien)}}" alt="..." class="img-circle profile_img">
+        <img src="{{Storage::url(Auth::guard('nguoi_ban')->user()->anh_dai_dien)}}" style="width:60px;height:60px;" alt="..." class="img-circle profile_img">
     </div>
     <div class="profile_info">
         <span>Xin chào,</span>

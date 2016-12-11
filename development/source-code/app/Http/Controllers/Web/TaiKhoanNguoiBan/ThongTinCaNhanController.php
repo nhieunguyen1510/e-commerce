@@ -10,6 +10,7 @@ use App\SanPham;
 use App\TaiKhoanNguoiBan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash; 
 
 class ThongTinCaNhanController extends Controller
 {
@@ -66,15 +67,45 @@ class ThongTinCaNhanController extends Controller
         $taiKhoanNguoiBanIns['so_dien_thoai'] = $request->txt_sdt;
         $taiKhoanNguoiBanIns['dia_chi'] = $request->txt_diachi;
         $taiKhoanNguoiBanIns['ngay_cap_nhat'] = date("Y-m-d H:i:s");
+
         //Kiểm tra xem người bán có up ảnh mới hay không
-        if($request->has('anh_dai_dien'))
+        if($request->hasFile('anh_dai_dien'))
         {
             // Lưu file vào folder storage/app/public/img/tai_khoan_nguoi_ban và lưu lại đường dẫn
             $anhDaiDienPath = $request->file('anh_dai_dien')->store('public/img/tai_khoan_nguoi_ban');
             $taiKhoanNguoiBanIns['anh_dai_dien'] = $anhDaiDienPath;
         }
+
         $taiKhoanNguoiBanIns->save();
         return redirect()->route('nguoiban-thongtin.index');
+    }
+
+    public function post_mat_khau(Request $request)
+    {
+        $idNguoiBan = Auth::guard('nguoi_ban')->user()->id;
+        $taiKhoanNguoiBanIns = TaiKhoanNguoiBan::find($idNguoiBan);
+
+        //Kiểm tra xem người bán có đổi mật khẩu hay không
+        if($request->has('txtMatKhau') && $request->has('txtMatKhauNhapLai'))
+        {
+            $matKhau = $request->txtMatKhau;
+            $matKhauNhapLai = $request->txtMatKhauNhapLai;
+            if($matKhau!=$matKhauNhapLai)
+            {
+                $request->session()->flash('thongbao','Mật khẩu không trùng khớp');
+                return back();
+            }
+            else
+            {
+                $matKhau = Hash::make($matKhau);
+                $taiKhoanNguoiBanIns['mat_khau'] = $matKhau;
+                $taiKhoanNguoiBanIns->save();
+                $request->session()->flash('thongbao','Mật khẩu thay đổi thành công');
+                return redirect()->route('nguoiban-thongtin.index');    
+            }
+            
+        }
+
     }
 
     /**

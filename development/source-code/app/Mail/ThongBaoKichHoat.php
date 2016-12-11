@@ -11,16 +11,16 @@ class ThongBaoKichHoat extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $taikhoan;
+    protected $ten;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($taikhoan)
+    public function __construct($ten)
     {
-        $this->taikhoan = $taikhoan;
+        $this->ten = $ten;
     }
 
     /**
@@ -33,6 +33,6 @@ class ThongBaoKichHoat extends Mailable
         
         return $this->subject('Thông báo kích hoạt thành công')
         ->view('emails.admin.thongbaokichhoat')
-        ->with('taikhoan',$this->taikhoan);
+        ->with('ten',$this->ten);
     }
 }

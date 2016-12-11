@@ -94,6 +94,7 @@ Route::group(['prefix'=>'nguoiban'], function(){
         Route::group(['prefix'=>'thongtin'], function(){
             Route::get('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@index')->name('nguoiban-thongtin.index');
             Route::post('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@store')->name('nguoiban-thongtin.post');
+            Route::post('doimatkhau', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@post_mat_khau')->name('nguoiban-doimatkhau.post');
         });
 
         //nguoiban/chungtu/

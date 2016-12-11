@@ -30,11 +30,13 @@ class QuenMatKhauController extends Controller
             $maKhoiPhuc = str_random(10);
             $taiKhoanNguoiBan['ma_khoi_phuc_mat_khau'] = $maKhoiPhuc;
             $taiKhoanNguoiBan->save();
+            $link = 'http://localhost:8000/nguoiban/xac-nhan-ma-khoi-phuc';
+            
             //Tạo mới KhoiPhucMatKhauMail và truyền biến maKhoiPhuc
-            $KhoiPhucMatKhauMail = new KhoiPhucMatKhauMail($maKhoiPhuc);
+            $KhoiPhucMatKhauMail = new KhoiPhucMatKhauMail($maKhoiPhuc, $link);
             Mail::to($email)
                 ->send($KhoiPhucMatKhauMail);
-                
+
             return redirect()->route('xacnhanmakhoiphuc.nguoiban.index');
         }
     }

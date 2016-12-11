@@ -28,8 +28,9 @@ class QuenMatKhauController extends Controller
             $maKhoiPhuc = str_random(10);
             $taiKhoanNguoiMua['ma_khoi_phuc_mat_khau'] = $maKhoiPhuc;
             $taiKhoanNguoiMua->save();
+            $link = 'http://localhost:8000/xac-nhan-ma-khoi-phuc';
 
-            $KhoiPhucMatKhauMail = new KhoiPhucMatKhauMail($maKhoiPhuc);
+            $KhoiPhucMatKhauMail = new KhoiPhucMatKhauMail($maKhoiPhuc, $link);
             Mail::to($email)
                 ->send($KhoiPhucMatKhauMail);
                 

@@ -49,6 +49,11 @@
                                                     </table>
 
                                                     <p style="margin-top:0;color:#74787e;font-size:16px;line-height:1.5em">
+                                                        Link: 
+                                                        <a href="{{$link}}">{{$link}}</a>
+                                                    </p>
+
+                                                    <p style="margin-top:0;color:#74787e;font-size:16px;line-height:1.5em">
                                                         Thân,<br>Minx
                                                     </p>
 

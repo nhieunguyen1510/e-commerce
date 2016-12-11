@@ -12,15 +12,17 @@ class KhoiPhucMatKhauMail extends Mailable
     use Queueable, SerializesModels;
 
     protected $maKhoiPhuc;
+    protected $link;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($maKhoiPhuc)
+    public function __construct($maKhoiPhuc, $link)
     {
         $this->maKhoiPhuc = $maKhoiPhuc;
+        $this->link = $link;
     }
 
     /**
@@ -32,6 +34,7 @@ class KhoiPhucMatKhauMail extends Mailable
     {
         return $this->subject('Thông báo xác nhận mã khôi phục #')
                     ->view('emails.tai-khoan-nguoi-ban.khoi-phuc-mat-khau')
-                    ->with('maKhoiPhuc', $this->maKhoiPhuc);
+                    ->with('maKhoiPhuc', $this->maKhoiPhuc)
+                    ->with('link', $this->link);
     }
 }

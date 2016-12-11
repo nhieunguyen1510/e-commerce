@@ -75,8 +75,8 @@ class NguoiBanController extends Controller
             $thongbao_kichhoat ="Kích hoạt tài khoản thành công";
             $email = $chi_tiet_nguoi_ban->{'email'};
             $ten = $chi_tiet_nguoi_ban->{'ten'};
-            $thongbao_mail = new ThongBaoKichHoat('QN');
-            Mail::to('quynnhucheer@gmail.com')->send($thongbao_mail);
+            $thongbao_mail = new ThongBaoKichHoat($ten);
+            Mail::to($email)->send($thongbao_mail);
         }
 
         //Thêm hóa đơn tài khoản

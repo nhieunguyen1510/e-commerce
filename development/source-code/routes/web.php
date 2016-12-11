@@ -55,49 +55,8 @@ Route::post('xac-nhan-ma-khoi-phuc','Auth\TaiKhoanNguoiMua\XacNhanMaKhoiPhucCont
 Route::get('khoi-phuc-mat-khau','Auth\TaiKhoanNguoiMua\KhoiPhucMatKhauController@getKhoiPhucMatKhau')->name('khoiphucmatkhau.index');
 Route::post('khoi-phuc-mat-khau','Auth\TaiKhoanNguoiMua\KhoiPhucMatKhauController@postKhoiPhucMatKhau')->name('khoiphucmatkhau.post');
 
-
-
-
-
-// User authenticate route
-// Route::get('dang-nhap','TaiKhoanAuth\DangNhapController@getDangNhap')->name('dangnhap.index');
-// Route::post('dang-nhap','TaiKhoanAuth\DangNhapController@postDangNhap')->name('dangnhap.post');
-// Route::post('dang-xuat','TaiKhoanAuth\DangNhapController@postDangXuat')->name('dangxuat.post');
-// Route::get('dang-ky','TaiKhoanAuth\DangKyController@getDangKy')->name('dangky.index');
-// Route::post('dang-ky','TaiKhoanAuth\DangKyController@postDangKy')->name('dangky.post');
-// Route::get('quen-mat-khau','TaiKhoanAuth\QuenMatKhauController@getQuenMatKhau')->name('quenmatkhau.index');
-// Route::post('quen-mat-khau','TaiKhoanAuth\QuenMatKhauController@postQuenMatKhau')->name('quenmatkhau.post');
-// Route::get('khoi-phuc-mat-khau','TaiKhoanAuth\KhoiPhucMatKhauController@getKhoiPhucMatKhau')->name('khoiphucmatkhau.index');
-// Route::post('khoi-phuc-mat-khau','TaiKhoanAuth\KhoiPhucMatKhauController@postKhoiPhucMatKhau')->name('khoiphucmatkhau.post');
-
-
-// Route::resource('dang-nhap','TaiKhoanAuth\DangNhapController',['names'=>[
-//     'index' => 'dangnhap.index',
-//     'store' => 'dangnhap.store'
-// ]]);
-// Route::resource('dang-ky','TaiKhoanAuth\DangKyController',['names'=>[
-//     'index' => 'dangky.index',
-//     'store' => 'dangky.store'
-// ]]);
-// Route::resource('dang-xuat','TaiKhoanAuth\DangKyController',['names'=>[
-//     'index' => 'dangky.index',
-//     'store' => 'dangky.store'
-// ]]);
-
-// Route::group(['prefix' => 'admin'], function () {
-//     Route::get('dang-nhap','QuanTriVienAuth\DangNhapController@getDangNhap')->name('admin.dangnhap.index');
-//     Route::post('dang-nhap','QuanTriVienAuth\DangNhapController@postDangNhap')->name('admin.dangnhap.post');
-// });
-
-
-Route::group(['prefix'=>'nguoiban','middleware'=>'nguoiban_redirect_if_authenticated'], function(){
-    Route::get('dang-ky','Auth\TaiKhoanNguoiBan\DangKyController@getDangKy')->name('dangky.nguoiban.index');
-    Route::post('dang-ky','Auth\TaiKhoanNguoiBan\DangKyController@postDangKy')->name('dangky.nguoiban.post');
-    Route::get('dang-nhap','Auth\TaiKhoanNguoiBan\DangNhapController@getDangNhap')->name('dangnhap.nguoiban.index');
-    Route::post('dang-nhap','Auth\TaiKhoanNguoiBan\DangNhapController@postDangNhap')->name('dangnhap.nguoiban.post');
-
-});
-
+Route::group(['prefix'=>'nguoiban'], function(){
+    
     Route::get('dang-xuat','Auth\TaiKhoanNguoiBan\DangNhapController@getDangXuat')->name('dangxuat.nguoiban.index');
     Route::get('quen-mat-khau','Auth\TaiKhoanNguoiBan\QuenMatKhauController@getQuenMatKhau')->name('quenmatkhau.nguoiban.index');
     Route::post('quen-mat-khau','Auth\TaiKhoanNguoiBan\QuenMatKhauController@postQuenMatKhau')->name('quenmatkhau.nguoiban.post');
@@ -106,36 +65,44 @@ Route::group(['prefix'=>'nguoiban','middleware'=>'nguoiban_redirect_if_authentic
     Route::get('khoi-phuc-mat-khau','Auth\TaiKhoanNguoiBan\KhoiPhucMatKhauController@getKhoiPhucMatKhau')->name('khoiphucmatkhau.nguoiban.index');
     Route::post('khoi-phuc-mat-khau','Auth\TaiKhoanNguoiBan\KhoiPhucMatKhauController@postKhoiPhucMatKhau')->name('khoiphucmatkhau.nguoiban.post');
 
+    Route::group(['middleware'=>'nguoiban_redirect_if_authenticated'], function(){
+        Route::get('dang-ky','Auth\TaiKhoanNguoiBan\DangKyController@getDangKy')->name('dangky.nguoiban.index');
+        Route::post('dang-ky','Auth\TaiKhoanNguoiBan\DangKyController@postDangKy')->name('dangky.nguoiban.post');
+        Route::get('dang-nhap','Auth\TaiKhoanNguoiBan\DangNhapController@getDangNhap')->name('dangnhap.nguoiban.index');
+        Route::post('dang-nhap','Auth\TaiKhoanNguoiBan\DangNhapController@postDangNhap')->name('dangnhap.nguoiban.post');
 
-Route::group(['prefix'=>'nguoiban','middleware'=>'nguoiban'], function(){
-   //nguoiban/sanpham/
-    Route::group(['prefix'=>'sanpham'], function(){
-        Route::get('them', 'Web\TaiKhoanNguoiBan\SanPhamController@create')->name('nguoiban-sanpham.create');
-        Route::get('danhsach', 'Web\TaiKhoanNguoiBan\SanPhamController@index')->name('nguoiban-sanpham.index');
-        Route::get('{idSanPham}/sua', 'Web\TaiKhoanNguoiBan\SanPhamController@update')->name('nguoiban-sanpham.update');
-        Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\SanPhamController@show')->name('nguoiban-sanpham.show');
-        Route::post('them', 'Web\TaiKhoanNguoiBan\SanPhamController@store')->name('nguoiban-sanpham.store');
-        Route::delete('{idSanPham}', 'Web\TaiKhoanNguoiBan\SanPhamController@destroy')->name('nguoiban-sanpham.destroy');
-    });
-   //nguoiban/donhang/
-    Route::group(['prefix'=>'donhang'], function(){
-        Route::get('danhsach', 'Web\TaiKhoanNguoiBan\DonHangController@index')->name('nguoiban-donhang.index');
-        Route::get('sua', 'Web\TaiKhoanNguoiBan\DonHangController@update')->name('nguoiban-donhang.update');
-        Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\DonHangController@show')->name('nguoiban-donhang.show');
     });
 
-    //nguoiban/thongtin/
-    Route::group(['prefix'=>'thongtin'], function(){
-        Route::get('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@index')->name('nguoiban-thongtin.index');
-        Route::post('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@store')->name('nguoiban-thongtin.post');
+    Route::group(['middleware'=>'nguoiban'], function(){
+        //nguoiban/sanpham/
+        Route::group(['prefix'=>'sanpham'], function(){
+            Route::get('them', 'Web\TaiKhoanNguoiBan\SanPhamController@create')->name('nguoiban-sanpham.create');
+            Route::get('danhsach', 'Web\TaiKhoanNguoiBan\SanPhamController@index')->name('nguoiban-sanpham.index');
+            Route::get('{idSanPham}/sua', 'Web\TaiKhoanNguoiBan\SanPhamController@update')->name('nguoiban-sanpham.update');
+            Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\SanPhamController@show')->name('nguoiban-sanpham.show');
+            Route::post('them', 'Web\TaiKhoanNguoiBan\SanPhamController@store')->name('nguoiban-sanpham.store');
+            Route::delete('{idSanPham}', 'Web\TaiKhoanNguoiBan\SanPhamController@destroy')->name('nguoiban-sanpham.destroy');
+        });
+        //nguoiban/donhang/
+        Route::group(['prefix'=>'donhang'], function(){
+            Route::get('danhsach', 'Web\TaiKhoanNguoiBan\DonHangController@index')->name('nguoiban-donhang.index');
+            Route::get('sua', 'Web\TaiKhoanNguoiBan\DonHangController@update')->name('nguoiban-donhang.update');
+            Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\DonHangController@show')->name('nguoiban-donhang.show');
+        });
+
+        //nguoiban/thongtin/
+        Route::group(['prefix'=>'thongtin'], function(){
+            Route::get('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@index')->name('nguoiban-thongtin.index');
+            Route::post('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@store')->name('nguoiban-thongtin.post');
+        });
+
+        //nguoiban/chungtu/
+        Route::group(['prefix'=>'chungtu'], function(){
+            Route::get('chungtunaptien', 'Web\TaiKhoanNguoiBan\ChungTuController@index')->name('nguoiban-chungtu.index');
+        });
     });
 
-    //nguoiban/chungtu/
-    Route::group(['prefix'=>'chungtu'], function(){
-        Route::get('chungtunaptien', 'Web\TaiKhoanNguoiBan\ChungTuController@index')->name('nguoiban-chungtu.index');
-    });
 });
-
 
 // Admin-Như
 Route::group(['prefix'=>'admin'], function(){

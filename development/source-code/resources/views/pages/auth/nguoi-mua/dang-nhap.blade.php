@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <p class="text-center"><a href="{{ URL::Route('quenmatkhau.index') }}">Quên mật khẩu?</a></p>
+                        <p class="text-center"><a href="{{ URL::Route('quenmatkhau.post') }}">Quên mật khẩu?</a></p>
                     </div>
                 </form>
             </div>

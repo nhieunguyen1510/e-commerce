@@ -14,11 +14,70 @@
                 </div>
             </h2>
         </div>
-      
-
     </div>
 
     <div class="clearfix"></div>
+
+    <div class="row">
+        <!--Form dùng để submit lọc điều kiện gửi request lên controller xử lý với method là GET-->
+        <form action="" method="GET" name="form_loc">
+
+            <div class="col-md-2 col-sm-2 col-xs-12">
+                <div class="form-group">
+                    <select class="form-control" name="loc_theo" id="loc_theo" onchange = "this.form.submit()">
+                        <option value="thang" @php if('thang' == $locTheo) echo 'selected'; @endphp>Theo tháng</option>
+                        <option value="quy" @php if('quy' == $locTheo) echo 'selected'; @endphp>Theo quý</option>
+                    </select>
+                </div>
+            </div>
+
+            @if($locTheo == 'thang')
+            <div class="col-md-2 col-sm-2 col-xs-12">
+                <div class="form-group">
+                    <select class="form-control" name="thang_txt" id="thang_txt">
+                        <option value="" @php if($Thang == null) echo "selected" @endphp>Tháng</option>
+                        @for ($i = 1; $i < 13; $i++)
+                         <option value="{{$i}}" @php if($i == $Thang) echo 'selected'; @endphp>Tháng {{$i}}</option>
+                        @endfor
+                    </select>
+                </div>
+            </div>
+            @endif
+
+            @if($locTheo == 'quy')
+            <div class="col-md-2 col-sm-2 col-xs-12">
+                <div class="form-group">
+                    <select class="form-control" name="quy_txt" id="quy_txt">
+                        <option value="" @php if($Quy == null) echo "selected" @endphp>Quý</option>
+                        <option value="1">Quý 1</option>
+                        <option value="2">Quý 2</option>
+                        <option value="3">Quý 3</option>
+                        <option value="4">Quý 4</option>
+                    </select>
+                </div>
+            </div>
+            @endif
+
+            <div class="col-md-2 col-sm-2 col-xs-12">
+                <div class="form-group">
+                    <select class="form-control" name="nam_txt" id="nam_txt">
+                        <option value="" @php if($Nam == null) echo "selected" @endphp>Năm</option>
+                        @for ($i = 0; $i <= 50; $i++)
+                         <option value="{{2016 - $i}}" @php if((2016 - $i) == $Nam) echo 'selected'; @endphp>{{2016 - $i}}</option>
+                        @endfor
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="col-md-1 col-sm-1 col-xs-12">
+                <div class="form-group">
+                    <button class="btn btn-default" type="submit">Lọc</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
 
     <div class="clearfix"></div>
 
@@ -45,7 +104,7 @@
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>{{$chungtu->so_tien_chuyen_khoan}}</td>
-                                <td>{{$chungtu->hinh_thuc_thanh_toan}}</td>
+                                <td>{{$chungtu->hinh_thuc->tinh_trang}}</td>
                                 <td>{{$chungtu->ngay_tao}}</td>
                             </tr>
                             @endforeach

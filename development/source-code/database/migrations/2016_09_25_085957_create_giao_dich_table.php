@@ -20,7 +20,7 @@ class CreateGiaoDichTable extends Migration
             $table->tinyInteger('giao_dich_truc_tuyen');
             $table->tinyInteger('id_giao_dich_truc_tuyen')->nullable();
             $table->string('id_tai_khoan_giao_dich_truc_tuyen')->nullable();
-            $table->datetime('thoi_gian_giao_dich');
+            $table->datetime('thoi_gian_giao_dich')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->datetime('ngay_giao_hang')->nullable();
             $table->string('dia_chi_giao_hang', 200);
             $table->string('so_dien_thoai_giao_hang', 15);

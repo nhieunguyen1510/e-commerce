@@ -26,9 +26,16 @@ class GiaoDich extends Model
     /**
      * Get the details for the transaction.
      */
-    public function dsChiTietDonHang($itemsPerPage = 20)
+    public function dsChiTietDonHang($itemsPerPage = null)
     {
-        return $this->hasMany('App\ChiTietGiaoDich', 'id_giao_dich', 'id')->paginate($itemsPerPage);
+        if($itemsPerPage == null)
+        {
+            return $this->hasMany('App\ChiTietGiaoDich', 'id_giao_dich', 'id');
+        }
+        else
+        {
+            return $this->hasMany('App\ChiTietGiaoDich', 'id_giao_dich', 'id')->paginate($itemsPerPage);
+        }
     }
     /**
      * Get buyer information.

@@ -11,7 +11,7 @@
                 <!-- Breadcrumbs go here -->
                 <h2>
                 <ul class="breadcrumb">
-                    <li><a href="{{ route('admin.hoadonmua.getdanhsach') }}">Hóa đơn bán</a></li>
+                    <li><a href="{{ route('admin.hoadonmua.getdanhsach') }}">Đơn hàng của người bán</a></li>
                     <li class="active">Danh sách</li>
                 </ul>
                 </h2>
@@ -125,6 +125,7 @@
                       <thead>
                         <tr>
                           <th>STT</th>
+                          <th>Mã đơn hàng</th>
                           <th>Tên shop</th>
                           <th>Ngày đặt hàng</th>
                           <th>Ngày giao hàng</th>
@@ -147,6 +148,7 @@
                           <?php $stt++; ?>
                         <tr>
                           <td>{{ $stt }}</td>
+                          <td>{{ $item ->id }}</td>
                           <td>{!! $item -> ten_shop !!}</td>
                           <td>{{ $item -> thoi_gian_giao_dich}}</td>
                           <td>{!! $item -> ngay_giao_hang !!}</td>

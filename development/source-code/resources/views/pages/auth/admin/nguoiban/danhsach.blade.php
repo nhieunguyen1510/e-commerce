@@ -80,6 +80,7 @@
                       <thead>
                         <tr>
                           <th>STT</th>
+                          <th>Mã người bán</th>
                           <th>Tên shop</th>
                           <th>Địa chỉ</th>
                           <th>Ngày tạo</th>
@@ -102,6 +103,7 @@
                           <?php $stt++; ?>
                         <tr>
                           <td>{{ $stt }}</td>
+                          <td>{{ $item ->id }}</td>
                           <td>{!! $item -> ten_shop !!}</td>
                           <td>{{ $item -> dia_chi }}</td>
                           <td>{!! $item -> ngay_tao !!}</td>

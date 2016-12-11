@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\GiaoDichNguoiBan;
 use App\TinhTrang;
 use App\SanPham;
+use App\GiaoDich;
 
 
 class HoaDonBanHangController extends Controller
@@ -196,29 +197,18 @@ class HoaDonBanHangController extends Controller
 
     public function getChiTiet ($id)
     {
-         $chi_tiet_hoadon_mua = DB::table('chi_tiet_giao_dich')
-                                ->join('san_pham', 'chi_tiet_giao_dich.id_san_pham', '=', 'san_pham.id')
-                                ->join('giao_dich', 'chi_tiet_giao_dich.id_giao_dich', '=', 'giao_dich.id')
-                                ->where ('chi_tiet_giao_dich.id_giao_dich',$id)
-                                 ->select('chi_tiet_giao_dich.*', 'san_pham.ten')->get();
-
-        // $hoadon_mua = DB::table('giao_dich')
-        //                         ->where ('id',$id)->get();
-        // $id_taikhoan_mua = $hoadon_mua[0]->{'id_tai_khoan'};
-
-        // $taikhoan_mua = DB::table('tai_khoan_nguoi_mua')
-        //                         ->where ('id',$id_taikhoan_mua)->get(); 
-
-        //$idsp =  
-
-        // $taikhoan_ban = DB::table('tai_khoan_nguoi_mua')
-        //                         ->where ('id',$id_taikhoan_mua)->get();
-
+        $giao_dich_nguoi_ban = GiaoDichNguoiBan::find($id);
+        $id_gd = $giao_dich_nguoi_ban->{'id'};
+        $giaoDich = GiaoDich::find($id_gd);
+        //return $giaoDich;
         
-         //$id_tinh_trang = $chi_tiet_hoadon_mua[0]->id_tinh_trang;
-         //$tinh_trang = DB::table('tinh_trang')->where('id', $id_tinh_trang)->get();
-        return view('pages.auth.admin.hoadonmua.chitiet')
-        ->with('chi_tiet_hoadon_mua', $chi_tiet_hoadon_mua);
-        //return $chi_tiet_hoadon_mua;
+
+        //$id_giao_dich_ban = 
+        //return $giaoDichBanHang;
+        //$giaoDich = GiaoDich::find($id);
+        return view('pages.auth.admin.hoadonban.chitiet')
+        ->with('giaoDich', $giaoDich)
+        ->with('giao_dich_nguoi_ban', $giao_dich_nguoi_ban);
+       
     }
 }

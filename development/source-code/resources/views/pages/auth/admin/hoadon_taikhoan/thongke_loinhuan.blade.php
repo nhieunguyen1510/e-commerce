@@ -5,6 +5,61 @@
 
 @section('content')
 <div class="row">
+
+ @if(isset($thongbao_loi) and $thongbao_loi!="")
+               <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <div class="alert alert-danger" fade in>
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                   {{ $thongbao_loi }}
+                  </div>
+                  </div>
+                </div>
+                  @endif
+
+            <form action="{{ URL::Route('admin.hoadontaikhoan.getthongke')}}" method="GET" name="form_ad_search_nv">
+
+            <div class="col-md-2 col-sm-2 col-xs-12">
+                <div class="form-group">
+
+                         <select class="form-control" name="s_year" id="s_year" >
+                            <option value="">Trong năm</option>
+                               @foreach($sort_year as $value)
+                            <option value="{{ $value->sort_year }}" <?php if (isset($_GET['s_year']) && $_GET['s_year'] == $value->sort_year) echo 'selected'; ?>>{{ $value->sort_year }}</option>
+                              @endforeach
+                        
+                            </select>
+                           
+                </div>
+              </div>
+
+              <div class="col-md-2 col-sm-2 col-xs-12">
+                <div class="form-group">
+
+                         <select class="form-control" name="s_month" id="s_month" >
+                            <option value="">Trong tháng</option>
+                               @for($i = 1; $i <= 12; $i++)
+                             
+                                  <option value="{{ $i }}" <?php if (isset($_GET['s_month']) && $_GET['s_month'] == $i) echo 'selected'; ?>>{{ $i }}</option>
+                            
+                              @endfor
+                        
+                            </select>
+                           
+                </div>
+              </div>
+
+
+              <div class="col-md-1 col-sm-1 col-xs-12">
+                <div class="form-group">
+                     
+                      <button class="btn btn-default" type="submit">Lọc</button>
+                  
+                </div>
+              </div>
+
+
+              </form>
 <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
                 <div class="x_panel">
                   <div class="x_title">

@@ -98,7 +98,19 @@ class HoaDonTaiKhoanController extends Controller
 
      public function getThongKe ()
     {
-        return view('pages.auth.admin.hoadon_taikhoan.thongke_loinhuan');
+
+        $sort_year = DB::select("CALL GiaoDich_TaiKhoan_GetYear");
+        $thongbao_loi = "";
+
+         if((isset($_GET['s_year']) && isset($_GET['s_month']) && $_GET['s_year']== "" && $_GET['s_month']!= ""))
+        
+         
+         {
+             $thongbao_loi = "Vui lòng xem lại thông tin lọc";
+         }
+        return view('pages.auth.admin.hoadon_taikhoan.thongke_loinhuan')->with('sort_year',$sort_year)
+        ->with('thongbao_loi', $thongbao_loi)
+        ;
     }
 
     

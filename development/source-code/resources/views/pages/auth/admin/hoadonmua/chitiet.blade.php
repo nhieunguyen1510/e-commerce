@@ -32,17 +32,20 @@
                 <div class="x_panel">
                  
                   <div class="x_content">
-                     @if(session('thongbao'))
-
-                  <div class="alert alert-success" fade in>
-                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    {{ session('thongbao')}}
-                  </div>
-                  @endif
+                    <h3>Thông tin hóa đơn mua hàng</h3>
 
                 
                   <div class="row">
-                     <div class="col-md-4">
+
+                  <div class="col-md-2">
+                     
+                         <div class="form-group">
+                               <label>Mã hóa đơn mua hàng</label>
+                                   <input type="text" class="form-control border-input" name ="txt_hoten"  placeholder="Mã người mua" readonly value="{{ $giaoDich->id}}">
+                                                
+                           </div>
+                      </div>
+                     <div class="col-md-2">
                          <div class="form-group">
                                <label>Mã khách hàng</label>
                                    <input type="text" class="form-control border-input" name ="txt_hoten"  placeholder="Mã người mua" readonly value="{{ $giaoDich->id_tai_khoan }}">
@@ -124,24 +127,35 @@
                       </div>
                   </div>
                      
-              
+              </div>
+                  </div><!--- panel -->
 
 
                   <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                      <div class="form-group">
-
-                    </form>
-                    </div>
-                  </div>
+                    <div class="x_panel">
+                    <div class="x_content">
+                   <h3>Thông tin đơn hàng người bán</h3>
                   @foreach($giaoDich->dsGiaoDichNguoiban as $i=>$giaoDichNguoiban)
                   <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                      <h4>{{ "Tên shop:" .$giaoDichNguoiban->tai_khoan_nguoi_ban->ten_shop}} </h4>
-                      <h4>{{ "Email: ".$giaoDichNguoiban->tai_khoan_nguoi_ban->email}} </h4>
-                      <h4>{{ "Số điện thoại:".$giaoDichNguoiban->tai_khoan_nguoi_ban->so_dien_thoai}} </h4>
-                      <h4>{{ "Tình trạng: ".$giaoDichNguoiban->tinh_trang->tinh_trang}} </h4>
+                      <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <h4>{{ "Tên shop:" .$giaoDichNguoiban->tai_khoan_nguoi_ban->ten_shop}} </h4>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <h4>{{ "Email: ".$giaoDichNguoiban->tai_khoan_nguoi_ban->email}} </h4>
+                                </div>
+                      </div>
+
+                       <div class="row">
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <h4>{{ "Số điện thoại:".$giaoDichNguoiban->tai_khoan_nguoi_ban->so_dien_thoai}} </h4>
+                              </div>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <h4>{{ "Tình trạng: ".$giaoDichNguoiban->tinh_trang->tinh_trang}} </h4>
+                              </div>
+                      </div>
                     
                     <table id="datatable" class="table table-striped table-bordered" name="datatable">
                       <thead>
@@ -170,10 +184,14 @@
                        </tbody>
                       
                     </table>
+                    <h4 style="padding-left:70%;">{{ "Tổng tiền:" .$giaoDichNguoiban->tong_tien}} </h4>
+                    <hr/>
                      @endforeach 
+                      
                     </div>
                     </div>
-                       
+                     </div>
+                    </div>  
                      
 
                   </div>
@@ -184,6 +202,7 @@
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <a href ="{{ route('admin.hoadonmua.getdanhsach') }}"><button type="button" class="btn btn-primary">Trở về</button></a>
+                          <br/>
                        
                         </div>
                     

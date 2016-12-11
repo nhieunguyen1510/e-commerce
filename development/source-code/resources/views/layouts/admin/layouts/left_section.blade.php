@@ -38,7 +38,7 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i> Hóa đơn <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ route('admin.hoadonban.getdanhsach') }}">Hóa đơn bán hàng </a></li>
+                      <li><a href="{{ route('admin.hoadonban.getdanhsach') }}">Đơn hàng của người bán</a></li>
                       <li><a href="{{ route('admin.hoadonmua.getdanhsach') }}">Hóa đơn mua hàng </a></li>
                       <li><a href="{{ route('admin.hoadontaikhoan.getdanhsach') }}">Hóa đơn tài khoản</a></li>
                       

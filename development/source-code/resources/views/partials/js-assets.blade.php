@@ -4,6 +4,8 @@
 <script type="text/javascript" src="{{ URL::asset('packages/angular/angular.min.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('packages/froala-editor/js/froala_editor.min.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('packages/angular-froala/src/angular-froala.js')}}"></script>
+<script type="text/javascript" src="{{ URL::asset('packages/angular-ui-bootstrap/dist/ui-bootstrap.js')}}"></script>
+<script type="text/javascript" src="{{ URL::asset('packages/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js')}}"></script>
 
 
 <!-- Angular App -->

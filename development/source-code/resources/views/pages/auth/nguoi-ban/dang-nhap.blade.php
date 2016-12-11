@@ -64,6 +64,7 @@
                 </div>
             </div>
             <p class="text-center">Bạn không có tài khoản? <a href="{{ URL::Route('dangky.nguoiban.index') }}">Đăng ký tài khoản mới </a></p>
+            <p class="text-center">Bạn có muốn trở về trang Minx? <a href="{{ URL::Route('trangchu.index') }}">Trang Minx</a></p>
         </div>
     </body>
 </html>

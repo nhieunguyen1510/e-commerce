@@ -43,6 +43,7 @@ class AppServiceProvider extends ServiceProvider
 
         $dsTinhTrang = TinhTrang::all();
         View::share('dsTinhTrang', $dsTinhTrang);
+
     }
 
     /**

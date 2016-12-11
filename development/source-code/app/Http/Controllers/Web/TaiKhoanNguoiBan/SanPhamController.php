@@ -67,6 +67,12 @@ class SanPhamController extends Controller
      */
     public function store(Request $request)
     {
+        
+        if($request->has('anh_dai_dien') == false || $request->has('anh_ct_1') == false || $request->has('anh_ct_2') == false || $request->has('anh_ct_3') == false)
+        {
+            return back()->with('error','Bạn chưa thêm hình ảnh cho sản phẩm');
+        }
+
         //Lưu file vào folder storage/app/public/img/san_pham và lưu lại đường dẫn
         $anhDaiDienPath = $request->file('anh_dai_dien')->store('public/img/san_pham');
         $anhChiTiet1Path = $request->file('anh_ct_1')->store('public/img/san_pham');

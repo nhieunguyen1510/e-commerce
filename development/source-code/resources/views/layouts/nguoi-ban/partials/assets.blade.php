@@ -3,10 +3,12 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/bootstrap/css/bootstrap.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/fontawesome/css/font-awesome.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/bootstrap-social/bootstrap-social.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/froala-editor/css/froala_editor.min.css')}}">
 <!-- Javascript Packages -->
 <script type="text/javascript" src="{{ URL::asset('packages/jquery/jquery.min.js')}}"></script>
 
 <script type="text/javascript" src="{{ URL::asset('packages/angular/angular.min.js')}}"></script>
+<script type="text/javascript" src="{{ URL::asset('packages/froala-editor/js/froala_editor.min.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('packages/angular-froala/src/angular-froala.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('packages/angular-ui-bootstrap/dist/ui-bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{ URL::asset('packages/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js')}}"></script>

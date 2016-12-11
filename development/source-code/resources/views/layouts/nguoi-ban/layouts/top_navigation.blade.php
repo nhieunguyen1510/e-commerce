@@ -9,12 +9,12 @@
               @if (Auth::guard('nguoi_ban')->check())
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../../assets/img/img.jpg" alt="">{{ Auth::guard('nguoi_ban')->user()->ten_dang_nhap }}
+                    <img src="{{Storage::url(Auth::guard('nguoi_ban')->user()->anh_dai_dien)}}" alt="">{{ Auth::guard('nguoi_ban')->user()->ten_dang_nhap }}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                   
-                    <li><a href="javascript:;"> Profile</a></li>
+                    <li><a href="{{URL::Route('nguoiban-thongtin.index')}}">Thông tin cá nhân </a></li>
                     <li><a href="{{ URL::Route('dangxuat.nguoiban.index') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                    
                   </ul>

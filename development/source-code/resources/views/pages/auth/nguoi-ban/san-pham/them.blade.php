@@ -21,9 +21,14 @@
 
                 <div class="x_content">
                     <br />
-                    
                     <form enctype="multipart/form-data" id="form_them_san_pham" name="form_them_san_pham" class="form-horizontal form-label-left" ng-submit="submitSanPham(form_them_san_pham.$valid, $event)" method="POST" action="{{URL::Route('nguoiban-sanpham.store')}}" novalidate>
                         {{ csrf_field() }}
+
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Loại danh mục <span class="required">*</span></label>
@@ -58,7 +63,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Mô tả: <span class="required">*</span>
                         </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="txt_mota" name="txt_mota" rows="7" ng-model="txt_mota" ng-required="true" ng-maxlength="500" class="form-control col-md-7 col-xs-12" placeholder="Thêm mô tả vào đây"></textarea>                         
+                                <textarea froala="froalaOptions" id="txt_mota" name="txt_mota" rows="7" ng-model="txt_mota" ng-required="true" ng-maxlength="500" class="form-control col-md-7 col-xs-12" placeholder="Thêm mô tả vào đây"></textarea>                         
                             </div>
                             <i class="fa fa-check text-success" ng-show="form_them_san_pham.txt_mota.$dirty && form_them_san_pham.txt_mota.$valid && isSubmitted"></i>
                             <div ng-show="(form_them_san_pham.txt_mota.$dirty  || isSubmitted) && form_them_san_pham.txt_mota.$invalid" class="text-danger">

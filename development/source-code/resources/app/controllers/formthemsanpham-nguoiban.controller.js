@@ -12,6 +12,14 @@
         $scope.txt_phantramKM = 0;
         $scope.txt_soluongton = 1;
         $scope.isSubmitted = false;
+
+        //Cấu hình cho textarea 
+        $scope.froalaOptions = {
+            toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertHR', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+            height: 300
+        };
+
+
         $scope.submitSanPham = submitSanPham;
         $scope.getGiaBanHienTai = getGiaBanHienTai;
 

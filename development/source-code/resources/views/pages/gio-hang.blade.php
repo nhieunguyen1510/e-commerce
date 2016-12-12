@@ -45,7 +45,7 @@
 						 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<input class="cart_quantity_input" type="text" name="quantity" value="{{$item->qty}}" autocomplete="off" size="2">	
+									<input class="cart_quantity_input" type="number" name="quantity" value="{{$item->qty}}" autocomplete="off" size="2">	
 									 <input type="hidden" name="id" id="id" value="{{ $item->rowId }}">
 									&nbsp &nbsp<button type="submit" class="btn btn-danger btn-xs">Cập nhật</button>
 								</div>

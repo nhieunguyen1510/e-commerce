@@ -1,7 +1,7 @@
 
 @extends('layouts.admin.layouts.main')
 
-@section('title','Chi tiết hóa đơn mua')
+@section('title','Chi tiết đơn hàng bán')
 
 @section('content')
     <!--Begin Content -->

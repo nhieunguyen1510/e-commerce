@@ -17,10 +17,6 @@ Chart.defaults.global.legend = {
             label: '# of Votes',
             backgroundColor: "#26B99A",
             data: obj
-          }, {
-            label: '# of Votes',
-            backgroundColor: "#03586A",
-            data: [41, 56, 25, 48, 72, 34, 12, 51, 30, 40, 28, 92]
           }]
         },
 

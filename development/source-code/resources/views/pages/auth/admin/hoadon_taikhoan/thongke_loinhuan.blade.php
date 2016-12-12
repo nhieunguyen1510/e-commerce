@@ -33,22 +33,6 @@
                 </div>
               </div>
 
-              <div class="col-md-2 col-sm-2 col-xs-12">
-                <div class="form-group">
-
-                         <select class="form-control" name="s_month" id="s_month" >
-                            <option value="">Trong tháng</option>
-                               @for($i = 1; $i <= 12; $i++)
-                             
-                                  <option value="{{ $i }}" <?php if (isset($_GET['s_month']) && $_GET['s_month'] == $i) echo 'selected'; ?>>{{ $i }}</option>
-                            
-                              @endfor
-                        
-                            </select>
-                           
-                </div>
-              </div>
-
 
               <div class="col-md-1 col-sm-1 col-xs-12">
                 <div class="form-group">
@@ -60,6 +44,9 @@
 
 
               </form>
+
+
+             
 <div class="col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
                 <div class="x_panel">
                   <div class="x_title">
@@ -88,10 +75,23 @@
                       <thead>
                         <tr>
                           <th><center>STT</center></th>
-                          <th><center>Ngày</center></th>
+                          <th><center>Tháng</center></th>
                           <th><center>Doanh thu</center></th>  
                         </tr>
                       </thead>
+
+
+                      <tbody>
+                      <?php $stt = 0; ?>
+                      @foreach($baocao_doanhthu_thang as $key=>$value)
+                      <tr>
+                          <td><center><?php $stt = $stt + 1;  echo $stt; ?></center></td>
+                          <td><center>{{ $key + 1 }}</center></td>
+                          <td><center>{{ $value." VND" }} </center></td>
+                      </tr>
+                      @endforeach
+
+                      </tbody>
 
                       </table>
                   
@@ -100,5 +100,16 @@
                   </div>
                 </div>
               </div>
+             
 </div>
+
+
+<script type="text/javascript">
+            function getArray()
+            {
+              var obj = <?php echo json_encode($baocao_doanhthu_thang); ?>;
+              console.log(obj);
+              return obj;
+            }
+</script>
 @endsection

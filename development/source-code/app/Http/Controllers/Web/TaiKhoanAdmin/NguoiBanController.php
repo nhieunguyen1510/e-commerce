@@ -10,7 +10,6 @@ use App\TaiKhoanNguoiBan;
 use App\TinhTrang;
 use App\HoaDonTaiKhoan;
 use App\Mail\ThongBaoKichHoat;
-use App\Mail\ThongBaoKhoa;
 use Illuminate\Support\Facades\Mail;
 
 class NguoiBanController extends Controller
@@ -33,7 +32,7 @@ class NguoiBanController extends Controller
 
             if($s_status =="" && $s_key !="")
             {
-                $danhsach_nguoiban = TaiKhoanNguoiBan::where('ten_shop', 'like', '%'.$s_key.'%')->orwhere('ho', 'like', '%'.$s_key.'%')->orwhere('ten', 'like', '%'.$s_key.'%')->orwhere('dia_chi', 'like', '%'.$s_key.'%')->orderBy('id', 'desc')->paginate(1);
+                $danhsach_nguoiban = TaiKhoanNguoiBan::where('ten_shop', 'like', '%'.$s_key.'%')->orwhere('ho', 'like', '%'.$s_key.'%')->orwhere('ten', 'like', '%'.$s_key.'%')->orwhere('dia_chi', 'like', '%'.$s_key.'%')->orderBy('id', 'desc')->paginate(10);
             }
 
             if($s_status !="" && $s_key !="")
@@ -46,7 +45,7 @@ class NguoiBanController extends Controller
                                                 ->orwhere('ho', 'like', '%'.$s_key.'%')
                                                 ->orwhere('ten', 'like', '%'.$s_key.'%')
                                                 ->orwhere('dia_chi', 'like', '%'.$s_key.'%');
-                                            })->paginate(2);
+                                            })->paginate(10);
             }
         
         }
@@ -56,10 +55,11 @@ class NguoiBanController extends Controller
 
     public function getChiTiet ($id)
     {
-         $chi_tiet_nguoi_ban = DB::table('tai_khoan_nguoi_ban')->where ('id',$id)->get();
-         $id_tinh_trang = $chi_tiet_nguoi_ban[0]->id_tinh_trang;
-         $tinh_trang = DB::table('tinh_trang')->where('id', $id_tinh_trang)->get();
-        return view('pages.auth.admin.nguoiban.chitiet', ['chi_tiet_nguoi_ban' => $chi_tiet_nguoi_ban, 'tinh_trang' => $tinh_trang]);
+        $chi_tiet_nguoi_ban= TaiKhoanNguoiBan::find($id);
+        // $id_tinh_trang = $chi_tiet_nguoi_ban->id_tinh_trang;
+        $tinh_trang = $chi_tiet_nguoi_ban->tinh_trang;
+        $anhDaiDienURL = $chi_tiet_nguoi_ban->getAnhDaiDien();
+        return view('pages.auth.admin.nguoiban.chitiet', ['chi_tiet_nguoi_ban' => $chi_tiet_nguoi_ban, 'tinh_trang' => $tinh_trang, 'anhDaiDienURL' => $anhDaiDienURL]);
     }
 
     public function getKichHoat ($id)
@@ -96,7 +96,6 @@ class NguoiBanController extends Controller
             $thongbao_mail = new ThongBaoKhoa($tenShop);
             Mail::to($email)->send($thongbao_mail);
         }
-
         //Thêm hóa đơn tài khoản
         $hoadon_taikhoan= new HoaDonTaiKhoan;
         $hoadon_taikhoan->id_tai_khoan_ban = $id;
@@ -118,12 +117,12 @@ class NguoiBanController extends Controller
             $s_key = $_GET['key'];
             if($s_status!="" && $s_key =="")
             {
-                $danhsach_nguoiban = TaiKhoanNguoiBan::where('id_tinh_trang', $s_status)->orderBy('id', 'desc')->paginate(1);
+                $danhsach_nguoiban = TaiKhoanNguoiBan::where('id_tinh_trang', $s_status)->orderBy('id', 'desc')->paginate(10);
             }
 
             if($s_status =="" && $s_key !="")
             {
-                $danhsach_nguoiban = TaiKhoanNguoiBan::where('ten_shop', 'like', '%'.$s_key.'%')->orwhere('ho', 'like', '%'.$s_key.'%')->orwhere('ten', 'like', '%'.$s_key.'%')->orwhere('dia_chi', 'like', '%'.$s_key.'%')->orderBy('id', 'desc')->paginate(1);
+                $danhsach_nguoiban = TaiKhoanNguoiBan::where('ten_shop', 'like', '%'.$s_key.'%')->orwhere('ho', 'like', '%'.$s_key.'%')->orwhere('ten', 'like', '%'.$s_key.'%')->orwhere('dia_chi', 'like', '%'.$s_key.'%')->orderBy('id', 'desc')->paginate(10);
             }
 
             if($s_status !="" && $s_key !="")
@@ -136,7 +135,7 @@ class NguoiBanController extends Controller
                                                 ->orwhere('ho', 'like', '%'.$s_key.'%')
                                                 ->orwhere('ten', 'like', '%'.$s_key.'%')
                                                 ->orwhere('dia_chi', 'like', '%'.$s_key.'%');
-                                            })->paginate(2);
+                                            })->paginate(10);
             }
         
         }

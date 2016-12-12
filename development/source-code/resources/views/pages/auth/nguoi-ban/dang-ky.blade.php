@@ -17,6 +17,15 @@
 <body>
     <div ng-controller="FormDangKyNguoiBanCtrl" class="col-md-4 col-xs-12 col-md-offset-4">
         <div class="panel panel-default">
+
+         @if(count($errors) > 0 )
+                  <div class="alert alert-danger" fade in>
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    @foreach($errors->all() as $err)
+                        {{ $err }}<br/>
+                    @endforeach
+                  </div>
+                  @endif
             <div class="panel-heading"><strong>Đăng ký tài khoản</strong></div>
             <div class="panel-body">
 

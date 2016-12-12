@@ -5,7 +5,9 @@ Chart.defaults.global.legend = {
       };
             // Bar chart
 
-      
+       obj = getArray();
+       if(obj.length > 10)
+      {
       var ctx = document.getElementById("mybarChart");
       var mybarChart = new Chart(ctx, {
         type: 'bar',
@@ -14,7 +16,7 @@ Chart.defaults.global.legend = {
           datasets: [{
             label: '# of Votes',
             backgroundColor: "#26B99A",
-            data: [41, 56, 25, 48, 72, 34, 12, 51, 30, 40, 28, 92]
+            data: obj
           }, {
             label: '# of Votes',
             backgroundColor: "#03586A",
@@ -32,4 +34,5 @@ Chart.defaults.global.legend = {
           }
         }
       });
+      }
  

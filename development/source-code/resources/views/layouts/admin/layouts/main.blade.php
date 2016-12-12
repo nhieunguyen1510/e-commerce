@@ -61,7 +61,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Công ty MINX
+            MINX</a>
           </div>
           <div class="clearfix"></div>
         </footer>

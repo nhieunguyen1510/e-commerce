@@ -67,8 +67,7 @@ class SanPhamController extends Controller
      */
     public function store(Request $request)
     {
-        
-        if($request->has('anh_dai_dien') == false || $request->has('anh_ct_1') == false || $request->has('anh_ct_2') == false || $request->has('anh_ct_3') == false)
+        if($request->hasFile('anh_dai_dien') == false || $request->hasFile('anh_ct_1') == false || $request->hasFile('anh_ct_2') == false || $request->hasFile('anh_ct_3') == false)
         {
             return back()->with('error','Bạn chưa thêm hình ảnh cho sản phẩm');
         }

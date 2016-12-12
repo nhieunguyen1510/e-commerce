@@ -17,6 +17,20 @@ class DangKyController extends Controller
     } 
     public function postDangKy(Request $request)
     {
+
+        $this ->validate($request, [
+                            'txtTenDangNhap' => 'unique:tai_khoan_nguoi_ban,ten_dang_nhap',
+                            'txtEmail' => 'unique:tai_khoan_nguoi_ban,email',
+                            'txtTenShop' => 'unique:tai_khoan_nguoi_ban,ten_shop',
+                            
+                            ],
+                            [
+                             'txtTenDangNhap.unique'=>'Tên đăng nhập này đã tồn tại',
+                             'txtEmail.unique'=>'Email này đã tồn tại',
+                             'txtTenShop.unique'=>'Tên shop này đã tồn tại',
+
+                            
+                            ]);
         // Lấy dữ liệu đầu vào là mật khẩu và hash mật khẩu trươc khi lưu
         $matKhau = $request->txtMatKhau;
         $matKhau = Hash::make($matKhau);
@@ -32,7 +46,14 @@ class DangKyController extends Controller
         $taiKhoanIns['so_dien_thoai'] = $request->txtSoDienThoai;
         $taiKhoanIns['dia_chi'] = $request->txtDiaChi;
         $taiKhoanIns['mat_khau'] = $matKhau;
-        $taiKhoanIns->save();
-        return redirect()->route('dangnhap.nguoiban.index');
+        $taiKhoanIns['id_tinh_trang'] = 8;
+        if($taiKhoanIns->save())
+        {
+            return redirect()->route('dangnhap.nguoiban.index');
+        }else
+
+        {
+            return redirect()->route('dangky.nguoiban.index');
+        }
     }
 }

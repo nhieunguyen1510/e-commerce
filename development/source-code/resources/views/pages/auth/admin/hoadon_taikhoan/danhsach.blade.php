@@ -119,7 +119,7 @@
                           <th>Gía trị</th>
                           <th>Ngày tạo</th>
                           <th>Tình trạng</th>
-                          <th><center> Chức năng</center></th>
+                          
                           
                         </tr>
                       </thead>
@@ -144,12 +144,7 @@
                           <td>{{ $item->ngay_tao}} </td>
                           <td>{{ "Đã thanh toán"}}</td>
 
-                          <td>
-                          <center>
-                           <a href="{!! route('admin.hoadontaikhoan.getchitiet', ['id'=>$item->id]) !!}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Chi tiết </a>
-                            
-                          </center>
-                          </td>
+                          
                           
                         </tr>
                         

@@ -25,17 +25,6 @@
             <form action="{{ URL::Route('admin.nguoimua.getdanhsach')}}" method="GET" name="form_search_nguoimua"> 
 
               <div class="col-md-2 col-sm-2 col-xs-12">
-                <div class="form-group">
-                         <select class="form-control" name="status" id="status">
-                            <option value="">Tình trạng</option>
-                            @foreach($status as $item)
-                            <option value="{{ $item->id }}"<?php if(isset($_GET['status']) && $_GET['status'] == $item->id) {echo 'selected'; }?>>{{ $item->tinh_trang }}</option>
-                            @endforeach
-                            </select>
-                </div>
-              </div>
-
-              <div class="col-md-2 col-sm-2 col-xs-12">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Tìm ... " name="key" id="key" 
                     value ="<?php if(isset($_GET['key'])) {echo $_GET['key']; }?>">
@@ -83,8 +72,8 @@
                           <th>Họ tên</th>
                           <th>Địa chỉ</th>
                           <th>Ngày tạo</th>
-                          <th>Tình trạng</th>
-                          <th><center><a href="" class="btn btn-info btn-xs"><i class="fa fa-plus-circle"></i> Thêm </a><center></th>
+         
+                          <th><center>Chức năng<center></th>
                           
                         </tr>
                       </thead>
@@ -105,13 +94,7 @@
                           <td>{!! $item -> ho !!} {!! $item -> ten !!}</td>
                           <td>{!! $item -> dia_chi !!}</td>
                           <td>{!! $item -> ngay_tao !!}</td>
-                          <td><?php if($item -> id_tinh_trang == 12) echo 'Đã kích hoạt';
-                                    else if ($item -> id_tinh_trang == 11)
-                                    echo 'Chưa kích hoạt';
-                                    else if ($item -> id_tinh_trang == 13)
-                                    echo 'Bị khóa';
-                          
-                          ?></td>
+                         
 
                           
                           <td>

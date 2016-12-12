@@ -33,7 +33,7 @@ class HoaDonBanHangController extends Controller
         ->join('tinh_trang', 'giao_dich_nguoi_ban.id_tinh_trang', '=', 'tinh_trang.id')
         ->join('tai_khoan_nguoi_ban', 'giao_dich_nguoi_ban.id_tai_khoan_ban', '=', 'tai_khoan_nguoi_ban.id')
         ->select('giao_dich_nguoi_ban.*', 'tinh_trang.tinh_trang', 'tai_khoan_nguoi_ban.ten_shop')
-        ->paginate(2);
+        ->paginate(10);
 
 
         if(isset($_GET['status']) && isset($_GET['key']) && isset($_GET['s_year']) && isset($_GET['s_month']))
@@ -50,7 +50,7 @@ class HoaDonBanHangController extends Controller
                     ->join('tai_khoan_nguoi_ban', 'giao_dich_nguoi_ban.id_tai_khoan_ban', '=', 'tai_khoan_nguoi_ban.id')
                     ->where('giao_dich_nguoi_ban.id_tinh_trang', $s_status)
                     ->select('giao_dich_nguoi_ban.*', 'tinh_trang.tinh_trang', 'tai_khoan_nguoi_ban.ten_shop')
-                    ->paginate(2);
+                    ->paginate(10);
                 
             }
 
@@ -62,7 +62,7 @@ class HoaDonBanHangController extends Controller
                     ->join('tai_khoan_nguoi_ban', 'giao_dich_nguoi_ban.id_tai_khoan_ban', '=', 'tai_khoan_nguoi_ban.id')
                     ->where('tai_khoan_nguoi_ban.ten_shop', 'like', '%'.$s_key.'%')
                     ->select('giao_dich_nguoi_ban.*', 'tinh_trang.tinh_trang', 'tai_khoan_nguoi_ban.ten_shop')
-                    ->paginate(2);
+                    ->paginate(10);
              
             }
 
@@ -80,7 +80,7 @@ class HoaDonBanHangController extends Controller
                                                 $query->where('tai_khoan_nguoi_ban.ten_shop', 'like', '%'.$s_key.'%');
                                             })
                     ->select('giao_dich_nguoi_ban.*', 'tinh_trang.tinh_trang', 'tai_khoan_nguoi_ban.ten_shop')
-                    ->paginate(2);
+                    ->paginate(10);
 
 
                    
@@ -94,7 +94,7 @@ class HoaDonBanHangController extends Controller
                     ->join('tai_khoan_nguoi_ban', 'giao_dich_nguoi_ban.id_tai_khoan_ban', '=', 'tai_khoan_nguoi_ban.id')
                     ->whereYear('thoi_gian_giao_dich', $s_year)
                    ->select('giao_dich_nguoi_ban.*', 'tinh_trang.tinh_trang', 'tai_khoan_nguoi_ban.ten_shop')
-                     ->paginate(2);
+                     ->paginate(10);
             }
 
             if($s_status =="" && $s_key =="" && $s_year != "" && $s_month !="")
@@ -105,7 +105,7 @@ class HoaDonBanHangController extends Controller
                     ->whereYear('thoi_gian_giao_dich', $s_year)
                     ->whereMonth('thoi_gian_giao_dich', $s_month)
                     ->select('giao_dich_nguoi_ban.*', 'tinh_trang.tinh_trang', 'tai_khoan_nguoi_ban.ten_shop')
-                     ->paginate(2);
+                     ->paginate(10);
             }
 
             if($s_status !="" && $s_key =="" && $s_year != "" && $s_month =="")
@@ -116,7 +116,7 @@ class HoaDonBanHangController extends Controller
                     ->whereYear('thoi_gian_giao_dich', $s_year)
                     ->where('giao_dich_nguoi_ban.id_tinh_trang', $s_status)
                     ->select('giao_dich_nguoi_ban.*', 'tinh_trang.tinh_trang', 'tai_khoan_nguoi_ban.ten_shop')
-                     ->paginate(2);
+                     ->paginate(10);
             }
 
             if($s_status =="" && $s_key !="" && $s_year != "" && $s_month =="")
@@ -127,7 +127,7 @@ class HoaDonBanHangController extends Controller
                     ->whereYear('thoi_gian_giao_dich', $s_year)
                     ->where('tai_khoan_nguoi_ban.ten_shop', 'like', '%'.$s_key.'%')
                     ->select('giao_dich_nguoi_ban.*', 'tinh_trang.tinh_trang', 'tai_khoan_nguoi_ban.ten_shop')
-                     ->paginate(2);
+                     ->paginate(10);
             }
 
             if($s_status =="" && $s_key !="" && $s_year != "" && $s_month !="")
@@ -139,7 +139,7 @@ class HoaDonBanHangController extends Controller
                     ->whereMonth('thoi_gian_giao_dich', $s_month)
                     ->where('tai_khoan_nguoi_ban.ten_shop', 'like', '%'.$s_key.'%')
                     ->select('giao_dich_nguoi_ban.*', 'tinh_trang.tinh_trang', 'tai_khoan_nguoi_ban.ten_shop')
-                     ->paginate(2);
+                     ->paginate(10);
             }
 
             if($s_status !="" && $s_key =="" && $s_year != "" && $s_month !="")
@@ -151,7 +151,7 @@ class HoaDonBanHangController extends Controller
                     ->whereMonth('thoi_gian_giao_dich', $s_month)
                     ->where('giao_dich_nguoi_ban.id_tinh_trang', $s_status)
                      ->select('giao_dich_nguoi_ban.*', 'tinh_trang.tinh_trang', 'tai_khoan_nguoi_ban.ten_shop')
-                     ->paginate(2);
+                     ->paginate(10);
             }
 
 
@@ -164,7 +164,7 @@ class HoaDonBanHangController extends Controller
                     ->where('giao_dich_nguoi_ban.id_tinh_trang', $s_status)
                     ->where('tai_khoan_nguoi_ban.ten_shop', 'like', '%'.$s_key.'%')
                     ->select('giao_dich_nguoi_ban.*', 'tinh_trang.tinh_trang', 'tai_khoan_nguoi_ban.ten_shop')
-                     ->paginate(2);
+                     ->paginate(10);
             }
 
             if($s_status !="" && $s_key !="" && $s_year != "" && $s_month !="")
@@ -177,7 +177,7 @@ class HoaDonBanHangController extends Controller
                     ->where('giao_dich_nguoi_ban.id_tinh_trang', $s_status)
                     ->where('tai_khoan_nguoi_ban.ten_shop', 'like', '%'.$s_key.'%')
                     ->select('giao_dich_nguoi_ban.*', 'tinh_trang.tinh_trang', 'tai_khoan_nguoi_ban.ten_shop')
-                     ->paginate(2);
+                     ->paginate(10);
             }
 
             
@@ -198,7 +198,7 @@ class HoaDonBanHangController extends Controller
     public function getChiTiet ($id)
     {
         $giao_dich_nguoi_ban = GiaoDichNguoiBan::find($id);
-        $id_gd = $giao_dich_nguoi_ban->{'id'};
+        $id_gd = $giao_dich_nguoi_ban->{'id_giao_dich'};
         $giaoDich = GiaoDich::find($id_gd);
         //return $giaoDich;
         

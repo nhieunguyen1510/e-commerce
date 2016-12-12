@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Storage;
 
 class TaiKhoanNguoiBan extends Authenticatable
 {
@@ -20,6 +21,18 @@ class TaiKhoanNguoiBan extends Authenticatable
     protected $hidden = [
         'mat_khau', 'remember_token'
     ];
+
+
+    public function tinh_trang()
+    {
+        return $this->hasOne('App\TinhTrang', 'id', 'id_tinh_trang');
+    }
+    
+    public function getAnhDaiDien()
+    {
+        $anhDaiDienURL = Storage::url($this->anh_dai_dien);
+        return $anhDaiDienURL;
+    }
 
     public function getAuthPassword()
     {

@@ -85,7 +85,7 @@
                           <th>Địa chỉ</th>
                           <th>Ngày tạo</th>
                           <th>Tình trạng</th>
-                            <th><center><a href="" class="btn btn-info btn-xs"><i class="fa fa-plus-circle"></i> Thêm </a></center></th>
+                            <th><center>Chức năng</center></th>
                           
                         </tr>
                       </thead>

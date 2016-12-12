@@ -10,6 +10,7 @@ use App\HoaDonTaiKhoan;
 use DB;
 use App\TinhTrang;
 use App\TaiKhoangNguoiBan;
+use DateTime;
 
 class HoaDonTaiKhoanController extends Controller
 {
@@ -30,7 +31,7 @@ class HoaDonTaiKhoanController extends Controller
         $danhsach_hoadon_taikhoan = DB::table('hoa_don_tai_khoan')
         ->join('tai_khoan_nguoi_ban', 'hoa_don_tai_khoan.id_tai_khoan_ban', '=', 'tai_khoan_nguoi_ban.id')
         ->select('hoa_don_tai_khoan.*', 'tai_khoan_nguoi_ban.ten_shop', 'tai_khoan_nguoi_ban.so_tai_khoan')
-        ->paginate(2);
+        ->paginate(10);
 
         if(isset($_GET['key']) && isset($_GET['month']) && isset($_GET['year']))
         {
@@ -43,7 +44,7 @@ class HoaDonTaiKhoanController extends Controller
                 ->join('tai_khoan_nguoi_ban', 'hoa_don_tai_khoan.id_tai_khoan_ban', '=', 'tai_khoan_nguoi_ban.id')
                     ->where('tai_khoan_nguoi_ban.ten_shop', 'like', '%'.$s_key.'%')
                     ->select('hoa_don_tai_khoan.*', 'tai_khoan_nguoi_ban.ten_shop', 'tai_khoan_nguoi_ban.so_tai_khoan')
-                    ->paginate(2);
+                    ->paginate(10);
              
             }
 
@@ -53,7 +54,7 @@ class HoaDonTaiKhoanController extends Controller
                 ->join('tai_khoan_nguoi_ban', 'hoa_don_tai_khoan.id_tai_khoan_ban', '=', 'tai_khoan_nguoi_ban.id')
                     ->whereYear('hoa_don_tai_khoan.ngay_tao', $s_year)
                     ->select('hoa_don_tai_khoan.*', 'tai_khoan_nguoi_ban.ten_shop', 'tai_khoan_nguoi_ban.so_tai_khoan')
-                    ->paginate(2);
+                    ->paginate(10);
             }
 
             if($s_key =="" && $s_year != "" && $s_month !="")
@@ -64,7 +65,7 @@ class HoaDonTaiKhoanController extends Controller
                     ->whereYear('hoa_don_tai_khoan.ngay_tao', $s_year)
                     ->whereMonth('hoa_don_tai_khoan.ngay_tao', $s_month)
                     ->select('hoa_don_tai_khoan.*', 'tai_khoan_nguoi_ban.ten_shop', 'tai_khoan_nguoi_ban.so_tai_khoan')
-                    ->paginate(2);
+                    ->paginate(10);
             }
 
            
@@ -76,7 +77,7 @@ class HoaDonTaiKhoanController extends Controller
                     ->whereYear('hoa_don_tai_khoan.ngay_tao', $s_year)
                     ->where('tai_khoan_nguoi_ban.ten_shop', 'like', '%'.$s_key.'%')
                     ->select('hoa_don_tai_khoan.*', 'tai_khoan_nguoi_ban.ten_shop', 'tai_khoan_nguoi_ban.so_tai_khoan')
-                    ->paginate(2);
+                    ->paginate(10);
             }
 
             if($s_key !="" && $s_year != "" && $s_month !="")
@@ -87,7 +88,7 @@ class HoaDonTaiKhoanController extends Controller
                     ->whereMonth('hoa_don_tai_khoan.ngay_tao', $s_month)
                     ->where('tai_khoan_nguoi_ban.ten_shop', 'like', '%'.$s_key.'%')
                      ->select('hoa_don_tai_khoan.*', 'tai_khoan_nguoi_ban.ten_shop', 'tai_khoan_nguoi_ban.so_tai_khoan')
-                    ->paginate(2);
+                    ->paginate(10);
             }
 
             
@@ -100,17 +101,36 @@ class HoaDonTaiKhoanController extends Controller
     {
 
         $sort_year = DB::select("CALL GiaoDich_TaiKhoan_GetYear");
-        $thongbao_loi = "";
+      
+        $baocao_doanhthu_thang = array();
 
-         if((isset($_GET['s_year']) && isset($_GET['s_month']) && $_GET['s_year']== "" && $_GET['s_month']!= ""))
+            $baocao_doanhthu_thang = [];
+            for($i = 1; $i <= 12; $i++)
+            {
+                $year =date("Y");
+                $ThongKe_DoanhThu_Thang = DB::select("CALL ThongKe_LoiNhuan_Nam(".$year.", ".$i.")");
+                array_push($baocao_doanhthu_thang, $ThongKe_DoanhThu_Thang[0]->TongTien);
+                
+            }  
+       
         
+        if(isset($_GET['s_year']) && $_GET['s_year']!="")
+        {
+            $year = $_GET['s_year'];
+            $baocao_doanhthu_thang = [];
+            for($i = 1; $i <= 12; $i++)
+            {
+                $ThongKe_DoanhThu_Thang = DB::select("CALL ThongKe_LoiNhuan_Nam(".$year.", ".$i.")");
+                array_push($baocao_doanhthu_thang, $ThongKe_DoanhThu_Thang[0]->TongTien);
+                
+            }  
+        }
+
          
-         {
-             $thongbao_loi = "Vui lòng xem lại thông tin lọc";
-         }
         return view('pages.auth.admin.hoadon_taikhoan.thongke_loinhuan')->with('sort_year',$sort_year)
-        ->with('thongbao_loi', $thongbao_loi)
+        ->with('baocao_doanhthu_thang', $baocao_doanhthu_thang)
         ;
+        // //return $baocao_doanhthu_thang;
     }
 
     

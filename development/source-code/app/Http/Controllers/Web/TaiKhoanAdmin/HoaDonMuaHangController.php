@@ -30,7 +30,7 @@ class HoaDonMuaHangController extends Controller
         $danhsach_hoadon_mua = DB::table('giao_dich')
         ->join('tai_khoan_nguoi_mua', 'giao_dich.id_tai_khoan', '=', 'tai_khoan_nguoi_mua.id')
         ->select('giao_dich.*','tai_khoan_nguoi_mua.ho', 'tai_khoan_nguoi_mua.ten')
-        ->paginate(2);
+        ->paginate(10);
 
 
         if(isset($_GET['key']) && isset($_GET['s_year']) && isset($_GET['s_month']))
@@ -47,7 +47,7 @@ class HoaDonMuaHangController extends Controller
                     ->where('tai_khoan_nguoi_mua.ho', 'like', '%'.$s_key.'%')
                     ->orwhere('tai_khoan_nguoi_mua.ten', 'like', '%'.$s_key.'%')
                     ->select('giao_dich.*', 'tai_khoan_nguoi_mua.ho', 'tai_khoan_nguoi_mua.ten')
-                    ->paginate(2);
+                    ->paginate(10);
 
             }
 
@@ -58,7 +58,7 @@ class HoaDonMuaHangController extends Controller
                     ->join('tai_khoan_nguoi_mua', 'giao_dich.id_tai_khoan', '=', 'tai_khoan_nguoi_mua.id')
                     ->whereYear('thoi_gian_giao_dich', $s_year)
                     ->select('giao_dich.*', 'tai_khoan_nguoi_mua.ho', 'tai_khoan_nguoi_mua.ten')
-                     ->paginate(2);
+                     ->paginate(10);
             }
 
             if($s_key =="" && $s_year != "" && $s_month !="")
@@ -68,7 +68,7 @@ class HoaDonMuaHangController extends Controller
                     ->whereYear('thoi_gian_giao_dich', $s_year)
                     ->whereMonth('thoi_gian_giao_dich', $s_month)
                     ->select('giao_dich.*', 'tai_khoan_nguoi_mua.ho', 'tai_khoan_nguoi_mua.ten')
-                     ->paginate(2);
+                     ->paginate(10);
             }
 
 
@@ -83,7 +83,7 @@ class HoaDonMuaHangController extends Controller
                                                 ->orwhere('tai_khoan_nguoi_mua.ten', 'like', '%'.$s_key.'%');
                                             })
                     ->select('giao_dich.*','tai_khoan_nguoi_mua.ho', 'tai_khoan_nguoi_mua.ten')
-                     ->paginate(2);
+                     ->paginate(10);
             }
 
             if($s_key !="" && $s_year != "" && $s_month !="")
@@ -97,7 +97,7 @@ class HoaDonMuaHangController extends Controller
                                                 ->orwhere('tai_khoan_nguoi_mua.ten', 'like', '%'.$s_key.'%');
                                             })
                     ->select('giao_dich.*', 'tai_khoan_nguoi_mua.ho', 'tai_khoan_nguoi_mua.ten')
-                     ->paginate(2);
+                     ->paginate(10);
             }
 
 

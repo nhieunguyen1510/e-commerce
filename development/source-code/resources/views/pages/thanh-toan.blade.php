@@ -28,11 +28,16 @@
                     @endforeach
                   </div>
                   @endif
+                  @if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 			<form method="POST" action="{{ URL::Route('thanhtoan.post') }}">
 				{{csrf_field()}}
 				<div class="shopper-informations">
 					<div class="row">
-						<div class="col-sm-5 clearfix">
+						<div class="col-sm-12 clearfix">
 							<div class="bill-to">
 								<p>Thông tin giao hàng</p>
 								<div class="form-one">
@@ -95,7 +100,11 @@
 						</tr>
 
 						@endforeach
-						
+						 
+						 <tr>
+						 	<td colspan="5" align="right">
+							<b>Tổng tiền</b>: <span>{{ $total }} VNĐ</span></li></td>
+						 </tr>
 						
 					</tbody>
 				</table>
@@ -104,11 +113,11 @@
 				<div class="payment-options">
 
 						<span style="float: right;">
-							<center><button type="submit"  class="btn btn-default" >Thanh toán</button></center>
+							<center><button type="submit"  class="btn btn-danger" >Thanh toán</button></center>
 							
 						</span>
 						<span style="float: right;">
-							<center><a href="{{ URL::Route('trangchu.index') }}"><button type="button" class="btn btn-default" >Quay về trang chủ</button></a></center>
+							<center><a href="{{ URL::Route('trangchu.index') }}"><button type="button" class="btn btn-danger" >Quay về trang chủ</button></a></center>
 						</span>
 				</div>
 			</form>

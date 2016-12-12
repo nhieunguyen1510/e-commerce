@@ -19,7 +19,7 @@ class DangNhapController extends Controller
     {
         $tenDangNhap = $request->txtTenDangNhap;
         $matKhau = $request->txtMatKhau;
-        $credentials = ['ten_dang_nhap'=>$tenDangNhap, 'password'=>$matKhau];     //mặc định key phải là password
+        $credentials = ['ten_dang_nhap'=>$tenDangNhap, 'password'=>$matKhau,'id_tinh_trang' => 9];     //mặc định key phải là password
         if(Auth::guard('nguoi_ban')->attempt($credentials))       //đã mã hóa password
         {
             return redirect('nguoiban/sanpham/danhsach');

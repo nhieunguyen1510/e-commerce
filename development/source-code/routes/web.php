@@ -18,7 +18,7 @@ Route::get('dangnhap', 'admin\DangNhapController@getDangNhap')->name('getDangNha
 Route::get('xoa-gio-hang/{id}',$baseFolder.'ShoppingController@xoagiohang')->name('xoagiohang');
 Route::post('sua-gio-hang',$baseFolder.'ShoppingController@suagiohang')->name('suagiohang');
 Route::get('thanh-toan',$baseFolder.'ShoppingController@thanhtoan')->name('thanhtoan.index');
-Route::post('thanh-toan',$baseFolder.'ShoppingController@thanhtoan')->name('thanhtoan.post');
+Route::post('thanh-toan',$baseFolder.'ShoppingController@postThanhToan')->name('thanhtoan.post');
 Route::get('thong-tin-tai-khoan',$baseFolder.'UserController@get_nguoimua')->name('thongtin.index');
 Route::post('sua-dia-chi-mua-hang',$baseFolder.'UserController@sua_diachi_muahang')->name('suadiachi.post');
 Route::post('timkiem',$baseFolder.'TimKiemController@timkiem')->name('timkiem');

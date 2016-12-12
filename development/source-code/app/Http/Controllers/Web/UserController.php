@@ -23,6 +23,22 @@ class UserController extends Controller
                                         ->with('lichsuGiaoDich',$lichsuGiaoDich); 
 
     }
+    public function lich_su_chi_tiet($id)
+    {
+        $idTaiKhoanNguoiMua = Auth::guard('web')
+                                ->user()
+                                ->id;
+        $donHang = GiaoDich::find($id);
+        if($donHang->id_tai_khoan == $idTaiKhoanNguoiMua)
+        {
+            return view ('pages.lich-su-chi-tiet-giao-dich')
+                        ->with('donHang', $donHang);
+        }
+        else
+        {
+            abort(404);
+        }
+    }
 
     public function sua_diachi_muahang(Request $request){
       $idTaiKhoanNguoiMua = Auth::guard('web')

@@ -378,7 +378,7 @@ class MinxDatabaseSeeder extends Seeder
                 'so_dien_thoai' => '0121218565',
                 'dia_chi' => '3 Hậu Giang p6 q2',
                 'ma_kich_hoat' => '',
-                'id_tinh_trang' => 8,
+                'id_tinh_trang' => 9,
                 'ngay_tao' => $randomDate,
                 'ngay_cap_nhat' => $randomDate],
             [   'id' => 3, 

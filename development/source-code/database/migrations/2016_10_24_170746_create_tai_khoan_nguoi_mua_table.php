@@ -26,7 +26,7 @@ class CreateTaiKhoanNguoiMuaTable extends Migration
             $table->string('dia_chi')->nullable();
             $table->string('ma_kich_hoat')->nullable();
             $table->string('ma_khoi_phuc_mat_khau')->nullable();
-            $table->integer('id_tinh_trang')->default(0);
+            $table->integer('id_tinh_trang')->default(12);
             $table->rememberToken();
             $table->timestamp('ngay_tao')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('ngay_cap_nhat')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

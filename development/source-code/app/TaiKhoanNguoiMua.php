@@ -25,4 +25,9 @@ class TaiKhoanNguoiMua extends Authenticatable
     {
         return $this->mat_khau;
     }
+
+    public function tinh_trang_nguoi_mua()
+    {
+        return $this->hasOne('App\TinhTrang', 'id', 'id_tinh_trang');
+    }
 }

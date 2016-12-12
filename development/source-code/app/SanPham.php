@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class SanPham extends Model
 {
@@ -15,8 +16,20 @@ class SanPham extends Model
         return $this->hasOne('App\TinhTrang', 'id', 'id_tinh_trang');
     }
 
+    public function ten_shop()
+    {
+        return $this->hasOne('App\TaiKhoanNguoiBan','id','id_nguoi_ban');
+    }
+
     public function getSlugAttribute($value)
     {
         return $value.'-'.$this->id;  
+    }
+
+    public function getAnh()
+    {
+        $anh = Storage::url($this->anh_dai_dien);
+        
+        return $anh;
     }
 }

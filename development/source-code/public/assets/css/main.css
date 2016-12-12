@@ -17,6 +17,7 @@ ul li {
   list-style: none;
 }
 
+
 a:hover {
 outline: none;
 text-decoration:none;
@@ -765,6 +766,7 @@ h2.title:before{
   border: 1px solid #F7F7F0;
   padding-bottom: 20px;
   padding-top: 15px;
+  font-size: 18px;
 }
 
 
@@ -1416,7 +1418,7 @@ h2.title {
 }
 
 .content-404 h2 a {
-  background: #FE980F;
+  background: #e60f1e;
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
   font-size: 44px;

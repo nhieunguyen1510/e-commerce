@@ -83,7 +83,7 @@
 							<li>Tổng tiền <span>{{ $total }} VNĐ</span></li>
 						</ul>
 							<a class="btn btn-default update" href="{{ URL::Route('trangchu.index') }}">Tiếp tục mua hàng</a>
-							<a class="btn btn-default check_out" href="{{ URL::Route('thanhtoan') }}">Thanh toán</a>
+							<a class="btn btn-default check_out" href="{{ URL::Route('thanhtoan.index') }}">Thanh toán</a>
 					</div>
 				</div>
 			</div>

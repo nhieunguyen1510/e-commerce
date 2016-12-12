@@ -78,7 +78,7 @@
                     <div class="product-image-cart">
                         <div class="product-image">
                             <a href="#">
-                                <img src="{{ $sanPham->anh_dai_dien }}" alt="Áo trễ vai mã 001">
+                                <img src="{{$sanPham->getAnh()}}" alt="Áo trễ vai mã 001">
                             </a>
                         </div>
                         <div class="product-icon-cart">

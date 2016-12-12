@@ -25,10 +25,14 @@
                 <div class="col-sm-5" style="float:right">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Thông tin tài khoản</a></li>
+                        @if (!Auth::guard('web')->check())
                             <li><a href="{{ URL::Route('thanhtoan.index') }}"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
                             <li><a href="{{ URL::Route('giohang') }}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-
+                        @else
+                             <li><a href="{{ URL::Route('thongtin.index') }}"><i class="fa fa-user"></i> Thông tin tài khoản</a></li>
+                            <li><a href="{{ URL::Route('thanhtoan.index') }}"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
+                            <li><a href="{{ URL::Route('giohang') }}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                        @endif
                         </ul>
                     </div>
                 </div>

@@ -124,9 +124,11 @@
                         <thead>
                             <tr>
                                 <th class="col-md-1" style="width:4%">STT</th>
-                                <th class="col-md-2">Người mua</th>
-                                <th class="col-md-2">Người nhận</th>
-                                <th class="col-md-4">Địa chỉ giao hàng</th>
+                                <th class="col-md-1">Mã đơn hàng</th>
+                                <th class="col-md-1">Người mua</th>
+                                <th class="col-md-1">Người nhận</th>
+                                <th class="col-md-3">Địa chỉ giao hàng</th>
+                                <th class="col-md-2">Ngày đặt</th>
                                 <th class="col-md-2">Tổng tiền</th>
                                 <th class="col-md-2">Tình trạng</th>
                                 <th class="col-md-3">Chức năng</th>
@@ -136,9 +138,11 @@
                             @foreach($dsDonHang as $key=>$donHang)
                             <tr>
                                 <td>{{$key+1}}</td>
+                                <td>{{$donHang->id}}</td>
                                 <td>{{$donHang->tai_khoan_nguoi_mua->ten}}</td>
                                 <td>{{$donHang->ten_nguoi_nhan}}</td>
                                 <td>{{$donHang->dia_chi_giao_hang}}</td>
+                                <td>{{$donHang->ngay_tao}}</td>
                                 <td>{{$donHang->tong_tien}}</td>
                                 <td>{{$donHang->tinh_trang->tinh_trang}}</td>
                                 <td>

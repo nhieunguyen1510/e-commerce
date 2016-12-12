@@ -94,6 +94,7 @@
                         <thead>
                             <tr>
                                 <th class="col-md-1">STT</th>
+                                <th class="col-md-1">Mã chứng từ</th>
                                 <th class="col-md-2">Số tiền chuyển khoản</th>
                                 <th class="col-md-2">Hình thức thanh toán</th>
                                 <th class="col-md-2">Ngày giao dịch</th>
@@ -103,6 +104,7 @@
                             @foreach($dsChungTu as $key=>$chungtu)
                             <tr>
                                 <td>{{$key + 1}}</td>
+                                <td>{{$chungtu->id}}</td>
                                 <td>{{$chungtu->so_tien_chuyen_khoan}}</td>
                                 <td>{{$chungtu->hinh_thuc->tinh_trang}}</td>
                                 <td>{{$chungtu->ngay_tao}}</td>

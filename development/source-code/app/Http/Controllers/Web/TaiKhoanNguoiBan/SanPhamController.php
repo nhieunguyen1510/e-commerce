@@ -111,17 +111,17 @@ class SanPhamController extends Controller
      */
     public function show($idSanPham)
     {
-        $sanPham = SanPham::find($idSanPham);
-        $anhDaiDien = Storage::url($sanPham->anh_dai_dien);
-        $anhChiTiet1 = Storage::url($sanPham->anh_chi_tiet_1);
-        $anhChiTiet2 = Storage::url($sanPham->anh_chi_tiet_2);
-        $anhChiTiet3 = Storage::url($sanPham->anh_chi_tiet_3);
-        return view ('pages.auth.nguoi-ban.san-pham.chi-tiet')
-                    ->with('sanPham', $sanPham)
-                    ->with('anhDaiDien', $anhDaiDien)
-                    ->with('anhChiTiet1', $anhChiTiet1)
-                    ->with('anhChiTiet2', $anhChiTiet2)
-                    ->with('anhChiTiet3', $anhChiTiet3);
+        // $sanPham = SanPham::find($idSanPham);
+        // $anhDaiDien = Storage::url($sanPham->anh_dai_dien);
+        // $anhChiTiet1 = Storage::url($sanPham->anh_chi_tiet_1);
+        // $anhChiTiet2 = Storage::url($sanPham->anh_chi_tiet_2);
+        // $anhChiTiet3 = Storage::url($sanPham->anh_chi_tiet_3);
+        // return view ('pages.auth.nguoi-ban.san-pham.chi-tiet')
+        //             ->with('sanPham', $sanPham)
+        //             ->with('anhDaiDien', $anhDaiDien)
+        //             ->with('anhChiTiet1', $anhChiTiet1)
+        //             ->with('anhChiTiet2', $anhChiTiet2)
+        //             ->with('anhChiTiet3', $anhChiTiet3);
     }
 
     /**

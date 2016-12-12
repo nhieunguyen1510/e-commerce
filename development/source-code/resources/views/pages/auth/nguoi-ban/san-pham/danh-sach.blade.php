@@ -48,18 +48,18 @@
             </div>
 
 
-            <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="row">
                     <div class="form-group">
 
                         <div class="col-md-5 col-sm-5 col-xs-12">
-                            <input type="number" class="form-control " placeholder="Gía thấp" name="cost_min" id="cost_min" value="{{$cost_min}}">
+                            <input type="number" class="form-control " placeholder="Gía tối thiểu" name="cost_min" id="cost_min" value="{{$cost_min}}">
                         </div>
 
                         <div class="col-md-1 col-sm-1 col-xs-12"><span style="font-size : 20px;">></span></div>
 
                         <div class="col-md-5 col-sm-5 col-xs-12">
-                            <input type="number" class="form-control" placeholder="Gía cao" name="cost_max" id="cost_max" value="{{$cost_max}}">
+                            <input type="number" class="form-control" placeholder="Gía tối đa" name="cost_max" id="cost_max" value="{{$cost_max}}">
 
                         </div>
                     </div>
@@ -90,17 +90,19 @@
                         <thead>
                             <tr>
                                 <th class="col-md-1">STT</th>
+                                <th class="col-md-1">Mã sản phẩm</th>
                                 <th class="col-md-4">Tên sản phẩm</th>
                                 <th class="col-md-1">Số lượng</th>
                                 <th class="col-md-1">Giá bán</th>
                                 <th class="col-md-1">Tình trạng</th>
-                                <th class="col-md-4">Chức năng</th>
+                                <th class="col-md-3">Chức năng</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($dsSanPham as $key=>$sanPham)
                             <tr>
                                 <td>{{$key+1}}</td>
+                                <td>{{$sanPham->id}}</td>
                                 <td>{{$sanPham->ten}}</td>
                                 <td>{{$sanPham->so_luong_ton_kho}}</td>
                                 <td>{{$sanPham->gia_ban_hien_tai}}</td>

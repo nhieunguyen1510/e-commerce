@@ -57,8 +57,8 @@ Route::post('xac-nhan-ma-khoi-phuc','Auth\TaiKhoanNguoiMua\XacNhanMaKhoiPhucCont
 Route::get('khoi-phuc-mat-khau','Auth\TaiKhoanNguoiMua\KhoiPhucMatKhauController@getKhoiPhucMatKhau')->name('khoiphucmatkhau.index');
 Route::post('khoi-phuc-mat-khau','Auth\TaiKhoanNguoiMua\KhoiPhucMatKhauController@postKhoiPhucMatKhau')->name('khoiphucmatkhau.post');
 
+//Merchants
 Route::group(['prefix'=>'nguoiban'], function(){
-    
     Route::get('dang-xuat','Auth\TaiKhoanNguoiBan\DangNhapController@getDangXuat')->name('dangxuat.nguoiban.index');
     Route::get('quen-mat-khau','Auth\TaiKhoanNguoiBan\QuenMatKhauController@getQuenMatKhau')->name('quenmatkhau.nguoiban.index');
     Route::post('quen-mat-khau','Auth\TaiKhoanNguoiBan\QuenMatKhauController@postQuenMatKhau')->name('quenmatkhau.nguoiban.post');
@@ -75,28 +75,41 @@ Route::group(['prefix'=>'nguoiban'], function(){
 
     });
 
+    Route::group(['middleware'=>'nguoiban_hoatdong'], function(){
+
+    });
+
     Route::group(['middleware'=>'nguoiban'], function(){
         //nguoiban/sanpham/
         Route::group(['prefix'=>'sanpham'], function(){
-            Route::get('them', 'Web\TaiKhoanNguoiBan\SanPhamController@create')->name('nguoiban-sanpham.create');
             Route::get('danhsach', 'Web\TaiKhoanNguoiBan\SanPhamController@index')->name('nguoiban-sanpham.index');
-            Route::get('{idSanPham}/sua', 'Web\TaiKhoanNguoiBan\SanPhamController@update')->name('nguoiban-sanpham.update');
-            Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\SanPhamController@show')->name('nguoiban-sanpham.show');
-            Route::post('them', 'Web\TaiKhoanNguoiBan\SanPhamController@store')->name('nguoiban-sanpham.store');
-            Route::delete('{idSanPham}', 'Web\TaiKhoanNguoiBan\SanPhamController@destroy')->name('nguoiban-sanpham.destroy');
+
+            Route::group(['middleware'=>'nguoiban_hoatdong'], function(){
+                Route::get('them', 'Web\TaiKhoanNguoiBan\SanPhamController@create')->name('nguoiban-sanpham.create');
+                Route::get('{idSanPham}/sua', 'Web\TaiKhoanNguoiBan\SanPhamController@update')->name('nguoiban-sanpham.update');
+                // Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\SanPhamController@show')->name('nguoiban-sanpham.show');
+                Route::post('them', 'Web\TaiKhoanNguoiBan\SanPhamController@store')->name('nguoiban-sanpham.store');
+                // Route::delete('{idSanPham}', 'Web\TaiKhoanNguoiBan\SanPhamController@destroy')->name('nguoiban-sanpham.destroy');
+            }); 
         });
         //nguoiban/donhang/
         Route::group(['prefix'=>'donhang'], function(){
             Route::get('danhsach', 'Web\TaiKhoanNguoiBan\DonHangController@index')->name('nguoiban-donhang.index');
-            Route::get('sua', 'Web\TaiKhoanNguoiBan\DonHangController@update')->name('nguoiban-donhang.update');
             Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\DonHangController@show')->name('nguoiban-donhang.show');
+
+            Route::group(['middleware'=>'nguoiban_hoatdong'], function(){
+                Route::get('sua', 'Web\TaiKhoanNguoiBan\DonHangController@update')->name('nguoiban-donhang.update');
+            });
         });
 
         //nguoiban/thongtin/
         Route::group(['prefix'=>'thongtin'], function(){
             Route::get('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@index')->name('nguoiban-thongtin.index');
-            Route::post('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@store')->name('nguoiban-thongtin.post');
-            Route::post('doimatkhau', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@post_mat_khau')->name('nguoiban-doimatkhau.post');
+               
+            Route::group(['middleware'=>'nguoiban_hoatdong'], function(){
+                Route::post('thongtincanhan', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@store')->name('nguoiban-thongtin.post');
+                Route::post('doimatkhau', 'Web\TaiKhoanNguoiBan\ThongTinCaNhanController@post_mat_khau')->name('nguoiban-doimatkhau.post');
+            });
         });
 
         //nguoiban/chungtu/

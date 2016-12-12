@@ -15,7 +15,7 @@
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                   
                     <li><a href="{{URL::Route('nguoiban-thongtin.index')}}">Thông tin cá nhân </a></li>
-                    <li><a href="{{ URL::Route('dangxuat.nguoiban.index') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="{{ URL::Route('dangxuat.nguoiban.index') }}"><i class="fa fa-sign-out pull-right"></i> Đăng xuất</a></li>
                    
                   </ul>
                 </li>

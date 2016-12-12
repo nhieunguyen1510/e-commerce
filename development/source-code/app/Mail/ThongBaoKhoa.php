@@ -7,21 +7,20 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ThongBaoKichHoat extends Mailable
+class ThongBaoKhoa extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $shop, $link;
+    protected $shop;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($shop, $link)
+    public function __construct($shop)
     {
         $this->ten_shop = $shop;
-        $this->link = $link;
     }
 
     /**
@@ -31,9 +30,8 @@ class ThongBaoKichHoat extends Mailable
      */
     public function build()
     {
-        return $this->subject('Thông báo kích hoạt thành công #')
-        ->view('emails.admin.thongbaokichhoat')
-        ->with('ten',$this->ten_shop)
-        ->with('link',$this->link);
+        return $this->subject('Thông báo khóa tài khoản #')
+        ->view('emails.admin.thongbaokhoa')
+        ->with('ten',$this->ten_shop);
     }
 }

@@ -92,9 +92,9 @@
                                         <div class="single-products">
                                             <div class="productinfo text-center">
                                                 <img src="{{ $rel->getAnh() }}" alt="" />
-                                                <h2>{{ $rel->ten }}</h2>
+                                                <a href="{{  URL::route('sanpham.show', $rel->id) }}"><h2>{{ $rel->ten }}</h2></a>
                                                 <p>{{ $rel->taikhoannguoiban->ten_shop }}</p>
-                                                <a href="{{  URL::route('sanpham.show', $rel->id) }}"><button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button></a>
+                                                <a href="{!! url('mua-hang',[$rel->id]) !!}"><button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button></a>
                                             </div>
                                         </div>
                                     </div>
@@ -104,12 +104,7 @@
 
                             </div>
                         </div>
-                        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
+                        
                     </div>
                 </div>
                 <!--/recommended_items-->

@@ -36,11 +36,7 @@
                            {{ $sanPham->ten }}
                             </a>
                         </div>
-                        <div class="product-icon-option">
-                            <span title="Đã có 1 lượt mua"><i class="fa fa-tag" aria-hidden="true"></i> 1</span>
-                            <span title="Đã có 12 lượt thích"><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
-                            <span title="Đã có 5 hỏi đáp"><i class="fa fa-comments" aria-hidden="true"></i> 5</span>
-                        </div>
+                       
                     </div>
                     <div class="shop-place">
                         <a href="{{ $sanPham->taikhoannguoiban->ten_shop }}"><i class="fa fa-home" aria-hidden="true"></i> {{ $sanPham->taikhoannguoiban->ten_shop }}</a>

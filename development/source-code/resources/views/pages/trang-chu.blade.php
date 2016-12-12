@@ -74,7 +74,7 @@
                 <center>
                     <h2>SẢN PHẨM MỚI</h2>
                 </center>
-                <p><a href="#">Xem thêm &raquo;</a></p>
+                <p></p>
             </div>
 
             <div class="product-top">
@@ -122,15 +122,17 @@
                 <center>
                     <h2>SẢN PHẨM BÁN CHẠY</h2>
                 </center>
-                <p><a href="#">Xem thêm &raquo;</a></p>
+                <p></p>
             </div>
 
             <div class="product-top">
+
+            @foreach($spbanchay as $i=>$spchay)
                 <div class="product-top-item">
                     <div class="product-image-cart">
                         <div class="product-image">
                             <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
+                                <img src="{{ $spchay->san_pham->getAnh() }}" alt="{{ $spchay->san_pham->ten }}">
                             </a>
                         </div>
                         <div class="product-icon-cart">
@@ -142,169 +144,24 @@
                     </div>
                     <div class="product-title">
                         <div class="product-price">
-                            <span class="current-price">200000 đ</span>
-                            <span class="old-price">100000 đ</span>
+                            <span class="current-price">{{ $spchay->san_pham->gia_ban_hien_tai }}</span>
+                            <span class="old-price">{{ $spchay->san_pham->don_gia_goc }}</span>
                         </div>
                         <div class="product-name">
-                            <a href="#" title="AÓ TRỄ VAI PHỐI BÈO XINH - LOẠI QUẢNG CHÂU HẠNG 1">áo trễ vai phối bèo xinh - loại quảng châu hạng 1</a>
+                            <a href="#" title="{{ $spchay->san_pham->ten }}">{{ $spchay->san_pham->ten }}</a>
                         </div>
                         <div class="product-icon-option">
-                            <span title="Đã có 1 lượt mua"><i class="fa fa-tag" aria-hidden="true"></i> 1</span>
-                            <span title="Đã có 12 lượt thích"><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
-                            <span title="Đã có 5 hỏi đáp"><i class="fa fa-comments" aria-hidden="true"></i> 5</span>
+                           
                         </div>
                     </div>
                     <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> MiuShop</a>
+                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> </a>
                     </div>
-                    <div class="product-icon-sale">
-                        <span>-50%</span>
-                    </div>
+                    
                 </div>
 
-                <div class="product-top-item">
-                    <div class="product-image-cart">
-                        <div class="product-image">
-                            <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
-                            </a>
-                        </div>
-                        <div class="product-icon-cart">
-                            <a href="#">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span>Thêm vào giỏ hàng</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <div class="product-price">
-                            <span class="current-price">200000 đ</span>
-                            <span class="old-price">100000 đ</span>
-                        </div>
-                        <div class="product-name">
-                            <a href="#" title="AÓ TRỄ VAI PHỐI BÈO XINH - LOẠI QUẢNG CHÂU HẠNG 1">áo trễ vai phối bèo xinh - loại quảng châu hạng 1</a>
-                        </div>
-                        <div class="product-icon-option">
-                            <span title="Đã có 1 lượt mua"><i class="fa fa-tag" aria-hidden="true"></i> 1</span>
-                            <span title="Đã có 12 lượt thích"><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
-                            <span title="Đã có 5 hỏi đáp"><i class="fa fa-comments" aria-hidden="true"></i> 5</span>
-                        </div>
-                    </div>
-                    <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> MiuShop</a>
-                    </div>
-                    <div class="product-icon-sale">
-                        <span>-50%</span>
-                    </div>
-                </div>
 
-                <div class="product-top-item">
-                    <div class="product-image-cart">
-                        <div class="product-image">
-                            <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
-                            </a>
-                        </div>
-                        <div class="product-icon-cart">
-                            <a href="#">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span>Thêm vào giỏ hàng</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <div class="product-price">
-                            <span class="current-price">200000 đ</span>
-                            <span class="old-price">100000 đ</span>
-                        </div>
-                        <div class="product-name">
-                            <a href="#" title="AÓ TRỄ VAI PHỐI BÈO XINH - LOẠI QUẢNG CHÂU HẠNG 1">áo trễ vai phối bèo xinh - loại quảng châu hạng 1</a>
-                        </div>
-                        <div class="product-icon-option">
-                            <span title="Đã có 1 lượt mua"><i class="fa fa-tag" aria-hidden="true"></i> 1</span>
-                            <span title="Đã có 12 lượt thích"><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
-                            <span title="Đã có 5 hỏi đáp"><i class="fa fa-comments" aria-hidden="true"></i> 5</span>
-                        </div>
-                    </div>
-                    <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> MiuShop</a>
-                    </div>
-                    <div class="product-icon-sale">
-                        <span>-50%</span>
-                    </div>
-                </div>
-
-                <div class="product-top-item">
-                    <div class="product-image-cart">
-                        <div class="product-image">
-                            <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
-                            </a>
-                        </div>
-                        <div class="product-icon-cart">
-                            <a href="#">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span>Thêm vào giỏ hàng</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <div class="product-price">
-                            <span class="current-price">200000 đ</span>
-                            <span class="old-price">100000 đ</span>
-                        </div>
-                        <div class="product-name">
-                            <a href="#" title="AÓ TRỄ VAI PHỐI BÈO XINH - LOẠI QUẢNG CHÂU HẠNG 1">áo trễ vai phối bèo xinh - loại quảng châu hạng 1</a>
-                        </div>
-                        <div class="product-icon-option">
-                            <span title="Đã có 1 lượt mua"><i class="fa fa-tag" aria-hidden="true"></i> 1</span>
-                            <span title="Đã có 12 lượt thích"><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
-                            <span title="Đã có 5 hỏi đáp"><i class="fa fa-comments" aria-hidden="true"></i> 5</span>
-                        </div>
-                    </div>
-                    <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> MiuShop</a>
-                    </div>
-                    <div class="product-icon-sale">
-                        <span>-50%</span>
-                    </div>
-                </div>
-
-                <div class="product-top-item">
-                    <div class="product-image-cart">
-                        <div class="product-image">
-                            <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
-                            </a>
-                        </div>
-                        <div class="product-icon-cart">
-                            <a href="#">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span>Thêm vào giỏ hàng</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <div class="product-price">
-                            <span class="current-price">200000 đ</span>
-                            <span class="old-price">100000 đ</span>
-                        </div>
-                        <div class="product-name">
-                            <a href="#" title="AÓ TRỄ VAI PHỐI BÈO XINH - LOẠI QUẢNG CHÂU HẠNG 1">áo trễ vai phối bèo xinh - loại quảng châu hạng 1</a>
-                        </div>
-                        <div class="product-icon-option">
-                            <span title="Đã có 1 lượt mua"><i class="fa fa-tag" aria-hidden="true"></i> 1</span>
-                            <span title="Đã có 12 lượt thích"><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
-                            <span title="Đã có 5 hỏi đáp"><i class="fa fa-comments" aria-hidden="true"></i> 5</span>
-                        </div>
-                    </div>
-                    <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> MiuShop</a>
-                    </div>
-                    <div class="product-icon-sale">
-                        <span>-50%</span>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
         <!--End_list_hot_product-->
@@ -315,15 +172,16 @@
                 <center>
                     <h2>SẢN PHẨM KHUYẾN MÃI</h2>
                 </center>
-                <p><a href="#">Xem thêm &raquo;</a></p>
+                <p></p>
             </div>
 
             <div class="product-top">
+             @foreach($spkhuyenmai as $i=>$spkhuyenmai)
                 <div class="product-top-item">
                     <div class="product-image-cart">
                         <div class="product-image">
                             <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
+                                <img src="{{ $spkhuyenmai->getAnh() }}" alt="Áo trễ vai mã 001">
                             </a>
                         </div>
                         <div class="product-icon-cart">
@@ -335,169 +193,27 @@
                     </div>
                     <div class="product-title">
                         <div class="product-price">
-                            <span class="current-price">200000 đ</span>
-                            <span class="old-price">100000 đ</span>
+                            <span class="current-price">{{ $spkhuyenmai->gia_ban_hien_tai }}</span>
+                            <span class="old-price">{{ $spkhuyenmai->don_gia_goc }}</span>
                         </div>
                         <div class="product-name">
-                            <a href="#" title="AÓ TRỄ VAI PHỐI BÈO XINH - LOẠI QUẢNG CHÂU HẠNG 1">áo trễ vai phối bèo xinh - loại quảng châu hạng 1</a>
+                            <a href="#" title="{{ $spkhuyenmai->ten}}">{{ $spkhuyenmai->ten}}</a>
                         </div>
                         <div class="product-icon-option">
-                            <span title="Đã có 1 lượt mua"><i class="fa fa-tag" aria-hidden="true"></i> 1</span>
-                            <span title="Đã có 12 lượt thích"><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
-                            <span title="Đã có 5 hỏi đáp"><i class="fa fa-comments" aria-hidden="true"></i> 5</span>
+                           
                         </div>
                     </div>
                     <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> MiuShop</a>
+                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> </a>
                     </div>
                     <div class="product-icon-sale">
-                        <span>-50%</span>
+                        <span>{{ $spkhuyenmai->phan_tram_khuyen_mai ."%"}}</span>
                     </div>
                 </div>
 
-                <div class="product-top-item">
-                    <div class="product-image-cart">
-                        <div class="product-image">
-                            <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
-                            </a>
-                        </div>
-                        <div class="product-icon-cart">
-                            <a href="#">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span>Thêm vào giỏ hàng</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <div class="product-price">
-                            <span class="current-price">200000 đ</span>
-                            <span class="old-price">100000 đ</span>
-                        </div>
-                        <div class="product-name">
-                            <a href="#" title="AÓ TRỄ VAI PHỐI BÈO XINH - LOẠI QUẢNG CHÂU HẠNG 1">áo trễ vai phối bèo xinh - loại quảng châu hạng 1</a>
-                        </div>
-                        <div class="product-icon-option">
-                            <span title="Đã có 1 lượt mua"><i class="fa fa-tag" aria-hidden="true"></i> 1</span>
-                            <span title="Đã có 12 lượt thích"><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
-                            <span title="Đã có 5 hỏi đáp"><i class="fa fa-comments" aria-hidden="true"></i> 5</span>
-                        </div>
-                    </div>
-                    <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> MiuShop</a>
-                    </div>
-                    <div class="product-icon-sale">
-                        <span>-50%</span>
-                    </div>
-                </div>
-
-                <div class="product-top-item">
-                    <div class="product-image-cart">
-                        <div class="product-image">
-                            <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
-                            </a>
-                        </div>
-                        <div class="product-icon-cart">
-                            <a href="#">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span>Thêm vào giỏ hàng</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <div class="product-price">
-                            <span class="current-price">200000 đ</span>
-                            <span class="old-price">100000 đ</span>
-                        </div>
-                        <div class="product-name">
-                            <a href="#" title="AÓ TRỄ VAI PHỐI BÈO XINH - LOẠI QUẢNG CHÂU HẠNG 1">áo trễ vai phối bèo xinh - loại quảng châu hạng 1</a>
-                        </div>
-                        <div class="product-icon-option">
-                            <span title="Đã có 1 lượt mua"><i class="fa fa-tag" aria-hidden="true"></i> 1</span>
-                            <span title="Đã có 12 lượt thích"><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
-                            <span title="Đã có 5 hỏi đáp"><i class="fa fa-comments" aria-hidden="true"></i> 5</span>
-                        </div>
-                    </div>
-                    <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> MiuShop</a>
-                    </div>
-                    <div class="product-icon-sale">
-                        <span>-50%</span>
-                    </div>
-                </div>
-
-                <div class="product-top-item">
-                    <div class="product-image-cart">
-                        <div class="product-image">
-                            <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
-                            </a>
-                        </div>
-                        <div class="product-icon-cart">
-                            <a href="#">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span>Thêm vào giỏ hàng</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <div class="product-price">
-                            <span class="current-price">200000 đ</span>
-                            <span class="old-price">100000 đ</span>
-                        </div>
-                        <div class="product-name">
-                            <a href="#" title="AÓ TRỄ VAI PHỐI BÈO XINH - LOẠI QUẢNG CHÂU HẠNG 1">áo trễ vai phối bèo xinh - loại quảng châu hạng 1</a>
-                        </div>
-                        <div class="product-icon-option">
-                            <span title="Đã có 1 lượt mua"><i class="fa fa-tag" aria-hidden="true"></i> 1</span>
-                            <span title="Đã có 12 lượt thích"><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
-                            <span title="Đã có 5 hỏi đáp"><i class="fa fa-comments" aria-hidden="true"></i> 5</span>
-                        </div>
-                    </div>
-                    <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> MiuShop</a>
-                    </div>
-                    <div class="product-icon-sale">
-                        <span>-50%</span>
-                    </div>
-                </div>
-
-                <div class="product-top-item">
-                    <div class="product-image-cart">
-                        <div class="product-image">
-                            <a href="#">
-                                <img src="{{ URL::asset('assets/img/ao_nu_004.jpg') }}" alt="Áo trễ vai mã 001">
-                            </a>
-                        </div>
-                        <div class="product-icon-cart">
-                            <a href="#">
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                <span>Thêm vào giỏ hàng</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <div class="product-price">
-                            <span class="current-price">200000 đ</span>
-                            <span class="old-price">100000 đ</span>
-                        </div>
-                        <div class="product-name">
-                            <a href="#" title="AÓ TRỄ VAI PHỐI BÈO XINH - LOẠI QUẢNG CHÂU HẠNG 1">áo trễ vai phối bèo xinh - loại quảng châu hạng 1</a>
-                        </div>
-                        <div class="product-icon-option">
-                            <span title="Đã có 1 lượt mua"><i class="fa fa-tag" aria-hidden="true"></i> 1</span>
-                            <span title="Đã có 12 lượt thích"><i class="fa fa-heart" aria-hidden="true"></i> 12</span>
-                            <span title="Đã có 5 hỏi đáp"><i class="fa fa-comments" aria-hidden="true"></i> 5</span>
-                        </div>
-                    </div>
-                    <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> MiuShop</a>
-                    </div>
-                    <div class="product-icon-sale">
-                        <span>-50%</span>
-                    </div>
-                </div>
+               
+            @endforeach
+                
             </div>
         </div>
 

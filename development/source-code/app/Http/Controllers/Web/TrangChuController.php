@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\DanhMucSanPham;
 use App\SanPham;
+use App\ChiTietGiaoDich;
 
 class TrangChuController extends Controller
 {
@@ -15,11 +16,14 @@ class TrangChuController extends Controller
     {
        // $dsDanhMucSanPham = DanhMucSanPham::all();
        $dsDanhMucSanPham = DanhMucSanPham::where('id_danh_muc_san_pham_cha', 0)->get();
-       $spbanchay = SanPham::all();
+       $spbanchay = ChiTietGiaoDich::orderBy('id','DESC')->take(5)->get();
        $spmoi=SanPham::orderBy('id','DESC')->take(5)->get();
+       $spkhuyenmai=SanPham::where('phan_tram_khuyen_mai','>',0)->orderBy('id','DESC')->take(5)->get();
+    
       //$idDanhMucSanPhamCha = DB::table('danh_muc_san_pham')->select(id);
       // $dsDanhMucSanPhamCon = DanhMucSanPham::where('id_danh_muc_san_pham_cha', //$idDanhMucSanPhamCha)->get();
-        return view('pages.trang-chu', ['danhmuc' => $dsDanhMucSanPham, 'spmoi' => $spmoi,'spbanchay'=>$spbanchay]);
+        return view('pages.trang-chu', 
+        ['danhmuc' => $dsDanhMucSanPham, 'spmoi' => $spmoi,'spbanchay'=>$spbanchay, 'spkhuyenmai'=>$spkhuyenmai]);
    
     }
 }

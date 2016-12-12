@@ -13,7 +13,11 @@ use App\SanPham;
 use App\GiaoDich;
 use App\ChiTietGiaoDich;
 use App\GiaoDichNguoiBan;
+use App\TaiKhoanNguoiBan;
 use App\ChiTietGiaoDichNguoiBan;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MerchantMail;
+
 
 class ShoppingController extends Controller
 {
@@ -25,7 +29,7 @@ class ShoppingController extends Controller
                 'qty' => 1,
                 'price' => $product_buy->don_gia_goc,
                 'options' => [
-                    'img' => $product_buy->anh_dai_dien,
+                    'img' => $product_buy->getAnh(),
                     'id_nguoi_ban' => $product_buy->id_nguoi_ban
                 ]]);
         return redirect()->route('giohang');
@@ -61,35 +65,36 @@ class ShoppingController extends Controller
     {
         if(Auth::guard('web')->check())
         {
-            return view('pages.thanh-toan');
-        }
+
+        $content = Cart::content();
+        $total = Cart::subtotal();
+        $count = Cart::count();
+        return view('pages.thanh-toan')
+            ->with('content', $content)
+            ->with('total', $total)
+            ->with('count', $count);
+        }   
+            
+    
         else
         {
             return redirect()->route('dangnhap.index');
         }
     }
 
-    public function postThanhToan()
+    public function postThanhToan(Request $request)
     {
+
         if(Auth::guard('web')->check())
         {
+
             // Lấy id của tài khoản người mua đang đăng nhập để lưu cho giao dịch
             $idTaiKhoanNguoiMua = Auth::guard('web')
                                     ->user()
                                     ->id;
-            // Tạo một giao dịch mới từ các thông tin thanh toán
-            $giaoDichIns = new GiaoDich();
-            $giaoDichIns->id_tai_khoan = $idTaiKhoanNguoiMua;
-            $giaoDichIns->giao_dich_cod = 1;
-            $giaoDichIns->giao_dich_truc_tuyen = 0;
-            $giaoDichIns->dia_chi_giao_hang = 'asdas asdas d asda';
-            $giaoDichIns->so_dien_thoai_giao_hang = '01269690407';
-            $giaoDichIns->ten_nguoi_nhan = 'Nghia';
-            $giaoDichIns->tong_tien = 0;
-            $giaoDichIns->save();
-
             // Lấy danh sách chi tiết giỏ hàng để tạo các chi tiết đơn hàng
             $dsChiTietGioHang = Cart::content(); 
+
             foreach($dsChiTietGioHang as $chiTietGioHang)
             {
                 // Tìm sản phẩm theo id trong chi tiết giỏ hàng để lấy kiểm tra xem còn đủ số lượng không
@@ -98,8 +103,24 @@ class ShoppingController extends Controller
                 // Nểu sản phẩm đủ số lượng tồn thì dùng giá bán để gán vào chi tiết giao dịch
                 if($sanPham->so_luong_ton_kho < $chiTietGioHang->qty)
                 {
-                    return back();
+                    return back()->with('error', 'Sản phẩm '.$sanPham->ten.' tạm hết hàng.');
                 }
+            }
+            // Tạo một giao dịch mới từ các thông tin thanh toán
+            $giaoDichIns = new GiaoDich();
+            $giaoDichIns->id_tai_khoan = $idTaiKhoanNguoiMua;
+            $giaoDichIns->giao_dich_cod = 1;
+            $giaoDichIns->giao_dich_truc_tuyen = 0;
+            $giaoDichIns->dia_chi_giao_hang = $request->customeraddress;
+            $giaoDichIns->so_dien_thoai_giao_hang = $request->customerphone;
+            $giaoDichIns->ten_nguoi_nhan = $request->customername;
+            $giaoDichIns->tong_tien = 0;
+            $giaoDichIns->save();
+            
+            foreach($dsChiTietGioHang as $chiTietGioHang)
+            {
+                // Tìm sản phẩm theo id trong chi tiết giỏ hàng để lấy kiểm tra xem còn đủ số lượng không
+                $sanPham = SanPham::find($chiTietGioHang->id);
                 // Tạo một chi tiết đơn hàng mới từ chi tiết giỏ hàng
                 $chiTietGiaoDichIns = new ChiTietGiaoDich();
                 $chiTietGiaoDichIns->id_giao_dich = $giaoDichIns->id;
@@ -127,12 +148,12 @@ class ShoppingController extends Controller
                 $giaoDichNguoiBanIns = new GiaoDichNguoiBan();
                 $giaoDichNguoiBanIns->id_giao_dich = $giaoDichIns->id;
                 $giaoDichNguoiBanIns->id_tai_khoan_mua = $idTaiKhoanNguoiMua;
-                $giaoDichNguoiBanIns->id_tai_khoan_ban = $idNguoiBan;
+                $giaoDichNguoiBanIns->id_tai_khoan_ban = (int)$idNguoiBan;
                 $giaoDichNguoiBanIns->giao_dich_cod = 1;
                 $giaoDichNguoiBanIns->giao_dich_truc_tuyen = 0;
-                $giaoDichNguoiBanIns->dia_chi_giao_hang = 'asdas asdas d asda';
-                $giaoDichNguoiBanIns->so_dien_thoai_giao_hang = '01269690407';
-                $giaoDichNguoiBanIns->ten_nguoi_nhan = 'Nghia';
+                $giaoDichNguoiBanIns->dia_chi_giao_hang = $request->customeraddress;
+                $giaoDichNguoiBanIns->so_dien_thoai_giao_hang = $request->customerphone;
+                $giaoDichNguoiBanIns->ten_nguoi_nhan = $request->customername;
                 $giaoDichNguoiBanIns->tong_tien = 0;
                 $giaoDichNguoiBanIns->save();
 
@@ -155,6 +176,10 @@ class ShoppingController extends Controller
 
                     $chiTietGiaoDichNguoiBanIns->save();
                 }
+                $taikhoannguoiban=TaiKhoanNguoiBan::find($idNguoiBan);
+                $merchantmail = new MerchantMail($giaoDichNguoiBanIns,$giaoDichNguoiBanIns->dsChiTietDonHang);
+                Mail::to('derikhie@gmail.com')
+                    ->send($merchantmail);
             }
             return redirect()->route('trangchu.index');
         }
@@ -166,3 +191,4 @@ class ShoppingController extends Controller
     }
 }
 
+;

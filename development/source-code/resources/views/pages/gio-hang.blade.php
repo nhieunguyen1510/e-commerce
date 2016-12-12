@@ -31,11 +31,12 @@
 					@foreach($content as $item)
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a>
+								<a href=""><img src="{{ $item->options->img }}" width="50px" height="50px" alt=""></a>
 							</td>
 							<td class="cart_description">
 								<h4><a href="">{{ $item->name }}</a></h4>
 								<p>{{ $item->nha_san_xuat }}</p>
+								
 							</td>
 							<td class="cart_price">
 								<p>{{ number_format($item->price ,0,",",".")}}</p>

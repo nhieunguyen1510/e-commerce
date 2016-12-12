@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;           //Sử dụng đối tượng Authentication
 use Illuminate\Support\Facades\DB;
 use App\TinhTrang;
+use Cart;
 
 class DangNhapController extends Controller
 {
@@ -31,6 +32,7 @@ class DangNhapController extends Controller
     public function getdangxuat()
     {
         Auth::logout();
+        Cart::destroy();
         return back();
     }
 }

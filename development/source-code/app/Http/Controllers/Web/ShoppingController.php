@@ -30,7 +30,8 @@ class ShoppingController extends Controller
                 'price' => $product_buy->don_gia_goc,
                 'options' => [
                     'img' => $product_buy->getAnh(),
-                    'id_nguoi_ban' => $product_buy->id_nguoi_ban
+                    'id_nguoi_ban' => $product_buy->id_nguoi_ban,
+                    'ten_shop'=>$product_buy->taikhoannguoiban->ten_shop 
                 ]]);
         return redirect()->route('giohang');
     }
@@ -69,10 +70,12 @@ class ShoppingController extends Controller
         $content = Cart::content();
         $total = Cart::subtotal();
         $count = Cart::count();
+        $taikhoannguoimua= Auth::guard('web')->user();
         return view('pages.thanh-toan')
             ->with('content', $content)
             ->with('total', $total)
-            ->with('count', $count);
+            ->with('count', $count)
+            ->with('taikhoannguoimua',$taikhoannguoimua);
         }   
             
     
@@ -84,20 +87,6 @@ class ShoppingController extends Controller
 
     public function postThanhToan(Request $request)
     {
-
-        $this ->validate($request, [
-                            'customername' => 'required',
-                            'customerphone' => 'required',
-                            'customeraddress' => 'required',
-                            
-                            ],
-                            [
-                             'customername.required'=>'Vui lòng nhập tên nhận ',
-                             'customerphone.required'=>'Vui lòng nhập số điện thoại',
-                             'customeraddress.required'=>'Vui lòng nhập địa chỉ',
-
-                            
-                            ]);
 
         if(Auth::guard('web')->check())
         {
@@ -129,10 +118,7 @@ class ShoppingController extends Controller
             $giaoDichIns->so_dien_thoai_giao_hang = $request->customerphone;
             $giaoDichIns->ten_nguoi_nhan = $request->customername;
             $giaoDichIns->tong_tien = 0;
-            
-            if($giaoDichIns->save())
-            {
-            
+            $giaoDichIns->save();
             
             foreach($dsChiTietGioHang as $chiTietGioHang)
             {
@@ -195,15 +181,10 @@ class ShoppingController extends Controller
                 }
                 $taikhoannguoiban=TaiKhoanNguoiBan::find($idNguoiBan);
                 $merchantmail = new MerchantMail($giaoDichNguoiBanIns,$giaoDichNguoiBanIns->dsChiTietDonHang);
-                Mail::to('derikhie@gmail.com')
+                Mail::to($taikhoannguoiban->email)
                     ->send($merchantmail);
             }
             return redirect()->route('trangchu.index');
-        }
-        else 
-        {
-            return back();
-        }
         }
         else
         {
@@ -212,3 +193,5 @@ class ShoppingController extends Controller
         }
     }
 }
+
+;

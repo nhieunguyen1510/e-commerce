@@ -3,7 +3,7 @@
     <div class="container">
         <ul class="nav navbar-nav">
             <li><a href="{{ URL::Route('dangnhap.nguoiban.index') }}">Kênh Người Bán</a></li>
-            <li><a href="#">Trợ Giúp</a></li>
+            
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

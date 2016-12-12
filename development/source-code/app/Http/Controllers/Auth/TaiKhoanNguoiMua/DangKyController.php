@@ -29,6 +29,8 @@ class DangKyController extends Controller
         $taiKhoanIns['ten'] = $request->txtTen;
         $taiKhoanIns['ho'] = $request->txtHo;
         $taiKhoanIns['email'] = $request->txtEmail;
+        $taiKhoanIns['so_dien_thoai'] = $request->txtSoDienThoai;
+        $taiKhoanIns['dia_chi'] = $request->txtDiaChi;
         $taiKhoanIns['gioi_tinh'] = $request->txtGioiTinh;
         $taiKhoanIns['mat_khau'] = $matKhau;
         $taiKhoanIns->save();

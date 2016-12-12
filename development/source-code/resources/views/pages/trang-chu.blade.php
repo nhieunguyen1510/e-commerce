@@ -19,38 +19,36 @@
                             <div class="item active">
                                 <div class="col-sm-6">
                                     <h1><span>Minx</span>-SHOPPER</h1>
-                                    <h2>Shopping mỗi ngày</h2>
-                                    <p>Thỏa sức mua sắm cùng MINX. Lựa chọn món hàng mình yêu thích đi nào!</p>
-                                    <button type="button" class="btn btn-default get">Mua ngay</button>
+                                    <h2>Giá rẻ mỗi ngày</h2>
+                                    <p>Đến với MINX, các bạn sẽ yên tâm tìm được những sản phẩm ưng ý nhất ở những gian hàng đã được MINX kiểm duyệt nhằm mang lại sự hài lòng nhất cho các bạn. </p>
+                                    
                                 </div>
                                 <div class="col-sm-6">
                                     <img src="{{ URL::asset('assets/img/girl1.jpg') }}" class="girl img-responsive" alt="" />
-                                    <img src="{{ URL::asset('assets/img/pricing.png') }}"  class="pricing" alt="" />
+                                    
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="col-sm-6">
                                     <h1><span>Minx</span>-SHOPPER</h1>
-                                    <h2>Shopping mỗi tháng</h2>
-                                    <p>Bạn có thích shopping vào ngày cuối tuần? Hãy thỏa sức mua sắm tại cửa hàng trước khi họ đóng cửa nhé </p>
-                                    <button type="button" class="btn btn-default get">Mua ngay</button>
+                                    <h2>Giá rẻ mỗi ngày</h2>
+                                    <p>Đến với MINX, các bạn sẽ yên tâm tìm được những sản phẩm ưng ý nhất ở những gian hàng đã được MINX kiểm duyệt nhằm mang lại sự hài lòng nhất cho các bạn. </p>
                                 </div>
                                 <div class="col-sm-6">
                                     <img src="{{ URL::asset('assets/img/girl2.jpg') }}" class="girl img-responsive" alt="" />
-                                    <img src="{{ URL::asset('assets/img/pricing.png') }}"  class="pricing" alt="" />
+                                    
                                 </div>
                             </div>
                             
                             <div class="item">
                                 <div class="col-sm-6">
                                     <h1><span>Minx</span>-SHOPPER</h1>
-                                    <h2>Shopping mỗi tuần</h2>
-                                    <p>Bạn có thích shopping vào ngày cuối tuần? Hãy thỏa sức mua sắm tại cửa hàng trước khi họ đóng cửa nhé</p>
-                                    <button type="button" class="btn btn-default get">Mua ngay</button>
+                                   <h2>Giá rẻ mỗi ngày</h2>
+                                    <p>Đến với MINX, các bạn sẽ yên tâm tìm được những sản phẩm ưng ý nhất ở những gian hàng đã được MINX kiểm duyệt nhằm mang lại sự hài lòng nhất cho các bạn. </p>
                                 </div>
                                 <div class="col-sm-6">
                                     <img src="{{ URL::asset('assets/img/girl3.jpg') }}" class="girl img-responsive" alt="" />
-                                    <img src="{{ URL::asset('assets/img/pricing.png') }}" class="pricing" alt="" />
+                                    
                                 </div>
                             </div>
                             
@@ -82,7 +80,7 @@
                 <div class="product-top-item">
                     <div class="product-image-cart">
                         <div class="product-image">
-                            <a href="#">
+                            <a href="{{  URL::route('sanpham.show', $spmoi->id) }}">
                                 <img src="{{ $spmoi->getAnh()  }}" alt="Áo trễ vai mã 001">
                             </a>
                         </div>
@@ -131,12 +129,12 @@
                 <div class="product-top-item">
                     <div class="product-image-cart">
                         <div class="product-image">
-                            <a href="#">
+                            <a href="{{  URL::route('sanpham.show', $spchay->id) }}">
                                 <img src="{{ $spchay->san_pham->getAnh() }}" alt="{{ $spchay->san_pham->ten }}">
                             </a>
                         </div>
                         <div class="product-icon-cart">
-                            <a href="#">
+                            <a href="{{  URL::route('sanpham.show', $spchay->id) }}">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 <span>Thêm vào giỏ hàng</span>
                             </a>
@@ -144,18 +142,16 @@
                     </div>
                     <div class="product-title">
                         <div class="product-price">
-                            <span class="current-price">{{ $spchay->san_pham->gia_ban_hien_tai }}</span>
-                            <span class="old-price">{{ $spchay->san_pham->don_gia_goc }}</span>
+                            <span class="current-price">{{ number_format( $spchay->san_pham->gia_ban_hien_tai  ,0,",",".")}}</span>
+                            
                         </div>
                         <div class="product-name">
                             <a href="#" title="{{ $spchay->san_pham->ten }}">{{ $spchay->san_pham->ten }}</a>
                         </div>
-                        <div class="product-icon-option">
-                           
-                        </div>
+                        
                     </div>
                     <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> </a>
+                        <a href="{{ $spchay->san_pham->taikhoannguoiban->ten_shop }}"><i class="fa fa-home" aria-hidden="true">{{ $spchay->san_pham->taikhoannguoiban->ten_shop }}</i> </a>
                     </div>
                     
                 </div>
@@ -167,6 +163,7 @@
         <!--End_list_hot_product-->
 
         <!--Begin_list_sale_product-->
+@if(isset($spkhuyenmai))
         <div class="item-product">
             <div class="category-title">
                 <center>
@@ -176,16 +173,16 @@
             </div>
 
             <div class="product-top">
-             @foreach($spkhuyenmai as $i=>$spkhuyenmai)
+             @foreach($spkhuyenmai as $i=>$spkm)
                 <div class="product-top-item">
                     <div class="product-image-cart">
                         <div class="product-image">
-                            <a href="#">
-                                <img src="{{ $spkhuyenmai->getAnh() }}" alt="Áo trễ vai mã 001">
+                            <a href="{{  URL::route('sanpham.show', $spkm->id) }}">
+                                <img src="{{ $spkm->getAnh() }}" alt="Áo trễ vai mã 001">
                             </a>
                         </div>
                         <div class="product-icon-cart">
-                            <a href="#">
+                            <a href="{{  URL::route('sanpham.show', $spkm->id) }}">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 <span>Thêm vào giỏ hàng</span>
                             </a>
@@ -193,36 +190,27 @@
                     </div>
                     <div class="product-title">
                         <div class="product-price">
-                            <span class="current-price">{{ $spkhuyenmai->gia_ban_hien_tai }}</span>
-                            <span class="old-price">{{ $spkhuyenmai->don_gia_goc }}</span>
+                            <span class="current-price">{{ number_format( $spkm->gia_ban_hien_tai  ,0,",",".")}}</span>
+                            <span class="old-price">{{ number_format( $spkm->don_gia_goc  ,0,",",".")}}</span>
                         </div>
                         <div class="product-name">
-                            <a href="#" title="{{ $spkhuyenmai->ten}}">{{ $spkhuyenmai->ten}}</a>
+                            <a href="#" title="{{ $spkm->ten}}">{{ $spkm->ten}}</a>
                         </div>
                         <div class="product-icon-option">
                            
                         </div>
                     </div>
                     <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> </a>
+                        <a href="{{ $spkm->taikhoannguoiban->ten_shop }}"><i class="fa fa-home" aria-hidden="true">{{ $spkm->taikhoannguoiban->ten_shop }}</i> </a>
                     </div>
-                    <div class="product-icon-sale">
-                        <span>{{ $spkhuyenmai->phan_tram_khuyen_mai ."%"}}</span>
-                    </div>
+                    
                 </div>
 
                
             @endforeach
-                
+                @endif
             </div>
         </div>
-
-         @if(isset($sanpham))
-                             @foreach ($sanpham  as $sp) 
-                           {!! $sp->mo_ta !!} 
-                           @endforeach
-                            
-                            @endif
         <!--End_list_sale_product-->
         <!--End_Items-->
 @endsection

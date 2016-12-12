@@ -19,7 +19,7 @@ class TrangChuController extends Controller
        $spbanchay = ChiTietGiaoDich::orderBy('id','DESC')->take(5)->get();
        $spmoi=SanPham::orderBy('id','DESC')->take(5)->get();
        $spkhuyenmai=SanPham::where('phan_tram_khuyen_mai','>',0)->orderBy('id','DESC')->take(5)->get();
-    
+      // return json_encode($spkhuyenmai);
       //$idDanhMucSanPhamCha = DB::table('danh_muc_san_pham')->select(id);
       // $dsDanhMucSanPhamCon = DanhMucSanPham::where('id_danh_muc_san_pham_cha', //$idDanhMucSanPhamCha)->get();
         return view('pages.trang-chu', 

@@ -53,6 +53,27 @@
                         </div>
                     </div>
                     
+                     <div class="form-group">
+                        <label for="txtSoDienThoai">Số điện thoại <span class="text-danger">&#042</span></label>
+                        <input class="form-control" id="txtSoDienThoai" name="txtSoDienThoai" ng-pattern="phoneNumberPattern" ng-model="txtSoDienThoai" ng-required="true" ng-maxlength="10" placeholder="Nhập số điện thoại" type="text" />
+                        <i class="fa fa-check text-success" ng-show="formDangKy.txtSoDienThoai.$dirty && formDangKy.txtSoDienThoai.$valid"></i>
+                        <div ng-show="formDangKy.txtSoDienThoai.$dirty && formDangKy.txtSoDienThoai.$invalid" class="text-danger">
+                            <i class="fa fa-times text-danger"></i>
+                            <span ng-show="formDangKy.txtSoDienThoai.$error.required">Số điện thoại không được bỏ trống</span>
+                            <span ng-show="formDangKy.txtSoDienThoai.$error.number">Số điện thoại không đúng định dạng</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtDiaChi">Địa chỉ <span class="text-danger">&#042</span></label>
+                        <input class="form-control" id="txtDiaChi" name="txtDiaChi" ng-model="txtDiaChi" ng-required="true" ng-maxlength="255" placeholder="Nhập địa chỉ" />
+                        <i class="fa fa-check text-success" ng-show="formDangKy.txtDiaChi.$dirty && formDangKy.txtDiaChi.$valid"></i>
+                        <div ng-show="formDangKy.txtDiaChi.$dirty && formDangKy.txtDiaChi.$invalid" class="text-danger">
+                            <i class="fa fa-times text-danger"></i>
+                            <span ng-show="formDangKy.txtDiaChi.$error.required">Địa chỉ không được bỏ trống</span>
+                        </div>
+                    </div>
+                    
                     <div class="form-group">
                         <ng-form name="txtGioiTinhGroup">
                             <label for="txtGioiTinh">Giới tinh <span class="text-danger">&#042</span></label>

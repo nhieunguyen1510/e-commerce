@@ -31,11 +31,11 @@
 					@foreach($content as $item)
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="{{ $item->options->img }}" width="50px" height="50px" alt=""></a>
+								<a href=""><img src="{{ $item->options->img }}" width="80px" height="80px" alt=""></a>
 							</td>
 							<td class="cart_description">
 								<h4><a href="">{{ $item->name }}</a></h4>
-								<p>{{ $item->nha_san_xuat }}</p>
+								<p>{{ $item->options->ten_shop }}</p>
 								
 							</td>
 							<td class="cart_price">
@@ -76,7 +76,7 @@
 			
 			<div class="row" >
 				
-				<div class="col-sm-6" style="float:right">
+				<div class="col-sm-6 tong_hoa_don">
 				<h2 align="center">Tổng hóa đơn</h2>
 					<div class="total_area">
 						<ul>

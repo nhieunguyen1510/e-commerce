@@ -13,15 +13,11 @@
 				</ol>
 			</div><!--/breadcrums-->
 
-			 @if(count($errors) > 0 )
-                  <div class="alert alert-danger" fade in>
-                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    @foreach($errors->all() as $err)
-                        {{ $err }}<br/>
-                    @endforeach
-                  </div>
-                  @endif
-
+			@if (session('error'))
+			    <div class="alert alert-warning">
+			        {{ session('error') }}
+			    </div>
+			@endif
 			<form method="POST" action="{{ URL::Route('thanhtoan.post') }}">
 				{{csrf_field()}}
 				<div class="shopper-informations">
@@ -30,9 +26,11 @@
 							<div class="bill-to">
 								<p>Thông tin giao hàng</p>
 								<div class="form-one">
-										<input type="text" name="customername" placeholder="Tên người nhận">
-										<input type="text" name="customerphone" placeholder="Số điện thoại">
-										<input type="text" name="customeraddress" placeholder="Địa chỉ giao hàng">
+										Tên người nhận hàng<input type="text" name="customername" placeholder="Tên người nhận hàng" value="{{ $taikhoannguoimua->ten }}">
+										Số điện thoại nhận hàng
+										<input type="text" name="customerphone" placeholder="Số điện thoại" value="{{ $taikhoannguoimua->so_dien_thoai }}">
+										Địa chỉ giao hàng
+										<input type="text" name="customeraddress" placeholder="Địa chỉ giao hàng" value="{{ $taikhoannguoimua->dia_chi }}">
 										
 								</div>
 							</div>
@@ -60,7 +58,7 @@
 					@foreach($content as $item)
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="{{ $item->options->img }}" width="50px" height="50px" alt=""></a>
+								<a href=""><img src="{{ $item->options->img }}" width="80px" height="80px" alt=""></a>
 							</td>
 							<td class="cart_description">
 								<h4><a href="">{{ $item->name }}</a></h4>

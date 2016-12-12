@@ -22,8 +22,6 @@ Route::post('thanh-toan',$baseFolder.'ShoppingController@postThanhToan')->name('
 Route::get('thong-tin-tai-khoan',$baseFolder.'UserController@get_nguoimua')->name('thongtin.index');
 Route::get('lich-su-chi-tiet/{id}',$baseFolder.'UserController@lich_su_chi_tiet')->name('lichsuchitiet.index');
 Route::post('sua-dia-chi-mua-hang',$baseFolder.'UserController@sua_diachi_muahang')->name('suadiachi.post');
-Route::post('timkiem',$baseFolder.'TimKiemController@timkiem')->name('timkiem');
-Route::post('timtheogia',$baseFolder.'TimKiemController@timtheogia')->name('timtheogia');
 Route::resource('san-pham',$baseFolder.'SanPhamController', ['names' => [
     'index' => 'sanpham.index',
     'show' => 'sanpham.show'

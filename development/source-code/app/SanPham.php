@@ -16,7 +16,7 @@ class SanPham extends Model
         return $this->hasOne('App\TinhTrang', 'id', 'id_tinh_trang');
     }
 
-    public function ten_shop()
+    public function taikhoannguoiban()
     {
         return $this->hasOne('App\TaiKhoanNguoiBan','id','id_nguoi_ban');
     }

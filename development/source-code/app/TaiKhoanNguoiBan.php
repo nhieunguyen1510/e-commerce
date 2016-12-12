@@ -48,4 +48,5 @@ class TaiKhoanNguoiBan extends Authenticatable
     {
         return date("d-m-Y", strtotime($value));
     }
+
 }

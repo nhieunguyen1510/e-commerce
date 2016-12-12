@@ -35,6 +35,23 @@
                                                         Tài khoản của bạn đã được kích hoạt. Bạn vui lòng truy cập đường link dưới đây để đăng nhập vào shop của bạn.
                                                     </p>
 
+
+                                                    <h3 style="margin-top:0;color:#2f3133;font-size:16px;font-weight:bold;text-align:left">
+                                                        Hóa đơn thu phí
+                                                    </h3>
+
+
+                                                    <p style="margin-top:0;color:#74787e;font-size:16px;line-height:1.5em">
+                                                        Tên shop: {{$ten}}
+                                                        <br>
+                                                        Tổng tiền: {{$tongTien}}
+                                                      <br>
+                                                        Hình thức thanh toán: {{$chuyenKhoan}}
+                                                        <br>
+                                                        Ngày giao dịch: {{$ngayGiaoDich}}
+                                                    </p>
+
+
                                                     <p style="margin-top:0;color:#74787e;font-size:16px;line-height:1.5em">
                                                         Link: 
                                                         <a href="{{$link}}">{{$link}}</a>

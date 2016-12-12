@@ -78,7 +78,10 @@ class NguoiBanController extends Controller
             $ten = $chi_tiet_nguoi_ban->{'ten'};
             $tenShop = $chi_tiet_nguoi_ban->{'ten_shop'};
             $link = "http://localhost:8000/nguoiban/dang-nhap";
-            $thongbao_mail = new ThongBaoKichHoat($tenShop, $link);
+            $tongTien = "300000 VND";
+            $chuyenKhoan = "Chuyển khoản";
+            $ngayGiaoDich = $chi_tiet_nguoi_ban->{'ngay_cap_nhat'};
+            $thongbao_mail = new ThongBaoKichHoat($tenShop, $link, $tongTien, $chuyenKhoan, $ngayGiaoDich);
             Mail::to($email)->send($thongbao_mail);
         }
 

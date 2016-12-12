@@ -11,17 +11,20 @@ class ThongBaoKichHoat extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $shop, $link;
+    protected $shop, $link, $tongTien, $chuyenKhoan, $ngayGiaoDich;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($shop, $link)
+    public function __construct($shop, $link, $tongTien, $chuyenKhoan, $ngayGiaoDich)
     {
         $this->ten_shop = $shop;
         $this->link = $link;
+        $this->tongTien = $tongTien;
+        $this->chuyenKhoan = $chuyenKhoan;
+        $this->ngayGiaoDich = $ngayGiaoDich;
     }
 
     /**
@@ -34,6 +37,9 @@ class ThongBaoKichHoat extends Mailable
         return $this->subject('Thông báo kích hoạt thành công #')
         ->view('emails.admin.thongbaokichhoat')
         ->with('ten',$this->ten_shop)
-        ->with('link',$this->link);
+        ->with('link',$this->link)
+        ->with('tongTien',$this->tongTien)
+        ->with('chuyenKhoan',$this->chuyenKhoan)
+        ->with('ngayGiaoDich',$this->ngayGiaoDich);
     }
 }

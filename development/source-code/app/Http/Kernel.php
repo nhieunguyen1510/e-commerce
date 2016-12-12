@@ -56,5 +56,6 @@ class Kernel extends HttpKernel
         'nguoiban_hoatdong' => \App\Http\Middleware\NguoiBanHoatDong::class,
         'nguoiban_redirect_if_authenticated'=>\App\Http\Middleware\Redirect_If_NguoiBan::class,
         'admin_Middleware'=>\App\Http\Middleware\admin_Middleware::class,
+        'NguoiMuaMiddleWare'=>\App\Http\Middleware\NguoiMuaMiddleWare::class,
     ];
 }

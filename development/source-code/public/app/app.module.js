@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('minxApp', ['froala'])
+    angular.module('minxApp', ['froala', 'ui.bootstrap'])
         .config(appConfig)
         .value('froalaConfig', {
             toolbarInline: false,

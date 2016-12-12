@@ -85,6 +85,20 @@ class ShoppingController extends Controller
     public function postThanhToan(Request $request)
     {
 
+        $this ->validate($request, [
+                            'customername' => 'required',
+                            'customerphone' => 'required',
+                            'customeraddress' => 'required',
+                            
+                            ],
+                            [
+                             'customername.required'=>'Vui lòng nhập tên nhận ',
+                             'customerphone.required'=>'Vui lòng nhập số điện thoại',
+                             'customeraddress.required'=>'Vui lòng nhập địa chỉ',
+
+                            
+                            ]);
+
         if(Auth::guard('web')->check())
         {
 
@@ -115,7 +129,10 @@ class ShoppingController extends Controller
             $giaoDichIns->so_dien_thoai_giao_hang = $request->customerphone;
             $giaoDichIns->ten_nguoi_nhan = $request->customername;
             $giaoDichIns->tong_tien = 0;
-            $giaoDichIns->save();
+            
+            if($giaoDichIns->save())
+            {
+            
             
             foreach($dsChiTietGioHang as $chiTietGioHang)
             {
@@ -183,6 +200,11 @@ class ShoppingController extends Controller
             }
             return redirect()->route('trangchu.index');
         }
+        else 
+        {
+            return back();
+        }
+        }
         else
         {
             // Trả về route đăng nhập nếu chưa đăng nhập
@@ -190,5 +212,3 @@ class ShoppingController extends Controller
         }
     }
 }
-
-;

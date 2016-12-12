@@ -11,17 +11,19 @@
 |
 */
 $baseFolder='Web\\';
-Route::get('mua-hang/{id}',$baseFolder.'ShoppingController@muahang')->name('muahang');
-Route::get('gio-hang',$baseFolder.'ShoppingController@giohang')->name('giohang');
+
 Route::get('/', $baseFolder.'TrangChuController@getTrangChu')->name('trangchu.index');
 Route::get('dangnhap', 'admin\DangNhapController@getDangNhap')->name('getDangNhap');
-Route::get('xoa-gio-hang/{id}',$baseFolder.'ShoppingController@xoagiohang')->name('xoagiohang');
-Route::post('sua-gio-hang',$baseFolder.'ShoppingController@suagiohang')->name('suagiohang');
-Route::get('thanh-toan',$baseFolder.'ShoppingController@thanhtoan')->name('thanhtoan.index');
-Route::post('thanh-toan',$baseFolder.'ShoppingController@postThanhToan')->name('thanhtoan.post');
-Route::get('thong-tin-tai-khoan',$baseFolder.'UserController@get_nguoimua')->name('thongtin.index');
-Route::get('lich-su-chi-tiet/{id}',$baseFolder.'UserController@lich_su_chi_tiet')->name('lichsuchitiet.index');
-Route::post('sua-dia-chi-mua-hang',$baseFolder.'UserController@sua_diachi_muahang')->name('suadiachi.post');
+
+Route::get('mua-hang/{id}',$baseFolder.'ShoppingController@muahang')->name('muahang')->middleware('NguoiMuaMiddleWare');
+Route::get('gio-hang',$baseFolder.'ShoppingController@giohang')->name('giohang')->middleware('NguoiMuaMiddleWare');
+Route::get('xoa-gio-hang/{id}',$baseFolder.'ShoppingController@xoagiohang')->name('xoagiohang')->middleware('NguoiMuaMiddleWare');
+Route::post('sua-gio-hang',$baseFolder.'ShoppingController@suagiohang')->name('suagiohang')->middleware('NguoiMuaMiddleWare');
+Route::get('thanh-toan',$baseFolder.'ShoppingController@thanhtoan')->name('thanhtoan.index')->middleware('NguoiMuaMiddleWare');
+Route::post('thanh-toan',$baseFolder.'ShoppingController@postThanhToan')->name('thanhtoan.post')->middleware('NguoiMuaMiddleWare');
+Route::get('thong-tin-tai-khoan',$baseFolder.'UserController@get_nguoimua')->name('thongtin.index')->middleware('NguoiMuaMiddleWare');
+Route::get('lich-su-chi-tiet/{id}',$baseFolder.'UserController@lich_su_chi_tiet')->name('lichsuchitiet.index')->middleware('NguoiMuaMiddleWare');
+Route::post('sua-dia-chi-mua-hang',$baseFolder.'UserController@sua_diachi_muahang')->name('suadiachi.post')->middleware('NguoiMuaMiddleWare');
 Route::resource('san-pham',$baseFolder.'SanPhamController', ['names' => [
     'index' => 'sanpham.index',
     'show' => 'sanpham.show'

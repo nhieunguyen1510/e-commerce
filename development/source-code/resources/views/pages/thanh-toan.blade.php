@@ -13,11 +13,15 @@
 				</ol>
 			</div><!--/breadcrums-->
 
-			@if (session('error'))
-			    <div class="alert alert-warning">
-			        {{ session('error') }}
-			    </div>
-			@endif
+			 @if(count($errors) > 0 )
+                  <div class="alert alert-danger" fade in>
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    @foreach($errors->all() as $err)
+                        {{ $err }}<br/>
+                    @endforeach
+                  </div>
+                  @endif
+
 			<form method="POST" action="{{ URL::Route('thanhtoan.post') }}">
 				{{csrf_field()}}
 				<div class="shopper-informations">

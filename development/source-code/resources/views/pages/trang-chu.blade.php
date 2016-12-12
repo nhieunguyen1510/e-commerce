@@ -19,8 +19,8 @@
                             <div class="item active">
                                 <div class="col-sm-6">
                                     <h1><span>Minx</span>-SHOPPER</h1>
-                                    <h2>Good deal everyday</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <h2>Shopping mỗi ngày</h2>
+                                    <p>Thỏa sức mua sắm cùng MINX. Lựa chọn món hàng mình yêu thích đi nào!</p>
                                     <button type="button" class="btn btn-default get">Mua ngay</button>
                                 </div>
                                 <div class="col-sm-6">
@@ -31,8 +31,8 @@
                             <div class="item">
                                 <div class="col-sm-6">
                                     <h1><span>Minx</span>-SHOPPER</h1>
-                                    <h2>Good deal everyday</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <h2>Shopping mỗi tháng</h2>
+                                    <p>Bạn có thích shopping vào ngày cuối tuần? Hãy thỏa sức mua sắm tại cửa hàng trước khi họ đóng cửa nhé </p>
                                     <button type="button" class="btn btn-default get">Mua ngay</button>
                                 </div>
                                 <div class="col-sm-6">
@@ -44,8 +44,8 @@
                             <div class="item">
                                 <div class="col-sm-6">
                                     <h1><span>Minx</span>-SHOPPER</h1>
-                                    <h2>Good deal everyday</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <h2>Shopping mỗi tuần</h2>
+                                    <p>Bạn có thích shopping vào ngày cuối tuần? Hãy thỏa sức mua sắm tại cửa hàng trước khi họ đóng cửa nhé</p>
                                     <button type="button" class="btn btn-default get">Mua ngay</button>
                                 </div>
                                 <div class="col-sm-6">

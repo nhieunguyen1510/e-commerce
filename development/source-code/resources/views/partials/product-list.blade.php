@@ -16,7 +16,7 @@
                     <div class="product-image-cart">
                         <div class="product-image">
                             <a href="#">
-                                <img src="" alt="Áo trễ vai mã 001">
+                                <img src="{{$sanPham->getAnh()}}" alt="Áo trễ vai mã 001">
                             </a>
                         </div>
                         <div class="product-icon-cart">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="product-title">
                         <div class="product-price">
-                            <span class="current-price">{{ number_format( $sanPham->don_gia_goc  ,0,",",".")}}</span>
+                            <span class="current-price">{{ number_format( $sanPham->gia_ban_hien_tai  ,0,",",".")}}</span>
                             
                         </div>
                         <div class="product-name">
@@ -43,10 +43,7 @@
                         </div>
                     </div>
                     <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> MiuShop</a>
-                    </div>
-                    <div class="product-icon-sale">
-                        <span>-50%</span>
+                        <a href="{{ $sanPham->taikhoannguoiban->ten_shop }}"><i class="fa fa-home" aria-hidden="true"></i> {{ $sanPham->taikhoannguoiban->ten_shop }}</a>
                     </div>
                 </div>
  @endforeach

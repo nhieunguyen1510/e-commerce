@@ -8,7 +8,7 @@
 
                 <div class="col-sm-6" style="width: 58%">
                     
-                    <form method="POST" action="{{ URL::Route('timkiem') }}"> {{ csrf_field() }}
+                    <form method="GET" action="{{ URL::Route('sanpham.index') }}"> {{ csrf_field() }}
                         <div class="search_box pull-right">
                             <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm, thương hiệu ..." />
                             <button type="submit" class="btn btn-danger">Tìm</button>
@@ -60,12 +60,12 @@
                             @foreach ($dsDanhMucSanPhamCha as $danhMucSanPhamCha)
 
                             <li class="dropdown" @php if(isset($danhMucIns) && ($danhMucIns->id_danh_muc_san_pham_cha==$danhMucSanPhamCha->id)) echo 'id="active"'; @endphp >
-                                <a href="{{  URL::route('danhmuc.show', $danhMucSanPhamCha->id) }}">{{ $danhMucSanPhamCha->ten."  " }}<i class="fa fa-angle-down"></i></a>
+                                <a href="{{  URL::route('sanpham.index', ['idDanhMuc[]'=>$danhMucSanPhamCha->id]) }}">{{ $danhMucSanPhamCha->ten."  " }}<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
 
                                     @foreach ($danhMucSanPhamCha->dsDanhMucSanPhamCon as $danhMucSanPhamCon)
                                     <li>
-                                        <a href="{{  URL::route('danhmuc.show', $danhMucSanPhamCon->id) }}">{{ $danhMucSanPhamCon->ten }}</a>
+                                        <a href="{{  URL::route('sanpham.index', ['idDanhMuc[]'=>$danhMucSanPhamCon->id]) }}">{{ $danhMucSanPhamCon->ten }}</a>
                                     </li>
                                     @endforeach
                                 </ul>

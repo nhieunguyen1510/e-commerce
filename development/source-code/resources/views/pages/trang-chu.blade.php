@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <div class="shop-place">
-                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> MiuShop</a>
+                        <a href="#"><i class="fa fa-home" aria-hidden="true"></i> {{ $spmoi->taikhoannguoiban->ten_shop }}</a>
                     </div>
                     
                 </div>

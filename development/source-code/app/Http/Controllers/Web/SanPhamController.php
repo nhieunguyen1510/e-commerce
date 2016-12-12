@@ -21,10 +21,49 @@ class SanPhamController extends Controller
      */
     public function index(Request $request)
     {
-        $idDanhMuc = $request->danhmuc;
-        $dsDanhMucSanPham = DanhMucSanPham::all();
-        $dsSanPham=SanPham::where('ten', 'LIKE', '%BMN%')->get();
-        return view('pages.danh-sach-san-pham',compact('dsSanPham','dsDanhMucSanPham','idDanhMuc'));
+        $keywordmin = null;
+        $keywordmax = null;
+        $dsIdDanhMuc=[];
+        $dsDanhMucSelected = [];
+        
+        $query = SanPham::orderBy('ten');
+        // return json_encode($request->keywordmax);
+        if($request->has('keywordmin') && $request->has('keywordmax'))
+        {   
+            $keywordmin = $request->keywordmin;
+            $keywordmax = $request->keywordmax;
+            $query->whereBetween('gia_ban_hien_tai', [$keywordmin,$keywordmax]);
+        }
+         if($request->has('keyword'))
+        {   
+            $keyword = $request->keyword;
+            $query->where('ten','like',"%$keyword%")
+        ->orWhere('mo_ta','like',"%$keyword%")
+        ->orWhere('nha_san_xuat','like',"%$keyword%")
+        ->take(30)->paginate(12);
+        }
+         if($request->has('idDanhMuc')){
+            $dsIdDanhMuc=$request->idDanhMuc;
+            $query->whereIn('id_danh_muc_san_pham',$dsIdDanhMuc);
+            $dsDanhMucSelected = DanhMucSanPham::whereIn('id', $dsIdDanhMuc)->get();
+        }
+        // if($request->has('loai')){
+        //     $loai=$request->loai;
+        //     $query->where('id_danh_muc_san_pham',$loai);
+            
+        // }
+        // $dsSanPhamTheoIdDanhMuc = $query->paginate(10);
+        // $dsSanPham = $query->get();
+        $dsSanPham = $query->paginate(10);
+        // return json_encode($dsDanhMucSelected);
+        return view('pages.danh-sach-san-pham')
+                ->with('dsDanhMucSelected', $dsDanhMucSelected)
+                ->with('dsIdDanhMuc', $dsIdDanhMuc)
+                ->with('dsSanPham', $dsSanPham)
+                ->with('keywordmin',$keywordmin)
+                ->with('keywordmax',$keywordmax); 
+        // ,['dsSanPham' => $dsSanPhamTheoIdDanhMuc,'dsDanhMucSanPham' => $dsDanhMucSanPham]$\
+        // $dsSanPhamTheoIdDanhMuc;
     }
 
     /**
@@ -57,6 +96,7 @@ class SanPhamController extends Controller
     public function show($idSanPham)
     {
         $sanPhamIns = SanPham::find($idSanPham);
+        
         if($sanPhamIns==null)
         {
             abort(404);

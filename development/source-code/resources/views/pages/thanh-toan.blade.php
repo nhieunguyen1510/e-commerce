@@ -13,6 +13,13 @@
 				</ol>
 			</div><!--/breadcrums-->
 
+			@if (session('error'))
+ -			    <div class="alert alert-warning">
+ -			        {{ session('error') }}
+ -			    </div>
+ -			@endif
+ 
+
 			@if(count($errors) > 0 )
                   <div class="alert alert-danger" fade in>
                   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

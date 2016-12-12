@@ -121,7 +121,7 @@
 
                           <?php if($item -> id_tinh_trang == 9)
                           {?>
-                              <a href="{!! route('admin.nguoiban.getchitiet', ['id'=>$item->id]) !!}" class="btn btn-danger btn-xs"><i class="fa fa-lock" style="padding-left:10px;padding-right:8px"></i>  Khóa </a>
+                              <a href="{!! route('admin.nguoiban.getkichhoat', ['id'=>$item->id]) !!}" class="btn btn-danger btn-xs"><i class="fa fa-lock" style="padding-left:10px;padding-right:8px"></i>  Khóa </a>
 
                           <?php } 
                                     else if ($item -> id_tinh_trang == 8)

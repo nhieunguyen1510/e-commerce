@@ -87,17 +87,26 @@ class ShoppingController extends Controller
 
     public function postThanhToan(Request $request)
     {
-
+        $this ->validate($request, [
+                            'customername' => 'required',
+                            'customerphone' => 'required',
+                            'customeraddress' => 'required',
+                            
+                            ],
+                            [
+                             'customername.required'=>'Vui lòng nhập tên nhận ',
+                             'customerphone.required'=>'Vui lòng nhập số điện thoại',
+                             'customeraddress.required'=>'Vui lòng nhập địa chỉ',
+                            
+                            ]);
         if(Auth::guard('web')->check())
         {
-
             // Lấy id của tài khoản người mua đang đăng nhập để lưu cho giao dịch
             $idTaiKhoanNguoiMua = Auth::guard('web')
                                     ->user()
                                     ->id;
             // Lấy danh sách chi tiết giỏ hàng để tạo các chi tiết đơn hàng
             $dsChiTietGioHang = Cart::content(); 
-
             foreach($dsChiTietGioHang as $chiTietGioHang)
             {
                 // Tìm sản phẩm theo id trong chi tiết giỏ hàng để lấy kiểm tra xem còn đủ số lượng không
@@ -118,7 +127,10 @@ class ShoppingController extends Controller
             $giaoDichIns->so_dien_thoai_giao_hang = $request->customerphone;
             $giaoDichIns->ten_nguoi_nhan = $request->customername;
             $giaoDichIns->tong_tien = 0;
-            $giaoDichIns->save();
+            
+            if($giaoDichIns->save())
+            {
+            
             
             foreach($dsChiTietGioHang as $chiTietGioHang)
             {
@@ -133,14 +145,12 @@ class ShoppingController extends Controller
                 $chiTietGiaoDichIns->id_tinh_trang = 3;
                 $chiTietGiaoDichIns->tong_tien = $chiTietGiaoDichIns->so_luong*$chiTietGiaoDichIns->don_gia_san_pham;
                 $chiTietGiaoDichIns->save();
-
                 $sanPham->so_luong_ton_kho = $sanPham->so_luong_ton_kho - $chiTietGiaoDichIns->so_luong;
                 $sanPham->save();
                 // Cộng dồn tổng tiền của chi tiết giao dịch vào giao dịch
                 $giaoDichIns->tong_tien = $giaoDichIns->tong_tien + $chiTietGiaoDichIns->tong_tien;
                 $giaoDichIns->save();
             }
-
             $dsChiTietGroupTheoNguoiBan = Cart::content()
                                         ->groupBy('options.id_nguoi_ban');
             foreach($dsChiTietGroupTheoNguoiBan as $key=>$dsChiTietNguoiBan)
@@ -159,7 +169,6 @@ class ShoppingController extends Controller
                 $giaoDichNguoiBanIns->ten_nguoi_nhan = $request->customername;
                 $giaoDichNguoiBanIns->tong_tien = 0;
                 $giaoDichNguoiBanIns->save();
-
                 // Tạo danh sách chi tiết đơn hàng người bán bằng sản phẩm trong group người bán này
                 foreach($dsChiTietNguoiBan as $chiTietNguoiBan)
                 {
@@ -172,11 +181,9 @@ class ShoppingController extends Controller
                     $chiTietGiaoDichNguoiBanIns->so_luong = $chiTietNguoiBan->qty;
                     $chiTietGiaoDichNguoiBanIns->don_gia_san_pham = $sanPham->gia_ban_hien_tai;
                     $chiTietGiaoDichNguoiBanIns->tong_tien = $chiTietGiaoDichNguoiBanIns->so_luong*$chiTietGiaoDichNguoiBanIns->don_gia_san_pham;
-
                     // Cộng dồn tổng tiền của chi tiết giao dịch vào giao dịch
                     $giaoDichNguoiBanIns->tong_tien = $giaoDichIns->tong_tien + $chiTietGiaoDichNguoiBanIns->tong_tien;
                     $giaoDichNguoiBanIns->save();
-
                     $chiTietGiaoDichNguoiBanIns->save();
                 }
                 $taikhoannguoiban=TaiKhoanNguoiBan::find($idNguoiBan);
@@ -185,6 +192,11 @@ class ShoppingController extends Controller
                     ->send($merchantmail);
             }
             return redirect()->route('trangchu.index');
+        }
+        else 
+        {
+            return back();
+        }
         }
         else
         {

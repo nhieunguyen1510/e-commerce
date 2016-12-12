@@ -103,6 +103,7 @@ class SanPhamController extends Controller
         }
         else
         {
+            $relSanPham=SanPham::where('id_danh_muc_san_pham',$sanPhamIns->id_danh_muc_san_pham)->take(3)->get();
             $anhDaiDien = Storage::url($sanPhamIns->anh_dai_dien);
             $anhChiTiet1 = Storage::url($sanPhamIns->anh_chi_tiet_1);
             $anhChiTiet2 = Storage::url($sanPhamIns->anh_chi_tiet_2);
@@ -112,7 +113,8 @@ class SanPhamController extends Controller
                     ->with('anhDaiDien', $anhDaiDien)
                     ->with('anhChiTiet1', $anhChiTiet1)
                     ->with('anhChiTiet2', $anhChiTiet2)
-                    ->with('anhChiTiet3', $anhChiTiet3);
+                    ->with('anhChiTiet3', $anhChiTiet3)
+                    ->with('relSanPham',$relSanPham);
         }
     }
 

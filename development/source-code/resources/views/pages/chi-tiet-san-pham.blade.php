@@ -11,12 +11,12 @@
         </div>
         <div class="row">
 
-            <div class="col-sm-9 padding-right">
+            <div class="col-sm-12 padding-right">
                 <div class="product-details">
                     <!--product-details-->
                     <div class="col-sm-5">
-                        <div class="view-product">
-                            <img src="{{$anhDaiDien}}" />
+                        <div style="border:1px solid black; width: 350px">
+                            <img src="{{$anhDaiDien}}"/>
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
 
@@ -48,7 +48,7 @@
                     <div class="col-sm-7">
                         <div class="product-information">
                             <!--/product-information-->
-                            <img src="{{ URL::asset('assets/img/new.jpg') }}" class="newarrival" alt="" />
+                            
                             <h2>{{ $sanPham->ten }}</h2>
                             <p>Được bán bởi: <b>{{ $sanPham->taikhoannguoiban->ten_shop }}</b> </p>
                             <p>Thương hiệu: <b>{{ $sanPham->nha_san_xuat }}</b></p>
@@ -72,21 +72,10 @@
                 <div class="category-tab shop-details-tab">
                     <!--category-tab-->
                     <div class="col-sm-12">
-                        <ul class="nav nav-tabs">
-                            <li><a href="#details" data-toggle="tab">Thông tin sản phẩm</a></li>
-                            <!--<li><a href="#companyprofile" data-toggle="tab">Company Profile</a></li> -->
-                            
-                        </ul>
+                        <h2 class="title text-center">THÔNG TIN SẢN PHẨM</h2>
+                        <h3>{!! $sanPham->mo_ta !!}</h3>
                     </div>
-                    <div class="tab-content">
-                        <div class="tab-pane fade" id="details">
-                            <p itemprop="description">
-                                <p>{!! $sanPham->mo_ta !!}</p>
-                        </div>
-
-                      
-
-                    </div>
+                   
                 </div>
                 <!--/category-tab-->
                 <div class="recommended_items">
@@ -97,18 +86,20 @@
                         <div class="carousel-inner">
                             <div class="item active">
 
+                                @foreach($relSanPham as $rel)
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="{{ URL::asset('assets/img/hmprod.jpg') }}" alt="" />
-                                                <h2></h2>
-                                                <p></p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                <img src="{{ $rel->getAnh() }}" alt="" />
+                                                <h2>{{ $rel->ten }}</h2>
+                                                <p>{{ $rel->taikhoannguoiban->ten_shop }}</p>
+                                                <a href="{{  URL::route('sanpham.show', $rel->id) }}"><button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
 
 
                             </div>

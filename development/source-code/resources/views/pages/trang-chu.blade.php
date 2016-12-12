@@ -129,7 +129,7 @@
                 <div class="product-top-item">
                     <div class="product-image-cart">
                         <div class="product-image">
-                            <a href="{{  URL::route('sanpham.show', $spchay->id) }}">
+                            <a href="{{  URL::route('sanpham.show', $spchay->san_pham->id) }}">
                                 <img src="{{ $spchay->san_pham->getAnh() }}" alt="{{ $spchay->san_pham->ten }}">
                             </a>
                         </div>
@@ -146,7 +146,7 @@
                             
                         </div>
                         <div class="product-name">
-                            <a href="#" title="{{ $spchay->san_pham->ten }}">{{ $spchay->san_pham->ten }}</a>
+                            <a href="{{  URL::route('sanpham.show', $spchay->san_pham->id) }}" title="{{ $spchay->san_pham->ten }}">{{ $spchay->san_pham->ten }}</a>
                         </div>
                         
                     </div>
@@ -194,7 +194,7 @@
                             <span class="old-price">{{ number_format( $spkm->don_gia_goc  ,0,",",".")}}</span>
                         </div>
                         <div class="product-name">
-                            <a href="#" title="{{ $spkm->ten}}">{{ $spkm->ten}}</a>
+                            <a href="{{  URL::route('sanpham.show', $spkm->id) }}" title="{{ $spkm->ten}}">{{ $spkm->ten}}</a>
                         </div>
                         <div class="product-icon-option">
                            

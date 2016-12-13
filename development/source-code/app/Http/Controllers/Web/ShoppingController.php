@@ -167,6 +167,7 @@ class ShoppingController extends Controller
                 $giaoDichNguoiBanIns->dia_chi_giao_hang = $request->customeraddress;
                 $giaoDichNguoiBanIns->so_dien_thoai_giao_hang = $request->customerphone;
                 $giaoDichNguoiBanIns->ten_nguoi_nhan = $request->customername;
+                $giaoDichNguoiBanIns->id_tinh_trang = 15;
                 $giaoDichNguoiBanIns->tong_tien = 0;
                 $giaoDichNguoiBanIns->save();
                 // Tạo danh sách chi tiết đơn hàng người bán bằng sản phẩm trong group người bán này
@@ -190,6 +191,7 @@ class ShoppingController extends Controller
                 $merchantmail = new MerchantMail($giaoDichNguoiBanIns,$giaoDichNguoiBanIns->dsChiTietDonHang);
                 Mail::to($taikhoannguoiban->email)
                     ->send($merchantmail);
+                Cart::destroy();
             }
             return redirect()->route('trangchu.index');
         }

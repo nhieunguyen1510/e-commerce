@@ -499,7 +499,7 @@ class MinxDatabaseSeeder extends Seeder
       private function seedQuanTriVienTable()
     {
         DB::table('quan_tri_vien')->insert([
-            ['id' => 1, 'ten_dang_nhap' => 'admin', 'mat_khau' => bcrypt('admin123'), 'email' => 'quynhnhu@gmail.com', 'ho'=>'Phạm Lê', 'ten' =>'Quỳnh Như', 'id_tinh_trang'=>'11', 'phan_quyen'=>'0'],
+            ['id' => 1, 'ten_dang_nhap' => 'admin', 'mat_khau' => bcrypt('admin123'), 'email' => 'quynhnhu@gmail.com', 'ho'=>'Phạm Lê', 'ten' =>'Quỳnh Như', 'id_tinh_trang'=>'11', 'phan_quyen'=>'0', 'anh_dai_dien'=>'img.jpg'],
             
         ]);
     }

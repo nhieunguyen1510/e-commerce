@@ -96,11 +96,11 @@ Route::group(['prefix'=>'nguoiban'], function(){
         //nguoiban/donhang/
         Route::group(['prefix'=>'donhang'], function(){
             Route::get('danhsach', 'Web\TaiKhoanNguoiBan\DonHangController@index')->name('nguoiban-donhang.index');
-            Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\DonHangController@show')->name('nguoiban-donhang.show');
-
             Route::group(['middleware'=>'nguoiban_hoatdong'], function(){
                 Route::get('sua', 'Web\TaiKhoanNguoiBan\DonHangController@update')->name('nguoiban-donhang.update');
             });
+            Route::get('{idSanPham}', 'Web\TaiKhoanNguoiBan\DonHangController@show')->name('nguoiban-donhang.show');
+
         });
 
         //nguoiban/thongtin/

@@ -10,6 +10,7 @@ use App\TaiKhoanNguoiBan;
 use App\TinhTrang;
 use App\HoaDonTaiKhoan;
 use App\Mail\ThongBaoKichHoat;
+use App\Mail\ThongBaoKhoa;
 use Illuminate\Support\Facades\Mail;
 
 class NguoiBanController extends Controller
@@ -18,7 +19,7 @@ class NguoiBanController extends Controller
 
     public function getDanhSach ()
     {
-        $danhsach_nguoiban = TaiKhoanNguoiBan::orderBy('id', 'desc')->paginate(10);
+        $danhsach_nguoiban = TaiKhoanNguoiBan::orderBy('id', 'desc')->paginate(4);
         $status = TinhTrang::where('bang', 'tai_khoan_nguoi_ban')->where('thuoc_tinh', 'id_tinh_trang')->get();
 
         if(isset($_GET['status']) && isset($_GET['key']))
@@ -27,7 +28,7 @@ class NguoiBanController extends Controller
             $s_key = $_GET['key'];
             if($s_status!="" && $s_key =="")
             {
-                $danhsach_nguoiban = TaiKhoanNguoiBan::where('id_tinh_trang', $s_status)->orderBy('id', 'desc')->paginate(10);
+                $danhsach_nguoiban = TaiKhoanNguoiBan::where('id_tinh_trang', $s_status)->orderBy('id', 'desc')->paginate(1);
             }
 
             if($s_status =="" && $s_key !="")

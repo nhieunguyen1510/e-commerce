@@ -130,7 +130,7 @@
                             </a>
                         </div>
                         <div class="product-icon-cart">
-                            <a href="{{  URL::route('sanpham.show', $spchay->id) }}">
+                            <a href="{!! url('mua-hang',[$spchay->san_pham->id]) !!}">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 <span>Thêm vào giỏ hàng</span>
                             </a>
@@ -178,7 +178,7 @@
                             </a>
                         </div>
                         <div class="product-icon-cart">
-                            <a href="{{  URL::route('sanpham.show', $spkm->id) }}">
+                            <a href="{!! url('mua-hang',[$spkm->id]) !!}">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 <span>Thêm vào giỏ hàng</span>
                             </a>

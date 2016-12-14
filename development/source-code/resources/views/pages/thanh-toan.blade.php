@@ -12,12 +12,6 @@
 				  <li class="active">Thanh toán</li>
 				</ol>
 			</div><!--/breadcrums-->
-
-			@if (session('error'))
- -			    <div class="alert alert-warning">
- -			        {{ session('error') }}
- -			    </div>
- -			@endif
  
 
 			@if(count($errors) > 0 )

@@ -15,8 +15,8 @@
                 <div class="product-details">
                     <!--product-details-->
                     <div class="col-sm-5">
-                        <div style="border:1px solid black; width: 350px">
-                            <img src="{{$anhDaiDien}}"/>
+                        <div>
+                            <img src="{{$anhDaiDien}}" width="350px" height="400px" style="border: 1px solid black" />
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
 

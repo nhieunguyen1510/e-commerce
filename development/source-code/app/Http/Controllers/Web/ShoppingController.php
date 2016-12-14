@@ -182,10 +182,13 @@ class ShoppingController extends Controller
                     $chiTietGiaoDichNguoiBanIns->so_luong = $chiTietNguoiBan->qty;
                     $chiTietGiaoDichNguoiBanIns->don_gia_san_pham = $sanPham->gia_ban_hien_tai;
                     $chiTietGiaoDichNguoiBanIns->tong_tien = $chiTietGiaoDichNguoiBanIns->so_luong*$chiTietGiaoDichNguoiBanIns->don_gia_san_pham;
+                 $sanPham->so_luong_ton_kho=$sanPham->so_luong_ton_kho - $chiTietNguoiBan->qty;
+
                     // Cộng dồn tổng tiền của chi tiết giao dịch vào giao dịch
                     $giaoDichNguoiBanIns->tong_tien = $giaoDichNguoiBanIns->tong_tien + $chiTietGiaoDichNguoiBanIns->tong_tien;
                     $giaoDichNguoiBanIns->save();
                     $chiTietGiaoDichNguoiBanIns->save();
+                    $sanPham->save();
                 }
                 $taikhoannguoiban=TaiKhoanNguoiBan::find($idNguoiBan);
                 $merchantmail = new MerchantMail($giaoDichNguoiBanIns,$giaoDichNguoiBanIns->dsChiTietDonHang);

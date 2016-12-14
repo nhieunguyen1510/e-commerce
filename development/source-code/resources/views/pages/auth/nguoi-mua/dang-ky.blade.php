@@ -6,7 +6,14 @@
         <div class="panel panel-default">
             <div class="panel-heading"><strong>Đăng ký tài khoản</strong></div>
             <div class="panel-body">
-
+                @if(count($errors) > 0 )
+                  <div class="alert alert-danger" fade in>
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    @foreach($errors->all() as $err)
+                        {{ $err }}<br/>
+                    @endforeach
+                  </div>
+                  @endif
                 <div class="alert alert-danger" ng-bind="txtThongBao" ng-show="txtThongBao">
                 </div>
 

@@ -183,7 +183,7 @@ class ShoppingController extends Controller
                     $chiTietGiaoDichNguoiBanIns->don_gia_san_pham = $sanPham->gia_ban_hien_tai;
                     $chiTietGiaoDichNguoiBanIns->tong_tien = $chiTietGiaoDichNguoiBanIns->so_luong*$chiTietGiaoDichNguoiBanIns->don_gia_san_pham;
                     // Cộng dồn tổng tiền của chi tiết giao dịch vào giao dịch
-                    $giaoDichNguoiBanIns->tong_tien = $giaoDichIns->tong_tien + $chiTietGiaoDichNguoiBanIns->tong_tien;
+                    $giaoDichNguoiBanIns->tong_tien = $giaoDichNguoiBanIns->tong_tien + $chiTietGiaoDichNguoiBanIns->tong_tien;
                     $giaoDichNguoiBanIns->save();
                     $chiTietGiaoDichNguoiBanIns->save();
                 }

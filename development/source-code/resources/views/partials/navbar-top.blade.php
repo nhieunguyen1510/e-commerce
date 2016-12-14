@@ -13,7 +13,7 @@
         @else
             <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                    {{ Auth::guard('web')->user()->ten_dang_nhap }} <span class="caret"></span>
+                 Xin chào,   <b>{{ Auth::guard('web')->user()->ten_dang_nhap }}</b> <span class="caret"></span>
                 </a>
                 
                 <ul class="dropdown-menu dropdown-usermenu pull-right">

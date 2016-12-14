@@ -51,7 +51,7 @@ class DangKyController extends Controller
 
         if($taiKhoanIns->save())
         {
-            
+            Alert::success('Bạn đã đăng ký thành công !')->persistent("Close");
             return redirect('dang-nhap');
         }else
 

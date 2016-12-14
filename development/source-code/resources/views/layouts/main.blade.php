@@ -19,7 +19,9 @@
         @yield('content')
     </div>
     @include('partials.footer')
+    
     @include('partials.js-assets')
+    @include('sweet::alert')
 </body>
 
 </html>

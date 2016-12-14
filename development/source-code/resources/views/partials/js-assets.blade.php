@@ -28,6 +28,7 @@
 
     <script src="{{ URL::asset('assets/js/jquery.scrollUp.min.js')}}"></script>
     <script src="{{ URL::asset('assets/js/jquery.prettyPhoto.js')}}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ URL::asset('assets/js/sweetalert.min.js')}}" type="text/javascript" charset="utf-8"></script>
     <script src="{{ URL::asset('assets/js/main.js')}}"></script>
  <script src="{{ URL::asset('assets/js/shopping.js')}}"></script>
  <div id="fb-root"></div>

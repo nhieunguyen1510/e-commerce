@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Cart;
+use Alert;
 use App\DanhMucSanPham;
 use App\SanPham;
 use App\GiaoDich;
@@ -196,6 +197,8 @@ class ShoppingController extends Controller
                     ->send($merchantmail);
                 Cart::destroy();
             }
+             Alert::success('Đặt hàng thành công !
+             Truy cập thông tin tài khoản để xem lịch sử mua hàng !')->persistent("OK");
             return redirect()->route('trangchu.index');
         }
         else 

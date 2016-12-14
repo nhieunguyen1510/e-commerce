@@ -27,7 +27,7 @@ class ShoppingController extends Controller
         Cart::add(['id' => $product_buy->id,
                 'name' => $product_buy->ten,
                 'qty' => 1,
-                'price' => $product_buy->don_gia_goc,
+                'price' => $product_buy->gia_ban_hien_tai,
                 'options' => [
                     'img' => $product_buy->getAnh(),
                     'id_nguoi_ban' => $product_buy->id_nguoi_ban,

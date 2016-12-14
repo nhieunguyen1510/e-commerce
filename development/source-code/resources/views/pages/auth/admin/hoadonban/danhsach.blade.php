@@ -128,7 +128,6 @@
                           <th>Mã đơn hàng</th>
                           <th>Tên shop</th>
                           <th>Ngày đặt hàng</th>
-                          <th>Ngày giao hàng</th>
                           <th>Tình trạng</th>
                           <th><center> Chức năng</center></th>
                           
@@ -151,7 +150,6 @@
                           <td>{{ $item ->id }}</td>
                           <td>{!! $item -> ten_shop !!}</td>
                           <td>{{ $item -> thoi_gian_giao_dich}}</td>
-                          <td>{!! $item -> ngay_giao_hang !!}</td>
                           <td>{{ $item->tinh_trang}}</td>
 
                           

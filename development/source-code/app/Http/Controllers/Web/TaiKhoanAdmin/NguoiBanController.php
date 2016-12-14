@@ -74,6 +74,18 @@ class NguoiBanController extends Controller
         {
             $chi_tiet_nguoi_ban->id_tinh_trang = 9;
             $chi_tiet_nguoi_ban->save();
+
+            //Thêm hóa đơn tài khoản
+        $hoadon_taikhoan= new HoaDonTaiKhoan;
+        $hoadon_taikhoan->id_tai_khoan_ban = $id;
+        $hoadon_taikhoan->so_tien_chuyen_khoan = 300000;
+        $hoadon_taikhoan->hinh_thuc_thanh_toan = 14;
+        $hoadon_taikhoan->ngay_tao = date("Y-m-d H:i:s");
+        $hoadon_taikhoan->ngay_cap_nhat = date("Y-m-d H:i:s");
+        $hoadon_taikhoan->save();
+
+        //End thêm hoa_don_tai_khoan
+        
             $thongbao_kichhoat ="Kích hoạt tài khoản thành công";
             $email = $chi_tiet_nguoi_ban->{'email'};
             $ten = $chi_tiet_nguoi_ban->{'ten'};
@@ -97,16 +109,7 @@ class NguoiBanController extends Controller
             $thongbao_mail = new ThongBaoKhoa($tenShop);
             Mail::to($email)->send($thongbao_mail);
         }
-        //Thêm hóa đơn tài khoản
-        $hoadon_taikhoan= new HoaDonTaiKhoan;
-        $hoadon_taikhoan->id_tai_khoan_ban = $id;
-        $hoadon_taikhoan->so_tien_chuyen_khoan = 300000;
-        $hoadon_taikhoan->hinh_thuc_thanh_toan = 14;
-        $hoadon_taikhoan->ngay_tao = date("Y-m-d H:i:s");
-        $hoadon_taikhoan->ngay_cap_nhat = date("Y-m-d H:i:s");
-        $hoadon_taikhoan->save();
-
-        //End thêm hoa_don_tai_khoan
+        
 
         
         $danhsach_nguoiban = TaiKhoanNguoiBan::orderBy('id', 'desc')->paginate(4);

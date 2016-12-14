@@ -90,13 +90,7 @@
                            </div>
                       </div>
 
-                      <div class="col-md-4">
-                         <div class="form-group">
-                               <label>Ngày giao</label>
-                                   <input type="text" class="form-control border-input" name ="txt_hoten"  placeholder="Ngày giao" readonly value="{{ $giaoDich->ngay_giao_hang }}">
-                                                
-                           </div>
-                      </div>
+                     
 
                       
                   </div>

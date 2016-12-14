@@ -116,7 +116,7 @@
                           <th>Mã hóa đơn</th>
                           <th>Người mua</th>
                           <th>Ngày đặt hàng</th>
-                          <th>Ngày giao hàng</th>
+                          
                           <th><center> Chức năng</center></th>
                           
                         </tr>
@@ -138,7 +138,7 @@
                           <td>{{ $item->id }}</td>
                           <td>{!! $item -> ho !!} {!! $item -> ten !!}</td>
                           <td>{{ $item -> thoi_gian_giao_dich}}</td>
-                          <td>{!! $item -> ngay_giao_hang !!}</td>
+                          
 
                           
                           <td>

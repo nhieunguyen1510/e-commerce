@@ -43,3 +43,6 @@
 <!-- Chart.js -->
 <script src="{{ URL::asset('packages/Chart.js/dist/Chart.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('assets/js/Chart_custom.js')}}"></script>
+
+
+

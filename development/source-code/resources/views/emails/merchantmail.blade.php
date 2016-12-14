@@ -85,6 +85,7 @@
         <td class="m_-8540189194084074751title" width="10%" height="50px">STT</td>
         <td class="m_-8540189194084074751title" width="35%">Tên Sản Phẩm</td>
         <td class="m_-8540189194084074751title" width="20%">Số Lượng(cái)</td>
+        <td class="m_-8540189194084074751title" width="20%">Đơn giá(VND)</td>
         <td class="m_-8540189194084074751title" width="25%">Thành Tiền(vnđ)</td>
     </tr>
     <?php $stt=0 ?>
@@ -94,12 +95,14 @@
             <td height="30px">{{ $stt }}</td>
             <td>{{ $ct->san_pham->ten }}</td>
             <td>{{ $ct->so_luong }}</td>
+            <td>{{ $ct->don_gia_san_pham }}</td>
             <td>{{ number_format($ct->tong_tien ,0,",",".")}}</td>
     </tr>
-    @endforeach                         
                             
-        </tbody></table><div style="width:100%;height:40px;margin-top:10px"><div style="float:right;font-size:20px;font-weight:bold;color:#099"><p>Tổng Tiền: <span style="margin:auto 5px;color:#f30">{{ number_format($donhang->tong_tien ,0,",",".")}} </span> VNĐ</p> </div> </div>
-                           
+                            
+        
+        <div style="width:100%;height:40px;margin-top:10px"><div style="float:right;font-size:20px;font-weight:bold;color:#099"><p>Tổng Tiền: <span style="margin:auto 5px;color:#f30">{{ number_format($ct->tong_tien ,0,",",".")}} </span> VNĐ</p> </div> </div>
+           @endforeach                 
                         </td></tr></tbody>
                     </table>
                 </td>
